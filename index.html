@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ERROR404.NET — Brand Guidelines</title>
+<meta name="description" content="Personal brand guidelines for Error404 / error404.net — color, typography, logo system, and treatment modes.">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#231451; --fg:#F4F1FF;
+    --blue:#4DE1FF; --pink:#FF5FA2; --yellow:#FFE156; --mint:#37F0A6;
+    --panel:#2c1a63; --border:rgba(244,241,255,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:'JetBrains Mono', monospace; line-height:1.6;
+  }
+  a{color:var(--blue);}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* nav */
+  nav{
+    position:sticky; top:0; z-index:20;
+    background:rgba(35,20,81,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; padding:14px 28px;}
+  nav .brand{font-weight:700; letter-spacing:1px; font-size:15px;}
+  nav .brand span{color:var(--blue);}
+  nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0; font-size:13px;}
+  nav a{text-decoration:none; color:var(--fg); opacity:0.75;}
+  nav a:hover{opacity:1; color:var(--blue);}
+
+  /* hero */
+  header.hero{
+    padding:96px 0 72px; text-align:center; position:relative; overflow:hidden;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(77,225,255,0.10), transparent 45%),
+      radial-gradient(circle at 80% 30%, rgba(255,95,162,0.10), transparent 45%),
+      var(--bg);
+  }
+  header.hero img{width:120px; height:120px; margin-bottom:20px; filter:drop-shadow(0 0 24px rgba(77,225,255,0.35));}
+  header.hero h1{
+    font-family:'Press Start 2P', monospace; font-size:28px; letter-spacing:2px; margin:0 0 18px;
+    text-shadow:2px 2px 0 var(--pink), -2px -2px 0 var(--blue);
+  }
+  header.hero p.sub{max-width:560px; margin:0 auto; opacity:0.85; font-size:15px;}
+  .tagline{
+    margin-top:28px; display:inline-block; font-size:13px; color:var(--yellow);
+    border:1px dashed var(--yellow); padding:10px 16px; border-radius:2px;
+  }
+
+  section{padding:64px 0; border-top:1px solid var(--border);}
+  section h2{
+    font-family:'Press Start 2P', monospace; font-size:16px; letter-spacing:1px;
+    margin:0 0 8px; color:var(--fg);
+  }
+  section h2 .num{color:var(--mint); margin-right:10px;}
+  section > .wrap > p.lead{opacity:0.8; max-width:680px; margin:0 0 36px;}
+
+  /* color */
+  .swatches{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px;}
+  .swatch{border:1px solid var(--border); border-radius:6px; overflow:hidden; background:var(--panel);}
+  .swatch .fill{height:96px;}
+  .swatch .meta{padding:12px 14px; font-size:12.5px;}
+  .swatch .meta .name{font-weight:700; display:block; margin-bottom:4px;}
+  .swatch .meta .role{opacity:0.6; display:block; font-size:11.5px; margin-top:2px;}
+
+  /* logo grid */
+  .logo-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:18px;}
+  .logo-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:6px;
+    padding:18px; text-align:center;
+  }
+  .logo-card img{max-width:100%; height:auto; border-radius:4px;}
+  .logo-card .cap{margin-top:10px; font-size:12px; opacity:0.75;}
+  .logo-card.light{background:#F4F1FF;}
+  .logo-card.dark-solid{background:#0B0810;}
+
+  .full-row img{max-width:100%; border-radius:6px; border:1px solid var(--border);}
+
+  /* typography */
+  .type-row{display:flex; align-items:baseline; gap:18px; padding:14px 0; border-bottom:1px solid var(--border);}
+  .type-row:last-child{border-bottom:none;}
+  .type-row .role{width:190px; flex-shrink:0; font-size:12px; opacity:0.6;}
+  .type-row .sample{font-size:22px;}
+  .f-press{font-family:'Press Start 2P', monospace; font-size:15px;}
+  .f-vt{font-family:'VT323', monospace; font-size:28px;}
+  .f-mono{font-family:'JetBrains Mono', monospace;}
+
+  /* modes */
+  .modes{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:720px){.modes{grid-template-columns:1fr;}}
+  .mode-card{border:1px solid var(--border); border-radius:6px; padding:22px;}
+  .mode-card.digital{background:linear-gradient(160deg, rgba(77,225,255,0.08), rgba(255,95,162,0.06));}
+  .mode-card.print{background:#F4F1FF; color:#111; }
+  .mode-card h3{margin-top:0; font-size:14px; letter-spacing:1px;}
+  .mode-card ul{padding-left:18px; font-size:13px; margin:0;}
+  .mode-card li{margin-bottom:6px;}
+
+  /* signature */
+  pre.sig{
+    background:#0B0810; border:1px solid var(--border); border-radius:6px;
+    padding:18px 20px; font-size:13px; overflow-x:auto; color:var(--fg);
+  }
+  pre.sig .inject{color:var(--yellow);}
+
+  code, .inline-code{background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:3px; font-size:0.92em;}
+
+  footer{padding:48px 0 64px; text-align:center; font-size:12px; opacity:0.6;}
+  footer .tag{color:var(--yellow); opacity:1; margin-top:10px; display:block;}
+
+  .rule{border:none; border-top:1px dashed var(--border); margin:36px 0;}
+
+  .badge{
+    display:inline-block; font-size:10.5px; letter-spacing:0.5px; text-transform:uppercase;
+    padding:3px 8px; border-radius:3px; margin-left:8px; vertical-align:middle;
+  }
+  .badge.locked{background:rgba(55,240,166,0.15); color:var(--mint); border:1px solid rgba(55,240,166,0.4);}
+  .badge.alt{background:rgba(255,225,86,0.12); color:var(--yellow); border:1px solid rgba(255,225,86,0.35);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">ERROR404<span>.NET</span></div>
+    <ul>
+      <li><a href="#direction">Direction</a></li>
+      <li><a href="#color">Color</a></li>
+      <li><a href="#logo">Logo</a></li>
+      <li><a href="#type">Type</a></li>
+      <li><a href="#modes">Modes</a></li>
+      <li><a href="#signature">Signature</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="assets/icon.png" alt="ERROR404.NET icon">
+    <h1>ERROR404.NET</h1>
+    <p class="sub">Personal brand guidelines — 90s warez-scene ASCII, arcade neon, and new-wave hacker, carried across the lab, the web presence, and everything printed.</p>
+    <div class="tagline">!ignore &rarr; return "404: Message not found"</div>
+  </div>
+</header>
+
+<section id="direction">
+  <div class="wrap">
+    <h2><span class="num">01</span>Direction</h2>
+    <p class="lead">
+      ACiD/iCE-style ANSI group logos and boxed <code class="inline-code">.NFO</code> release tables, CRT/VHS chromatic-aberration
+      glitch text, 80s–90s arcade cabinet neon geometry, phone-phreaking iconography as a texture accent. Avoid corporate
+      SaaS gradients, soft rounded cards, and any "clean flat design" pass that sands off the CRT/ANSI texture — the texture
+      <em>is</em> the brand.
+    </p>
+  </div>
+</section>
+
+<section id="color">
+  <div class="wrap">
+    <h2><span class="num">02</span>Color — Arcade New Wave <span class="badge locked">Locked</span></h2>
+    <p class="lead">One background, one foreground, max two accents per surface. Each accent keeps a fixed meaning rather than swapping per surface.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="fill" style="background:#231451;"></div><div class="meta"><span class="name">Background</span>#231451<span class="role">base canvas</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#F4F1FF;"></div><div class="meta" style="color:#111"><span class="name">Foreground</span>#F4F1FF<span class="role">text / paper</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#4DE1FF;"></div><div class="meta"><span class="name">Blue</span>#4DE1FF<span class="role">links / primary</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FF5FA2;"></div><div class="meta"><span class="name">Pink</span>#FF5FA2<span class="role">secondary highlight</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FFE156;"></div><div class="meta" style="color:#111"><span class="name">Yellow</span>#FFE156<span class="role">taglines / CTAs</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#37F0A6;"></div><div class="meta" style="color:#111"><span class="name">Mint</span>#37F0A6<span class="role">rules / dividers / status</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="wrap">
+    <h2><span class="num">03</span>Logo system</h2>
+    <p class="lead">
+      Primary mark <span class="badge locked">Selected</span> — a node-link graph built from the real
+      <strong>Libra constellation</strong>: star positions and magnitudes plotted from real astronomical data
+      (Zubenelgenubi, Zubeneschamali, Zubenelakrab, Brachium, and its tail pair), with <strong>404</strong>
+      centered in the scales' shape against a flat, fully opaque halo — a solid plate, never a gradient/glow.
+    </p>
+
+    <div class="logo-grid" style="margin-bottom:28px;">
+      <div class="logo-card light"><img src="assets/netmesh-ring-mono.png" alt="Libra mark, ring, monochrome"><div class="cap">Ring — monochrome</div></div>
+      <div class="logo-card"><img src="assets/netmesh-ring-color.png" alt="Libra mark, ring, color"><div class="cap">Ring — color (digital)</div></div>
+      <div class="logo-card light"><img src="assets/netmesh-mono.png" alt="Libra mark, no ring, monochrome"><div class="cap">No ring — monochrome</div></div>
+      <div class="logo-card"><img src="assets/netmesh-blue.png" alt="Libra mark, no ring, blue accent"><div class="cap">No ring — blue accent</div></div>
+      <div class="logo-card"><img src="assets/netmesh-pink.png" alt="Libra mark, no ring, pink accent"><div class="cap">No ring — pink accent</div></div>
+      <div class="logo-card"><img src="assets/netmesh-multi.png" alt="Libra mark, no ring, multi-color"><div class="cap">No ring — full-palette multi-color</div></div>
+      <div class="logo-card"><img src="assets/netmesh-green.png" alt="Libra mark, no ring, neon green accent"><div class="cap">No ring — neon green accent</div></div>
+      <div class="logo-card"><img src="assets/netmesh-ham.png" alt="Libra mark, ham variant, slashed zero"><div class="cap">Ham variant — "4Ø4"</div></div>
+    </div>
+
+    <div class="logo-grid" style="margin-bottom:40px;">
+      <div class="logo-card"><img src="assets/icon.png" alt="Icon mark"><div class="cap">Icon / Entra square (240×240)</div></div>
+      <div class="logo-card"><img src="assets/favicon.png" alt="Favicon reduction"><div class="cap">Favicon reduction (64×64)</div></div>
+    </div>
+
+    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">WEBSITE ICON — LIGHT/DARK MODE</h3>
+    <p class="lead" style="margin-bottom:24px;">
+      Flat single-tone cut for site chrome: no ring, no accent colors, transparent background — a dark mark for
+      light-mode pages, a light mark for dark-mode pages. The 16/32/48px favicon sizes drop the numerals
+      (unreadable that small) for a glyph-only silhouette instead.
+    </p>
+    <div class="full-row" style="margin-bottom:40px;">
+      <img src="assets/site-icon-modes.png" alt="Website icon, light and dark mode variants">
+    </div>
+
+    <hr class="rule">
+    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">NEON-TUBE TREATMENT</h3>
+    <p class="lead" style="margin-bottom:24px;">Same graph, rendered as a glowing sign — fluorescent racing-green, magenta, and cyan tube variants on a near-black backdrop.</p>
+    <div class="logo-grid" style="margin-bottom:28px;">
+      <div class="logo-card dark-solid"><img src="assets/netmesh-neon-green.png" alt="Neon green network mesh"><div class="cap">Neon — fluorescent green</div></div>
+      <div class="logo-card dark-solid"><img src="assets/netmesh-neon-pink.png" alt="Neon magenta network mesh"><div class="cap">Neon — magenta</div></div>
+      <div class="logo-card dark-solid"><img src="assets/netmesh-neon-blue.png" alt="Neon cyan network mesh"><div class="cap">Neon — cyan</div></div>
+      <div class="logo-card dark-solid"><img src="assets/netmesh-neon-multi.png" alt="Neon multi-color network mesh"><div class="cap">Neon — multi-color sign</div></div>
+    </div>
+
+    <div class="logo-card" style="text-align:left;">
+      <img src="assets/netmesh-lockup.png" alt="Libra mark wordmark lockup" style="max-width:420px;">
+      <div class="cap">Icon + wordmark lockup (404.NET)</div>
+    </div>
+
+    <hr class="rule">
+    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">LEGACY LOCKUP — ERROR404.NET WORDMARK</h3>
+    <p class="lead" style="margin-bottom:24px;">
+      Full wordmark <strong>ERROR404.NET</strong>, full ANSI/glitch treatment — still valid anywhere the full
+      domain name should read out loud (headers, hero lockups, merch, business cards). The Libra mark above is
+      the icon of record wherever a mark stands alone.
+    </p>
+    <div class="full-row" style="margin-bottom:28px;">
+      <img src="assets/main-lockup.png" alt="ERROR404.NET primary lockup">
+    </div>
+  </div>
+</section>
+
+<section id="type">
+  <div class="wrap">
+    <h2><span class="num">04</span>Typography</h2>
+    <div class="type-row"><div class="role">Display / ASCII wordmark</div><div class="sample f-mono" style="font-weight:700;">ERROR404.NET</div></div>
+    <div class="type-row"><div class="role">Display fallback</div><div class="sample f-press">ERROR404</div></div>
+    <div class="type-row"><div class="role">Terminal / mono accent</div><div class="sample f-vt">&gt; 404: message not found_</div></div>
+    <div class="type-row"><div class="role">UI body text</div><div class="sample f-mono">JetBrains Mono — Entra/M365 sign-in copy uses this</div></div>
+  </div>
+</section>
+
+<section id="modes">
+  <div class="wrap">
+    <h2><span class="num">05</span>Two treatment modes</h2>
+    <p class="lead">Full color everywhere doesn't survive a printer or a client's inbox — same brand, same voice, one leans into color/glow, the other leans harder on ASCII structure.</p>
+    <div class="modes">
+      <div class="mode-card digital">
+        <h3>DIGITAL — full treatment</h3>
+        <ul>
+          <li>Website, resume site, PowerPoint, merch, social</li>
+          <li>Full Arcade New Wave palette</li>
+          <li>Full glitch / chromatic-offset lockup</li>
+          <li>Neon glow, scanlines, drop-shadow texture</li>
+        </ul>
+      </div>
+      <div class="mode-card print">
+        <h3>PRINT / CORPORATE — B&amp;W</h3>
+        <ul>
+          <li>Word docs, PDF reports, letterhead, email</li>
+          <li>Pure black on white — no color, no glow</li>
+          <li>Flat monochrome mark, plain bold monospace wordmark</li>
+          <li>ASCII rules (<code class="inline-code">====</code>), bracket fields, <code class="inline-code">::</code> / <code class="inline-code">~/</code> notation carry the identity instead</li>
+        </ul>
+      </div>
+    </div>
+    <div class="logo-grid" style="margin-top:24px;">
+      <div class="logo-card light"><img src="assets/print-mode.png" alt="Print/corporate letterhead mockup"><div class="cap">Print/Corporate letterhead</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="signature">
+  <div class="wrap">
+    <h2><span class="num">06</span>Email signature</h2>
+    <p class="lead">Print/Corporate mode, since email is functionally a plain-text medium.</p>
+    <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt; :: &lt;phone&gt;
+<span class="inject">!ignore &rarr; return "404: Message not found"</span></pre>
+    <p class="lead" style="margin-top:14px; font-size:12.5px;">Format shown above — the real signature (with your actual contact details) stays in your private guideline docs, not on the public site.</p>
+    <div class="logo-grid">
+      <div class="logo-card light"><img src="assets/signature-mockup-public.png" alt="Signature mockup"><div class="cap">Signature mockup (format shown, details redacted)</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Error404 — personal brand guidelines. Source at
+    <a href="https://github.com/Error404-net/Branding-Guide">github.com/Error404-net/Branding-Guide</a>.
+    <span class="tag">!ignore &rarr; return "404: Message not found"</span>
+  </div>
+</footer>
+
+</body>
+</html>

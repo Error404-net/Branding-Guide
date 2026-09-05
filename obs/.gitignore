@@ -1,0 +1,7 @@
+# OBS runtime artifacts — do not track
+profiles/*/basic.ini
+profiles/*/streamEncoder.json
+profiles/*/recordEncoder.json
+profiles/*/service.json
+profiles/*/crashes/
+*.bak
