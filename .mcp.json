@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "error404-brand": {
+      "command": "node",
+      "args": ["./brand-mcp/src/index.js"],
+      "env": { "ERROR404_BRAND_ROOT": "." }
+    }
+  }
+}
