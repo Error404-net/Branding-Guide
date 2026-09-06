@@ -279,7 +279,39 @@ because slides are a screen medium.
 
 ---
 
-## 6. Agent checklist
+## 6. Marks & logo
+
+### 6.1 Canonical default
+
+**No-ring multicolor variant** (constellation lines and nodes only, no halo).
+
+Used for clean mark placement where the constellation geometry alone carries the identity. Works on both dark and light backgrounds. File: `libra-no-ring-multicolor.svg`.
+
+**Alternative for single-color contexts:** `4Ø4` in neon green (`#39FF14`), file `libra-ham-multicolor.svg` (dark backgrounds only).
+
+### 6.2 Mark variants
+
+All no-ring variants ship without the halo ellipse.
+
+| Context | Variant | File |
+|---|---|---|
+| Canonical default | No-ring multicolor | `libra-no-ring-multicolor.svg` |
+| Dark background, neon | `4Ø4` neon green | `libra-ham-multicolor.svg` |
+| Light background | `4Ø4` white | `libra-ham-white.svg` |
+| Light background alternative | No-ring black | `libra-no-ring-black.svg` |
+| Dark background, secondary | No-ring any color | `libra-no-ring-[color].svg` |
+| Icon/favicon (dark) | No-ring green | `libra-no-ring-green.svg` (24px min) |
+| Icon/favicon (light) | Site icon (dark-mode) | `libra-site-icon-dark-mode.svg` |
+
+**Minimum size:** 24px for icon variants; 128px and up for full textured mark.
+Smaller than 24px: reduce to glyph-only, no rings or constellation lines.
+
+All exports are transparent except neon variants, which bake in a near-black
+backdrop (`#231451` @ 90% opacity).
+
+---
+
+## 7. Agent checklist
 
 Before emitting an Error404 surface, verify:
 
@@ -294,3 +326,5 @@ Before emitting an Error404 surface, verify:
    **variant**, **Digital mode**, **Print/Corporate mode**.
 9. Instructional copy follows the STE rules in `BRAND.md`.
 10. No real contact details. Placeholder tokens only.
+11. Logo/mark: use canonical default (no-ring multicolor) for mark placement;
+    `4Ø4` neon green for single-color digital contexts on dark backgrounds only.

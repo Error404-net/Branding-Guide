@@ -271,8 +271,8 @@ texture.
 
 **Primary mark.** The Libra constellation mark (**LOCKED — selected**). A
 node-link graph plotted from real Libra star positions and apparent magnitudes,
-with `404` — or `4Ø4` in the ham variant — centered against a flat, fully opaque
-halo. The halo is a solid plate, never a gradient or a glow.
+with `4Ø4` centered against a flat, fully opaque halo. The halo is a solid plate,
+never a gradient or a glow.
 
 - **Clear space:** the height of one `4` glyph on all sides.
 - **Minimum size:** 24px for the flat reduced variant; 128px and up for the full
@@ -286,6 +286,9 @@ halo. The halo is a solid plate, never a gradient or a glow.
   it in near-black and belong on light ones. Putting a dark-ring cut on a dark
   background makes the ring disappear, which is easy to miss because the nodes
   and numerals still read.
+- **No-ring variants** ship without the halo ellipse as of this revision. Use
+  them for clean mark placement where the constellation lines and nodes alone
+  carry the identity.
 - **Never:** stretch or skew it; recolor outside the palette; place it on a busy
   background without a scrim; use the multi-accent variant where only two colors
   are available.
@@ -302,12 +305,18 @@ halo. The halo is a solid plate, never a gradient or a glow.
 PowerPoint is the one documented exception: it is an export but stays in Digital
 mode, because slides are a screen medium.
 
+## Default mark (LOCKED)
+
+**Canonical default:** No-ring multicolor variant (constellation lines and nodes only, no halo).
+
+Used for clean mark placement where the constellation geometry alone carries the identity. Works on both dark and light backgrounds with proper contrast. On dark backgrounds, use with full Arcade New Wave palette. On light backgrounds, pair with `libra-no-ring-black.svg`.
+
+**Alternative default:** `4Ø4` in neon green (`#39FF14`) for single-color, canonical-choice contexts (site header, favicon, business card) on dark surfaces only.
+
 ## Open decisions
 
 Not yet decided. Do not resolve these by inference.
 
-- A default variant and color pull for single-canonical-choice contexts, such as
-  the site header and business card.
 - Approval of the Print/Corporate letterhead direction.
 
 ## Related files
