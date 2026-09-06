@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ERROR404.NET — Brand Guidelines</title>
 <meta name="description" content="Personal brand guidelines for Error404 / error404.net — color, typography, logo system, and treatment modes.">
-<link rel="icon" href="assets/favicon.png">
+<link rel="icon" href="logos/favicon-white.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 <style>
@@ -182,39 +182,44 @@
   <div class="wrap">
     <h2><span class="num">03</span>Logo system</h2>
     <p class="lead">
-      Primary mark <span class="badge locked">Selected</span> — a node-link graph built from the real
+      Primary mark <span class="badge locked">Final &mdash; approved</span> — a node-link graph built from the real
       <strong>Libra constellation</strong>: star positions and magnitudes plotted from real astronomical data
-      (Zubenelgenubi, Zubeneschamali, Zubenelakrab, Brachium, and its tail pair), with <strong>404</strong>
-      centered in the scales' shape against a flat, fully opaque halo — a solid plate, never a gradient/glow.
+      (Zubenelgenubi, Zubeneschamali, Zubenelakrab, Brachium, and its tail pair), with <strong>4Ø4</strong>
+      centered in the scales' shape. The logo is optimized for transparency against varying background images.
+    </p>
+    <p class="lead" style="font-size:13px; opacity:0.75;">
+      <strong>Rebuild spec:</strong> every connecting line is a single uniform color (mint <code class="inline-code">#37F0A6</code> on the
+      multicolor mark; the mark's own solid color on the black/white cuts) — node circles stay multicolor. The line
+      that would cross the &Oslash; in "4&Oslash;4" is split into two collinear segments at the exact angle of the
+      glyph's own diagonal slash, measured from the rendered glyph (Canny edge detection + Hough line fit on the
+      isolated slash, converged on a 45&deg; / -1.0 slope) rather than eyeballed, then verified with a zero-pixel-overlap
+      check between the line art and the text ink before being called correct. Do not reintroduce a background oval
+      behind the numerals — that treatment is retired.
     </p>
 
     <div class="logo-grid" style="margin-bottom:28px;">
-      <div class="logo-card"><img src="logos/libra-no-ring-multicolor.svg" alt="Libra mark, no ring, multi-color"><div class="cap">Canonical default — no-ring multicolor</div></div>
-      <div class="logo-card"><img src="logos/libra-ham-multicolor.svg" alt="Libra mark, 4Ø4 neon green"><div class="cap">4Ø4 — neon green (digital only)</div></div>
-      <div class="logo-card light"><img src="logos/libra-ring-black.svg" alt="Libra mark, ring, monochrome"><div class="cap">Ring — monochrome</div></div>
-      <div class="logo-card"><img src="logos/libra-ring-multicolor.svg" alt="Libra mark, ring, color"><div class="cap">Ring — color (digital)</div></div>
-      <div class="logo-card light"><img src="logos/libra-no-ring-black.svg" alt="Libra mark, no ring, monochrome"><div class="cap">No ring — monochrome</div></div>
-      <div class="logo-card"><img src="logos/libra-no-ring-blue.svg" alt="Libra mark, no ring, blue accent"><div class="cap">No ring — blue accent</div></div>
-      <div class="logo-card"><img src="logos/libra-no-ring-pink.svg" alt="Libra mark, no ring, pink accent"><div class="cap">No ring — pink accent</div></div>
-      <div class="logo-card"><img src="logos/libra-no-ring-green.svg" alt="Libra mark, no ring, green accent"><div class="cap">No ring — green accent</div></div>
+      <div class="logo-card"><img src="logos/libra-no-ring-multicolor.svg" alt="Libra mark, no-ring, multicolor"><div class="cap">Canonical default — multicolor</div></div>
+      <div class="logo-card light"><img src="logos/libra-no-ring-black.svg" alt="Libra mark, no-ring, black"><div class="cap">For light backgrounds — black</div></div>
+      <div class="logo-card dark-solid"><img src="logos/libra-no-ring-white.svg" alt="Libra mark, no-ring, white"><div class="cap">For dark backgrounds — white</div></div>
     </div>
 
-    <div class="logo-grid" style="margin-bottom:40px;">
-      <div class="logo-card"><img src="assets/icon.png" alt="Icon mark"><div class="cap">Icon / Entra square (240×240)</div></div>
-      <div class="logo-card"><img src="assets/favicon.png" alt="Favicon reduction"><div class="cap">Favicon reduction (64×64)</div></div>
-    </div>
-
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">WEBSITE ICON — LIGHT/DARK MODE</h3>
-    <p class="lead" style="margin-bottom:24px;">
-      Flat single-tone cut for site chrome: no ring, no accent colors, transparent background — a dark mark for
-      light-mode pages, a light mark for dark-mode pages. The 16/32/48px favicon sizes drop the numerals
-      (unreadable that small) for a glyph-only silhouette instead.
+    <p style="font-size:13px; opacity:0.7; margin:24px 0 0; max-width:680px;">
+      <strong>Authorized accent colors:</strong> The Arcade New Wave palette (blue, pink, yellow, mint) are authorized for single-color accent variants on dark backgrounds. Custom colors require design review.
     </p>
-    <div class="full-row" style="margin-bottom:40px;">
-      <img src="assets/site-icon-modes.png" alt="Website icon, light and dark mode variants">
-    </div>
 
     <hr class="rule">
+    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">MONOGRAM — ICON-ONLY, NIGHT / DAYLIGHT MODE</h3>
+    <p class="lead" style="margin-bottom:24px;">
+      The icon-only cut, no "4&Oslash;4": constellation nodes and lines only, no text, no ring, no accent colors,
+      transparent background. Two approved variants — <strong>Night</strong> (white mark, for dark surfaces:
+      site favicon, dark-theme app icons, OBS overlays) and <strong>Daylight</strong> (black mark, for light
+      surfaces: light-theme app icons, print). These replace every prior icon-only/glyph-only cut site-wide.
+    </p>
+    <div class="logo-grid" style="margin-bottom:40px;">
+      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Monogram, night mode, white, transparent"><div class="cap">Night mode — white, transparent</div></div>
+      <div class="logo-card light"><img src="logos/monogram-daylight.svg" alt="Monogram, daylight mode, black, transparent"><div class="cap">Daylight mode — black, transparent</div></div>
+    </div>
+
     <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">ENTRA / M365 SQUARE LOGO — TRANSPARENT</h3>
     <p class="lead" style="margin-bottom:24px;">
       Microsoft Entra ID and the M365 admin center composite the square logo onto their own theme background,
@@ -225,16 +230,6 @@
       <div class="logo-card light"><img src="assets/entra-square-transparent-black.png" alt="Entra square logo, transparent black, light theme"><div class="cap">Transparent black — light theme</div></div>
       <div class="logo-card dark-solid"><img src="assets/entra-square-transparent-white.png" alt="Entra square logo, transparent white, dark theme"><div class="cap">Transparent white — dark theme</div></div>
       <div class="logo-card"><img src="assets/entra-square-transparent-color.png" alt="Entra square logo, transparent, full color"><div class="cap">Transparent color — either theme</div></div>
-    </div>
-
-    <hr class="rule">
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">NEON-TUBE TREATMENT</h3>
-    <p class="lead" style="margin-bottom:24px;">Same graph, rendered as a glowing sign — fluorescent racing-green, magenta, and cyan tube variants on a near-black backdrop.</p>
-    <div class="logo-grid" style="margin-bottom:28px;">
-      <div class="logo-card dark-solid"><img src="logos/libra-neon-green.svg" alt="Neon green network mesh"><div class="cap">Neon — fluorescent green</div></div>
-      <div class="logo-card dark-solid"><img src="logos/libra-neon-pink.svg" alt="Neon magenta network mesh"><div class="cap">Neon — magenta</div></div>
-      <div class="logo-card dark-solid"><img src="logos/libra-neon-blue.svg" alt="Neon cyan network mesh"><div class="cap">Neon — cyan</div></div>
-      <div class="logo-card dark-solid"><img src="logos/libra-neon-multi.svg" alt="Neon multi-color network mesh"><div class="cap">Neon — multi-color sign</div></div>
     </div>
 
     <div class="logo-card" style="text-align:left;">

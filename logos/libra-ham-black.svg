@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
 
 
-<g><line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="204.0" y1="74.9" x2="80.2" y2="173.8" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="80.2" y1="173.8" x2="24.0" y2="86.2" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#111111" stroke-width="2" opacity="0.75"/></g>
-<g><circle cx="24.0" cy="86.2" r="15.5" fill="#111111"/><circle cx="132.0" cy="24.0" r="16.3" fill="#111111"/><circle cx="204.0" cy="74.9" r="8.5" fill="#111111"/><circle cx="80.2" cy="173.8" r="12.3" fill="#111111"/><circle cx="212.2" cy="200.6" r="10.4" fill="#111111"/><circle cx="216.0" cy="216.0" r="8.6" fill="#111111"/></g>
-<ellipse fill="#FFFFFF" cx="145" cy="129" rx="56" ry="32"/>
-<text font-family="JetBrains Mono, monospace" font-weight="700" font-size="44" fill="#111111" x="145" y="143" text-anchor="middle">4Ø4</text>
+<g><line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="204.0" y1="74.9" x2="163.0" y2="114.5" stroke="#111111" stroke-width="2" opacity="0.75"/>
+<line x1="126.9" y1="155.3" x2="80.2" y2="202.0" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="80.2" y1="202.0" x2="24.0" y2="86.2" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#111111" stroke-width="2" opacity="0.75"/><line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#111111" stroke-width="2" opacity="0.75"/></g>
+<g><circle cx="24.0" cy="86.2" r="15.5" fill="#111111"/><circle cx="132.0" cy="24.0" r="16.3" fill="#111111"/><circle cx="204.0" cy="74.9" r="8.5" fill="#111111"/><circle cx="80.2" cy="202.0" r="12.3" fill="#111111"/><circle cx="212.2" cy="200.6" r="10.4" fill="#111111"/><circle cx="216.0" cy="216.0" r="8.6" fill="#111111"/></g>
+<text font-family="JetBrains Mono, monospace" font-weight="700" font-size="44" fill="#111111" x="145" y="151" text-anchor="middle">4&#216;4</text>
 </svg>
