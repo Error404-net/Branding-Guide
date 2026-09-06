@@ -19,7 +19,7 @@ architecture: independent
 
   Where a value is marked LOCKED it is a settled decision, not a suggestion.
   Where it is marked OPEN it has no owner decision yet: do not resolve it by
-  guessing. See the Open decisions page of the brand guidelines PDF.
+  guessing. The Open decisions section below is the record.
 -->
 
 ## Strategy
@@ -52,11 +52,10 @@ presence for one practitioner.
 publication. It has no customers, no roadmap, and no growth target, and copy
 should never imply otherwise.
 
-**Competitive landscape.** `404media.co` occupies adjacent name-space and a
-deliberately opposite lane: minimalist, black-on-black, content-first tech
-journalism with almost no ornamentation. Error404 runs maximalist, textured, and
-arcade-bright. The distinction is intentional and load-bearing — the two must
-never be mistakable for one another.
+**Distinctiveness.** The brand runs maximalist, textured, and arcade-bright.
+That is a deliberate stance, not a default, and it is what keeps Error404 from
+reading like the minimal black-on-black house style most technical work in this
+space defaults to.
 
 **Differentials.** A committed period aesthetic applied with real discipline: a
 locked palette, a fixed meaning per accent, a primary mark built from real
@@ -310,4 +309,4 @@ Not yet decided. Do not resolve these by inference.
 | `DESIGN.md` | Implementation tokens for AI coding agents | Yes |
 | `BRANDING.md` | Full human-facing guidelines, 14 sections | Private |
 | `branding.yaml` | Exhaustive internal spec, contains PII | **No — never publish** |
-| `Error404-Brand-Guidelines.pdf` | 21-page designed guide | Yes |
+| `Error404-Brand-Guidelines.pdf` | 20-page designed guide | Yes |

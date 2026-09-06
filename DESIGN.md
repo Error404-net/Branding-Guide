@@ -87,7 +87,7 @@ Print/Corporate mode is black on white: 21.00:1.
 >
 > **Fix:** use `--text-subtle` (`#8A83B8`, 4.66:1). Do not mint a new token —
 > reuse the existing one. Not yet applied, pending owner approval, because it
-> changes the look of all 21 PDF footers.
+> changes the look of every PDF footer.
 
 ### 1.5 Usage rules
 
