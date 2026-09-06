@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+<defs><filter id="glowGreen" x="-60%" y="-60%" width="220%" height="220%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur1"/>
+</filter>
+<filter id="glowGreen-soft" x="-100%" y="-100%" width="300%" height="300%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+</filter>
+</defs>
+<rect x="0" y="0" width="240" height="240" fill="#0B0810"/>
+<g filter="url(#glowGreen-soft)">
+<line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#38FF16" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#38FF16" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="204.0" y1="74.9" x2="80.2" y2="173.8" stroke="#38FF16" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="80.2" y1="173.8" x2="24.0" y2="86.2" stroke="#38FF16" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#38FF16" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#38FF16" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<circle cx="24.0" cy="86.2" r="17.5" fill="#38FF16" opacity="0.9"/>
+<circle cx="132.0" cy="24.0" r="18.3" fill="#38FF16" opacity="0.9"/>
+<circle cx="204.0" cy="74.9" r="10.5" fill="#38FF16" opacity="0.9"/>
+<circle cx="80.2" cy="173.8" r="14.3" fill="#38FF16" opacity="0.9"/>
+<circle cx="212.2" cy="200.6" r="12.4" fill="#38FF16" opacity="0.9"/>
+<circle cx="216.0" cy="216.0" r="10.6" fill="#38FF16" opacity="0.9"/>
+</g>
+<g filter="url(#glowGreen)">
+<line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#38FF16" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#38FF16" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="204.0" y1="74.9" x2="80.2" y2="173.8" stroke="#38FF16" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="80.2" y1="173.8" x2="24.0" y2="86.2" stroke="#38FF16" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#38FF16" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#38FF16" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<circle cx="24.0" cy="86.2" r="15.5" fill="#38FF16"/>
+<circle cx="132.0" cy="24.0" r="16.3" fill="#38FF16"/>
+<circle cx="204.0" cy="74.9" r="8.5" fill="#38FF16"/>
+<circle cx="80.2" cy="173.8" r="12.3" fill="#38FF16"/>
+<circle cx="212.2" cy="200.6" r="10.4" fill="#38FF16"/>
+<circle cx="216.0" cy="216.0" r="8.6" fill="#38FF16"/>
+</g>
+<line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#38FF16" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#38FF16" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="204.0" y1="74.9" x2="80.2" y2="173.8" stroke="#38FF16" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="80.2" y1="173.8" x2="24.0" y2="86.2" stroke="#38FF16" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#38FF16" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#38FF16" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<circle cx="24.0" cy="86.2" r="8.525" fill="#FFFFFF" opacity="0.9"/>
+<circle cx="24.0" cy="86.2" r="15.5" fill="none" stroke="#38FF16" stroke-width="1"/>
+<circle cx="132.0" cy="24.0" r="8.965000000000002" fill="#FFFFFF" opacity="0.9"/>
+<circle cx="132.0" cy="24.0" r="16.3" fill="none" stroke="#38FF16" stroke-width="1"/>
+<circle cx="204.0" cy="74.9" r="4.675000000000001" fill="#FFFFFF" opacity="0.9"/>
+<circle cx="204.0" cy="74.9" r="8.5" fill="none" stroke="#38FF16" stroke-width="1"/>
+<circle cx="80.2" cy="173.8" r="6.765000000000001" fill="#FFFFFF" opacity="0.9"/>
+<circle cx="80.2" cy="173.8" r="12.3" fill="none" stroke="#38FF16" stroke-width="1"/>
+<circle cx="212.2" cy="200.6" r="5.720000000000001" fill="#FFFFFF" opacity="0.9"/>
+<circle cx="212.2" cy="200.6" r="10.4" fill="none" stroke="#38FF16" stroke-width="1"/>
+<circle cx="216.0" cy="216.0" r="4.73" fill="#FFFFFF" opacity="0.9"/>
+<circle cx="216.0" cy="216.0" r="8.6" fill="none" stroke="#38FF16" stroke-width="1"/>
+<ellipse fill="#000000" opacity="0.55" cx="145" cy="129" rx="46" ry="26" filter="url(#glowGreen-soft)"/>
+<text font-family="JetBrains Mono, monospace" font-weight="700" font-size="40" fill="#EFFFEA" x="145" y="142" text-anchor="middle">404</text>
+</svg>
