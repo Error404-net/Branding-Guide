@@ -110,27 +110,70 @@ Pushed directly to this repo via the device bridge on 2026-09-06:
   outright — this sandbox can't delete files in the mounted repo without you approving a
   one-time permission grant. **You can delete that folder yourself**, or approve the delete
   permission prompt next time an agent asks and it'll clean it up directly.
+- **`logos/libra-no-ring-{blue,green,pink}.svg`** — same line-split fix, text unified to "4Ø4".
+- **All other legacy accent SVGs also swept and fixed in place** (edited directly on-device,
+  not regenerated from scratch, so each variant's own accent color / treatment was preserved):
+  `libra-ham-{black,white,multicolor}.svg`, `libra-neon-{green,pink}.svg`,
+  `libra-ring-{black,white,blue,green,pink}.svg`, `libra-site-icon-{light,dark}-mode.svg`,
+  `logos/glyph-only/libra-glyph-{light,dark}-mode.svg`. Each got: the collinear line-split
+  fix, node4 moved to y=202.0, any oval/ellipse text-backdrop stripped, and (where the variant
+  has text at all — the glyph-only files never did) "404"/old "4Ø4" position normalized to
+  "4&#216;4" at y=151. Verified via `grep` across `logos/` that no file still contains the old
+  bent-stub coordinates, the old unsplit single-line coordinates, an `<ellipse>` backdrop, or
+  plain "404" text — that sweep came back empty. **Every SVG under `logos/` is now current.**
+
+## What's done — round 2 (BRAND.md/DESIGN.md, office-templates, social, discord)
+
+- **`BRAND.md` / `DESIGN.md`** — updated. `BRAND.md` now documents the uniform-line-color rule
+  and the slash-aligned split-line construction under the primary-mark bullets, adds the
+  Monogram (night/daylight) spec to the "Default mark" section, and corrects the PDF page
+  count (14, not 20). `DESIGN.md`'s §6.2 variant table swapped the stale
+  `libra-site-icon-dark-mode.svg` icon reference for the two Monogram files, and the agent
+  checklist item 11 now mentions the Monogram explicitly.
+- **`office-templates/`** — inspected and fixed. All 6 `.docx` files and the `.pptx` embed a
+  flattened PNG of the ring mark (5 of the docx files share one B&W crop; Digital-Color has its
+  own color crop; the pptx has 3 identical copies). Replaced each embedded PNG in place inside
+  the Office zip containers (validated after with `python-docx` / `python-pptx` — all still
+  open cleanly, entry counts unchanged) with a render from the fixed `libra-ring-black.svg` /
+  `libra-ring-multicolor.svg`. One judgment call: the multicolor ring mark's `4Ø4` text is
+  `#F4F1FF` (near-white), designed for a dark backdrop — the old oval backdrop was the only
+  thing making it legible on the Word docs' white page, and removing the oval per your
+  instruction would have made it unreadable there. Recolored just that one flattened text
+  render to `#231451` (still a locked brand color) instead of reintroducing an oval. The source
+  SVG itself is untouched — this is only in the one-off Office-embedded raster.
+  `error404-arcade-new-wave.thmx` has no embedded logo (palette/font tokens only) — nothing to
+  fix there.
+- **`social/avatars/`** — all 7 files regenerated from the fixed SVGs (multicolor/white/black
+  no-ring, ring-black, ring-white, ham-multicolor, each on its correct transparent or solid-navy
+  or solid-lavender background, matched against the originals).
+- **`discord/discord-server-icon-512.png`** — regenerated from `libra-ring-multicolor.svg` on
+  solid navy.
+- **`social/stickers/sticker-circle-{mono,ham}-900.png`** — regenerated: reconstructed the
+  circular die-cut treatment (colored fill, thin outline ring) around the fixed mark, matching
+  the originals' measured proportions.
 
 ## What's NOT done — pending decisions / remaining scope
 
-- **`BRAND.md` / `DESIGN.md` not yet updated.** These are the actual source of truth
-  `brand-mcp` reads live (see `brand-mcp/src/spec.js`) — arguably more important than this
-  file for anything that consumes the MCP server. They still describe the pre-fix geometry/
-  naming. Needs a pass to bring the logo-system section in line with the spec above.
-- **~15 legacy accent-color SVGs untouched**: `libra-ham-*`, `libra-neon-{green,pink}`,
-  `libra-ring-{blue,pink,green,white,black,mono}`, `libra-no-ring-{pink,blue,green}`,
-  `libra-site-icon-{light,dark}-mode`, anything under `logos/glyph-only/` or `logos/png/` if
-  those exist. Not yet decided whether these get brought current to the final geometry or are
-  formally deprecated now that Primary mark (3 colors) + Monogram (2 colors) is the canonical
-  set. Ask before doing a lot of work here.
-- **`office-templates/`** — not inspected at all yet: `Error404-Word-Template-Digital-Color.docx`,
-  `Error404-Envelope-Template.docx`, `Error404-Word-Template-Corporate-BW.docx`,
-  `error404-arcade-new-wave.thmx`, `Error404-PowerPoint-Template.pptx`,
-  `Error404-Word-Template-Report.docx`, `Error404-Cover-Page-Template.docx`,
-  `Error404-Letterhead-Template.docx`. If any embed the old logo mark as an image, they need
-  the same swap.
-- **`social/`, `discord/`, `MOTD/`** — not inspected. `MOTD/` may overlap with a separate
-  prior ASCII-logo project; check before assuming it needs the same PNG-based fix.
+- **`logos/png/` not inspected** — if this directory holds rasterized exports of any of the
+  variants above, those PNGs are now stale relative to their source SVGs and need
+  re-exporting.
+- **`social/stickers/sticker-circle-neon-multi-900.png`** — uses a bespoke neon palette (green/
+  magenta/cyan/gold with white node cores) that doesn't match any current SVG source — it's a
+  one-off illustration, not a simple mark crop. Still has the old bent line and oval backdrop.
+  Needs a from-scratch redraw, not a swap-in.
+- **`social/stickers/sticker-diecut-shape-multicolor-1024.png`** — a shape-following (not
+  circular) die-cut with a soft white outline glow around each node/line, plus the old oval.
+  Needs the same kind of bespoke outline reconstruction as the neon sticker above.
+- **`social/stickers/sticker-sheet-proof.png`, `social/youtube/*` (banner, watermark, thumbnail
+  template), `social/linkedin/linkedin-cover-banner-1584x396.png`,
+  `discord/discord-invite-splash-1920x1080.png`, `discord/discord-server-banner-960x540.png`**
+  — full composite layouts (multiple mark instances, text, decorative elements), not inspected.
+  Likely still show the old mark somewhere in the composition. Each needs its own layout pass,
+  not a mechanical asset swap — flagging rather than guessing at their layouts.
+- **`MOTD/`** — not touched. This is ASCII-art (shell escape sequences), a fundamentally
+  different medium from the SVG/PNG marks above, and per memory overlaps with a separate prior
+  "error404-motd-ascii-logos" project — don't assume it needs the same fix without checking
+  that project's own status first.
 - **`assets/print-mode.png`, `assets/signature-mockup-public.png`** — these show a tiny
   monogram-style glyph in a letterhead/signature mockup screenshot. At their rendered size the
   old line-geometry defect isn't visible, so they were left alone this pass. Worth
@@ -139,8 +182,11 @@ Pushed directly to this repo via the device bridge on 2026-09-06:
   ANSI/glitch text title card, no constellation mark present. Confirmed out of scope for a
   logo-geometry fix; don't touch it for that reason. If it ever gets redesigned, that's a
   separate task.
-- **`_to_delete/site-icon-modes.png`** — see above, needs you (or a future agent with granted
-  delete permission) to actually remove it.
+- **`_to_delete/*.stale*` and `_to_delete/site-icon-modes.png`** — this sandbox can write and
+  rename files in the mounted repo but cannot delete them (`rm`/`unlink` are blocked at the
+  mount), so every stale git lock file this session had to clear got moved into `_to_delete/`
+  instead of removed. Safe to delete that whole folder yourself, or grant the delete-permission
+  prompt next time an agent asks and it'll clean things up directly.
 
 ## Working notes for future agents
 
