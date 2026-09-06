@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# ERROR404.NET — brand system
+
+The live, explorable half of the Error404 brand system. The PDF guidelines are
+the designed, printable record; this is the surface you poke at.
+
+**Tagline (locked)**
+
+```
+!ignore → return "404: Message not found"
+```
+
+## What's here
+
+- **Brand / Mark** — the Libra constellation mark as a real component. Switch
+  variant, ring, colorway, and size and watch it redraw. It renders from the
+  same geometry as the shipping SVG masters, so it is the mark itself, not a
+  picture of one.
+- **Brand / Color** — the locked Arcade New Wave palette, with contrast ratios
+  computed live from the token values.
+- **Brand / Typography** — the three faces and the full type scale.
+
+## Where each thing is defined
+
+| File | Owns | Public |
+|---|---|---|
+| `BRAND.md` | Durable identity: positioning, voice, vocabulary, approved colors and their meaning, logo invariants | Yes |
+| `DESIGN.md` | Surface layer: role-named tokens, ramps, type scale, spacing, components | Yes |
+| `brandkit.md` | One-screen human quick reference | Yes |
+| `tokens.css` | The implementation of `DESIGN.md` | Yes |
+| `BRANDING.md` | Full human guidelines, 14 sections | Private |
+| `branding.yaml` | Exhaustive internal spec — contains personal detail | **Never publish** |
+
+If `DESIGN.md` and `tokens.css` disagree, `DESIGN.md` wins and the CSS is the
+bug. If `BRAND.md` and anything else disagree, `BRAND.md` wins.
+
+## Two modes, no third
+
+Every surface resolves to one of two treatments.
+
+**Digital** — screens you control. Full palette, glow, the glitch lockup.
+
+**Print/Corporate** — print, PDF, Word, email, anything read in a client's
+inbox. Pure black on white; the ASCII structure carries the identity instead of
+color.
+
+PowerPoint is the one documented exception: an export that stays Digital,
+because slides are a screen medium.
+
+Use the **backgrounds** toolbar control to view any story in Print/Corporate.
+
+## House rules
+
+1. One background, one foreground, at most two accents per surface.
+2. Every `font-family` ends in a generic fallback.
+3. Fonts are self-hosted, never a CDN link — the failure mode is silent.
+4. Accessibility overrides brand. If a combination fails contrast, change the
+   implementation and note the change.
+5. Say **mark**, **wordmark**, **lockup**, **variant** — one term per concept.
+6. Never put real contact details in a template or mockup.
+
+## Known defect
+
+The guidelines PDF sets its running footer in `#655E93` at 10px, which measures
+**2.77:1** — below the 3:1 large-text floor and the only failing token in the
+system. See **Brand / Color → Contrast**. The fix is to reuse
+`--e404-text-subtle` (`#8A83B8`, 4.66:1). Not yet applied: it changes all 21
+PDF footers and is waiting on approval.

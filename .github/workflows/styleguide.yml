@@ -1,0 +1,87 @@
+name: Build and deploy site + styleguide
+
+# Publishes the WHOLE site as one Pages artifact:
+#   /            the existing hand-maintained index.html and assets
+#   /styleguide/ the Storybook build
+#
+# REQUIRES Settings -> Pages -> Source = "GitHub Actions". While that is set to
+# "Deploy from a branch", this workflow builds green but nothing is published,
+# and the branch keeps serving the site as before.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'assets/**'
+      - 'styleguide/**'
+      - '.github/workflows/styleguide.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a run that is mid-deploy; queue instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: styleguide/package-lock.json
+
+      - name: Install
+        working-directory: styleguide
+        run: npm ci
+
+      - name: Build Storybook
+        working-directory: styleguide
+        run: npm run build
+
+      - name: Assemble site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          # Everything the branch already served, minus source-only folders.
+          rsync -a \
+            --exclude '.git' --exclude '_site' --exclude 'styleguide' \
+            --exclude '_to_delete' --exclude 'node_modules' \
+            ./ _site/
+          mkdir -p _site/styleguide
+          cp -r styleguide/storybook-static/. _site/styleguide/
+          # CNAME must survive, or the custom domain drops on deploy.
+          if [ -f CNAME ]; then cp CNAME _site/CNAME; fi
+          # Pages runs Jekyll otherwise, which strips files beginning with "_".
+          touch _site/.nojekyll
+
+      - name: Verify assembly
+        run: |
+          set -euo pipefail
+          test -f _site/index.html            || { echo "::error::index.html missing from artifact"; exit 1; }
+          test -f _site/styleguide/index.html || { echo "::error::styleguide build missing from artifact"; exit 1; }
+          test -f _site/CNAME                 || echo "::warning::no CNAME in artifact - custom domain may drop"
+          echo "artifact contents:"; find _site -maxdepth 2 -type d | head -20
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
