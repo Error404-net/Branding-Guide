@@ -55,6 +55,10 @@
     Branding-Guide/
       index.html    the whole guide, single static page, no build step
       assets/       logo renders + mockups referenced by index.html
+      downloads/    every shipped asset, organized by type (logos, entra-m365,
+                     social, discord, office-templates, email-templates) -
+                     see downloads/README.md
+      obs/          OBS Studio scene collection + theme assets
       AGENTS.md     portable brand instructions for AI coding agents/skills
       CNAME         GitHub Pages custom-domain file (branding.error404.net)
       LICENSE       MIT

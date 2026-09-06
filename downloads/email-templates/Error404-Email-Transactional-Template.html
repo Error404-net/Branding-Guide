@@ -1,0 +1,94 @@
+<!--
+  ERROR404.NET — HTML Email Template: Transactional / Notice
+  ---------------------------------------------------------------
+  Use for: receipts, confirmations, account notices, single-purpose
+  one-to-one sends where a quiet, minimal layout reads better than the
+  full newsletter treatment. Still DIGITAL/full-color mode (small,
+  restrained accents) — swap image src to a hosted URL before sending.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[ Notice Subject Line ]</title>
+<style>
+  body, table, td { font-family: "Courier New", Courier, monospace; }
+  body { margin:0; padding:0; background-color:#F4F1FF; }
+  img { border:0; line-height:100%; outline:none; text-decoration:none; }
+  table { border-collapse:collapse !important; }
+  @media screen and (max-width: 620px) {
+    .email-container { width:100% !important; }
+    .fluid-padding { padding-left:20px !important; padding-right:20px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#F4F1FF;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F4F1FF;">
+    <tr>
+      <td align="center" style="padding:40px 16px;">
+        <table role="presentation" class="email-container" width="560" cellpadding="0" cellspacing="0" style="width:560px; max-width:560px; background-color:#FFFFFF; border:1px solid #DAD4F5; border-radius:8px;">
+
+          <!-- Minimal header -->
+          <tr>
+            <td style="padding:28px 36px 20px 36px; border-bottom:1px solid #EDEAFB;" class="fluid-padding">
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td valign="middle">
+                    <!-- IMAGE: mark-color, 28x28, hosted -->
+                    <img src="https://error404.net/brand/email/mark-color-28.png" width="28" height="28" alt="" style="display:block;">
+                  </td>
+                  <td valign="middle" style="padding-left:10px; font-family:'Courier New', Courier, monospace; font-size:15px; font-weight:bold; color:#170C38;">
+                    ERROR404.NET
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:32px 36px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:18px; font-weight:bold; color:#231451; margin-bottom:16px;">[ Notice heading — e.g. "Your request was received" ]</div>
+              <div style="font-family:'Courier New', Courier, monospace; font-size:14px; line-height:1.6; color:#3A3352;">
+                <p style="margin:0 0 14px 0;">Hi &lt;First Name&gt;,</p>
+                <p style="margin:0 0 14px 0;">[ One or two short sentences stating the fact of the notice plainly — what happened, what it means, what (if anything) the recipient needs to do next. ]</p>
+              </div>
+
+              <!-- Detail table -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 20px 0; border:1px solid #EDEAFB; border-radius:6px;">
+                <tr>
+                  <td style="padding:10px 16px; border-bottom:1px solid #EDEAFB; font-family:'Courier New', Courier, monospace; font-size:12px; color:#8A83B8;">Reference</td>
+                  <td style="padding:10px 16px; border-bottom:1px solid #EDEAFB; font-family:'Courier New', Courier, monospace; font-size:12px; color:#231451; text-align:right;">[ #ID ]</td>
+                </tr>
+                <tr>
+                  <td style="padding:10px 16px; font-family:'Courier New', Courier, monospace; font-size:12px; color:#8A83B8;">Date</td>
+                  <td style="padding:10px 16px; font-family:'Courier New', Courier, monospace; font-size:12px; color:#231451; text-align:right;">[ Month DD, YYYY ]</td>
+                </tr>
+              </table>
+
+              <table role="presentation" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center" style="border-radius:6px; background-color:#37F0A6;">
+                    <a href="https://error404.net" target="_blank" style="display:inline-block; padding:12px 28px; font-family:'Courier New', Courier, monospace; font-size:14px; font-weight:bold; color:#170C38; text-decoration:none; border-radius:6px;">[ View details ]</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 36px; border-top:1px solid #EDEAFB;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:11px; color:#8A83B8; line-height:1.6;">
+                error404.net &nbsp;::&nbsp; <a href="https://error404.net" style="color:#4DE1FF; text-decoration:none;">error404.net</a>
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

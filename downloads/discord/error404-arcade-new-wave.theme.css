@@ -1,0 +1,113 @@
+/**
+ * @name Error404 Arcade New Wave
+ * @description Dark navy/neon Discord theme built from the ERROR404.NET brand palette (BetterDiscord / Vencord custom CSS compatible).
+ * @version 1.0.0
+ * @author ERROR404.NET
+ * @source https://branding.error404.net
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  /* ---- Error404 Arcade New Wave palette (locked) ---- */
+  --e4-bg:      #170c38; /* deepest background */
+  --e4-bg2:     #231451; /* panel / secondary background */
+  --e4-fg:      #F4F1FF; /* foreground / text */
+  --e4-blue:    #4DE1FF; /* accent — replaces Discord blurple */
+  --e4-pink:    #FF5FA2; /* mentions / danger-adjacent accents */
+  --e4-yellow:  #FFE156; /* warnings / highlights */
+  --e4-mint:    #37F0A6; /* links / success / online status */
+
+  /* ---- Discord core surface mapping ---- */
+  --background-primary: var(--e4-bg);
+  --background-secondary: var(--e4-bg2);
+  --background-secondary-alt: #1c1044;
+  --background-tertiary: #120a2c;
+  --background-accent: var(--e4-blue);
+  --background-floating: var(--e4-bg2);
+  --background-mobile-primary: var(--e4-bg);
+  --background-mobile-secondary: var(--e4-bg2);
+  --channeltextarea-background: #1c1044;
+
+  /* ---- Text ---- */
+  --text-normal: var(--e4-fg);
+  --text-muted: #8a83b8;
+  --text-link: var(--e4-mint);
+  --header-primary: var(--e4-fg);
+  --header-secondary: #b7b0e0;
+  --interactive-normal: #c9c3ef;
+  --interactive-hover: var(--e4-fg);
+  --interactive-active: var(--e4-blue);
+  --interactive-muted: #655e93;
+
+  /* ---- Brand / accent (this is what replaces "blurple") ---- */
+  --brand-experiment: var(--e4-blue);
+  --brand-experiment-560: var(--e4-blue);
+  --brand-experiment-600: #35c9e6;
+  --button-secondary-background: var(--e4-bg2);
+
+  /* ---- Status colors kept close to palette ---- */
+  --online: var(--e4-mint);
+  --idle: var(--e4-yellow);
+  --dnd: var(--e4-pink);
+  --offline: #655e93;
+
+  /* ---- Scrollbar ---- */
+  --scrollbar-thin-thumb: var(--e4-blue);
+  --scrollbar-auto-thumb: #3a2a70;
+  --scrollbar-auto-track: var(--e4-bg);
+
+  /* ---- Mentions ---- */
+  --mention-background: rgba(255, 95, 162, 0.14);
+  --mention-background-hover: rgba(255, 95, 162, 0.22);
+
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+/* Base font applied across chat + UI chrome */
+body, .theme-dark {
+  font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+}
+
+/* Unread guild pill + mention badge -> palette pink */
+.pill-2Xu6bR.unread-3oEtCr,
+[class*="numberBadge"] {
+  background-color: var(--e4-pink) !important;
+}
+
+/* Selected / hovered guild icon pill -> accent blue */
+.pill-2Xu6bR.selected-3s45zx,
+.pill-2Xu6bR.hovered-2wpDIV {
+  background-color: var(--e4-blue) !important;
+}
+
+/* Primary action buttons -> accent blue, dark text for contrast */
+.lookFilled-1Gx00P.colorBrand-3pXr91,
+button[class*="colorBrand"] {
+  background-color: var(--e4-blue) !important;
+  color: #111111 !important;
+}
+
+/* Links */
+a, .anchor-1MIwyf {
+  color: var(--e4-mint) !important;
+}
+
+/* Code blocks */
+code, pre, .markup-eYLPri code {
+  font-family: 'JetBrains Mono', monospace !important;
+  background: #120a2c !important;
+  border: 1px solid rgba(77, 225, 255, 0.25) !important;
+}
+
+/* Spoiler + embed accent bar */
+.embedFull-2fq9tI, .embed-2VOJfg {
+  border-left: 3px solid var(--e4-blue) !important;
+}
+
+/* NOTE: Discord ships frequent client updates that rename internal CSS
+   classes (the hashed classnames above, e.g. .pill-2Xu6bR). The CSS-variable
+   overrides at the top of this file are the stable part and will keep
+   working; the classname-based rules further down are a best-effort visual
+   pass and may need re-selecting with a client theme inspector after a
+   Discord update. */

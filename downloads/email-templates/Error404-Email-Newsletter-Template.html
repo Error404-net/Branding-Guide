@@ -1,0 +1,149 @@
+<!--
+  ERROR404.NET — HTML Email Template: Newsletter / Announcement
+  ---------------------------------------------------------------
+  Usage notes:
+  - Table-based layout + inline styles: required for reliable rendering in
+    Outlook desktop (Word rendering engine), Gmail, and mobile mail clients.
+  - Replace every "IMAGE:" comment's src with a hosted URL (upload the matching
+    file from assets/ to error404.net or your ESP's asset host — most email
+    clients block or strip embedded/base64 images, so they must be hosted).
+  - Replace bracketed [ ... ] placeholder copy before sending.
+  - Max width 600px is the email-safe standard — do not widen the outer table.
+  - This is the DIGITAL/full-color treatment: appropriate for opted-in
+    marketing/newsletter sends where error404.net controls the container.
+    For everyday one-to-one correspondence, use the plain-text-friendly
+    signature file instead, not this template.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>[ Newsletter Subject Line ]</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
+<style>
+  body, table, td { font-family: "Courier New", Courier, monospace; }
+  body { margin:0; padding:0; background-color:#0d0726; }
+  img { border:0; line-height:100%; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; }
+  table { border-collapse:collapse !important; }
+  a { color:#4DE1FF; }
+  @media screen and (max-width: 620px) {
+    .email-container { width:100% !important; }
+    .fluid-padding { padding-left:20px !important; padding-right:20px !important; }
+    .stack-col { display:block !important; width:100% !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#0d0726;">
+  <!-- preheader (hidden preview text) -->
+  <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+    [ One-line preview text shown next to the subject in the inbox list — replace this. ]
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#0d0726;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px;">
+
+          <!-- HEADER / HERO -->
+          <tr>
+            <td style="background-color:#170C38; border-radius:8px 8px 0 0; padding:32px 40px 24px 40px;" class="fluid-padding">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td align="center">
+                    <!-- IMAGE: mark-color, 56x56, hosted -->
+                    <img src="https://error404.net/brand/email/mark-color-56.png" width="56" height="56" alt="error404.net" style="display:block; margin:0 auto 12px auto;">
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:20px; font-weight:bold; color:#F4F1FF; letter-spacing:1px;">ERROR404.NET</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- TITLE BAND -->
+          <tr>
+            <td style="background-color:#231451; padding:28px 40px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:13px; font-weight:bold; color:#37F0A6; letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">[ SECTION LABEL — e.g. UPDATE / RELEASE / DIGEST ]</div>
+              <div style="font-family:'Courier New', Courier, monospace; font-size:26px; font-weight:bold; color:#F4F1FF; line-height:1.3;">[ Newsletter headline goes here ]</div>
+            </td>
+          </tr>
+
+          <!-- BODY -->
+          <tr>
+            <td style="background-color:#F4F1FF; padding:32px 40px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:15px; line-height:1.6; color:#231451;">
+                <p style="margin:0 0 16px 0;">Hi &lt;First Name&gt;,</p>
+                <p style="margin:0 0 16px 0;">[ Opening paragraph. Keep sentences short — plain language, one idea per sentence, matches the same Simplified Technical English guidance used across error404.net writing (see BRANDING.md §STE). ]</p>
+                <p style="margin:0 0 16px 0;">[ Second paragraph or supporting detail. ]</p>
+              </div>
+
+              <!-- CALLOUT BOX -->
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:8px 0 24px 0;">
+                <tr>
+                  <td style="background-color:#FFFFFF; border:2px solid #4DE1FF; border-radius:6px; padding:18px 20px;">
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:13px; font-weight:bold; color:#4DE1FF; margin-bottom:6px;">NOTE:</div>
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:14px; color:#231451; line-height:1.5;">[ Callout copy — a key date, a link, or a single important fact. ]</div>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- CTA BUTTON -->
+              <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                <tr>
+                  <td align="center" style="border-radius:6px; background-color:#FF5FA2;">
+                    <a href="https://error404.net" target="_blank" style="display:inline-block; padding:14px 32px; font-family:'Courier New', Courier, monospace; font-size:15px; font-weight:bold; color:#170C38; text-decoration:none; border-radius:6px;">[ CALL TO ACTION ]</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- TWO-COLUMN CONTENT (optional section) -->
+          <tr>
+            <td style="background-color:#F4F1FF; padding:0 40px 32px 40px;" class="fluid-padding">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="stack-col" width="50%" valign="top" style="padding-right:12px;">
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:15px; font-weight:bold; color:#37F0A6; margin-bottom:6px;">[ Item one ]</div>
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:13px; color:#3A3352; line-height:1.5;">[ Short supporting line. ]</div>
+                  </td>
+                  <td class="stack-col" width="50%" valign="top" style="padding-left:12px;">
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:15px; font-weight:bold; color:#FFE156; margin-bottom:6px;">[ Item two ]</div>
+                    <div style="font-family:'Courier New', Courier, monospace; font-size:13px; color:#3A3352; line-height:1.5;">[ Short supporting line. ]</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="background-color:#170C38; border-radius:0 0 8px 8px; padding:28px 40px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:12px; color:#8A83B8; line-height:1.6; text-align:center;">
+                error404.net&nbsp;&nbsp;::&nbsp;&nbsp;!ignore &rarr; return "404: Message not found"<br>
+                <a href="https://error404.net" style="color:#4DE1FF; text-decoration:none;">error404.net</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" style="color:#4DE1FF; text-decoration:none;">Unsubscribe</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" style="color:#4DE1FF; text-decoration:none;">Preferences</a>
+                <br><br>
+                &lt;street address&gt; :: &lt;city, state zip&gt;
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
