@@ -1,0 +1,55 @@
+╔════════════════════════════════════════════════════════════════╗
+║          Error404 MOTD System - Quick Start Guide              ║
+╚════════════════════════════════════════════════════════════════╝
+
+1. INSTALL
+   ─────────────────────────────────────────────────────────────
+   sudo ./install.sh
+
+   That's it! The installer will:
+   • Detect your Linux distribution
+   • Install to the correct MOTD location
+   • Display a preview
+   • Backup any existing MOTD
+
+2. CUSTOMIZE (Optional)
+   ─────────────────────────────────────────────────────────────
+   Want a different logo? Edit the MOTD file:
+
+   sudo nano /etc/update-motd.d/10-motd-error404
+
+   Change line ~18:
+   ACTIVE_LOGO="logo_bold"
+
+   To any of these 10 options:
+   • logo_bold (default)     - Large ASCII art
+   • logo_shield             - Professional shield
+   • logo_matrix             - Modern tech style
+   • logo_compact            - Ultra-minimal
+   • logo_hex                - Geometric hexagon
+   • logo_bracket            - Clean brackets
+   • logo_pipeline           - Infrastructure/DevOps
+   • logo_line               - Elegant minimal
+   • logo_double             - Professional double-line
+   • logo_minimal            - Single line
+
+3. TEST
+   ─────────────────────────────────────────────────────────────
+   bash /etc/update-motd.d/10-motd-error404
+
+   Or log out and back in to see it on login.
+
+4. UNINSTALL
+   ─────────────────────────────────────────────────────────────
+   sudo ./uninstall.sh
+
+   This restores any backed-up original MOTD.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📖 For detailed documentation, see:
+   • README.md                  - Full guide
+   • docs/LOGO_VARIANTS.md      - All logo styles
+   • docs/TROUBLESHOOTING.md    - Common issues
+
+!ignore → return "404: Message not found"

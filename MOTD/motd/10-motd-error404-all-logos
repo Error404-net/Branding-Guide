@@ -1,0 +1,163 @@
+#!/bin/bash
+#
+# Error404 MOTD with 10 ASCII Logo Variants
+# Customizable banner system for Linux systems
+#
+# Usage: Copy to /etc/update-motd.d/10-motd-error404 and chmod 755
+#        Or run: sudo cp this-file /etc/update-motd.d/10-motd-error404 && sudo chmod 755 /etc/update-motd.d/10-motd-error404
+#
+
+# ════════════════════════════════════════════════════════════
+# CONFIGURATION
+# ════════════════════════════════════════════════════════════
+
+# SELECT ACTIVE LOGO (change this to switch logos)
+ACTIVE_LOGO="logo_bold"
+
+# Color codes (ANSI 256-color palette)
+COLOR_PRIMARY=51      # Cyan (#4DE1FF)
+COLOR_ACCENT=201      # Pink/Magenta (#FF5FA2)
+COLOR_STATUS=48       # Green (#37F0A6)
+COLOR_EMPHASIS=226    # Yellow (#FFE156)
+COLOR_TEXT=255        # White
+COLOR_RESET="\033[0m"
+
+# ════════════════════════════════════════════════════════════
+# LOGO DEFINITIONS (10 variants)
+# ════════════════════════════════════════════════════════════
+
+# 1. BOLD - Large ASCII art (RECOMMENDED)
+logo_bold() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  ███████████████████████████████████████████████████████"
+    echo "  ███████████████████████████████████████████████████████"
+    echo "  ███████████  ERROR404.NET  ███████████████████████████"
+    echo "  ███████████████████████████████████████████████████████"
+    echo "  ███████████████████████████████████████████████████████"
+    echo "  !ignore → return \"404: Message not found\""
+    echo -e "${COLOR_RESET}"
+}
+
+# 2. SHIELD - Professional shield design
+logo_shield() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "   ╔══════════════════════════════╗"
+    echo "   ║  ERROR404.NET                ║"
+    echo "   ║  !ignore → 404 not found     ║"
+    echo "   ╚══════════════════════════════╝"
+    echo -e "${COLOR_RESET}"
+}
+
+# 3. MATRIX - Tech/modern style
+logo_matrix() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  > ERROR404.NET :: !ignore → 404"
+    echo -e "${COLOR_RESET}"
+}
+
+# 4. COMPACT - Ultra-minimal
+logo_compact() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  [ERROR404.NET]"
+    echo -e "${COLOR_RESET}"
+}
+
+# 5. HEX - Geometric hexagon
+logo_hex() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "      ╱─────────────────╲"
+    echo "    ╱  ERROR404.NET      ╲"
+    echo "    ╲  !ignore → 404      ╱"
+    echo "      ╲─────────────────╱"
+    echo -e "${COLOR_RESET}"
+}
+
+# 6. BRACKET - Clean bracket style
+logo_bracket() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  ┌─ ERROR404.NET ─┐"
+    echo "  │ !ignore → 404  │"
+    echo "  └────────────────┘"
+    echo -e "${COLOR_RESET}"
+}
+
+# 7. PIPELINE - Infrastructure/DevOps
+logo_pipeline() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  ◆─────► ERROR404.NET ─────►◆"
+    echo "  └─── !ignore → 404 Message ───┘"
+    echo -e "${COLOR_RESET}"
+}
+
+# 8. LINE - Elegant minimal
+logo_line() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  ═══════════════════════════════"
+    echo "       ERROR404.NET — 404"
+    echo "  ═══════════════════════════════"
+    echo -e "${COLOR_RESET}"
+}
+
+# 9. DOUBLE - Professional double line
+logo_double() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m"
+    echo "  ╔═══════════════════════════╗"
+    echo "  ╠═ ERROR404.NET ═══════════╣"
+    echo "  ╚═══════════════════════════╝"
+    echo -e "${COLOR_RESET}"
+}
+
+# 10. MINIMAL - Single line
+logo_minimal() {
+    echo -e "\033[38;5;${COLOR_PRIMARY}m► ERROR404.NET${COLOR_RESET}"
+}
+
+# ════════════════════════════════════════════════════════════
+# SYSTEM INFORMATION
+# ════════════════════════════════════════════════════════════
+
+show_system_info() {
+    echo ""
+    echo -e "\033[38;5;${COLOR_TEXT}m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${COLOR_RESET}"
+    
+    # Hostname and user
+    local hostname=$(hostname)
+    local kernel=$(uname -r)
+    local uptime=$(uptime -p 2>/dev/null || uptime | awk -F'up' '{print $2}' | cut -d',' -f1)
+    
+    printf "\033[38;5;${COLOR_STATUS}mHost:\033[38;5;${COLOR_TEXT}m %-45s \n" "$hostname"
+    printf "\033[38;5;${COLOR_STATUS}mKernel:\033[38;5;${COLOR_TEXT}m %-43s \n" "$kernel"
+    printf "\033[38;5;${COLOR_STATUS}mUptime:\033[38;5;${COLOR_TEXT}m %-43s \n" "$uptime"
+    
+    # CPU and Memory
+    local cpu_count=$(nproc 2>/dev/null || echo "?")
+    local mem_total=$(free -h 2>/dev/null | awk '/^Mem:/ {print $2}')
+    local mem_available=$(free -h 2>/dev/null | awk '/^Mem:/ {print $7}')
+    
+    if [[ -n "$mem_total" ]]; then
+        printf "\033[38;5;${COLOR_STATUS}mCPU Cores:\033[38;5;${COLOR_TEXT}m %-38s \n" "$cpu_count"
+        printf "\033[38;5;${COLOR_STATUS}mMemory:\033[38;5;${COLOR_TEXT}m %-42s ($(($mem_total)) available)\n" "$mem_available"
+    fi
+    
+    echo -e "\033[38;5;${COLOR_TEXT}m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${COLOR_RESET}"
+    echo ""
+}
+
+# ════════════════════════════════════════════════════════════
+# MAIN EXECUTION
+# ════════════════════════════════════════════════════════════
+
+# Display banner
+echo ""
+if declare -f "$ACTIVE_LOGO" > /dev/null; then
+    $ACTIVE_LOGO
+else
+    logo_bold  # Fallback if logo not found
+fi
+
+# Show system info
+show_system_info
+
+# Footer
+echo -e "\033[38;5;${COLOR_ACCENT}m!ignore → return \"404: Message not found\"${COLOR_RESET}"
+echo ""
