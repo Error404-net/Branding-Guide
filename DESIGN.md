@@ -300,11 +300,20 @@ All no-ring variants ship without the halo ellipse.
 | Light background | `4Ø4` white | `libra-ham-white.svg` |
 | Light background alternative | No-ring black | `libra-no-ring-black.svg` |
 | Dark background, secondary | No-ring any color | `libra-no-ring-[color].svg` |
-| Icon/favicon (dark) | No-ring green | `libra-no-ring-green.svg` (24px min) |
-| Icon/favicon (light) | Site icon (dark-mode) | `libra-site-icon-dark-mode.svg` |
+| Icon-only, dark surface | Monogram — Night (white) | `monogram-night.svg` |
+| Icon-only, light surface | Monogram — Daylight (black) | `monogram-daylight.svg` |
 
-**Minimum size:** 24px for icon variants; 128px and up for full textured mark.
-Smaller than 24px: reduce to glyph-only, no rings or constellation lines.
+**Minimum size:** 24px for icon/Monogram variants; 128px and up for full
+textured mark. The Monogram is already reduced to nodes-and-lines only (no
+rings, no numerals), so it is the correct choice at icon sizes rather than a
+further-reduced glyph-only cut.
+
+**Construction note.** Every no-ring/ring/ham variant's connecting lines are
+one uniform color (the cut's own color; multicolor keeps Mint `#37F0A6` for
+all lines, multicolor nodes). The line through the `4Ø4` numerals is two
+collinear segments split at the exact angle of the `Ø` glyph's own diagonal
+slash — see `BRAND.md` for the full rule. Do not regenerate any mark asset
+without preserving both of these.
 
 All exports are transparent except neon variants, which bake in a near-black
 backdrop (`#231451` @ 90% opacity).
@@ -326,5 +335,7 @@ Before emitting an Error404 surface, verify:
    **variant**, **Digital mode**, **Print/Corporate mode**.
 9. Instructional copy follows the STE rules in `BRAND.md`.
 10. No real contact details. Placeholder tokens only.
-11. Logo/mark: use canonical default (no-ring multicolor) for mark placement;
-    `4Ø4` neon green for single-color digital contexts on dark backgrounds only.
+11. Logo/mark: use canonical default (no-ring multicolor) for mark placement
+    with the `4Ø4` numerals; `4Ø4` neon green for single-color digital
+    contexts on dark backgrounds only; the Monogram (night/daylight) for any
+    icon-only slot — never a further-cropped or hand-reduced mark.

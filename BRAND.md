@@ -289,6 +289,16 @@ never a gradient or a glow.
 - **No-ring variants** ship without the halo ellipse as of this revision. Use
   them for clean mark placement where the constellation lines and nodes alone
   carry the identity.
+- **Lines are one uniform color per variant** — the multicolor cut draws every
+  connecting line in Mint (`#37F0A6`); single-color cuts draw every line in
+  that cut's own color. Node circles stay multicolor on the multicolor cut.
+  Do not vary line color by edge except on the neon-glow variants, which keep
+  their own per-edge glow treatment as a deliberate distinct aesthetic.
+- **The line crossing the `4Ø4` numerals is two collinear segments, not one
+  bent line.** The gap between them is sized and angled to exactly match the
+  rendered diagonal slash inside the `Ø` glyph — measured from the glyph
+  itself (edge detection + line fit), not eyeballed. Never rejoin it into a
+  single line that ignores the glyph, and never bend it to a different angle.
 - **Never:** stretch or skew it; recolor outside the palette; place it on a busy
   background without a scrim; use the multi-accent variant where only two colors
   are available.
@@ -311,7 +321,23 @@ mode, because slides are a screen medium.
 
 Used for clean mark placement where the constellation geometry alone carries the identity. Works on both dark and light backgrounds with proper contrast. On dark backgrounds, use with full Arcade New Wave palette. On light backgrounds, pair with `libra-no-ring-black.svg`.
 
-**Alternative default:** `4Ø4` in neon green (`#39FF14`) for single-color, canonical-choice contexts (site header, favicon, business card) on dark surfaces only.
+**Alternative default:** `4Ø4` in neon green (`#39FF14`) for single-color, canonical-choice contexts (site header, business card) on dark surfaces only.
+
+**Icon-only mark — "Monogram" (LOCKED).** Where no text fits (favicons,
+app-icon slots, OBS overlays, anywhere the numerals would be too small to
+read), use the **Monogram**: constellation nodes and lines only, no `4Ø4`, no
+halo, transparent background. Exactly two variants, named by the surface they
+sit on rather than by color:
+
+| Variant | Color | For | File |
+|---|---|---|---|
+| Night | White (`#F4F1FF`) | Dark surfaces — site favicon, dark-theme app icons, OBS overlays | `monogram-night.svg` |
+| Daylight | Black (`#111111`) | Light surfaces — light-theme app icons, print | `monogram-daylight.svg` |
+
+These two replace every prior icon-only or glyph-only cut (the old
+`libra-site-icon-*` and `glyph-only/` files still exist for now but are
+superseded — see `logos/README.txt` / `CLAUDE.md` for status). Do not
+introduce a third icon-only variant without updating this file.
 
 ## Open decisions
 
@@ -327,4 +353,4 @@ Not yet decided. Do not resolve these by inference.
 | `DESIGN.md` | Implementation tokens for AI coding agents | Yes |
 | `BRANDING.md` | Full human-facing guidelines, 14 sections | Private |
 | `branding.yaml` | Exhaustive internal spec, contains PII | **No — never publish** |
-| `Error404-Brand-Guidelines.pdf` | 20-page designed guide | Yes |
+| `Error404-Brand-Guidelines.pdf` | 14-page designed guide | Yes |
