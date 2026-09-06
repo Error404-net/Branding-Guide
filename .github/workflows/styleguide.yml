@@ -11,11 +11,9 @@ name: Build and deploy site + styleguide
 on:
   push:
     branches: [main]
-    paths:
-      - 'index.html'
-      - 'assets/**'
-      - 'styleguide/**'
-      - '.github/workflows/styleguide.yml'
+    # No paths filter: the assemble step rsyncs the whole repo (logos/,
+    # discord/, email-templates/, README.md, etc. are all linked from
+    # index.html), so any push to main can change what's served.
   workflow_dispatch:
 
 permissions:
