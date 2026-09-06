@@ -1,0 +1,177 @@
+<!--
+  ERROR404.NET — HTML Email Template: Report / Notification
+  ---------------------------------------------------------------
+  Use for: automated report emails, scan/audit notifications, scheduled
+  status digests — anything that summarizes a report and should read as a
+  formal record, not a marketing send. Deliberately Print/Corporate mode
+  (plain, black on white, monospace, ASCII box notation, no color) even
+  though it travels as HTML email — a report is evidence, not a screen
+  experience error404.net is styling for engagement.
+
+  Pairs with Error404-Word-Template-Report.docx (or a PDF export of it) as
+  an attachment — this email is the summary; the attached document is the
+  full report. Replace every bracketed placeholder and the [SOURCE-NNN]
+  evidence tags before sending. Host the mark image at a stable URL — most
+  mail clients strip embedded/base64 images (see the newsletter/
+  transactional templates for the same note).
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[ Report Title ] — [ Reporting Period ]</title>
+<style>
+  body, table, td { font-family: "Courier New", Courier, monospace; }
+  body { margin:0; padding:0; background-color:#FFFFFF; color:#000000; }
+  img { border:0; line-height:100%; outline:none; text-decoration:none; }
+  table { border-collapse:collapse !important; }
+  @media screen and (max-width: 660px) {
+    .email-container { width:100% !important; }
+    .fluid-padding { padding-left:20px !important; padding-right:20px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#FFFFFF; color:#000000;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF;">
+    <tr>
+      <td align="center" style="padding:28px 16px;">
+        <table role="presentation" class="email-container" width="680" cellpadding="0" cellspacing="0" style="width:680px; max-width:680px;">
+
+          <!-- HEADER -->
+          <tr>
+            <td align="center" style="padding-bottom:12px;" class="fluid-padding">
+              <!-- IMAGE: mark-black, 72x72, hosted -->
+              <img src="https://error404.net/brand/email/mark-black-72.png" width="72" height="72" alt="error404.net" style="display:block; margin:0 auto 8px auto;">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:22px; font-weight:bold; color:#000000;">ERROR404.NET</div>
+              <div style="font-family:'Courier New', Courier, monospace; font-size:15px; color:#000000; margin-top:4px;">[ REPORT TITLE ] :: [ REPORTING PERIOD ]</div>
+              <div style="font-family:'Courier New', Courier, monospace; font-size:12px; color:#555555; margin-top:6px;">&gt; 404: report notification_ :: TEMPLATE</div>
+              <div style="font-family:'Courier New', Courier, monospace; font-size:11px; color:#555555; margin-top:4px; word-break:break-all;">================================================================</div>
+            </td>
+          </tr>
+
+          <!-- STATUS BANNER -->
+          <tr>
+            <td style="border:2px solid #000000; padding:10px 16px; margin:8px 0;" class="fluid-padding">
+              <b style="font-family:'Courier New', Courier, monospace; font-size:13px;">[ STATUS: DRAFT / FINAL — replace before sending ]</b>
+            </td>
+          </tr>
+
+          <!-- METADATA TABLE -->
+          <tr>
+            <td style="padding-top:20px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:16px; font-weight:bold; border-bottom:2px solid #000000; padding-bottom:4px; margin-bottom:8px;">Document metadata</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #000000;">
+                <tr>
+                  <td style="border:1px solid #000000; background-color:#000000; color:#FFFFFF; padding:6px 10px; font-size:12px; font-weight:bold;">Field</td>
+                  <td style="border:1px solid #000000; background-color:#000000; color:#FFFFFF; padding:6px 10px; font-size:12px; font-weight:bold;">Value</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">Report title</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ Report title ]</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">Reporting period</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ Start date ] &mdash; [ End date ]</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">Owner</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">ERROR404.NET ~/ &lt;owner&gt;@error404.net</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">Status</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ DRAFT / FINAL ]</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- EXECUTIVE SUMMARY -->
+          <tr>
+            <td style="padding-top:22px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:16px; font-weight:bold; border-bottom:2px solid #000000; padding-bottom:4px; margin-bottom:8px;">Executive summary</div>
+              <p style="font-family:'Courier New', Courier, monospace; font-size:13px; line-height:1.6; margin:0;">[ State the reporting period, overall condition, material changes, and the decision or action required from the reader. One short paragraph. ]</p>
+            </td>
+          </tr>
+
+          <!-- KEY METRICS -->
+          <tr>
+            <td style="padding-top:22px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:16px; font-weight:bold; border-bottom:2px solid #000000; padding-bottom:4px; margin-bottom:8px;">Key metrics</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #000000;">
+                <tr>
+                  <td style="border:1px solid #000000; background-color:#000000; color:#FFFFFF; padding:6px 10px; font-size:12px; font-weight:bold;">Metric</td>
+                  <td style="border:1px solid #000000; background-color:#000000; color:#FFFFFF; padding:6px 10px; font-size:12px; font-weight:bold;">Value</td>
+                  <td style="border:1px solid #000000; background-color:#000000; color:#FFFFFF; padding:6px 10px; font-size:12px; font-weight:bold;">Status</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ Metric one ]</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ # ]</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ NOMINAL / REVIEW / ACTION ]</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ Metric two ]</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ # ]</td>
+                  <td style="border:1px solid #000000; padding:6px 10px; font-size:12px;">[ NOMINAL / REVIEW / ACTION ]</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- FINDINGS -->
+          <tr>
+            <td style="padding-top:22px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:16px; font-weight:bold; border-bottom:2px solid #000000; padding-bottom:4px; margin-bottom:8px;">Findings</div>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #000000; margin-bottom:8px;">
+                <tr><td style="padding:8px 12px; font-size:12px; line-height:1.5;"><b>HIGH ::</b> [ Finding statement. ] A material condition requires owner review and a documented remediation decision. Evidence: [SOURCE-001].</td></tr>
+              </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #000000; margin-bottom:8px;">
+                <tr><td style="padding:8px 12px; font-size:12px; line-height:1.5;"><b>MEDIUM ::</b> [ Finding statement. ] A control is partially effective or not consistently evidenced. Evidence: [SOURCE-002].</td></tr>
+              </table>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #000000;">
+                <tr><td style="padding:8px 12px; font-size:12px; line-height:1.5;"><b>INFO ::</b> [ Finding statement. ] An observation or trend that does not currently require corrective action. Evidence: [SOURCE-003].</td></tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- RECOMMENDATIONS -->
+          <tr>
+            <td style="padding-top:22px;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:16px; font-weight:bold; border-bottom:2px solid #000000; padding-bottom:4px; margin-bottom:8px;">Recommendations</div>
+              <ol style="font-family:'Courier New', Courier, monospace; font-size:13px; line-height:1.7; margin:0; padding-left:20px;">
+                <li>[ Recommendation one: assign an owner, define the target state, and set a due date. ]</li>
+                <li>[ Recommendation two: validate the evidence and record the exception or remediation plan. ]</li>
+                <li>[ Recommendation three: repeat the measurement next period and compare against this baseline. ]</li>
+              </ol>
+            </td>
+          </tr>
+
+          <!-- FULL REPORT / CTA -->
+          <tr>
+            <td style="padding-top:24px;" class="fluid-padding">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:2px solid #000000;">
+                <tr>
+                  <td style="padding:14px 18px; font-size:13px;">Full report attached: <b>[ report-filename.pdf ]</b>. Sources, limitations, and the evidence-reference appendix are in the attached document, not repeated here.</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="padding:26px 0 10px 0;" class="fluid-padding">
+              <div style="font-family:'Courier New', Courier, monospace; font-size:11px; color:#555555; border-top:1px solid #000000; padding-top:10px;">
+                ERROR404.NET :: REPORT NOTIFICATION :: [ DRAFT / FINAL ]<br>
+                !ignore &rarr; return "404: Message not found"<br>
+                &gt; 404: message not found_
+              </div>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
