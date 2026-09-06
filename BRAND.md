@@ -277,6 +277,15 @@ halo. The halo is a solid plate, never a gradient or a glow.
 - **Clear space:** the height of one `4` glyph on all sides.
 - **Minimum size:** 24px for the flat reduced variant; 128px and up for the full
   texture.
+- **Every export is transparent** except the four neon variants, which bake in a
+  near-black backdrop because the glow only reads against a dark surface. Never
+  place a mark on a flattened plate of its own — if a surface needs a plate,
+  that is a decision the layout makes, not something baked into the asset.
+- **Ring variants pair by surface.** The `white` and `multi-color` cuts draw the
+  ring in `#F4F1FF` and belong on dark surfaces. The `black` and `blue` cuts draw
+  it in near-black and belong on light ones. Putting a dark-ring cut on a dark
+  background makes the ring disappear, which is easy to miss because the nodes
+  and numerals still read.
 - **Never:** stretch or skew it; recolor outside the palette; place it on a busy
   background without a scrim; use the multi-accent variant where only two colors
   are available.
