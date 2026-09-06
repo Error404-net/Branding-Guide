@@ -53,15 +53,31 @@
 --------------------------------------------------------------------------------
 
     Branding-Guide/
-      index.html    the whole guide, single static page, no build step
-      assets/       logo renders + mockups referenced by index.html
-      downloads/    every shipped asset, organized by type (logos, entra-m365,
-                     social, discord, office-templates, email-templates) -
-                     see downloads/README.md
-      obs/          OBS Studio scene collection + theme assets
-      AGENTS.md     portable brand instructions for AI coding agents/skills
-      CNAME         GitHub Pages custom-domain file (branding.error404.net)
-      LICENSE       MIT
+      index.html          the whole guide, single static page, no build step
+      assets/             logo renders + mockups referenced by index.html
+      logos/              master logo set - SVG masters + full PNG export sizes
+                           (ring/no-ring x black/white/blue/pink/green/multicolor,
+                           ham variant, neon-tube glow set, glyph-only site icons)
+      entra-m365/         Microsoft Entra ID sign-in + M365 admin center branding
+                           assets (square logo, banner logo, favicon, background,
+                           accent color)
+      office-templates/   Word templates (Corporate B&W + Digital Color, letterhead,
+                           envelope, cover page, report), Office Theme (.thmx),
+                           PowerPoint template
+      email-templates/    HTML newsletter/transactional/report-notification email
+                           templates, M365/Outlook signature HTML (standard + minimal)
+      social/             linkedin/, youtube/, stickers/, avatars/ - per-platform
+                           banner/icon/watermark assets
+      discord/            server icon/banner/splash + BetterDiscord/Vencord
+                           client theme (.theme.css)
+      obs/                OBS Studio scene collection + theme assets
+      AGENTS.md           portable brand instructions for AI coding agents/skills
+      CNAME               GitHub Pages custom-domain file (branding.error404.net)
+      LICENSE             MIT
+
+    Every downloadable file uses placeholder tokens (<Your Name>, <phone>, etc.)
+    rather than real contact details - fill those in per document before use.
+    Each top-level folder has its own README.txt with size/usage specifics.
 
 --------------------------------------------------------------------------------
   PUBLISHING (GitHub Pages)
