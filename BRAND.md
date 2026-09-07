@@ -353,4 +353,4 @@ Not yet decided. Do not resolve these by inference.
 | `DESIGN.md` | Implementation tokens for AI coding agents | Yes |
 | `BRANDING.md` | Full human-facing guidelines, 14 sections | Private |
 | `branding.yaml` | Exhaustive internal spec, contains PII | **No — never publish** |
-| `Error404-Brand-Guidelines.pdf` | 14-page designed guide | Yes |
+| `Error404-Brand-Guidelines.pdf` | 9-page designed guide | Yes |
