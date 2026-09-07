@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const entry = path.join(here, '..', 'src', 'index.js');
-const root = process.env.ERROR404_BRAND_ROOT || path.join(here, '..', '..', 'design-error404');
+const root = process.env.ERROR404_BRAND_ROOT || path.join(here, '..', '..');
 
 const child = spawn('node', [entry], {
   stdio: ['pipe', 'pipe', 'pipe'],
@@ -75,7 +75,7 @@ check('brand_section finds a section', body(r).includes('ASD-STE100'));
 r = await send('tools/call', { name: 'brand_section', arguments: { file: 'BRAND', heading: 'nonexistent zzz' } });
 check('brand_section errors helpfully on miss', r.result?.isError && body(r).includes('Available'));
 
-// check_contrast — by hex, by token, and the known defect
+// check_contrast — by hex, by token, and a known-bad reference pair
 r = await send('tools/call', { name: 'check_contrast', arguments: { foreground: '#F4F1FF', background: '#231451' } });
 j = json(r);
 check('check_contrast computes AAA pair', j?.ratio === 14.63 && j?.normalText === 'AAA', `${j?.ratio}:1 ${j?.normalText}`);
@@ -86,7 +86,7 @@ check('check_contrast resolves token names', j?.foreground === '#4DE1FF' && j?.r
 
 r = await send('tools/call', { name: 'check_contrast', arguments: { foreground: '#655E93', background: '#231451' } });
 j = json(r);
-check('check_contrast catches the known footer defect', j?.normalText === 'FAIL' && j?.ratio === 2.77, `${j?.ratio}:1`);
+check('check_contrast catches a failing pair (resolved #655E93 defect, kept as a regression case)', j?.normalText === 'FAIL' && j?.ratio === 2.77, `${j?.ratio}:1`);
 
 r = await send('tools/call', { name: 'check_contrast', arguments: { foreground: 'not-a-color', background: '#000' } });
 check('check_contrast rejects bad input', r.result?.isError);

@@ -62,10 +62,14 @@ Use the **backgrounds** toolbar control to view any story in Print/Corporate.
 5. Say **mark**, **wordmark**, **lockup**, **variant** — one term per concept.
 6. Never put real contact details in a template or mockup.
 
-## Known defect
+## Resolved defect
 
-The guidelines PDF sets its running footer in `#655E93` at 10px, which measures
-**2.77:1** — below the 3:1 large-text floor and the only failing token in the
-system. See **Brand / Color → Contrast**. The fix is to reuse
-`--e404-text-subtle` (`#8A83B8`, 4.66:1). Not yet applied: it changes every
-PDF footer and is waiting on approval.
+A stray `#655E93` — not a real token — measured **2.77:1**, below the 3:1
+large-text floor and the only failing color in the system. See
+**Brand / Color → Contrast**, still shown there for reference. It's gone from
+the codebase now; the one live occurrence has been swapped to
+`--e404-text-subtle` (`#8A83B8`, 4.66:1). The "PDF footer" this was originally
+reported against isn't part of the current PDF pipeline (a straight Chromium
+print of `index.html`, no running-footer template), so it never reproduced
+there. If a running footer is ever added, give it `--e404-text-subtle`, not a
+new hex.

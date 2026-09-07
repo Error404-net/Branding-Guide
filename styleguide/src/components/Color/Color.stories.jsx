@@ -64,9 +64,9 @@ export const Contrast = {
       description: {
         story:
           'Computed live from the token values via WCAG 2.1, so these numbers cannot drift from ' +
-          'the palette. **The footer token `#655E93` fails at 2.77:1** — below even the 3:1 ' +
-          'large-text floor — and is shown here for comparison. The fix is to reuse ' +
-          '`--e404-text-subtle`.',
+          'the palette. **`#655E93` fails at 2.77:1** — below even the 3:1 large-text floor — ' +
+          'kept here as a reference failure case. It has been eliminated from the codebase; the ' +
+          'one place it lived has been swapped to `--e404-text-subtle`.',
       },
     },
   },
@@ -74,7 +74,7 @@ export const Contrast = {
     <ContrastTable
       foregrounds={[
         ...TEXT, ...ACCENTS,
-        { name: 'PDF footer (defect)', token: '#655E93 — defect', hex: '#655E93' },
+        { name: 'Reference failure', token: '#655E93 — resolved', hex: '#655E93' },
       ]}
       backgrounds={SURFACES}
     />

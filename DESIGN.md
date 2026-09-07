@@ -80,14 +80,21 @@ estimated.
 
 Print/Corporate mode is black on white: 21.00:1.
 
-> **Known defect — unresolved.** The brand guidelines PDF sets its page footer
-> in `#655E93` at 10px. That measures **2.77:1** on `#231451` — below the 4.5:1
-> normal-text minimum and below even the 3:1 large-text floor. It is the only
-> token in the system that fails.
+> **Resolved (2026-09-07).** A stray `#655E93` — not a real token, and not
+> `--text-subtle` — measured **2.77:1** on `#231451`: below the 4.5:1
+> normal-text minimum and even the 3:1 large-text floor, the only color in the
+> system that failed. It no longer appears anywhere in the codebase; the sole
+> live occurrence (the title line in `email-templates/Error404-M365-Signature-
+> Standard.html`) has been swapped to `--text-subtle` (`#8A83B8`, 4.66:1 — AA).
+> That instance sat on white in practice, so it was never actually failing —
+> the swap is a token-hygiene fix (no undocumented hex outside the locked
+> ramp), not a contrast rescue.
 >
-> **Fix:** use `--text-subtle` (`#8A83B8`, 4.66:1). Do not mint a new token —
-> reuse the existing one. Not yet applied, pending owner approval, because it
-> changes the look of every PDF footer.
+> The "PDF page footer" this was originally reported against isn't part of
+> the current PDF pipeline (`index.html` prints straight through Chromium with
+> no separate running-footer template — see `generate-pdf.js`), so it couldn't
+> be reproduced there. If a running footer is ever added back, give it
+> `--text-subtle`, not a new hex.
 
 ### 1.5 Usage rules
 
