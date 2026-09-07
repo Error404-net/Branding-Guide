@@ -4,3 +4,5 @@ assets/signature-mockup.png
 
 # local quarantine for files pending manual deletion
 _to_delete/
+node_modules/
+.claude/
