@@ -152,11 +152,54 @@ Pushed directly to this repo via the device bridge on 2026-09-06:
   circular die-cut treatment (colored fill, thin outline ring) around the fixed mark, matching
   the originals' measured proportions.
 
+## What's done — round 3 (green/yellow text-fringe bug, 2026-09-06/07)
+
+Jesse spotted "a green glow effect on the 4Ø4" on the Entra square-logo icon. Root cause was
+**not** the mint connecting-line color (first hypothesis, corrected by Jesse) — it was a
+rendering bug in this sandbox's SVG→PNG pipeline:
+
+- The cloud container had no `JetBrains Mono` font installed, so `cairosvg` was silently
+  substituting a fallback font for the "4Ø4" text in every PNG rendered this session.
+- Independently, the container's fontconfig defaults to LCD-subpixel antialiasing
+  (`rgba`/`lcdfilter` tuned for a physical screen). That bakes real per-channel color fringes
+  (verified pixel-level: fully-opaque yellow/cyan pixels like `(213,241,2)` right at glyph
+  edges) into any text rendered onto a transparent background — invisible on an opaque card,
+  glaring once composited elsewhere. This is what read as a "green glow."
+
+Fix: installed `fonts-jetbrains-mono` via apt, and force grayscale antialiasing at render time
+with a local fontconfig override (`rgba=none`, `lcdfilter=none`, `hintstyle=hintslight`) — see
+the working notes below for the exact snippet. Confirmed via a pixel-level scan (looking for
+opaque edge pixels where G is 80+ higher than both R and B) that this drops the fringe from
+hundreds of pixels to near-zero (the only residual is the mint line's own legitimate
+anti-aliasing where it runs next to the text, not a bug).
+
+Re-rendered and pushed every asset the scan flagged, plus everything else rendered this
+session with the broken pipeline (so the font-substitution issue is also fixed even where the
+color fringe wasn't visible enough to flag): `entra-m365/square-logo-transparent-color-240x240.png`,
+`assets/entra-square-transparent-{color,white}.png`, `email-templates/hosted-images/mark-color-{20,28,44,56}.png`,
+all 7 `social/avatars/*.png`, `discord/discord-server-icon-512.png`, both
+`social/stickers/sticker-circle-{mono,ham}-900.png`, and the full `logos/png/{libra-ring-multicolor,
+libra-no-ring-multicolor,libra-ham-multicolor}/{16,32,48,64,128,180,192,240,512,1024}.png` sets
+(30 files — these turned out to already exist as a pre-built export tree, now current again).
+Also re-did the embedded logo PNGs inside all 6 Office templates (5 docx share one black-ring
+crop, Digital-Color has its own dark-text-on-white crop, the pptx has 3 copies of the
+transparent multicolor ring) using the fixed pipeline, validated afterward with
+`python-docx`/`python-pptx`. Committed as `e31405e`.
+
+A full-repo scan for this fringe pattern turned up nothing else — the only files affected were
+ones rendered by this session's own (buggy) pipeline. Files already correct before this session
+(e.g. `entra-m365/square-logo-transparent-black-240x240.png`, the light/dark-theme Entra PNGs,
+both Entra banners, the favicon) were confirmed clean and left untouched.
+
 ## What's NOT done — pending decisions / remaining scope
 
-- **`logos/png/` not inspected** — if this directory holds rasterized exports of any of the
-  variants above, those PNGs are now stale relative to their source SVGs and need
-  re-exporting.
+- **`logos/png/` — partially inspected.** The three *-multicolor variants (`libra-ring-multicolor`,
+  `libra-no-ring-multicolor`, `libra-ham-multicolor`, 10 sizes each) are now current — see round 3
+  above. The remaining subfolders (`libra-*-{black,white,blue,green,pink}`, `libra-neon-*`,
+  `site-icon-{light,dark}-mode`) have **no corresponding SVG in `logos/`** for some of the
+  single-accent-color variants (blue/green/pink) — these look like legacy exports that predate
+  the current locked variant taxonomy. Don't regenerate them by guessing; ask Jesse whether
+  they're still in scope before touching them.
 - **`social/stickers/sticker-circle-neon-multi-900.png`** — uses a bespoke neon palette (green/
   magenta/cyan/gold with white node cores) that doesn't match any current SVG source — it's a
   one-off illustration, not a simple mark crop. Still has the old bent line and oval backdrop.
@@ -194,6 +237,32 @@ Pushed directly to this repo via the device bridge on 2026-09-06:
   the device bridge — there is no local SVG rendering toolchain there (no `cairosvg`,
   `rsvg-convert`, or `inkscape`), so render SVG→PNG in the cloud sandbox and push the result
   with the device-commit tool. Don't try to install a renderer on the Mac side for this.
+- **Cloud-sandbox render pipeline requires two fixes or every "4Ø4" text render comes out
+  wrong** (see round 3 above): (1) `sudo apt-get install -y fonts-jetbrains-mono` — the
+  container doesn't have it by default and `cairosvg` silently substitutes another font;
+  (2) force grayscale antialiasing, or text edges get a real color fringe when composited on
+  transparent backgrounds. Use a fontconfig override:
+  ```
+  cat > /tmp/fc/fonts.conf <<'EOF'
+  <?xml version="1.0"?>
+  <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+  <fontconfig>
+    <dir>/usr/share/fonts</dir>
+    <cachedir>/tmp/fc/cache</cachedir>
+    <match target="font">
+      <edit name="antialias" mode="assign"><bool>true</bool></edit>
+      <edit name="rgba" mode="assign"><const>none</const></edit>
+      <edit name="hinting" mode="assign"><bool>true</bool></edit>
+      <edit name="hintstyle" mode="assign"><const>hintslight</const></edit>
+      <edit name="lcdfilter" mode="assign"><const>lcdnone</const></edit>
+    </match>
+  </fontconfig>
+  EOF
+  FONTCONFIG_FILE=/tmp/fc/fonts.conf python3 your_render_script.py
+  ```
+  Verify any new render with a pixel scan (partial-alpha pixels where G is 80+ above both R and
+  B) before calling it done — don't trust a quick visual check on a solid background, the bug
+  only shows up once composited onto something else.
 - `obs/assets/logos/` mirrors `assets/` byte-for-byte for the specific files OBS loads (see
   `obs/scenes/Error404.json`) — when you fix a logo asset that OBS also uses, push to both
   locations, not just one.
