@@ -309,6 +309,7 @@ All no-ring variants ship without the halo ellipse.
 | Dark background, secondary | No-ring any color | `libra-no-ring-[color].svg` |
 | Icon-only, dark surface | Monogram — Night (white) | `monogram-night.svg` |
 | Icon-only, light surface | Monogram — Daylight (black) | `monogram-daylight.svg` |
+| Printer watermark / Word Picture Watermark | Watermark — single mark, 10% opacity, black | `logos/watermark.svg`, `assets/watermark-1800.png` |
 
 **Minimum size:** 24px for icon/Monogram variants; 128px and up for full
 textured mark. The Monogram is already reduced to nodes-and-lines only (no

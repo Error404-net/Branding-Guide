@@ -67,6 +67,9 @@ badly against varying backdrops. Removed for good.
 - **Neon variants** — `libra-neon-multi.svg`, `libra-neon-blue.svg` — glow-filter treatment
   with per-edge coloring (their own aesthetic, not the uniform-mint rule). Fixed for line
   geometry, "4Ø4" text, and oval removal; per-edge multicolor kept intentionally.
+- **Watermark** — `logos/watermark.svg` / `assets/watermark-1800.png` — single mark, black,
+  whole thing at 10% opacity. Not a brand-facing identity cut; a utility export for printer
+  watermark settings and Word's Picture Watermark feature (added round 4, see below).
 
 ## What's done (this pass)
 
@@ -190,6 +193,37 @@ A full-repo scan for this fringe pattern turned up nothing else — the only fil
 ones rendered by this session's own (buggy) pipeline. Files already correct before this session
 (e.g. `entra-m365/square-logo-transparent-black-240x240.png`, the light/dark-theme Entra PNGs,
 both Entra banners, the favicon) were confirmed clean and left untouched.
+
+## What's done — round 4 (Watermark variant, 2026-09-07)
+
+New naming-taxonomy entry — see "Naming taxonomy (final)" above, now amended with a fourth
+category:
+
+- **Watermark** — `logos/watermark.svg` (240×240 vector source) and `assets/watermark-1800.png`
+  (1800×1800 transparent PNG render). Single centered mark, black `#111111`, whole mark wrapped
+  in `opacity="0.10"` (lines keep their own `opacity="0.75"` on top of that, matching every
+  other black cut — so lines render slightly lighter than the nodes/text, same relative
+  relationship as the full-opacity marks). Same locked geometry as `libra-no-ring-black.svg`,
+  metadata stripped (no C2PA block — that's Anthropic's own content-provenance marker on the
+  source file, not something to propagate into derived assets).
+- **Intended use** (confirmed with Jesse, not M365 Dynamic Watermarking — see below): the
+  office printer's built-in watermark feature, and/or manual insertion via Word's own
+  **Insert → Watermark → Custom Watermark → Picture watermark** in a new Word template variant.
+  Both consume a static image, which is what this asset is.
+- **Why not Microsoft 365 Dynamic Watermarking (Purview sensitivity labels):** confirmed via
+  Microsoft's own documentation
+  (`learn.microsoft.com/en-us/purview/sensitivity-labels-office-apps`) that dynamic watermarks
+  are **text-only** — the only supported variable is the viewing user's email address, with
+  **no logo/image support and no font/color/orientation customization** at all. If dynamic,
+  identity-bearing watermarking is wanted later, it can only ever show text, never this mark.
+- **Rendered with the round-3 font/antialiasing fix** (`fonts-jetbrains-mono` installed +
+  `FONTCONFIG_FILE` pointed at the grayscale-forcing fontconfig override — see "Working notes
+  for future agents" below) — spot-checked the rendered PNG's "4Ø4" text and confirmed every
+  non-transparent pixel is neutral gray (R=G=B), i.e. the same green/yellow text-fringe bug
+  from round 3 does not reappear at low opacity.
+- Added to `DESIGN.md` §6.2's mark-variant table. Not added to `BRAND.md`'s primary-mark
+  bullets, since it's a utility export (printer/Word insertion) rather than a brand-facing
+  identity variant like the Primary mark, Monogram, Ring, or Neon cuts.
 
 ## What's NOT done — pending decisions / remaining scope
 
