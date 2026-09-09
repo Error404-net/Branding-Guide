@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERROR404.NET — SharePoint Template Store (Corporate Edition)</title>
+    <style>
+        :root {
+            /* Corporate B&W Palette */
+            --color-bg: #FFFFFF;
+            --color-fg: #000000;
+            --color-accent: #000000;
+            --color-light-bg: #F5F5F5;
+            --color-border: #000000;
+            
+            /* Typography */
+            --font-mono: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+            --font-body: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-bg);
+            color: var(--color-fg);
+            font-family: var(--font-body);
+        }
+
+        /* Remove scanline effect - corporate clean */
+
+        /* Top navigation bar */
+        .sp-navbar {
+            background-color: #FFFFFF;
+            border-bottom: 2px solid #000000;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: none;
+        }
+
+        .sp-navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--color-fg);
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .sp-navbar-brand::before {
+            content: '';
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: #FFFFFF;
+            border: 2px solid #000000;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+        }
+
+        .sp-navbar-items {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .sp-navbar-items a {
+            color: var(--color-fg);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 0.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .sp-navbar-items a:hover {
+            color: var(--color-fg);
+            border-bottom-color: #000000;
+        }
+
+        /* Main content area */
+        .sp-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: calc(100vh - 60px);
+            gap: 0;
+        }
+
+        /* Left sidebar */
+        .sp-sidebar {
+            background-color: #F5F5F5;
+            border-right: 1px solid #000000;
+            padding: 1.5rem 1rem;
+            overflow-y: auto;
+        }
+
+        .sp-sidebar-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .sp-sidebar-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #000000;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #000000;
+        }
+
+        .sp-sidebar-links {
+            list-style: none;
+        }
+
+        .sp-sidebar-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sp-sidebar-links a {
+            color: var(--color-fg);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.5rem 0.75rem;
+            border-left: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .sp-sidebar-links a:hover {
+            color: var(--color-fg);
+            border-left-color: #000000;
+            background-color: #EEEEEE;
+        }
+
+        /* Main content */
+        .sp-main {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        /* Hero section */
+        .sp-hero {
+            background: #FFFFFF;
+            border: 1px solid #000000;
+            border-left: 3px solid #000000;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sp-hero::before {
+            display: none;
+        }
+
+        .sp-hero-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .sp-hero h1 {
+            font-family: var(--font-mono);
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            color: #000000;
+            text-shadow: none;
+        }
+
+        .sp-hero p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--color-fg);
+            max-width: 600px;
+        }
+
+        /* Cards/Web parts */
+        .sp-card {
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            border-left: 3px solid #000000;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .sp-card:hover {
+            border-color: #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sp-card h2 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .sp-card p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Grid layout for cards */
+        .sp-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Buttons */
+        .sp-button {
+            display: inline-block;
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 0.75rem 1.5rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid #000000;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            box-shadow: none;
+        }
+
+        .sp-button:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sp-button-secondary {
+            background-color: #FFFFFF;
+            color: #000000;
+            border: 2px solid #000000;
+        }
+
+        .sp-button-secondary:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        /* Divider rules */
+        .sp-rule {
+            height: 2px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000000,
+                #000000 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        .sp-footer {
+            background-color: #F5F5F5;
+            border-top: 2px solid #000000;
+            padding: 2rem 1.5rem;
+            grid-column: 1 / -1;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .sp-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .sp-footer-links a {
+            color: #000000;
+            text-decoration: none;
+            border-bottom: 1px dotted #000000;
+        }
+
+        .sp-footer-links a:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sp-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sp-sidebar {
+                display: none;
+            }
+
+            .sp-hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .sp-card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sp-navbar-items {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Utility classes */
+        .sp-accent-blue { color: #000000; }
+        .sp-accent-pink { color: #000000; }
+        .sp-accent-yellow { color: #000000; }
+        .sp-accent-mint { color: #000000; }
+
+        /* ASCII-style list markers */
+        ul.sp-ascii-list {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+
+        ul.sp-ascii-list li {
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        ul.sp-ascii-list li::before {
+            content: '> ';
+            position: absolute;
+            left: -1.5rem;
+            color: #000000;
+            font-family: var(--font-mono);
+        }
+
+        /* Code/terminal blocks */
+        .sp-code {
+            background-color: #F5F5F5;
+            border: 1px solid #000000;
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: #000000;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .sp-code::before {
+            content: '$ ';
+            color: #000000;
+            font-weight: 700;
+        }
+
+        /* Template Store Styles */
+        .sp-filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .sp-filter-btn {
+            padding: 0.5rem 1rem;
+            background-color: #FFFFFF;
+            border: 2px solid #000000;
+            color: #000000;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sp-filter-btn:hover,
+        .sp-filter-btn.active {
+            background-color: #000000;
+            color: #FFFFFF;
+            box-shadow: none;
+        }
+
+        .sp-search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.5rem 1rem;
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            color: #000000;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .sp-search-box::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .sp-search-box:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Template Grid */
+        .sp-template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .sp-template-card {
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .sp-template-card:hover {
+            border-color: #000000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .sp-template-preview {
+            width: 100%;
+            height: 180px;
+            background: #F5F5F5;
+            border-bottom: 1px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            color: #000000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sp-template-preview::before {
+            display: none;
+        }
+
+        .sp-template-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sp-template-title {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .sp-template-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #333333;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .sp-template-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #666666;
+            font-family: var(--font-mono);
+        }
+
+        .sp-template-tag {
+            display: inline-block;
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #000000;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .sp-template-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .sp-template-preview-btn,
+        .sp-template-download-btn {
+            flex: 1;
+            padding: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sp-template-preview-btn {
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            color: #000000;
+        }
+
+        .sp-template-preview-btn:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        .sp-template-download-btn {
+            background-color: #000000;
+            color: #FFFFFF;
+            border: none;
+        }
+
+        .sp-template-download-btn:hover {
+            background-color: #333333;
+        }
+
+        /* Modal Styles */
+        .sp-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .sp-modal.active {
+            display: flex;
+        }
+
+        .sp-modal-content {
+            background-color: #FFFFFF;
+            border: 2px solid #000000;
+            border-left: 4px solid #000000;
+            max-width: 80vw;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+
+        .sp-modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #F5F5F5;
+        }
+
+        .sp-modal-header h2 {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            color: #000000;
+            margin: 0;
+        }
+
+        .sp-modal-close {
+            background: none;
+            border: none;
+            color: #000000;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .sp-modal-close:hover {
+            color: #666666;
+            transform: rotate(90deg);
+        }
+
+        .sp-modal-body {
+            padding: 2rem;
+        }
+
+        .sp-modal-preview-box {
+            width: 100%;
+            height: 300px;
+            background: #F5F5F5;
+            border: 2px dashed #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            color: #000000;
+            text-shadow: none;
+        }
+
+        .sp-modal-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .sp-modal-detail-item {
+            border-left: 3px solid #000000;
+            padding-left: 1rem;
+        }
+
+        .sp-modal-detail-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #666666;
+            margin-bottom: 0.5rem;
+        }
+
+        .sp-modal-detail-value {
+            font-size: 1rem;
+            color: #000000;
+        }
+
+        .sp-modal-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed #000000;
+        }
+
+        .sp-modal-download {
+            flex: 1;
+            padding: 1rem;
+            background-color: #000000;
+            color: #FFFFFF;
+            border: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sp-modal-download:hover {
+            background-color: #333333;
+        }
+
+        .sp-modal-close-btn {
+            flex: 1;
+            padding: 1rem;
+            background-color: #FFFFFF;
+            color: #000000;
+            border: 2px solid #000000;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .sp-modal-close-btn:hover {
+            background-color: #F5F5F5;
+        }
+
+        /* Empty State */
+        .sp-empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            color: #666666;
+        }
+
+        .sp-empty-state h3 {
+            font-family: var(--font-mono);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .sp-template-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sp-modal-content {
+                max-width: 95vw;
+                max-height: 90vh;
+            }
+
+            .sp-filter-bar {
+                flex-direction: column;
+            }
+
+            .sp-search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="sp-navbar">
+        <a href="#" class="sp-navbar-brand">ERROR404.NET</a>
+        <ul class="sp-navbar-items">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#sites">SITES</a></li>
+            <li><a href="#content">CONTENT</a></li>
+            <li><a href="#teams">TEAMS</a></li>
+            <li><a href="#settings">SETTINGS</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main container with sidebar -->
+    <div class="sp-container">
+        <!-- Left Sidebar -->
+        <aside class="sp-sidebar">
+            <div class="sp-sidebar-section">
+                <div class="sp-sidebar-title">:: NAVIGATION</div>
+                <ul class="sp-sidebar-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Documents</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Teams</a></li>
+                </ul>
+            </div>
+
+            <div class="sp-sidebar-section">
+                <div class="sp-sidebar-title">~ LIBRARY</div>
+                <ul class="sp-sidebar-links">
+                    <li><a href="#">Shared</a></li>
+                    <li><a href="#">Archives</a></li>
+                    <li><a href="#">Templates</a></li>
+                </ul>
+            </div>
+
+            <div class="sp-sidebar-section">
+                <div class="sp-sidebar-title">= QUICK LINKS</div>
+                <ul class="sp-sidebar-links">
+                    <li><a href="#">Brand Guidelines</a></li>
+                    <li><a href="#">Design System</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="sp-main">
+            <!-- Hero Section -->
+            <section class="sp-hero">
+                <div class="sp-hero-content">
+                    <h1>TEMPLATE STORE</h1>
+                    <p>
+                        Browse and download Error404-branded SharePoint templates. 
+                        Everything you need to build on-brand, from collaboration sites to landing pages.
+                    </p>
+                    <div style="margin-top: 1.5rem;">
+                        <p style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--color-mint);">
+                            :: <span id="template-count">0</span> templates available
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="sp-rule"></div>
+
+            <!-- Filter Bar -->
+            <div class="sp-filter-bar">
+                <input type="text" id="search-input" class="sp-search-box" placeholder="Search templates...">
+                <button class="sp-filter-btn active" data-filter="all">ALL</button>
+                <button class="sp-filter-btn" data-filter="site">SITES</button>
+                <button class="sp-filter-btn" data-filter="page">PAGES</button>
+                <button class="sp-filter-btn" data-filter="list">LISTS</button>
+                <button class="sp-filter-btn" data-filter="communication">COMMS</button>
+                <button class="sp-filter-btn" data-filter="intranet">INTRANET</button>
+            </div>
+
+            <!-- Template Grid -->
+            <div class="sp-template-grid" id="template-grid">
+                <!-- Templates will be loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="sp-modal" id="preview-modal">
+        <div class="sp-modal-content">
+            <div class="sp-modal-header">
+                <h2 id="modal-title">Template Preview</h2>
+                <button class="sp-modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="sp-modal-body">
+                <div class="sp-modal-preview-box" id="modal-preview">Preview</div>
+                <p id="modal-description" style="line-height: 1.6;"></p>
+                
+                <div class="sp-modal-details">
+                    <div class="sp-modal-detail-item">
+                        <div class="sp-modal-detail-label">Type</div>
+                        <div class="sp-modal-detail-value" id="modal-type">-</div>
+                    </div>
+                    <div class="sp-modal-detail-item">
+                        <div class="sp-modal-detail-label">Use Case</div>
+                        <div class="sp-modal-detail-value" id="modal-usecase">-</div>
+                    </div>
+                    <div class="sp-modal-detail-item">
+                        <div class="sp-modal-detail-label">Size</div>
+                        <div class="sp-modal-detail-value" id="modal-size">-</div>
+                    </div>
+                    <div class="sp-modal-detail-item">
+                        <div class="sp-modal-detail-label">Compatibility</div>
+                        <div class="sp-modal-detail-value" id="modal-compat">-</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h3 style="font-family: var(--font-mono); color: var(--color-yellow); margin-bottom: 0.75rem;">:: FEATURES</h3>
+                    <ul class="sp-ascii-list" id="modal-features"></ul>
+                </div>
+
+                <div class="sp-modal-actions">
+                    <button class="sp-modal-download" id="download-btn" onclick="downloadTemplate()">⬇ DOWNLOAD</button>
+                    <button class="sp-modal-close-btn" onclick="closeModal()">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="sp-footer">
+        <div class="sp-footer-links">
+            <a href="https://branding.error404.net">Brand Guidelines</a>
+            <a href="https://github.com/Error404-net/Branding-Guide">GitHub</a>
+            <a href="#">Documentation</a>
+            <a href="#">Support</a>
+        </div>
+        <div>
+            <p>ERROR404.NET — SharePoint Template Store</p>
+            <p style="font-size: 0.75rem; color: var(--color-mint); margin-top: 0.5rem;">!ignore → return "404: Message not found"</p>
+        </div>
+    </footer>
+
+    <script>
+        // Template Data
+        const templates = [
+            {
+                id: 1,
+                title: 'Team Collaboration',
+                description: 'Central hub for team communication, documents, and project tracking with real-time updates.',
+                type: 'site',
+                category: 'SITES',
+                usecase: 'Team Communication',
+                size: '2.4 MB',
+                compat: 'SharePoint Online 2021+',
+                icon: '🔗',
+                features: [
+                    'Team news and announcements',
+                    'Document library with version control',
+                    'Team calendar integration',
+                    'Quick links and shortcuts',
+                    'Mobile-responsive design'
+                ]
+            },
+            {
+                id: 2,
+                title: 'IT Infrastructure Hub',
+                description: 'Centralized documentation and management portal for IT teams with technical resources.',
+                type: 'site',
+                category: 'INTRANET',
+                usecase: 'IT Documentation',
+                size: '1.8 MB',
+                compat: 'SharePoint Online 2019+',
+                icon: '⚙️',
+                features: [
+                    'Knowledge base structure',
+                    'Incident tracking dashboard',
+                    'Asset inventory lists',
+                    'Automation scripts library',
+                    'Search-optimized metadata'
+                ]
+            },
+            {
+                id: 3,
+                title: 'Project Dashboard',
+                description: 'Visual project management with timelines, status tracking, and stakeholder updates.',
+                type: 'page',
+                category: 'PAGES',
+                usecase: 'Project Management',
+                size: '1.2 MB',
+                compat: 'SharePoint Online',
+                icon: '📊',
+                features: [
+                    'Timeline visualization',
+                    'Status indicators',
+                    'Risk tracking matrix',
+                    'Milestone tracking',
+                    'Real-time updates'
+                ]
+            },
+            {
+                id: 4,
+                title: 'Content Publishing',
+                description: 'Press releases, news, and content distribution with approval workflows.',
+                type: 'site',
+                category: 'COMMUNICATION',
+                usecase: 'Content Distribution',
+                size: '2.1 MB',
+                compat: 'SharePoint Online 2019+',
+                icon: '📰',
+                features: [
+                    'Approval workflows',
+                    'Scheduled publishing',
+                    'Multi-channel distribution',
+                    'Analytics tracking',
+                    'Retention policies'
+                ]
+            },
+            {
+                id: 5,
+                title: 'Employee Directory',
+                description: 'Searchable organizational structure with team hierarchies and contact information.',
+                type: 'list',
+                category: 'LISTS',
+                usecase: 'Team Information',
+                size: '0.8 MB',
+                compat: 'SharePoint Online',
+                icon: '👥',
+                features: [
+                    'Full-text search',
+                    'Organization chart',
+                    'Profile cards',
+                    'Team filtering',
+                    'Export capabilities'
+                ]
+            },
+            {
+                id: 6,
+                title: 'Knowledge Base',
+                description: 'FAQ and self-service documentation portal with tagging and search indexing.',
+                type: 'site',
+                category: 'INTRANET',
+                usecase: 'Self-Service Portal',
+                size: '1.5 MB',
+                compat: 'SharePoint Online',
+                icon: '📚',
+                features: [
+                    'Article categorization',
+                    'Search highlighting',
+                    'Related articles',
+                    'Comment threads',
+                    'Usage analytics'
+                ]
+            },
+            {
+                id: 7,
+                title: 'Event Registration',
+                description: 'Event management system with registration, ticketing, and attendee tracking.',
+                type: 'page',
+                category: 'PAGES',
+                usecase: 'Event Management',
+                size: '1.3 MB',
+                compat: 'SharePoint Online 2021+',
+                icon: '🎉',
+                features: [
+                    'Registration form',
+                    'Ticket generation',
+                    'Email confirmations',
+                    'Attendee dashboard',
+                    'Export reports'
+                ]
+            },
+            {
+                id: 8,
+                title: 'Policy Repository',
+                description: 'Centralized policy management with version control and compliance tracking.',
+                type: 'site',
+                category: 'COMMUNICATION',
+                usecase: 'Policy Management',
+                size: '1.9 MB',
+                compat: 'SharePoint Online 2019+',
+                icon: '📋',
+                features: [
+                    'Version history',
+                    'Approval workflows',
+                    'Change tracking',
+                    'Compliance audit',
+                    'Distribution lists'
+                ]
+            },
+            {
+                id: 9,
+                title: 'Budget Planning',
+                description: 'Interactive budget planning and tracking with forecasting models.',
+                type: 'page',
+                category: 'PAGES',
+                usecase: 'Financial Planning',
+                size: '2.2 MB',
+                compat: 'SharePoint Online',
+                icon: '💰',
+                features: [
+                    'Budget templates',
+                    'Variance analysis',
+                    'Drill-down reports',
+                    'Scenario modeling',
+                    'Export to Excel'
+                ]
+            },
+            {
+                id: 10,
+                title: 'Training Portal',
+                description: 'Learning management with course catalogs, progress tracking, and certifications.',
+                type: 'site',
+                category: 'INTRANET',
+                usecase: 'Learning & Development',
+                size: '2.8 MB',
+                compat: 'SharePoint Online 2021+',
+                icon: '🎓',
+                features: [
+                    'Course catalog',
+                    'Progress tracking',
+                    'Certificate generation',
+                    'Assessment tools',
+                    'Completion reports'
+                ]
+            },
+            {
+                id: 11,
+                title: 'Vendor Portal',
+                description: 'Secure third-party access with request management and SLA tracking.',
+                type: 'site',
+                category: 'COMMUNICATION',
+                usecase: 'Partner Collaboration',
+                size: '2.0 MB',
+                compat: 'SharePoint Online 2019+',
+                icon: '🤝',
+                features: [
+                    'Request forms',
+                    'SLA tracking',
+                    'Document sharing',
+                    'Portal permissions',
+                    'Audit logging'
+                ]
+            },
+            {
+                id: 12,
+                title: 'Status Report Generator',
+                description: 'Automated weekly/monthly status reporting with metrics and narratives.',
+                type: 'page',
+                category: 'PAGES',
+                usecase: 'Reporting',
+                size: '1.1 MB',
+                compat: 'SharePoint Online',
+                icon: '📈',
+                features: [
+                    'Report templates',
+                    'Metric dashboards',
+                    'Email scheduling',
+                    'PDF export',
+                    'Historical comparison'
+                ]
+            }
+        ];
+
+        let currentTemplate = null;
+        let filteredTemplates = [...templates];
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTemplates();
+            setupFilters();
+            setupSearch();
+        });
+
+        function renderTemplates() {
+            const grid = document.getElementById('template-grid');
+            const count = document.getElementById('template-count');
+            
+            if (filteredTemplates.length === 0) {
+                grid.innerHTML = '<div class="sp-empty-state"><h3>:: NO TEMPLATES FOUND</h3><p>Try a different search or filter</p></div>';
+                count.textContent = '0';
+                return;
+            }
+
+            grid.innerHTML = filteredTemplates.map(t => `
+                <div class="sp-template-card">
+                    <div class="sp-template-preview">${t.icon}</div>
+                    <div class="sp-template-content">
+                        <div class="sp-template-title">${t.title}</div>
+                        <div class="sp-template-desc">${t.description}</div>
+                        <div class="sp-template-meta">
+                            <span class="sp-template-tag">${t.category}</span>
+                            <span style="color: var(--color-yellow);">${t.size}</span>
+                        </div>
+                        <div class="sp-template-actions">
+                            <button class="sp-template-preview-btn" onclick="openModal(${t.id})">PREVIEW</button>
+                            <button class="sp-template-download-btn" onclick="quickDownload(${t.id})">GET</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            count.textContent = filteredTemplates.length;
+        }
+
+        function setupFilters() {
+            document.querySelectorAll('.sp-filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.sp-filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    if (filter === 'all') {
+                        filteredTemplates = [...templates];
+                    } else {
+                        filteredTemplates = templates.filter(t => t.type === filter);
+                    }
+                    renderTemplates();
+                });
+            });
+        }
+
+        function setupSearch() {
+            document.getElementById('search-input').addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase();
+                const filter = document.querySelector('.sp-filter-btn.active').dataset.filter;
+                
+                if (filter === 'all') {
+                    filteredTemplates = templates.filter(t => 
+                        t.title.toLowerCase().includes(query) || 
+                        t.description.toLowerCase().includes(query)
+                    );
+                } else {
+                    filteredTemplates = templates.filter(t => 
+                        t.type === filter && (
+                            t.title.toLowerCase().includes(query) || 
+                            t.description.toLowerCase().includes(query)
+                        )
+                    );
+                }
+                renderTemplates();
+            });
+        }
+
+        function openModal(id) {
+            currentTemplate = templates.find(t => t.id === id);
+            if (!currentTemplate) return;
+
+            document.getElementById('modal-title').textContent = currentTemplate.title;
+            document.getElementById('modal-preview').textContent = currentTemplate.icon;
+            document.getElementById('modal-description').textContent = currentTemplate.description;
+            document.getElementById('modal-type').textContent = currentTemplate.category;
+            document.getElementById('modal-usecase').textContent = currentTemplate.usecase;
+            document.getElementById('modal-size').textContent = currentTemplate.size;
+            document.getElementById('modal-compat').textContent = currentTemplate.compat;
+            
+            const featuresList = document.getElementById('modal-features');
+            featuresList.innerHTML = currentTemplate.features.map(f => `<li>${f}</li>`).join('');
+
+            document.getElementById('preview-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('preview-modal').classList.remove('active');
+            currentTemplate = null;
+        }
+
+        function downloadTemplate() {
+            if (!currentTemplate) return;
+            
+            // Create a simple downloadable file
+            const content = `ERROR404.NET SHAREPOINT TEMPLATE
+=====================================
+Template: ${currentTemplate.title}
+Type: ${currentTemplate.category}
+Size: ${currentTemplate.size}
+Compatibility: ${currentTemplate.compat}
+
+Description:
+${currentTemplate.description}
+
+Features:
+${currentTemplate.features.map(f => '• ' + f).join('\n')}
+
+Installation:
+1. Extract the template file
+2. Upload to your SharePoint site
+3. Apply to your site or create new from template
+4. Customize with your branding and content
+
+Support: https://branding.error404.net
+!ignore → return "404: Message not found"
+`;
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `error404-${currentTemplate.title.toLowerCase().replace(/\s+/g, '-')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            closeModal();
+        }
+
+        function quickDownload(id) {
+            const template = templates.find(t => t.id === id);
+            if (!template) return;
+            
+            currentTemplate = template;
+            downloadTemplate();
+        }
+
+        // Close modal on outside click
+        document.getElementById('preview-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
