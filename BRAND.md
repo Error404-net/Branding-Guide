@@ -129,8 +129,14 @@ decoration would cost clarity.
 ```
 
 It reads as a function return and winks at prompt-injection and AI-scanner
-culture. It is the signature sign-off and is valid anywhere a tagline fits.
+culture. Valid anywhere a tagline fits — site, marketing, the PDF guide.
 It is locked: do not reword, retranslate, or "modernize" it.
+
+**Exception: not the email signature.** The wink works for a human reading
+the site; it doesn't work as well on outbound mail, where a "!ignore →" line
+risks a false-positive from a recipient's own AI-based mail security
+scanner on every message sent. The canonical signature format (see
+`email-templates/`) omits it — sign off with the wordmark, not the tagline.
 
 **Alternatives.** None are approved. The primary tagline stands alone.
 

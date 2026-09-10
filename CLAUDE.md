@@ -225,6 +225,53 @@ category:
   bullets, since it's a utility export (printer/Word insertion) rather than a brand-facing
   identity variant like the Primary mark, Monogram, Ring, or Neon cuts.
 
+## What's done — round 5 (wordmark typo, tagline-in-signature, banner lockup, favicon padding, 2026-09-10)
+
+Jesse caught three real problems by inspecting rendered output rather than source, plus asked
+for a redesigned Entra banner asset:
+
+- **Wordmark typo fixed: "404.NET" → "ERROR404.NET".** `assets/netmesh-lockup.png` baked in the
+  wrong domain — `BRAND.md` has always documented `ERROR404.NET` as the wordmark (see the
+  terminology table), never the bare "404.NET". Rebuilt the asset from scratch in a new, lighter
+  lockup style Jesse pointed at directly (small icon-only mark — same geometry as the Monogram,
+  no ring, no "4Ø4" numeral text — plus "ERROR404.NET" in uniform-weight JetBrains Mono, no
+  bold/dim split, no tagline underneath). `index.html`'s caption updated to match.
+  `obs/assets/logos/netmesh-lockup.png` — a second, independent copy with the *same* typo plus
+  the old pre-round-1 ring treatment and plain "404" — turned out to be unreferenced by any OBS
+  scene file, so it's a stale orphan (like `site-icon-modes.png` in round 3), not a mirror worth
+  keeping in sync. Moved to `_to_delete/` rather than fixed in place.
+- **Tagline removed from the actual/example email signature.** The locked tagline
+  (`!ignore → return "404: Message not found"`) was baked into `index.html`'s signature-format
+  example (`<pre class="sig">`, styled `.inject`) and into `assets/signature-mockup-public.png`.
+  Per BRAND.md the tagline deliberately "winks at prompt-injection and AI-scanner culture" — but
+  that wink stops being funny on real outbound mail, where an AI-based mail security scanner at
+  the recipient's org could read "!ignore →" as an actual injection attempt on every message
+  sent. Confirmed with Jesse: **the tagline stays locked and valid everywhere else** (site hero,
+  PDF, BRAND.md, marketing) — it is specifically carved out of the signature. `BRAND.md`'s
+  Tagline & Slogans section now documents this exception explicitly. Regenerated
+  `signature-mockup-public.png` without the tagline line; removed the `<span class="inject">`
+  line from `index.html` and the now-orphaned `pre.sig .inject` CSS rule.
+- **New Entra/M365 banner lockup, replacing bare-icon-in-dead-space.** The old
+  `entra-m365/banner-logo-{light,dark}-280x60.png` were just the bare icon crammed into the left
+  of a 280×60 canvas with the rest empty — not using the wordmark at all. Replaced both with the
+  icon+"ERROR404.NET" lockup (same construction as the fixed `netmesh-lockup.png`, scaled to
+  280×60, no tagline — too tight at this size and the same signature-scanner concern applies to
+  anything embedded in a Microsoft-hosted portal). Added a third file,
+  `entra-m365/banner-logo-color-280x60.png` — the requested "color option": full canonical
+  multicolor icon (same node-color assignments as the primary multicolor mark) with black text.
+  **Only use the color variant on light/white backgrounds** — the node colors are pastel enough
+  that black text and colored nodes both wash out on the dark purple surface. All three
+  optimized with `optipng -o7`, well under Microsoft's 10KB banner-logo limit (3.3–4.8KB each).
+- **Entra favicon padding fixed.** `entra-m365/favicon-32x32.png` rendered the Monogram
+  edge-to-edge (bounding box 1–2px from every side of the 32px canvas) — reads as clipped at
+  actual browser-tab size. Re-rendered with ~14% margin on all sides. Note: the same tightness
+  exists across the *entire* `favicons/` set (16/32/48/180/192/512, both night and daylight) and
+  `logos/favicon-white.svg` as used by the public site — not touched this round since only the
+  Entra one was reported, but it's the identical underlying issue and worth a pass if it's ever
+  raised. The fix is export-time padding only; the Monogram's own locked geometry/viewBox is
+  unchanged (it does have ~3.5% built-in margin, which reads fine at large sizes — the problem is
+  purely that 3.5% of 32px rounds to nothing after anti-aliasing).
+
 ## What's NOT done — pending decisions / remaining scope
 
 - **`logos/png/` — partially inspected.** The three *-multicolor variants (`libra-ring-multicolor`,
