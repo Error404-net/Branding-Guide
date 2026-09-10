@@ -40,7 +40,8 @@
                         centered in the scales' quadrilateral. Full set: ring
                         / no-ring x black/white/blue/multicolor, a "4Ø4" ham
                         variant, and flat light-mode/dark-mode website icons.
-  > wordmark lockup  : ERROR404.NET wordmark + icon, secondary/legacy lockup
+  > wordmark lockup  : icon + "ERROR404.NET" wordmark, used wherever the full
+                        domain name should read out loud
   > treatment modes  : Digital (full color/glow) vs. Print/Corporate (B&W,
                         ASCII-forward — Word/PDF/letterhead/email)
   > tagline (locked) : !ignore -> return "404: Message not found"
@@ -94,9 +95,12 @@
 --------------------------------------------------------------------------------
 
   > live guide  : https://branding.error404.net
-  > tagline origin: the real email-signature easter egg this brand is built
-                    around — a prompt-injection joke dressed as a function
-                    return.
+  > tagline origin: a prompt-injection joke dressed as a function return —
+                    started as an email-signature easter egg, but the wink
+                    is now kept off real outbound mail (a recipient's AI
+                    mail-security scanner could read it as a live injection
+                    attempt). Locked and used everywhere else: site,
+                    marketing, PDF.
 
 ================================================================================
                     ERROR404.NET  //  73 de operator  //  2026

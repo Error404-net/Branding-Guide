@@ -38,6 +38,12 @@ server.registerTool(
     const tokens = parseTokens(tokensCss);
     return text({
       tagline: '!ignore → return "404: Message not found"  (LOCKED — never reword)',
+      tagline_exception:
+        'Not used in the email signature. It winks at prompt-injection/AI-scanner culture, which ' +
+        "is fine for a human reading the site but risky on real outbound mail — a recipient's AI " +
+        'mail-security scanner could read "!ignore →" as an actual injection attempt. Sign off ' +
+        'the signature with the wordmark instead. Locked and valid everywhere else (site, ' +
+        'marketing, PDF).',
       palette_status: 'LOCKED — Arcade New Wave',
       tokens: Object.fromEntries(Object.entries(tokens).filter(([k]) => /surface|text|accent/.test(k))),
       typefaces: {
@@ -53,7 +59,7 @@ server.registerTool(
       },
       terminology: {
         mark: 'the Libra graphic',
-        wordmark: 'the ERROR404.NET lettering',
+        wordmark: 'the ERROR404.NET lettering — never the bare "404.NET"',
         lockup: 'mark and wordmark together',
         variant: 'a version of the mark — never "colorway", "cut" or "pull"',
       },

@@ -35,7 +35,26 @@ const TERMS = [
   },
   { bad: /\bTBD\b/g, good: 'a plain statement that it is not decided', why: 'BRAND.md: never say "TBD" or "coming soon".' },
   { bad: /\bcoming soon\b/gi, good: 'a plain statement of status', why: 'BRAND.md: never say "TBD" or "coming soon".' },
+  {
+    // The wordmark is ERROR404.NET. "404.NET" alone shipped in a real asset
+    // (assets/netmesh-lockup.png) before being caught — don't match when it's
+    // preceded by "error" (case-insensitive), which covers ERROR404.NET and
+    // the lowercase error404.net domain/email form.
+    bad: /(?<!error)404\.net\b/gi,
+    good: 'ERROR404.NET',
+    why: 'The wordmark is always the full "ERROR404.NET" — never the bare domain-style "404.NET".',
+  },
 ];
+
+// The locked tagline reads as a prompt-injection joke for a human audience —
+// BRAND.md carves it out of the email signature specifically, since the same
+// joke risks a false-positive from a recipient's AI mail-security scanner on
+// real outbound mail. Heuristic: fires when the tagline co-occurs with
+// signature-shaped content (the "~/ ... ::" contact line, or an email/phone
+// placeholder), not on the tagline alone — it's still locked and valid on the
+// site, in marketing, and in the PDF guide.
+const TAGLINE_RE = /!ignore\s*(?:→|->)\s*return/i;
+const SIGNATURE_SHAPE_RE = /~\/|::|@(?:error404\.net|you@|<you@)/i;
 
 // Deliberately narrow: catches real contact details leaking into a template.
 const PII = [
@@ -64,6 +83,16 @@ export function lintCopy(text, { context = 'instructional' } = {}) {
     for (const m of text.matchAll(t.bad)) {
       add(t.severity || 'error', 'terminology', `"${m[0].trim()}" → use ${t.good}. ${t.why}`, m[0]);
     }
+  }
+
+  // 1b. The locked tagline placed where it reads as a signature sign-off
+  if (TAGLINE_RE.test(text) && SIGNATURE_SHAPE_RE.test(text)) {
+    add(
+      'error',
+      'tagline-placement',
+      'The tagline is carved out of the email signature (BRAND.md, Tagline & Slogans): "!ignore →" on real outbound mail risks a false-positive from a recipient\'s AI mail-security scanner. Sign off with the wordmark instead — the tagline stays locked and valid everywhere else (site, marketing, PDF).',
+      text.match(TAGLINE_RE)?.[0]
+    );
   }
 
   // 2. Real contact details in template copy

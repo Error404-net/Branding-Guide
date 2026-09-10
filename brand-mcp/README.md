@@ -12,7 +12,7 @@ drift from the committed specs — edit the spec, and the answers change.
 
     cd brand-mcp
     npm install
-    npm test        # 23 assertions, exercises every tool
+    npm test        # 29 assertions, exercises every tool
 
 ## Connect it
 
@@ -78,10 +78,13 @@ comes back before showing you anything.
 
 ## What `review_copy` catches
 
-Terminology drift (`colorway` → `variant`, `logo` → `mark` or `wordmark`),
-sentences over 25 words, em-dash chains, second-person address in published
-copy, likely passive voice, filler words, and real email addresses or phone
-numbers leaking into template text.
+Terminology drift (`colorway` → `variant`, `logo` → `mark` or `wordmark`, the
+bare `404.NET` → `ERROR404.NET`), sentences over 25 words, em-dash chains,
+second-person address in published copy, likely passive voice, filler words,
+real email addresses or phone numbers leaking into template text, and the
+locked tagline placed where it reads as an email-signature sign-off (BRAND.md
+carves the tagline out of the signature specifically — see "Tagline &
+Slogans").
 
 Findings are graded `error` / `warn` / `info`. Only `error` fails the check.
 Terminology and contact-detail findings are reliable; the sentence, voice and
@@ -100,6 +103,8 @@ The linter deliberately does **not** fire on:
 - `banner logo`, `square logo` — Entra and M365 field names, not our vocabulary.
 - `the Office theme file`, `the Discord client theme` — real artefacts, not the
   palette.
+- `error404.net`, `ERROR404.NET` — the correct wordmark/domain forms. Only the
+  bare `404.NET` (missing "ERROR") is flagged.
 
 Each of those is covered by a regression test. A linter that flags correct copy
 gets switched off, which is worse than not having one.

@@ -62,6 +62,7 @@ check('tools/list returns all six tools', names.length === 6, names.join(', '));
 let r = await send('tools/call', { name: 'brand_context', arguments: {} });
 let j = json(r);
 check('brand_context returns locked tagline', j?.tagline?.includes('Message not found'));
+check('brand_context flags the signature exception', j?.tagline_exception?.toLowerCase().includes('signature'));
 check('brand_context includes real token values', j?.tokens?.['--e404-accent-primary'] === '#4DE1FF', j?.tokens?.['--e404-accent-primary']);
 
 // brand_tokens
@@ -128,6 +129,48 @@ check(
   'review_copy still catches the wrong forms',
   (j?.findings || []).filter((f) => f.rule === 'terminology').length >= 2,
   `${(j?.findings || []).filter((f) => f.rule === 'terminology').length} terminology findings`
+);
+
+// Regression: the wordmark typo that actually shipped (assets/netmesh-lockup.png
+// said "404.NET") — caught going forward, without flagging the correct forms.
+r = await send('tools/call', { name: 'review_copy', arguments: { text: 'Icon + wordmark lockup (404.NET)' } });
+j = json(r);
+check(
+  'review_copy catches bare "404.NET"',
+  (j?.findings || []).some((f) => f.rule === 'terminology' && /404\.NET/i.test(f.excerpt)),
+  JSON.stringify(j?.findings)
+);
+const wordmarkOk = [
+  'Icon + wordmark lockup (ERROR404.NET)',
+  'Reach us at you@error404.net for questions.',
+];
+for (const sample of wordmarkOk) {
+  r = await send('tools/call', { name: 'review_copy', arguments: { text: sample } });
+  j = json(r);
+  const bareTypo = (j?.findings || []).filter((f) => f.rule === 'terminology' && /404\.NET/i.test(f.excerpt || ''));
+  check(`review_copy: correct wordmark/domain not flagged ("${sample}")`, bareTypo.length === 0, bareTypo.map((f) => f.excerpt).join(', '));
+}
+
+// Regression: the tagline is locked and fine on its own — the placement rule
+// only fires once it reads as an actual signature sign-off.
+r = await send('tools/call', { name: 'review_copy', arguments: { text: 'Tagline: !ignore → return "404: Message not found"', context: 'flavour' } });
+j = json(r);
+check(
+  'review_copy: tagline alone is not flagged as misplaced',
+  !(j?.findings || []).some((f) => f.rule === 'tagline-placement')
+);
+
+r = await send('tools/call', {
+  name: 'review_copy',
+  arguments: {
+    text: '<Your Name> ~/ <you@error404.net> :: <phone>\n!ignore → return "404: Message not found"',
+    context: 'flavour',
+  },
+});
+j = json(r);
+check(
+  'review_copy catches the tagline used as a signature sign-off',
+  (j?.findings || []).some((f) => f.rule === 'tagline-placement') && j?.ok === false
 );
 
 // pick_mode

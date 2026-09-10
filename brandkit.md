@@ -4,6 +4,7 @@ One-screen quick reference. For the full system see [`BRAND.md`](./BRAND.md)
 (identity) and [`DESIGN.md`](./DESIGN.md) (implementation tokens).
 
 **Tagline (locked)** — `!ignore → return "404: Message not found"`
+Not used in the email signature — see [`BRAND.md`](./BRAND.md) § Tagline & Slogans.
 
 **Direction** — 90s warez-scene ASCII, phreaking, arcade, new-wave hacker.
 Maximalist, textured, arcade-bright. The texture is the brand.
@@ -42,8 +43,9 @@ fallback — a bare family name falls back to *serif*, not monospace.
 ## Mark
 
 The Libra constellation mark: a node-link graph plotted from real Libra star
-positions and magnitudes, with `404` (or `4Ø4` in the ham variant) centered on a
-flat opaque halo.
+positions and magnitudes, with `4Ø4` centered in the scales' quadrilateral —
+every variant, not just one cut. No halo or oval backdrop behind the text;
+that treatment was tried and retired for good.
 
 - Clear space: the height of one `4` glyph, all sides.
 - Minimum: 24px flat, 128px full texture.

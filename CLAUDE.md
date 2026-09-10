@@ -272,6 +272,41 @@ for a redesigned Entra banner asset:
   unchanged (it does have ~3.5% built-in margin, which reads fine at large sizes — the problem is
   purely that 3.5% of 32px rounds to nothing after anti-aliasing).
 
+## What's done — round 6 (propagate round 5 into brand-mcp and the markdown docs, 2026-09-10)
+
+Round 5 fixed the assets and `index.html`/`BRAND.md` but left the query-time tooling and a couple
+of quick-reference docs still describing the old, wrong state. Swept those:
+
+- **`brand-mcp/src/lint.js`** — new terminology rule catches the bare `404.NET` typo going
+  forward (excludes `ERROR404.NET` and the `error404.net` domain/email via a negative
+  lookbehind on "error"). New `tagline-placement` rule fires when the locked tagline co-occurs
+  with signature-shaped content (`~/ ... ::`, an `@error404.net`/`<you@...>` placeholder) — the
+  tagline alone is still fine anywhere, this only catches it being used as an actual sign-off.
+- **`brand-mcp/src/index.js`** — `brand_context` now returns a `tagline_exception` field stating
+  the signature carve-out plainly, and `terminology.wordmark` calls out the bare-"404.NET" typo
+  by name.
+- **`brand-mcp/test/smoke.js`** — 6 new assertions (29 total, was 23): the exception field is
+  present, the typo is caught, `ERROR404.NET` and `you@error404.net` are *not* false-flagged,
+  the tagline alone isn't flagged, and the tagline-as-signature case is. `npm test` run clean,
+  29/29.
+- **`brand-mcp/README.md`** — test count updated to 29; "What `review_copy` catches" and "On
+  false positives" now mention both new checks.
+- **`README.md`** (repo root) — the "tagline origin" line used to say the tagline *is* "the real
+  email-signature easter egg this brand is built around," which is now backwards. Reworded to
+  state the origin as history while pointing at the current carve-out. Also fixed the "wordmark
+  lockup" line, which still said "secondary/legacy lockup" — that description was written when
+  the ANSI/glitch `main-lockup.png` was the primary lockup and this was the backup; that section
+  was removed from `index.html` in the SharePoint-branch work (see `1eb6a73`), so this lockup is
+  now the only one and isn't "secondary" to anything.
+- **`brandkit.md`** — found to be stale independent of anything from round 5: it still described
+  plain `404` (not `4Ø4`) as the default and a "flat opaque halo" behind the text — both retired
+  in round 1, months before this doc was last touched. Fixed to match the locked spec, and added
+  the same tagline/signature note as `BRAND.md`.
+- **`DESIGN.md` §6.2** — added rows for the general-use icon+wordmark lockup and the three Entra
+  banner-logo files, which round 4/5 shipped but hadn't made it into the variant table.
+- **`AGENTS.md`** — checked for tagline/signature/wordmark content; it's a generic
+  fetch-from-branding.error404.net meta-doc with none, no change needed.
+
 ## What's NOT done — pending decisions / remaining scope
 
 - **`logos/png/` — partially inspected.** The three *-multicolor variants (`libra-ring-multicolor`,

@@ -310,6 +310,8 @@ All no-ring variants ship without the halo ellipse.
 | Icon-only, dark surface | Monogram — Night (white) | `monogram-night.svg` |
 | Icon-only, light surface | Monogram — Daylight (black) | `monogram-daylight.svg` |
 | Printer watermark / Word Picture Watermark | Watermark — single mark, 10% opacity, black | `logos/watermark.svg`, `assets/watermark-1800.png` |
+| Icon + wordmark lockup, general use | Icon-only mark + "ERROR404.NET", black, no tagline | `assets/netmesh-lockup.png` |
+| Microsoft Entra / M365 banner logo | Same lockup, 280×60, light/dark/color | `entra-m365/banner-logo-{light,dark,color}-280x60.png` |
 
 **Minimum size:** 24px for icon/Monogram variants; 128px and up for full
 textured mark. The Monogram is already reduced to nodes-and-lines only (no
