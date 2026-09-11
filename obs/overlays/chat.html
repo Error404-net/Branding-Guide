@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --surface:        #231451;
+    --surface-deep:   #170C38;
+    --surface-raised: #1C1044;
+    --text-strong:    #F4F1FF;
+    --text-body:      #E8E4FF;
+    --text-muted:     #C9C3EF;
+    --accent-blue:    #4DE1FF;
+    --accent-pink:    #FF5FA2;
+    --accent-yellow:  #FFE156;
+    --accent-mint:    #37F0A6;
+    --border:         #4DE1FF33;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: transparent;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 14px;
+    overflow: hidden;
+    width: 380px;
+  }
+
+  #chat-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px;
+    max-height: 600px;
+    overflow: hidden;
+  }
+
+  .msg {
+    background: rgba(35, 20, 81, 0.88);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 10px;
+    animation: slideIn 0.3s ease-out;
+    backdrop-filter: blur(4px);
+    line-height: 1.5;
+  }
+
+  .msg-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 3px;
+  }
+
+  .badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-mod   { background: var(--accent-mint);   color: #170C38; }
+  .badge-sub   { background: var(--accent-blue);   color: #170C38; }
+  .badge-vip   { background: var(--accent-yellow); color: #170C38; }
+  .badge-staff { background: var(--accent-pink);   color: #F4F1FF; }
+
+  .username {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--accent-blue);
+  }
+  .username.pink   { color: var(--accent-pink); }
+  .username.yellow { color: var(--accent-yellow); }
+  .username.mint   { color: var(--accent-mint); }
+
+  .msg-text {
+    color: var(--text-body);
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  .msg-text .emote {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.4em;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  /* username color rotation — set by Twitch badge color, cycled here */
+  .color-0 { color: var(--accent-blue); }
+  .color-1 { color: var(--accent-pink); }
+  .color-2 { color: var(--accent-yellow); }
+  .color-3 { color: var(--accent-mint); }
+</style>
+</head>
+<body>
+<div id="chat-container"></div>
+<script>
+  // ── StreamElements chat widget bridge ──────────────────────────────────
+  // Drop this file into OBS as a browser source (local file).
+  // Point SE_CHANNEL to your Twitch username.
+  // SE injects messages via window.addEventListener('onEventReceived', ...).
+  // ───────────────────────────────────────────────────────────────────────
+
+  const MAX_MSGS = 18;
+  const COLORS = ['color-0', 'color-1', 'color-2', 'color-3'];
+  const userColorMap = {};
+  let colorIndex = 0;
+
+  function colorFor(username) {
+    if (!userColorMap[username]) {
+      userColorMap[username] = COLORS[colorIndex % COLORS.length];
+      colorIndex++;
+    }
+    return userColorMap[username];
+  }
+
+  function badgeEl(type) {
+    const b = document.createElement('span');
+    b.className = `badge badge-${type}`;
+    b.textContent = type;
+    return b;
+  }
+
+  function addMessage({ username, text, badges = [] }) {
+    const container = document.getElementById('chat-container');
+
+    const msg = document.createElement('div');
+    msg.className = 'msg';
+
+    const header = document.createElement('div');
+    header.className = 'msg-header';
+    badges.forEach(b => header.appendChild(badgeEl(b)));
+    const uEl = document.createElement('span');
+    uEl.className = `username ${colorFor(username).replace('color-', '')}`;
+    // map color class to actual class names
+    uEl.className = 'username ' + (() => {
+      const c = colorFor(username);
+      if (c === 'color-1') return 'pink';
+      if (c === 'color-2') return 'yellow';
+      if (c === 'color-3') return 'mint';
+      return '';
+    })();
+    uEl.textContent = username;
+    header.appendChild(uEl);
+    msg.appendChild(header);
+
+    const textEl = document.createElement('div');
+    textEl.className = 'msg-text';
+    textEl.textContent = text;
+    msg.appendChild(textEl);
+
+    container.appendChild(msg);
+
+    // trim old messages
+    while (container.children.length > MAX_MSGS) {
+      container.removeChild(container.firstChild);
+    }
+
+    // scroll to bottom (no visible scrollbar — just keeps latest at bottom)
+    container.scrollTop = container.scrollHeight;
+  }
+
+  // StreamElements event bridge
+  window.addEventListener('onEventReceived', (e) => {
+    const { listener, event } = e.detail;
+    if (listener !== 'message') return;
+    const { name, text, badges = [] } = event.data;
+    const badgeTypes = Object.keys(badges || {}).filter(b =>
+      ['moderator','subscriber','vip','staff','broadcaster'].includes(b)
+    ).map(b => b === 'moderator' ? 'mod' : b === 'broadcaster' ? 'staff' : b);
+    addMessage({ username: name, text, badges: badgeTypes });
+  });
+
+  // ── Dev preview (remove when live) ──────────────────────────────────────
+  const DEMO_MSGS = [
+    { username: 'Error404', text: '!ignore → return "404: message not found"', badges: ['staff'] },
+    { username: 'chat_user_1', text: 'LUL this stream is wild', badges: ['sub'] },
+    { username: 'modbot9000', text: 'welcome to the stream everyone!', badges: ['mod'] },
+    { username: 'neon_ghost', text: 'those libra constellation vibes are immaculate' },
+    { username: 'binary_bunny', text: 'Clap Clap Clap', badges: ['vip'] },
+    { username: 'archive_rat', text: 'what stack are you running?' },
+  ];
+  let demoIdx = 0;
+  function demoTick() {
+    addMessage(DEMO_MSGS[demoIdx % DEMO_MSGS.length]);
+    demoIdx++;
+    setTimeout(demoTick, 1800 + Math.random() * 1200);
+  }
+  // Comment out the line below once you connect StreamElements
+  demoTick();
+</script>
+</body>
+</html>
