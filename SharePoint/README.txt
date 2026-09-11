@@ -238,7 +238,7 @@ PARAMETERS (Deploy-BrandAssets.ps1)
 -ExcludeRelativePaths default: obs/assets/logos
     Relative paths (prefix-matched) to skip. The default skips a
     byte-for-byte duplicate of assets/ that lives under obs/ for OBS's
-    own use -- see obs/README.txt.
+    own use -- see obs/README.md.
 
 -RegisterCdnOrigin    default: off
     See CDN below. A real access-scope change, not a convenience

@@ -12,8 +12,8 @@ export default {
           'The Libra constellation mark, the Error404 primary mark. It is drawn from the same ' +
           'geometry as the shipping SVG masters: node positions come from real right ascension ' +
           'and declination, and each node radius is scaled to that star’s real apparent ' +
-          'magnitude, so brighter stars render larger. Turn on **showStarNames** to see which ' +
-          'star each node is.',
+          'magnitude, so brighter stars render larger. The "4Ø4" numerals are universal across ' +
+          'every cut. Turn on **showStarNames** to see which star each node is.',
       },
     },
   },
@@ -24,12 +24,11 @@ export default {
       description: 'Palette variant. `black` is the Print/Corporate cut.',
     },
     ring: { control: 'boolean', description: 'Enclosing ring' },
-    ham: { control: 'boolean', description: 'Amateur-radio cut — slashed zero, 4Ø4' },
     glyphOnly: { control: 'boolean', description: 'Drop the numerals (favicon sizes)' },
     showStarNames: { control: 'boolean', description: 'Label each node with its Bayer designation' },
     size: { control: { type: 'range', min: 16, max: 512, step: 8 } },
   },
-  args: { colorway: 'multicolor', ring: true, ham: false, glyphOnly: false, showStarNames: false, size: 240 },
+  args: { colorway: 'multicolor', ring: true, glyphOnly: false, showStarNames: false, size: 240 },
 };
 
 export const Playground = {};
@@ -64,14 +63,6 @@ export const RingAndNoRing = {
       ))}
     </div>
   ),
-};
-
-export const HamVariant = {
-  parameters: {
-    controls: { disable: true },
-    docs: { description: { story: 'The amateur-radio cut. The zero is slashed: 4Ø4.' } },
-  },
-  render: () => <Mark ham size={200} />,
 };
 
 export const SizeReduction = {
