@@ -5,9 +5,26 @@ Error404-Brand-Guidelines.pdf and BRANDING.md §9c–9f.
 
 linkedin/
     linkedin-cover-banner-1584x396.png
-        Cover banner. Pair with any avatar-*-800.png as the profile photo
-        (crops circular at 400x400). Keep the bottom-left corner of the
-        banner uncluttered — the profile photo overlaps it.
+        Personal profile cover banner. Pair with any avatar-*-800.png as the
+        profile photo (crops circular at 400x400). Keep the bottom-left
+        corner uncluttered — the profile photo overlaps it.
+    linkedin-company-banner-1128x191.png
+        Company Page cover banner (LinkedIn's documented Company Page cover
+        size — a 5.9:1 crop, same family as the personal banner but much
+        shorter). No tagline — not enough vertical room to keep it legible.
+        Keep the bottom-left corner clear — the Company Page logo overlaps it.
+    linkedin-company-logo-300x300.png
+        Square Company Page logo (crops circular in LinkedIn's UI, same as a
+        personal profile photo). A resize of avatar-primary-multicolor-
+        navy-800.png — same mark, same navy background.
+    linkedin-post-square-1200x1200.png / linkedin-post-landscape-1200x627.png
+        Feed-post templates for image posts (Instagram-style square and
+        landscape crops both work as native LinkedIn post images). Same mark
+        + wordmark + tagline treatment as the banners, no ID for LinkedIn's
+        chrome to overlap.
+    All five are the no-ring cut of the mark — the ring variant reads too
+    busy at banner/post scale, so this set intentionally departs from the
+    ring used on the personal banner's older revision.
 
 youtube/
     yt-channel-banner-2560x1440.png
