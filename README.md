@@ -57,8 +57,9 @@
       index.html          the whole guide, single static page, no build step
       assets/             logo renders + mockups referenced by index.html
       logos/              master logo set - SVG masters + full PNG export sizes
-                           (ring/no-ring x black/white/blue/pink/green/multicolor,
-                           ham variant, neon-tube glow set, glyph-only site icons)
+                           (ring/no-ring x black/white/multicolor, ham variant,
+                           neon glow set, monogram-{night,daylight} icon pair,
+                           watermark variant)
       entra-m365/         Microsoft Entra ID sign-in + M365 admin center branding
                            assets (square logo, banner logo, favicon, background,
                            accent color)
@@ -72,6 +73,8 @@
       discord/            server icon/banner/splash + BetterDiscord/Vencord
                            client theme (.theme.css)
       obs/                OBS Studio scene collection + theme assets
+      Hugo-template/      reusable Error404 Hugo layout (dark/nfo/light modes) —
+                           copy layouts/ and static/ into any Hugo site
       AGENTS.md           portable brand instructions for AI coding agents/skills
       CNAME               GitHub Pages custom-domain file (branding.error404.net)
       LICENSE             MIT

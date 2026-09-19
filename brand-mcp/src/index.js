@@ -75,6 +75,7 @@ server.registerTool(
         BRAND_md_sections: headings(brand).filter((h) => h.level === 2).map((h) => h.title),
         DESIGN_md_sections: headings(design).filter((h) => h.level === 2).map((h) => h.title),
         hint: 'Use brand_section to read any of these verbatim.',
+        hugo_template: 'Hugo-template/ — reusable Error404 Hugo layout with dark/nfo/light modes. Copy layouts/ and static/ into a target Hugo site; set params.author and params.description.',
       },
     });
   }
