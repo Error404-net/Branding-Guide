@@ -11,18 +11,21 @@ linkedin/
     linkedin-company-banner-1128x191.png
         Company Page cover banner (LinkedIn's documented Company Page cover
         size — a 5.9:1 crop, same family as the personal banner but much
-        shorter). No tagline — not enough vertical room to keep it legible.
-        Keep the bottom-left corner clear — the Company Page logo overlaps it.
+        shorter). Keep the bottom-left corner clear — the Company Page logo
+        overlaps it.
     linkedin-company-logo-300x300.png
         Square Company Page logo (crops circular in LinkedIn's UI, same as a
         personal profile photo). A resize of avatar-primary-multicolor-
         navy-800.png — same mark, same navy background.
     linkedin-post-square-1200x1200.png / linkedin-post-landscape-1200x627.png
         Feed-post templates for image posts (Instagram-style square and
-        landscape crops both work as native LinkedIn post images). Same mark
-        + wordmark + tagline treatment as the banners, no ID for LinkedIn's
-        chrome to overlap.
-    All five are the no-ring cut of the mark — the ring variant reads too
+        landscape crops both work as native LinkedIn post images).
+    The banner and post templates are logo + tagline only — no "ERROR404.NET"
+    wordmark — reading '!ignore → return "404: Server not found"'. That
+    wording is specific to this set (a nod to the LinkedIn/network context);
+    it does not replace the site/PDF tagline
+    ('!ignore → return "404: Message not found"', per BRAND.md).
+    All five use the no-ring cut of the mark — the ring variant reads too
     busy at banner/post scale, so this set intentionally departs from the
     ring used on the personal banner's older revision.
 
