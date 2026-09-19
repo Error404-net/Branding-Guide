@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="home-header">
+  <h1 class="cursor-blink">{{ .Site.Title }}</h1>
+  <p class="tagline">{{ .Site.Params.description }}</p>
+</section>
+
+<section class="post-list">
+  {{ range where .Site.RegularPages "Section" "posts" }}
+  <article class="post-entry">
+    <a href="{{ .RelPermalink }}">
+      <h2 class="post-title">{{ .Title }}</h2>
+      <div class="post-meta">
+        <span class="date">{{ .Date.Format "2006-01-02" }}</span>
+        {{ with .ReadingTime }}<span class="reading-time">{{ . }} min read</span>{{ end }}
+      </div>
+      {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+      {{ with .Params.tags }}
+      <div class="post-tags">
+        {{ range . }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ end }}
+    </a>
+  </article>
+  {{ end }}
+</section>
+{{ end }}

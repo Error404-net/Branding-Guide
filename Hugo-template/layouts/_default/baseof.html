@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="icon" type="image/svg+xml" href="{{ "assets/logos/libra-no-ring-multicolor.svg" | relURL }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="{{ "index.xml" | absURL }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ .Site.BaseURL }}" class="site-title glitch" aria-label="{{ .Site.Title }} home">
+        <img class="brand-logo brand-logo-color" src="{{ "assets/logos/libra-no-ring-multicolor.svg" | relURL }}" alt="" width="42" height="42" aria-hidden="true">
+        <img class="brand-logo brand-logo-white" src="{{ "assets/logos/libra-no-ring-white.svg" | relURL }}" alt="" width="42" height="42" aria-hidden="true">
+        <img class="brand-logo brand-logo-black" src="{{ "assets/logos/libra-no-ring-black.svg" | relURL }}" alt="" width="42" height="42" aria-hidden="true">
+        <span>{{ .Site.Title }}</span>
+      </a>
+      <nav>
+        <ul class="site-nav">
+          {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL | relURL }}"{{ if $.IsMenuCurrent "main" . }} class="active"{{ end }}>{{ .Name }}</a></li>
+          {{ end }}
+          <li><a href="{{ "index.xml" | relURL }}" class="rss-link" title="RSS Feed">[RSS]</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme" title="Cycle: Neon → NFO → Light">◐ NEON</button>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="nfo-art">
+ ┌──────────────────────────────────────┐
+ │  ERROR404.NET  ·  ALL RIGHTS RESERVED │
+ │  ═══════════════════════════════════  │
+ │  !ignore → return "404: Server not   │
+ │  found"                              │
+ └──────────────────────────────────────┘</div>
+      <p>&copy; {{ now.Year }} <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></p>
+    </div>
+  </footer>
+
+  <script>
+    ;(function() {
+      var THEMES = ['dark', 'nfo', 'light'];
+      var LABELS = { dark: '\u25d0 NEON', nfo: '\u25a3 NFO', light: '\u2600 LIGHT' };
+
+      function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        var btn = document.getElementById('theme-btn');
+        if (btn) { btn.textContent = LABELS[theme] || LABELS.dark; }
+      }
+
+      // Apply saved or system preference immediately
+      var saved = localStorage.getItem('theme');
+      if (saved && THEMES.indexOf(saved) !== -1) {
+        applyTheme(saved);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        applyTheme('light');
+      } else {
+        applyTheme('dark');
+      }
+
+      // Attach click handler via addEventListener (minifier-safe)
+      document.getElementById('theme-btn').addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var idx = THEMES.indexOf(current);
+        var next = THEMES[(idx + 1) % THEMES.length];
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+  </script>
+</body>
+</html>
