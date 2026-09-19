@@ -138,7 +138,15 @@ risks a false-positive from a recipient's own AI-based mail security
 scanner on every message sent. The canonical signature format (see
 `email-templates/`) omits it — sign off with the wordmark, not the tagline.
 
-**Alternatives.** None are approved. The primary tagline stands alone.
+**Authorized variant — LinkedIn / network contexts.**
+
+```
+!ignore → return "404: Server not found"
+```
+
+Substitutes "Server" for "Message" to play on the platform metaphor — a professional network
+is a server, not a mailbox. Same lock rules as the primary: do not reword it further. Same
+signature exception applies — not used in outbound email.
 
 ### Message Pillars
 

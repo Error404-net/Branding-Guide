@@ -38,6 +38,7 @@ server.registerTool(
     const tokens = parseTokens(tokensCss);
     return text({
       tagline: '!ignore → return "404: Message not found"  (LOCKED — never reword)',
+      tagline_variant: '!ignore → return "404: Server not found"  (authorized for LinkedIn/network contexts only — same lock rules, same signature exception)',
       tagline_exception:
         'Not used in the email signature. It winks at prompt-injection/AI-scanner culture, which ' +
         "is fine for a human reading the site but risky on real outbound mail — a recipient's AI " +
