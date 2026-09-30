@@ -89,6 +89,11 @@ Print/Corporate mode is black on white: 21.00:1.
 > That instance sat on white in practice, so it was never actually failing —
 > the swap is a token-hygiene fix (no undocumented hex outside the locked
 > ramp), not a contrast rescue.
+> *Update (2026-09-30):* the signature has since been rebuilt
+> (`email-templates/signature.js`) and no longer uses the dark-surface text
+> ramp at all — it sits on a white body, so it follows Print/Corporate mode:
+> `#231451` for name/wordmark, `#111111` for body copy, `#4DE1FF` only as the
+> decorative divider (never as text: cyan on white fails contrast).
 >
 > The "PDF page footer" this was originally reported against isn't part of
 > the current PDF pipeline (`index.html` prints straight through Chromium with
@@ -312,6 +317,7 @@ All no-ring variants ship without the halo ellipse.
 | Printer watermark / Word Picture Watermark | Watermark — single mark, 10% opacity, black | `logos/watermark.svg`, `assets/watermark-1800.png` |
 | Icon + wordmark lockup, general use | Icon-only mark + "ERROR404.NET", black, no tagline | `assets/netmesh-lockup.png` |
 | Microsoft Entra / M365 banner logo | Same lockup, 280×60, light/dark/color | `entra-m365/banner-logo-{light,dark,color}-280x60.png` |
+| Email signature (Outlook / M365) | Icon-only mark, canonical multicolor nodes + mint lines, transparent, 2× PNG | `email-templates/hosted-images/signature-mark{.svg,-88.png,-48.png}` (44px Standard / 24px Minimal) |
 
 **Minimum size:** 24px for icon/Monogram variants; 128px and up for full
 textured mark. The Monogram is already reduced to nodes-and-lines only (no

@@ -1,23 +1,27 @@
 <!--
   ERROR404.NET — Outlook / M365 Email Signature (Minimal)
   ---------------------------------------------------------------
-  A one-line version for mobile replies, secondary accounts, or anyone who
-  wants a lighter signature than the Standard version. Same install steps
-  as Error404-M365-Signature-Standard.html — paste the rendered block into
-  Outlook's signature editor, then replace the placeholders and host the
-  logo image at a stable URL.
+  Easiest install: use the generator at https://branding.error404.net/#signature —
+  fill in your details, press "Copy signature", paste into Outlook:
+    - new Outlook / Outlook on the web: Settings > Mail > Compose and reply > Email signature
+    - classic Outlook: File > Options > Mail > Signatures
+
+  One-line version for mobile replies, secondary accounts, or anyone who
+  wants something lighter than the Standard signature.
+
+  This file is the generator's output with <Bracketed> placeholders, for
+  Exchange admin / transport-rule deployment or hand-editing. Do not edit the
+  markup here directly — change email-templates/signature.js and run
+  `node email-templates/build-signatures.js`, so the site's copy button and
+  these files stay identical.
+
+  Image is hosted on the brand site's GitHub Pages deploy
+  (https://branding.error404.net/email-templates/hosted-images/), served at
+  2x and displayed at half size so it stays sharp on high-DPI screens.
 -->
-<table role="presentation" cellpadding="0" cellspacing="0" style="font-family:Calibri,Arial,sans-serif;">
-  <tr>
-    <td style="vertical-align:middle; padding-right:8px;">
-      <!-- IMAGE: mark-color, 20x20, hosted -->
-      <img src="https://error404.net/brand/email/mark-color-20.png" width="20" height="20" alt="" style="display:block; border:0;">
-    </td>
-    <td style="vertical-align:middle; font-family:Calibri,Arial,sans-serif; font-size:12.5px; color:#3A3352; line-height:1.4;">
-      <span style="font-family:'Courier New',Courier,monospace; font-weight:bold; color:#170C38;">&lt;Full Name&gt;</span>
-      &nbsp;&middot;&nbsp; &lt;Title&gt;
-      &nbsp;&middot;&nbsp;
-      <a href="https://error404.net" style="color:#4DE1FF; text-decoration:none;">error404.net</a>
-    </td>
-  </tr>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+<tr>
+<td valign="middle" style="padding:0 8px 0 0;"><img src="https://branding.error404.net/email-templates/hosted-images/signature-mark-48.png" width="24" height="24" alt="" style="display:block; width:24px; height:24px; border:0;"></td>
+<td valign="middle" style="font-family:'Segoe UI',Calibri,Arial,sans-serif; font-size:13px; color:#111111; line-height:18px; padding:0;"><span style="font-family:'Courier New',Courier,monospace; font-weight:bold; color:#231451;">&lt;Full Name&gt;</span> &middot; &lt;Title&gt; <span style="color:#231451;">::</span> <a href="https://error404.net" style="font-family:'Courier New',Courier,monospace; font-weight:bold; color:#231451; text-decoration:none;">ERROR404.NET</a></td>
+</tr>
 </table>

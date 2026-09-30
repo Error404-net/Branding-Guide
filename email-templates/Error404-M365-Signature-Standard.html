@@ -1,36 +1,38 @@
 <!--
   ERROR404.NET — Outlook / M365 Email Signature (Standard)
   ---------------------------------------------------------------
-  How to install:
-  1. Outlook (web or desktop) > Settings > Mail > Compose and reply > Signatures.
-  2. Open this file in a browser, select all the rendered signature block below,
-     copy it, and paste into the Outlook signature editor (paste as rich text/HTML,
-     not as plain text) — OR use Outlook's "Signatures" > import if your tenant
-     supports uploading .htm signature files via Exchange admin center.
-  3. Replace every <Bracketed> placeholder with the person's real details first.
-  4. Host mark-color-40.png at a stable URL (your website or M365/SharePoint
-     asset library) and swap the src below — Outlook does not reliably keep
-     embedded images across replies/forwards, hosted images do.
+  Easiest install: use the generator at https://branding.error404.net/#signature —
+  fill in your details, press "Copy signature", paste into Outlook:
+    - new Outlook / Outlook on the web: Settings > Mail > Compose and reply > Email signature
+    - classic Outlook: File > Options > Mail > Signatures
 
-  Design notes: kept deliberately restrained — this signature rides on every
-  outbound message, including formal correspondence, so it uses the brand mark
-  and a single accent color rather than the full Arcade New Wave palette.
+  This file is the generator's output with <Bracketed> placeholders, for
+  Exchange admin / transport-rule deployment or hand-editing. Do not edit the
+  markup here directly — change email-templates/signature.js and run
+  `node email-templates/build-signatures.js`, so the site's copy button and
+  these files stay identical.
+
+  Image is hosted on the brand site's GitHub Pages deploy
+  (https://branding.error404.net/email-templates/hosted-images/), served at
+  2x and displayed at half size so it stays sharp on high-DPI screens.
 -->
-<table role="presentation" cellpadding="0" cellspacing="0" style="font-family:Calibri,Arial,sans-serif; border-collapse:collapse;">
-  <tr>
-    <td style="padding-right:16px; border-right:2px solid #4DE1FF; vertical-align:middle;">
-      <!-- IMAGE: mark-color, 44x44, hosted -->
-      <img src="https://error404.net/brand/email/mark-color-44.png" width="44" height="44" alt="error404.net" style="display:block; border:0;">
-    </td>
-    <td style="padding-left:16px; vertical-align:middle;">
-      <div style="font-family:'Courier New',Courier,monospace; font-size:15px; font-weight:bold; color:#170C38; line-height:1.3;">&lt;Full Name&gt;</div>
-      <div style="font-family:Calibri,Arial,sans-serif; font-size:12.5px; color:#8A83B8; line-height:1.5; margin-top:1px;">&lt;Title&gt; &nbsp;&middot;&nbsp; ERROR404.NET</div>
-      <div style="font-family:Calibri,Arial,sans-serif; font-size:12.5px; color:#3A3352; line-height:1.6; margin-top:6px;">
-        <a href="mailto:<name>@error404.net" style="color:#3A3352; text-decoration:none;">&lt;name&gt;@error404.net</a>
-        &nbsp;&middot;&nbsp; &lt;phone&gt;
-        &nbsp;&middot;&nbsp;
-        <a href="https://error404.net" style="color:#4DE1FF; text-decoration:none;">error404.net</a>
-      </div>
-    </td>
-  </tr>
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+<tr>
+<td valign="middle" style="padding:0 14px 0 0; border-right:2px solid #4DE1FF;"><img src="https://branding.error404.net/email-templates/hosted-images/signature-mark-88.png" width="44" height="44" alt="ERROR404.NET" style="display:block; width:44px; height:44px; border:0;"></td>
+<td valign="middle" style="padding:0 0 0 14px;">
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+<tr>
+<td style="font-family:'Courier New',Courier,monospace; font-size:15px; font-weight:bold; color:#231451; line-height:20px; padding:0;">&lt;Full Name&gt;</td>
+</tr>
+<tr>
+<td style="font-family:'Segoe UI',Calibri,Arial,sans-serif; font-size:13px; color:#111111; line-height:18px; padding:0;">&lt;Title&gt;</td>
+</tr>
+<tr>
+<td style="font-family:'Courier New',Courier,monospace; font-size:12px; color:#111111; line-height:18px; padding:6px 0 0 0;">~/ <a href="mailto:you@error404.net" style="color:#111111; text-decoration:none;">you@error404.net</a> <span style="color:#231451;">::</span> <a href="tel:&lt;phone&gt;" style="color:#111111; text-decoration:none;">&lt;phone&gt;</a></td>
+</tr>
+<tr>
+<td style="font-family:'Courier New',Courier,monospace; font-size:12px; font-weight:bold; letter-spacing:1px; line-height:18px; padding:2px 0 0 0;"><a href="https://error404.net" style="color:#231451; text-decoration:none;">ERROR404.NET</a></td>
+</tr>
+</table></td>
+</tr>
 </table>

@@ -67,7 +67,12 @@
                            envelope, cover page, report), Office Theme (.thmx),
                            PowerPoint template
       email-templates/    HTML newsletter/transactional/report-notification email
-                           templates, M365/Outlook signature HTML (standard + minimal)
+                           templates, M365/Outlook signature (standard + minimal):
+                           signature.js is the single source, used by the site's
+                           copy-to-Outlook generator (#signature) and by
+                           build-signatures.js to regenerate the static .html files.
+                           hosted-images/ is served from GitHub Pages at
+                           branding.error404.net/email-templates/hosted-images/
       social/             linkedin/, youtube/, stickers/, avatars/ - per-platform
                            banner/icon/watermark assets
       discord/            server icon/banner/splash + BetterDiscord/Vencord

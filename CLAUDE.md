@@ -70,6 +70,10 @@ badly against varying backdrops. Removed for good.
 - **Watermark** — `logos/watermark.svg` / `assets/watermark-1800.png` — single mark, black,
   whole thing at 10% opacity. Not a brand-facing identity cut; a utility export for printer
   watermark settings and Word's Picture Watermark feature (added round 4, see below).
+- **Signature mark** — `email-templates/hosted-images/signature-mark.svg` (+ `-88.png`, `-48.png`
+  2× renders) — icon-only Monogram geometry with the canonical multicolor node/line colors,
+  transparent. Utility export for the Outlook signature only (added round 7, see below); like the
+  Watermark, not a brand-facing identity cut, so it doesn't count against the two-Monogram rule.
 
 ## What's done (this pass)
 
@@ -307,6 +311,35 @@ of quick-reference docs still describing the old, wrong state. Swept those:
 - **`AGENTS.md`** — checked for tagline/signature/wordmark content; it's a generic
   fetch-from-branding.error404.net meta-doc with none, no change needed.
 
+## What's done — round 7 (Outlook signature cleanup + copy-to-Outlook generator, 2026-09-30)
+
+- **Dead image URLs fixed.** Every email template pointed at `https://error404.net/brand/email/...`,
+  which doesn't resolve. All five templates now use the GitHub Pages copy at
+  `https://branding.error404.net/email-templates/hosted-images/` (verified 200 before switching).
+- **Single source: `email-templates/signature.js`.** Builds the Standard and Minimal signature
+  HTML (Outlook-safe: nested tables, inline styles, no margins/classes/web fonts) plus a
+  plain-text twin in the brand's `Name ~/ email :: phone` notation. `index.html` § 06 loads it
+  for a live generator (name/title/email/phone, variant radio) with **Copy signature** (writes
+  `text/html` + `text/plain` via `ClipboardItem`, falls back to a selection copy), **Copy HTML
+  source**, and **Download .htm**. Fields persist in `localStorage` only; nothing is sent anywhere.
+  `node email-templates/build-signatures.js` regenerates the static
+  `Error404-M365-Signature-{Standard,Minimal}.html` placeholder files from the same builder — edit
+  `signature.js`, never the static files.
+- **Colors cleaned up.** Old signatures used off-token `#3A3352`, `#170C38` as text (it's a
+  background token), `#8A83B8` (a dark-surface token, ~3.7:1 on white) and cyan `#4DE1FF` link
+  text (~1.6:1 on white). Now Print/Corporate: `#231451` name/wordmark, `#111111` body,
+  `#4DE1FF` only as the 2px divider rule.
+- **New signature mark** (see taxonomy above). The old `mark-color-*` PNGs carry the
+  near-white `#F4F1FF` "4Ø4", invisible on a white email body; the icon-only cut reads on white
+  and in Outlook dark mode (images aren't inverted). Served 2× for high-DPI. Minimal went from
+  20px to 24px to respect DESIGN.md's 24px icon minimum.
+- **Removed `assets/signature-mockup-public.png`** from the page and repo — it showed a different
+  design (black mark, black rule) than the real signature; the live preview replaces it.
+- `mark-color-20.png` and `mark-color-44.png` are now unreferenced (only the old signatures used
+  them). Left in place since they're harmless static files; safe to prune.
+- Not verified inside a real Outlook client from this sandbox — tested in headless Chromium
+  (clipboard contents, escaping, persistence). Worth one paste test in new Outlook + classic.
+
 ## What's NOT done — pending decisions / remaining scope
 
 - **`logos/png/` — partially inspected.** The three *-multicolor variants (`libra-ring-multicolor`,
@@ -333,8 +366,8 @@ of quick-reference docs still describing the old, wrong state. Swept those:
   different medium from the SVG/PNG marks above, and per memory overlaps with a separate prior
   "error404-motd-ascii-logos" project — don't assume it needs the same fix without checking
   that project's own status first.
-- **`assets/print-mode.png`, `assets/signature-mockup-public.png`** — these show a tiny
-  monogram-style glyph in a letterhead/signature mockup screenshot. At their rendered size the
+- **`assets/print-mode.png`** — shows a tiny
+  monogram-style glyph in a letterhead mockup screenshot. At their rendered size the
   old line-geometry defect isn't visible, so they were left alone this pass. Worth
   regenerating for correctness whenever someone's doing a full mockup refresh anyway.
 - **`main-lockup.png` (`assets/` and `obs/assets/logos/`, "Wordmark Lockup" in OBS)** — pure
