@@ -109,6 +109,32 @@
     padding:18px 20px; font-size:13px; overflow-x:auto; color:var(--fg);
   }
 
+  .sig-h3{font-size:14px; letter-spacing:1px; margin:40px 0 8px;}
+  .sig-gen{display:grid; grid-template-columns:minmax(0,300px) minmax(0,1fr); gap:24px; align-items:start;}
+  @media (max-width:720px){.sig-gen{grid-template-columns:1fr;}}
+  .sig-form label{display:block; font-size:12px; margin-bottom:12px; opacity:0.9;}
+  .sig-form .opt{opacity:0.55; font-size:11px;}
+  .sig-form input:not([type=radio]){
+    display:block; width:100%; margin-top:4px; padding:8px 10px; font:inherit; font-size:13px;
+    color:var(--fg); background:#0B0810; border:1px solid var(--border); border-radius:4px;
+  }
+  .sig-form input:focus{outline:2px solid var(--blue); outline-offset:1px;}
+  .sig-form fieldset{border:1px solid var(--border); border-radius:4px; padding:8px 12px 2px; margin:0;}
+  .sig-form legend{font-size:12px; opacity:0.9; padding:0 4px;}
+  .sig-form label.radio{display:flex; gap:8px; align-items:center; margin-bottom:8px;}
+  .sig-preview{background:#FFFFFF; border-radius:6px; padding:24px; overflow-x:auto; min-height:92px;}
+  .sig-actions{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-top:14px;}
+  .btn{
+    font:inherit; font-size:12.5px; padding:9px 14px; border-radius:4px; cursor:pointer;
+    color:var(--fg); background:transparent; border:1px solid var(--border);
+  }
+  .btn:hover{border-color:var(--blue); color:var(--blue);}
+  .btn.primary{background:var(--blue); color:var(--bg); border-color:var(--blue); font-weight:700;}
+  .btn.primary:hover{background:#7DEBFF; color:var(--bg);}
+  .sig-status{font-size:12px; color:var(--mint);}
+  .sig-hint{font-size:12px; opacity:0.7; margin:14px 0 0;}
+  @media print{.sig-form,.sig-actions,.sig-hint{display:none;} .sig-gen{grid-template-columns:1fr;}}
+
   code, .inline-code{background:rgba(255,255,255,0.06); padding:2px 6px; border-radius:3px; font-size:0.92em;}
 
   footer{padding:48px 0 64px; text-align:center; font-size:12px; opacity:0.6;}
@@ -320,15 +346,45 @@
     <p class="lead">Print/Corporate mode, since email is functionally a plain-text medium.</p>
     <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt; :: &lt;phone&gt;
 ERROR404.NET</pre>
-    <p class="lead" style="margin-top:14px; font-size:12.5px;">Format shown above — the real signature (with your actual contact details) stays in your private guideline docs, not on the public site. The locked tagline is not part of the signature — a "!ignore &rarr;" line going out on every outbound email risks a false-positive flag from AI-based mail security scanners at the recipient's end, so it's reserved for the site, marketing, and the PDF guide instead.</p>
-    <div class="logo-grid">
-      <div class="logo-card light"><img src="assets/signature-mockup-public.png" alt="Signature mockup"><div class="cap">Signature mockup (format shown, details redacted)</div></div>
-    </div>
-    <p class="lead" style="margin-top:14px; font-size:12.5px;">
-      A richer HTML version for the actual M365/Outlook mailbox — light-touch color (the mark plus a single
-      accent rule), not the full palette, since a signature rides on every outbound message. Source:
-      <a href="https://github.com/Error404-net/Branding-Guide/tree/main/email-templates">email-templates/</a>.
+    <p class="lead" style="margin-top:14px; font-size:12.5px;">Format shown above; build the real one with the generator below — your details stay in your browser and are never published to this site. The locked tagline is not part of the signature — a "!ignore &rarr;" line going out on every outbound email risks a false-positive flag from AI-based mail security scanners at the recipient's end, so it's reserved for the site, marketing, and the PDF guide instead.</p>
+    <h3 class="sig-h3">Outlook / M365 signature generator</h3>
+    <p class="lead" style="font-size:12.5px;">
+      The HTML version for the actual mailbox — light-touch color (the mark plus a single accent rule), not
+      the full palette, since a signature rides on every outbound message. Fill in your details, hit
+      <strong>Copy signature</strong>, then paste into Outlook:
+      <em>Settings &rarr; Mail &rarr; Compose and reply &rarr; Email signature</em> (new Outlook / web) or
+      <em>File &rarr; Options &rarr; Mail &rarr; Signatures</em> (classic Outlook). The mark is hosted on this
+      site, so it keeps working through replies and forwards. Nothing you type leaves your browser.
     </p>
+    <div class="sig-gen">
+      <form class="sig-form" id="sigForm" autocomplete="on" onsubmit="return false">
+        <label>Full name<input name="name" placeholder="Your Name" autocomplete="name"></label>
+        <label>Title <span class="opt">optional</span><input name="title" placeholder="Title" autocomplete="organization-title"></label>
+        <label>Email <span class="opt">optional</span><input name="email" type="email" placeholder="you@error404.net" autocomplete="email"></label>
+        <label>Phone <span class="opt">optional</span><input name="phone" type="tel" placeholder="+1 555 010 0404" autocomplete="tel"></label>
+        <fieldset>
+          <legend>Variant</legend>
+          <label class="radio"><input type="radio" name="variant" value="standard" checked> Standard</label>
+          <label class="radio"><input type="radio" name="variant" value="minimal"> Minimal (one line — mobile, replies)</label>
+        </fieldset>
+      </form>
+      <div>
+        <div class="sig-preview" id="sigPreview" aria-label="Signature preview"></div>
+        <div class="sig-actions">
+          <button type="button" class="btn primary" id="sigCopy">Copy signature</button>
+          <button type="button" class="btn" id="sigCopyHtml">Copy HTML source</button>
+          <button type="button" class="btn" id="sigDownload">Download .htm</button>
+          <span class="sig-status" id="sigStatus" role="status" aria-live="polite"></span>
+        </div>
+        <p class="sig-hint">
+          Pasting into the Outlook editor keeps the formatting and the hosted image. If Outlook ever pastes it as
+          plain text, use <em>Paste &rarr; Keep Source Formatting</em>. For Exchange-admin / transport-rule
+          deployment use <strong>Copy HTML source</strong> or the <code class="inline-code">.htm</code> download.
+          Static placeholder versions live in
+          <a href="https://github.com/Error404-net/Branding-Guide/tree/main/email-templates">email-templates/</a>.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -393,5 +449,105 @@ ERROR404.NET</pre>
   </div>
 </footer>
 
+<script src="email-templates/signature.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('sigForm');
+  var preview = document.getElementById('sigPreview');
+  var status = document.getElementById('sigStatus');
+  var KEY = 'e404-signature';
+  var current = { html: '', text: '' };
+  var statusTimer;
+
+  function values() {
+    return {
+      name: form.elements.name.value, title: form.elements.title.value, email: form.elements.email.value, phone: form.elements.phone.value,
+      variant: form.querySelector('input[name=variant]:checked').value
+    };
+  }
+
+  function render() {
+    var v = values();
+    var data = {
+      name: v.name.trim() || 'Your Name',
+      title: v.title, email: v.email, phone: v.phone
+    };
+    current = Error404Signature.build(data, v.variant);
+    preview.innerHTML = current.html;
+    try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
+  }
+
+  function say(msg) {
+    status.textContent = msg;
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(function () { status.textContent = ''; }, 4000);
+  }
+
+  // Fallback for browsers without ClipboardItem: copy the rendered preview via a
+  // real selection, which puts both text/html and text/plain on the clipboard.
+  function copyBySelection(node) {
+    var sel = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(node);
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    sel.removeAllRanges();
+    return ok;
+  }
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = document.execCommand('copy');
+    ta.remove();
+    return ok ? Promise.resolve() : Promise.reject();
+  }
+
+  document.getElementById('sigCopy').addEventListener('click', function () {
+    if (!form.elements.name.value.trim()) { say('Add your name first.'); form.elements.name.focus(); return; }
+    if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
+      navigator.clipboard.write([new ClipboardItem({
+        'text/html': new Blob([current.html], { type: 'text/html' }),
+        'text/plain': new Blob([current.text], { type: 'text/plain' })
+      })]).then(function () { say('Copied — paste into the Outlook signature editor.'); },
+        function () { say(copyBySelection(preview) ? 'Copied — paste into Outlook.' : 'Copy failed — select the preview and press Ctrl/Cmd+C.'); });
+    } else {
+      say(copyBySelection(preview) ? 'Copied — paste into Outlook.' : 'Copy failed — select the preview and press Ctrl/Cmd+C.');
+    }
+  });
+
+  document.getElementById('sigCopyHtml').addEventListener('click', function () {
+    copyText(current.html).then(function () { say('HTML source copied.'); },
+      function () { say('Copy failed.'); });
+  });
+
+  document.getElementById('sigDownload').addEventListener('click', function () {
+    var doc = '<!DOCTYPE html>\n<html><head><meta charset="utf-8"><title>Signature</title></head>\n<body>\n' +
+      current.html + '\n</body></html>\n';
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([doc], { type: 'text/html' }));
+    a.download = 'Error404-signature-' + values().variant + '.htm';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved) {
+      ['name', 'title', 'email', 'phone'].forEach(function (k) { if (saved[k]) form.elements[k].value = saved[k]; });
+      var r = form.querySelector('input[name=variant][value="' + saved.variant + '"]');
+      if (r) r.checked = true;
+    }
+  } catch (e) {}
+
+  form.addEventListener('input', render);
+  form.addEventListener('change', render);
+  render();
+})();
+</script>
 </body>
 </html>
