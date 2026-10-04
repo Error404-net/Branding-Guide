@@ -1,3 +1,17 @@
+# ERROR404.NET brand guide
+
+[Live guide](https://branding.error404.net) · [Email signature generator](https://branding.error404.net/#signature) · [Gravatar preview & downloads](https://branding.error404.net/#gravatar)
+
+## Gravatar & profile images
+
+| Multicolor | Night | Daylight |
+| :---: | :---: | :---: |
+| ![Multicolor avatar](gravatar/avatar-color-1024.png) | ![Night avatar](gravatar/avatar-night-1024.png) | ![Daylight avatar](gravatar/avatar-daylight-1024.png) |
+
+Download a 1024 × 1024 avatar and the matching profile background from [gravatar/](gravatar/README.md), or use the guide's live square/circle preview and download controls. The files use the canonical Libra symbol with room for circular crops. Upload and assign your choice in Gravatar; the downloads do not update your account automatically.
+
+![Matching profile background](gravatar/profile-background-1920x1080.png)
+
 ```
 ================================================================================
 

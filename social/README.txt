@@ -61,3 +61,6 @@ avatars/
     avatar-{multicolor,white,black}-transparent-800.png
         Same marks with no background composite, for platforms that
         render their own avatar frame/crop.
+
+Gravatar-specific exports and live previews: ../gravatar/README.md
+https://branding.error404.net/#gravatar

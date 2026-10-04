@@ -148,6 +148,18 @@
   }
   .badge.locked{background:rgba(55,240,166,0.15); color:var(--mint); border:1px solid rgba(55,240,166,0.4);}
   .badge.alt{background:rgba(255,225,86,0.12); color:var(--yellow); border:1px solid rgba(255,225,86,0.35);}
+  /* Gravatar assets: same preview/download pattern as the signature tool. */
+  #gravatar{scroll-margin-top:130px;}
+  .gravatar-previews{display:flex;flex-wrap:wrap;gap:24px;margin:24px 0;}
+  .gravatar-previews figure{margin:0;}
+  .gravatar-previews img{width:160px;height:160px;max-width:100%;}
+  .gravatar-previews .circle{border-radius:50%;}
+  .gravatar-background{display:block;width:100%;max-width:640px;height:auto;margin:20px 0;}
+  #gravatar select{font:inherit;padding:10px;background:var(--bg);color:var(--fg);border:1px solid var(--fg);max-width:100%;}
+  #gravatar a:focus-visible,#gravatar select:focus-visible{outline:2px solid var(--yellow);outline-offset:4px;}
+  nav .wrap,nav ul{flex-wrap:wrap;}
+  nav ul{padding-left:0;gap:16px;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
 </style>
 </head>
 <body>
@@ -162,6 +174,7 @@
       <li><a href="#type">Type</a></li>
       <li><a href="#modes">Modes</a></li>
       <li><a href="#signature">Signature</a></li>
+      <li><a href="#gravatar">Gravatar</a></li>
       <li><a href="#templates">Templates</a></li>
     </ul>
   </div>
@@ -388,9 +401,38 @@ ERROR404.NET</pre>
   </div>
 </section>
 
+<section id="gravatar">
+  <div class="wrap">
+    <h2><span class="num">07</span>Gravatar / profile images</h2>
+    <p class="lead">The same Libra symbol as the email signature, ready for your profile. Choose a treatment, check the square and circle crops, then download the PNG.</p>
+    <label for="gravatarVariant">Avatar treatment</label>
+    <select id="gravatarVariant">
+      <option value="color">Multicolor / brand purple</option>
+      <option value="night">Monochrome / night</option>
+      <option value="daylight">Monochrome / daylight</option>
+    </select>
+    <div class="gravatar-previews">
+      <figure><img data-gravatar-preview src="gravatar/avatar-color-1024.png" width="160" height="160" alt="ERROR404.NET multicolor avatar"><figcaption>Square preview</figcaption></figure>
+      <figure><img data-gravatar-preview class="circle" src="gravatar/avatar-color-1024.png" width="160" height="160" alt="ERROR404.NET multicolor avatar, circle crop"><figcaption>Circle crop</figcaption></figure>
+    </div>
+    <div class="sig-actions">
+      <a class="btn primary" id="gravatarDownload" href="gravatar/avatar-color-1024.png" download>Download avatar PNG · 1024 × 1024</a>
+      <a class="btn" id="gravatarSource" href="gravatar/avatar-color-1024.svg" download>Download SVG source</a>
+      <a class="btn" href="https://gravatar.com/profile/avatars">Open Gravatar editor</a>
+    </div>
+    <p class="sig-hint">Upload the PNG in Gravatar, preserve the padding in the crop, and assign it to your verified email address. Select a G rating for these brand marks. Downloads do not change your account automatically.</p>
+    <h3 class="sig-h3">Matching profile background</h3>
+    <img class="gravatar-background" src="gravatar/profile-background-1920x1080.png" width="1920" height="1080" loading="lazy" alt="Purple profile background with the multicolor Libra constellation on the right">
+    <a class="btn" href="gravatar/profile-background-1920x1080.png" download>Download background · 1920 × 1080</a>
+    <p class="sig-hint">Optional background artwork. Check the crop in your profile design settings.
+      <a href="https://github.com/Error404-net/Branding-Guide/tree/main/gravatar">All assets and setup instructions</a> ·
+      <a href="https://support.gravatar.com/basic/">Gravatar support</a></p>
+  </div>
+</section>
+
 <section id="templates">
   <div class="wrap">
-    <h2><span class="num">07</span>Templates</h2>
+    <h2><span class="num">08</span>Templates</h2>
     <p class="lead">
       Ready-to-use files built from this system — Word, PowerPoint, HTML email, and a dedicated report format.
       Every file uses <code class="inline-code">&lt;Bracketed&gt;</code> placeholders, never real contact details.
@@ -449,6 +491,7 @@ ERROR404.NET</pre>
   </div>
 </footer>
 
+<script src="gravatar/picker.js"></script>
 <script src="email-templates/signature.js"></script>
 <script>
 (function () {
