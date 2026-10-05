@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Access blocked</title>
+<style>
+@font-face{font-family:"Press Start 2P";src:url(data:font/woff2;base64,@PS2P@) format("woff2");font-display:swap}
+@font-face{font-family:"JetBrains Mono";font-weight:400;src:url(data:font/woff2;base64,@JB400@) format("woff2");font-display:swap}
+@font-face{font-family:"JetBrains Mono";font-weight:700;src:url(data:font/woff2;base64,@JB700@) format("woff2");font-display:swap}
+:root{--bg:#231451;--bg2:#1a0f3d;--fg:#F4F1FF;--blue:#4DE1FF;--pink:#FF5FA2;--yellow:#FFE156;--mint:#37F0A6;--scan:.5}
+[data-theme=light]{--bg:#F4F1FF;--bg2:#E6E0FA;--fg:#231451;--scan:.12}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(ellipse at 50% 0,var(--bg2),var(--bg) 70%) fixed;color:var(--fg);font:15px/1.6 "JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;display:grid;place-items:center;min-height:100vh;padding:24px;box-sizing:border-box}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:var(--scan);background:repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;opacity:.7;animation:tw 4s ease-in-out infinite alternate;background-image:radial-gradient(2px 2px at 12% 22%,var(--blue),transparent),radial-gradient(3px 3px at 82% 18%,var(--pink),transparent),radial-gradient(2px 2px at 70% 78%,var(--yellow),transparent),radial-gradient(3px 3px at 20% 82%,var(--mint),transparent),radial-gradient(2px 2px at 92% 60%,var(--blue),transparent)}
+@keyframes tw{to{opacity:.25}}
+.win{position:relative;z-index:1;width:min(760px,100%);background:#150c33;color:#F4F1FF;border:1px solid rgba(244,241,255,.18);border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px #000,0 0 40px rgba(77,225,255,.2),0 0 90px rgba(255,95,162,.14)}
+.bar{display:flex;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(244,241,255,.14);font-size:12px;color:rgba(244,241,255,.55)}
+.bar i{width:11px;height:11px;border-radius:50%}.bar i:nth-child(1){background:var(--pink)}.bar i:nth-child(2){background:var(--yellow)}.bar i:nth-child(3){background:var(--mint)}.bar span{margin-left:auto}
+.body{padding:28px 28px 22px}
+.hero{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.mark{width:104px;height:104px;flex:none}.mark text{fill:#F4F1FF}
+h1{font:400 clamp(18px,4.4vw,30px)/1.3 "Press Start 2P",monospace;margin:0;color:#F4F1FF;text-shadow:2px 0 var(--pink),-2px 0 var(--blue);animation:gl 3.2s infinite steps(1)}
+@keyframes gl{0%,92%,100%{text-shadow:2px 0 var(--pink),-2px 0 var(--blue);transform:none}94%{text-shadow:-4px 0 var(--pink),4px 0 var(--blue);transform:translateX(2px)}96%{text-shadow:4px 0 var(--yellow),-4px 0 var(--mint);transform:translateX(-2px)}}
+.dom{margin:10px 0 0;color:var(--yellow);font-weight:700;word-break:break-all}
+.term{margin:22px 0;padding:14px 16px;background:#0B0810;border:1px solid rgba(244,241,255,.12);border-radius:6px;min-height:6.6em;font-size:13px;word-break:break-all}
+.term .p{color:var(--mint)}.term .k{color:var(--blue)}.term .bad{color:var(--pink)}
+.cur:after{content:"\25AE";color:var(--mint);animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.msg{margin:0 0 20px;color:rgba(244,241,255,.84)}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{font:700 12px "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;color:#F4F1FF;background:transparent;border:1px solid var(--blue);padding:10px 14px;border-radius:4px;cursor:pointer;text-decoration:none}
+.btn.main{background:var(--pink);border-color:var(--pink);color:#150c33}
+.btn:hover,.btn:focus-visible{box-shadow:0 0 14px var(--blue);outline:none}.btn.main:hover,.btn.main:focus-visible{box-shadow:0 0 14px var(--pink)}
+.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 28px;border-top:1px solid rgba(244,241,255,.14);font-size:11px;color:rgba(244,241,255,.55)}
+@media(prefers-reduced-motion:reduce){*,:before,:after{animation:none!important}}
+</style></head><body>
+<main class="win">
+<div class="bar"><i></i><i></i><i></i><span>dns-policy &mdash; access.log</span></div>
+<div class="body">
+<div class="hero">@MARK@<div><h1 id="h">ACCESS BLOCKED</h1><p class="dom" id="dom"></p></div></div>
+<div class="term" id="term" aria-live="polite"></div>
+<p class="msg" id="msg"></p>
+<div class="btns" id="btns"></div>
+<noscript><p class="msg">This site is blocked by your network's DNS policy.</p></noscript>
+</div>
+<div class="foot"><span>!ignore &rarr; return "404: Message not found"</span><span id="org">ERROR404.NET</span></div>
+</main>
+<script type="application/json" id="e404-config">{"org":"ERROR404.NET","headline":"ACCESS BLOCKED","message":"This site is blocked by your network's DNS filter. If you think that's a mistake, request access and include the details above.","email":"","helpUrl":"","theme":"dark","showTime":true,"showPath":false,"rules":[],"domainOverride":""}</script>
+<script>
+(function(){
+var C={};try{C=JSON.parse(document.getElementById('e404-config').textContent)}catch(e){}
+var $=function(i){return document.getElementById(i)},q=new URLSearchParams(location.search);
+document.documentElement.dataset.theme=C.theme==='auto'?(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'):(C.theme||'dark');
+/* The DNS server answers the blocked name with this server's IP, so the browser's Host is the blocked domain. */
+var d=(C.domainOverride||q.get('d')||location.hostname||'').toLowerCase();
+if(/^[\d.]+$/.test(d)||/[:\[]/.test(d)||d==='localhost')d='';
+var cat='';(C.rules||[]).forEach(function(r){if(!cat&&d&&(d===r[0]||d.slice(-r[0].length-1)==='.'+r[0]))cat=r[1]});
+var now=new Date(),path=(q.get('p')||location.pathname||'/').slice(0,80),showPath=C.showPath&&path!=='/';
+$('h').textContent=C.headline||'ACCESS BLOCKED';$('org').textContent=C.org||'ERROR404.NET';
+$('dom').textContent=d||'(the site you requested)';$('msg').textContent=C.message||'';
+document.title=(C.headline||'Access blocked')+(d?' \u2014 '+d:'');
+var L=[{p:'$ ',t:'resolve '+(d||'<unknown>'),c:'k'},{p:'> status ...... ',t:'BLOCKED by DNS policy',c:'bad'}];
+if(cat)L.push({p:'> category ..... ',t:cat,c:'k'});
+if(showPath)L.push({p:'> path ......... ',t:path,c:''});
+if(C.showTime!==false)L.push({p:'> time ......... ',t:now.toLocaleString(),c:''});
+var term=$('term'),rm=matchMedia('(prefers-reduced-motion: reduce)').matches,i=0;
+(function next(){var l=L[i++];if(!l){term.lastChild.classList.add('cur');return}
+ var div=document.createElement('div'),p=document.createElement('span'),t=document.createElement('span');
+ p.className='p';p.textContent=l.p;t.className=l.c;div.append(p,t);term.append(div);
+ if(rm){t.textContent=l.t;next();return}
+ var n=0;div.classList.add('cur');
+ (function ty(){t.textContent=l.t.slice(0,++n);if(n<l.t.length)setTimeout(ty,22);else{div.classList.remove('cur');setTimeout(next,160)}})();
+})();
+var b=$('btns'),det='Blocked site: '+(d||'unknown')+'\nTime: '+now.toISOString()+(showPath?'\nPath: '+path:'');
+function btn(txt,cls,fn,href){var e=document.createElement(href?'a':'button');e.className='btn '+(cls||'');e.textContent=txt;if(href)e.href=href;else e.onclick=fn;b.append(e);return e}
+var req=C.helpUrl||(C.email?'mailto:'+C.email+'?subject='+encodeURIComponent('Unblock request: '+(d||'site'))+'&body='+encodeURIComponent(det):'');
+if(req)btn('Request access','main',null,req);
+if(history.length>1)btn('Go back','',function(){history.back()});
+var cp=btn('Copy details','',function(){
+ var done=function(){cp.textContent='Copied';setTimeout(function(){cp.textContent='Copy details'},1500)};
+ if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(det).then(done);
+ else{var t=document.createElement('textarea');t.value=det;document.body.append(t);t.select();try{document.execCommand('copy');done()}catch(e){}t.remove()}});
+})();
+</script></body></html>

@@ -1,6 +1,6 @@
 # ERROR404.NET brand guide
 
-[Live guide](https://branding.error404.net) · [Email signature generator](https://branding.error404.net/#signature) · [Gravatar preview & downloads](https://branding.error404.net/#gravatar)
+[Live guide](https://branding.error404.net) · [Email signature generator](https://branding.error404.net/#signature) · [Gravatar preview & downloads](https://branding.error404.net/#gravatar) · [Technitium block page](Technitium-Blocked/)
 
 ## Gravatar & profile images
 
@@ -11,6 +11,10 @@
 Download a 1024 × 1024 avatar and the matching profile background from [gravatar/](gravatar/README.md), or use the guide's live square/circle preview and download controls. The files use the canonical Libra symbol with room for circular crops. Upload and assign your choice in Gravatar; the downloads do not update your account automatically.
 
 ![Matching profile background](gravatar/profile-background-1920x1080.png)
+
+## Technitium-Blocked
+
+A branded, self-contained splash for Technitium DNS's **Block Page** app. It reads the blocked domain from the address bar and shows it with time, an optional category tag, and a pre-filled "request access" link. Grab `index.html` from [Technitium-Blocked/](Technitium-Blocked/), or customize it with the [live generator](https://branding.error404.net/#technitium). Setup notes: [Technitium-Blocked/README.txt](Technitium-Blocked/README.txt).
 
 ```
 ================================================================================
@@ -89,6 +93,8 @@ Download a 1024 × 1024 avatar and the matching profile background from [gravata
                            branding.error404.net/email-templates/hosted-images/
       social/             linkedin/, youtube/, stickers/, avatars/ - per-platform
                            banner/icon/watermark assets
+      Technitium-Blocked/ self-contained Technitium DNS "Block Page" splash (index.html),
+                           template, build.py, setup notes; generator at #technitium
       discord/            server icon/banner/splash + BetterDiscord/Vencord
                            client theme (.theme.css)
       obs/                OBS Studio scene collection + theme assets

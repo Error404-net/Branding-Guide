@@ -176,6 +176,7 @@
       <li><a href="#signature">Signature</a></li>
       <li><a href="#gravatar">Gravatar</a></li>
       <li><a href="#templates">Templates</a></li>
+      <li><a href="#technitium">Technitium-Blocked</a></li>
     </ul>
   </div>
 </nav>
@@ -482,6 +483,78 @@ ERROR404.NET</pre>
     </div>
   </div>
 </section>
+
+<section id="technitium">
+  <div class="wrap">
+    <h2><span class="num">09</span>Technitium block page</h2>
+    <p class="lead">
+      A splash for Technitium DNS's <strong>Block Page</strong> app, in the Arcade New Wave look. It is dynamic: the DNS server
+      points a blocked name at the block server, so the page reads the <em>blocked domain</em> straight from the address bar
+      and shows it, with local time, an optional category tag, and a pre-filled "request access" link.
+      Single self-contained file &mdash; no CDNs, safe to serve from a DNS box.
+      <a href="Technitium-Blocked/index.html?d=ads.example.com">Open the live page</a> &middot;
+      <a href="https://github.com/Error404-net/Branding-Guide/tree/main/Technitium-Blocked">setup notes</a>.
+    </p>
+    <div class="sig-form" id="bpForm" style="display:grid; gap:10px; max-width:720px;">
+      <label>Organization <input name="org" value="ERROR404.NET"></label>
+      <label>Headline <input name="headline" value="ACCESS BLOCKED"></label>
+      <label>Message <textarea name="message" rows="2">This site is blocked by your network's DNS filter. If you think that's a mistake, request access and include the details above.</textarea></label>
+      <label>Request-access email <input name="email" type="email" placeholder="helpdesk@example.com"></label>
+      <label>Or helpdesk URL (overrides email) <input name="helpUrl" placeholder="https://help.example.com/unblock"></label>
+      <label>Page backdrop <select name="theme"><option>dark</option><option>light</option><option>auto</option></select></label>
+      <label><input type="checkbox" name="showTime" checked> Show time</label>
+      <label><input type="checkbox" name="showPath"> Show URL path</label>
+      <label>Category rules, one per line: <code class="inline-code">suffix=LABEL</code>
+        <textarea name="rules" rows="3" placeholder="doubleclick.net=AD NETWORK"></textarea></label>
+    </div>
+    <div style="margin:16px 0;">
+      <button type="button" class="btn primary" id="bpDownload">Download index.html</button>
+      <button type="button" class="btn" id="bpCopy">Copy HTML</button>
+      <span class="sig-status" id="bpStatus" role="status" aria-live="polite"></span>
+    </div>
+    <iframe id="bpFrame" title="Block page preview" sandbox="allow-scripts" style="width:100%; height:560px; border:1px solid rgba(244,241,255,.18); border-radius:8px; background:#231451;"></iframe>
+  </div>
+</section>
+<script>
+(function () {
+  var f = document.getElementById('bpForm'), fr = document.getElementById('bpFrame'),
+      st = document.getElementById('bpStatus'), tpl = null,
+      RE = /(<script type="application\/json" id="e404-config">)[\s\S]*?(<\/script>)/;
+  function say(m) { st.textContent = m; }
+  function v(n) { return f.elements[n]; }
+  function cfg(preview) {
+    return {
+      org: v('org').value, headline: v('headline').value, message: v('message').value,
+      email: v('email').value.trim(), helpUrl: v('helpUrl').value.trim(), theme: v('theme').value,
+      showTime: v('showTime').checked, showPath: v('showPath').checked,
+      rules: v('rules').value.split('\n').map(function (l) {
+        var i = l.indexOf('='); return i > 0 ? [l.slice(0, i).trim().toLowerCase(), l.slice(i + 1).trim()] : null;
+      }).filter(Boolean),
+      domainOverride: preview ? 'ads.example.com' : ''
+    };
+  }
+  function build(preview) {
+    return tpl.replace(RE, function (m, a, b) { return a + JSON.stringify(cfg(preview)).replace(/</g, '\\u003c') + b; });
+  }
+  function render() { if (tpl) fr.srcdoc = build(true); }
+  fetch('Technitium-Blocked/index.html').then(function (r) { return r.text(); }).then(function (t) {
+    tpl = t; render();
+  }, function () { say('Preview needs http(s) (GitHub Pages), not file://.'); });
+  f.addEventListener('input', render); f.addEventListener('change', render);
+  document.getElementById('bpDownload').addEventListener('click', function () {
+    if (!tpl) return say('Template not loaded.');
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([build(false)], { type: 'text/html' }));
+    a.download = 'index.html'; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+  document.getElementById('bpCopy').addEventListener('click', function () {
+    if (!tpl) return say('Template not loaded.');
+    (navigator.clipboard ? navigator.clipboard.writeText(build(false)) : Promise.reject()).then(
+      function () { say('HTML copied.'); }, function () { say('Copy failed - use Download.'); });
+  });
+})();
+</script>
 
 <footer>
   <div class="wrap">
