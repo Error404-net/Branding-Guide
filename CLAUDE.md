@@ -64,7 +64,7 @@ badly against varying backdrops. Removed for good.
 - **Ring variant** — `libra-ring-multicolor.svg` — same geometry as the primary mark, plus a
   decorative outer ring circle. A deliberate distinct treatment (used by OBS), not the flat
   default — keep the ring, don't remove it, but it does get the same line/text/oval fixes.
-- **Neon variants** — `libra-neon-multi.svg`, `libra-neon-blue.svg` — glow-filter treatment
+- **Neon variants** — `libra-neon-multi.svg`, `libra-neon-green.svg` (neon-blue and neon-pink were never built) — glow-filter treatment
   with per-edge coloring (their own aesthetic, not the uniform-mint rule). Fixed for line
   geometry, "4Ø4" text, and oval removal; per-edge multicolor kept intentionally.
 - **Watermark** — `logos/watermark.svg` / `assets/watermark-1800.png` — single mark, black,
@@ -367,30 +367,40 @@ Audit by rendering every SVG and PNG, not just reading source. Changes on branch
   claim removed from the page, Deep background `#170C38` swatch added, `logos/README.txt`
   inventory corrected to the files that exist.
 
-## Known issues tracker (open, found 2026-11-26)
+## Known issues tracker (updated 2026-11-26)
 
-1. **Ring variants: nodes collide with the ring.** Ring is cx=cy=120, r=112, but the bottom-right
-   nodes sit ~136 from center. Options shown to Jesse: enlarge ring, shrink mark, or call it a
-   deliberate breakout. **Awaiting decision.** Affects `libra-ring-*.svg`, `assets/icon.png`,
-   `assets/favicon.png`, `assets/netmesh-ring-color.png`, Discord icon, OBS, avatars, Office embeds.
-2. **`.thmx` uses IBM Plex Mono**, every doc says JetBrains Mono. Real file defect. Awaiting decision.
-3. **Missing variants** the docs once promised: `libra-no-ring-pink`, `libra-ring-blue`,
-   `libra-neon-blue`, `libra-neon-pink`. Build them or drop them.
-4. **`logos/png/` legacy subfolders** have no SVG source (ring-blue/green/black, no-ring-blue/white,
-   ham-black, site-icon-light-mode). Ask before regenerating.
-5. **Duplicates:** `libra-ham-*` equals `libra-no-ring-*`; `libra-site-icon-*` carries text and
-   duplicates no-ring. Candidates for removal.
-6. **Earlier claim wrong:** round 1 says `logos/glyph-only/` was fixed. The folder does not exist.
-7. **Brand PDF is 9 pages**, docs say 14. Regenerate or correct the docs.
-8. **Embedded C2PA metadata** blocks sit inside 12 of 22 SVGs under `logos/` (round 4 stripped
-   it from the watermark only). Strip for clean masters, or keep as provenance. Awaiting decision.
-9. **Automated emails are still full-color HTML?** Only the Report-Notification template says it is
-   Machine mode. Check the transactional template against the new purpose.
-10. **BRAND.md "no growth target"** reads oddly next to the LinkedIn personal-brand goal. Reword.
-11. Carried over from earlier rounds: sticker composites, LinkedIn/YouTube/Discord banners,
-    `assets/print-mode.png`, MOTD. Not re-inspected.
-12. This sandbox could not install JetBrains Mono on 2026-11-26. Renders here used a fallback
-    font, so "4Ø4" letterforms were not judged and nothing was re-rendered.
+**Resolved this round (branch `third-party-guidance-cleanup`)**
+- Ring variants: constellation now scaled to 76.7% (`<g transform="translate(120 120) scale(0.767)
+  translate(-126 -136)">`) so every node sits inside the ring (Jesse chose "shrink mark").
+  Re-rendered with real JetBrains Mono: `assets/{icon,favicon,netmesh-ring-color}.png`, their OBS
+  copies, `discord/discord-server-icon-512.png`, the two ring avatars, and
+  `logos/png/libra-ring-{multicolor,black,green}/*`. Not byte-verified in Office or OBS.
+- C2PA metadata stripped from all 15 SVGs that carried it (incl. Hugo-template copies).
+- Deleted `libra-ham-*`, `libra-site-icon-*`, and `logos/png/{libra-ham-*,site-icon-*,libra-ring-blue}`.
+  DESIGN.md pointed "neon green" at `libra-ham-multicolor.svg`, which was multicolor; it now
+  points at `libra-no-ring-green.svg`.
+- Promised-but-never-built variants dropped: `no-ring-pink`, `ring-blue`, `neon-blue`, `neon-pink`.
+  The neon swatches for blue/pink stay in the Neon accent set as reserved colors.
+
+**Open**
+1. **Fonts: undecided.** The `.thmx` uses IBM Plex Mono; BRAND.md/DESIGN.md say JetBrains Mono.
+   Jesse wants clear and legible, is open to custom or third-party fonts, and likes terminal
+   fonts and IBM Plex Mono. Specimen sent 2026-11-26. Needs a pick, then align `.thmx`, BRAND.md
+   §Typography, DESIGN.md tokens, `signature.js`, and the SharePoint Brand Center font package.
+2. **Still show the old (oversized) ring:** the Office template embeds (6 `.docx`, `.pptx`),
+   `social/stickers/sticker-circle-{mono,ham}-900.png`, and any composite banner that embeds a
+   ring cut. Re-render after the font decision.
+3. **OBS "mirrors" are not byte-identical to `assets/`** (found 2026-11-26, same filenames
+   differed before the re-render). The three ring files were re-copied. Others not compared.
+4. **Social `ham` assets** (`avatar-ham-multicolor-navy-800.png`, `sticker-circle-ham-900.png`)
+   outlive their deleted SVG source. Rename or keep as-is; decide.
+5. **Brand PDF is 9 pages**, docs say 14. Regenerate or correct the docs.
+6. **Automated emails:** only the Report-Notification template says it is Machine mode. Check
+   the transactional template against the new purpose (black only, plain-text first).
+7. **BRAND.md "no growth target"** reads oddly next to the LinkedIn personal-brand goal. Reword.
+8. **Pixel scan caveat:** the round-3 fringe scan also matches legitimate mint/yellow edge
+   pixels on the multicolor mark. Compare counts to the previous render instead of expecting zero.
+9. Carried over: sticker composites, LinkedIn/YouTube/Discord banners, `assets/print-mode.png`, MOTD.
 
 ## What's NOT done — pending decisions / remaining scope
 

@@ -103,7 +103,7 @@ check('review_copy flags long sentences', rules.has('sentence-length'));
 check('review_copy flags second person', rules.has('voice'));
 check('review_copy fails overall on errors', j?.ok === false, `errors=${j?.counts?.error}`);
 
-const good = `The mark sits on a scrim. Machine mode uses black on white. Use the ham variant for community contexts.`;
+const good = `The mark sits on a scrim. Machine mode uses black on white. Use the green variant for single-color contexts.`;
 r = await send('tools/call', { name: 'review_copy', arguments: { text: good } });
 j = json(r);
 check('review_copy passes clean copy', j?.ok === true, `errors=${j?.counts?.error}`);

@@ -10,10 +10,9 @@ locked node/line/text coordinates if you're touching any of these files.
 
 FOLDERS
 -------
-png/<variant>/<size>.png  <- raster exports for the ring, no-ring, ham, and
-                             neon variants at 16/32/48/64/128/180/192/240/
-                             512/1024 px, plus site-icon-{dark,light}-mode
-                             (see LEGACY below). No raster exports yet for
+png/<variant>/<size>.png  <- raster exports for the ring and no-ring
+                             variants at 16/32/48/64/128/180/192/240/
+                             512/1024 px. No raster exports yet for
                              monogram-*.svg or watermark.svg — those ship as
                              SVG only, plus the pre-rendered
                              assets/watermark-1800.png in the root assets/
@@ -21,7 +20,9 @@ png/<variant>/<size>.png  <- raster exports for the ring, no-ring, ham, and
 
 CURRENT VARIANTS (root .svg files + matching png/ subfolder)
 --------------------------------------------------------------
-libra-ring-{black,white,pink,green,multicolor}.svg           Full mark inside the ring, five colorways (ring-blue not built)
+libra-ring-{black,white,pink,green,multicolor}.svg           Full mark inside the ring, five colorways. The constellation
+                                                   is scaled to 76.7% (a <g transform>) so every node sits inside
+                                                   the ring. Node coordinates are unchanged.
 libra-no-ring-{black,white,blue,green,multicolor}.svg        Mark alone, no ring, five colorways (no-ring-pink not built) — the
                                                                canonical Primary mark (see DESIGN.md/
                                                                CLAUDE.md's naming taxonomy)
@@ -29,8 +30,8 @@ libra-neon-{green,multi}.svg                      Neon-tube glow treatment, opaq
                                                   (neon-blue and neon-pink not built)
 monogram-{night,daylight}.svg                     Icon-only mark, no text. night = white mark for dark
                                                    surfaces, daylight = black mark for light surfaces.
-                                                   The canonical icon-only cut — see LEGACY below for
-                                                   what these replaced.
+                                                   The canonical icon-only cut. It replaced every older
+                                                   icon-only cut, all since deleted.
 watermark.svg                                     Single mark, black, 10% opacity. Utility export for
                                                    printer watermark settings / Word's Picture Watermark
                                                    feature — not a brand-facing identity cut.
@@ -38,24 +39,11 @@ favicon-white.svg / favicon-dark.svg              Duplicates of monogram-night /
                                                    respectively, named for their use as the site's
                                                    favicon href targets (see root index.html).
 
-LEGACY / SUPERSEDED (still present on disk, do not use for new work)
------------------------------------------------------------------------
-libra-ham-{black,white,multicolor}.svg (+ png/)   Originally a distinct "amateur-radio, slashed zero"
-                                                   cut. Now that "4Ø4" is the universal text on every
-                                                   primary-mark variant, these files are geometrically
-                                                   identical to the matching libra-no-ring-*.svg (same
-                                                   node/line/text data) — the name is the only thing
-                                                   that differs, and only 3 of the 6 colorways exist
-                                                   here. Kept for backward-compatible links only; use
-                                                   libra-no-ring-* for anything new.
-site-icon-{light,dark}-mode.svg (+ png/)          Older cut. It carries "4Ø4" text, so it is NOT icon-only. Superseded by monogram-{daylight,
-                                                   night}.svg — CLAUDE.md's naming taxonomy is explicit
-                                                   that monogram-*.svg replaces every old icon-only cut
-                                                   and that a third icon-only variant should not be
-                                                   reintroduced. These files are only still here because
-                                                   nothing has gone through and deleted them yet.
-glyph-only/libra-glyph-{light,dark}-mode.svg      Same situation as site-icon-* above — an older
-                                                   icon-only pass, superseded by monogram-*.svg.
+REMOVED (2026-11-26)
+--------------------
+libra-ham-*, libra-site-icon-*-mode and glyph-only/ were duplicates of libra-no-ring-* or
+superseded by monogram-*. They are deleted. Variants that were promised but never built
+(no-ring-pink, ring-blue, neon-blue, neon-pink) are dropped from the plan.
 
 USAGE NOTES
 -----------
