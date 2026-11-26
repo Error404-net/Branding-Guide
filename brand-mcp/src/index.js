@@ -50,7 +50,7 @@ server.registerTool(
       typefaces: {
         display: "'Press Start 2P', monospace — hero only, ≥24px",
         terminal: "'VT323', monospace — headings, NFO tables",
-        body: "'JetBrains Mono', monospace — body, UI, code",
+        body: "'Share Tech Mono', monospace — body, UI, code (Regular only; stand-in until the custom house font ships)",
         rule: 'Always end every font-family with a generic fallback. A bare family name falls back to serif, not monospace.',
       },
       modes: {

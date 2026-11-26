@@ -31,6 +31,6 @@ export default create({
   inputTextColor: '#F4F1FF',
   inputBorderRadius: 2,
 
-  fontBase: '"JetBrains Mono", ui-monospace, monospace',
-  fontCode: '"JetBrains Mono", ui-monospace, monospace',
+  fontBase: '"Share Tech Mono", ui-monospace, monospace',
+  fontCode: '"Share Tech Mono", ui-monospace, monospace',
 });

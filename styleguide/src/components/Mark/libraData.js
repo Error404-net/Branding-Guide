@@ -21,18 +21,18 @@ export const STARS = [
 // either a star id (resolved to that star's node center) or an explicit
 // [x, y] point.
 //
-// The gamma-sigma edge is split into two collinear segments rather than
-// drawn as one line: the gap clears the "4Ø4" text, and the gap's angle is
-// set to exactly match the rendered diagonal slash inside the "Ø" glyph
-// (measured via Canny edge detection + Hough line fit on the isolated
-// slash - converged on a 45° / -1.0 slope, not eyeballed; verified with a
-// zero-pixel-overlap check between the line art and the text ink). See
-// CLAUDE.md's "Canonical geometry" section before touching these two points.
+// The gamma-sigma edge is split into two segments that both lie exactly on the
+// node-to-node line (collinear, checked to 0.1 unit by scripts/verify-marks.py).
+// The gap clears the "4Ø4" text in Share Tech Mono Bold: line ink and text ink are
+// rendered as separate masks and must overlap by zero pixels, with at least
+// 1.5 units of clearance. The edge runs at 45.8°; the Ø slash measures 74.5°,
+// so the gap is centered on the crossing but its sides do not parallel the
+// slash. See BRAND.md, "Mark build spec", before touching these two points.
 export const EDGES = [
   ['alpha', 'beta'],
   ['beta', 'gamma'],
-  ['gamma', [163.0, 114.5]],   // first half of the split line
-  [[126.9, 155.3], 'sigma'],   // second half - collinear with the segment above
+  ['gamma', [163.7, 116.3]],   // first half
+  [[125.8, 155.2], 'sigma'],   // second half, on the same line
   ['sigma', 'alpha'],
   ['gamma', 'upsilon'],
   ['upsilon', 'tau'],

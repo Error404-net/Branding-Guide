@@ -40,7 +40,7 @@ export const Colorways = {
       {['multicolor', 'blue', 'pink', 'green', 'white'].map((cw) => (
         <figure key={cw} style={{ margin: 0, textAlign: 'center' }}>
           <Mark colorway={cw} size={120} />
-          <figcaption style={{ font: '11px "JetBrains Mono", monospace', color: '#C9C3EF', marginTop: 8 }}>
+          <figcaption style={{ font: '11px "Share Tech Mono", monospace', color: '#C9C3EF', marginTop: 8 }}>
             {cw}
           </figcaption>
         </figure>
@@ -56,7 +56,7 @@ export const RingAndNoRing = {
       {[true, false].map((r) => (
         <figure key={String(r)} style={{ margin: 0, textAlign: 'center' }}>
           <Mark ring={r} size={140} />
-          <figcaption style={{ font: '11px "JetBrains Mono", monospace', color: '#C9C3EF', marginTop: 8 }}>
+          <figcaption style={{ font: '11px "Share Tech Mono", monospace', color: '#C9C3EF', marginTop: 8 }}>
             {r ? 'ring' : 'no ring'}
           </figcaption>
         </figure>
@@ -81,7 +81,7 @@ export const SizeReduction = {
       {[128, 64, 48, 32, 24, 16].map((s) => (
         <figure key={s} style={{ margin: 0, textAlign: 'center' }}>
           <Mark size={s} ring={false} />
-          <figcaption style={{ font: '10px "JetBrains Mono", monospace', color: '#8A83B8', marginTop: 8 }}>
+          <figcaption style={{ font: '10px "Share Tech Mono", monospace', color: '#8A83B8', marginTop: 8 }}>
             {s}px
           </figcaption>
         </figure>
@@ -136,7 +136,7 @@ export const StarData = {
     // padding or they clip against the canvas edge.
     <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start', flexWrap: 'wrap', padding: '16px 48px' }}>
       <Mark size={260} showStarNames />
-      <table style={{ font: '12px "JetBrains Mono", monospace', color: '#C9C3EF', borderCollapse: 'collapse' }}>
+      <table style={{ font: '12px "Share Tech Mono", monospace', color: '#C9C3EF', borderCollapse: 'collapse' }}>
         <thead>
           <tr>
             {['Star', 'Bayer', 'Mag', 'Node r'].map((h) => (

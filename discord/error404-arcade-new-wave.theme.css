@@ -6,7 +6,7 @@
  * @source https://branding.error404.net
  */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
   /* ---- Error404 Arcade New Wave palette (locked) ---- */
@@ -61,12 +61,12 @@
   --mention-background: rgba(255, 95, 162, 0.14);
   --mention-background-hover: rgba(255, 95, 162, 0.22);
 
-  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-family: 'Share Tech Mono', 'Consolas', monospace;
 }
 
 /* Base font applied across chat + UI chrome */
 body, .theme-dark {
-  font-family: 'JetBrains Mono', 'Consolas', monospace !important;
+  font-family: 'Share Tech Mono', 'Consolas', monospace !important;
 }
 
 /* Unread guild pill + mention badge -> palette pink */
@@ -95,7 +95,7 @@ a, .anchor-1MIwyf {
 
 /* Code blocks */
 code, pre, .markup-eYLPri code {
-  font-family: 'JetBrains Mono', monospace !important;
+  font-family: 'Share Tech Mono', monospace !important;
   background: #120a2c !important;
   border: 1px solid rgba(77, 225, 255, 0.25) !important;
 }

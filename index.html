@@ -7,7 +7,7 @@
 <meta name="description" content="Personal brand guidelines for Error404 / error404.net — color, typography, logo system, and treatment modes.">
 <link rel="icon" href="logos/favicon-white.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#231451; --fg:#F4F1FF;
@@ -18,7 +18,7 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0; background:var(--bg); color:var(--fg);
-    font-family:'JetBrains Mono', monospace; line-height:1.6;
+    font-family:'Share Tech Mono', monospace; line-height:1.6;
   }
   a{color:var(--blue);}
   .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
@@ -91,7 +91,7 @@
   .type-row .sample{font-size:22px;}
   .f-press{font-family:'Press Start 2P', monospace; font-size:15px;}
   .f-vt{font-family:'VT323', monospace; font-size:28px;}
-  .f-mono{font-family:'JetBrains Mono', monospace;}
+  .f-mono{font-family:'Share Tech Mono', monospace;}
 
   /* modes */
   .modes{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
@@ -404,10 +404,11 @@
   <div class="wrap">
     <h2><span class="num">06</span>Typography</h2>
     <p class="lead">Each face has a job and a declared fallback. The system assumes fonts will fail to load, so it must still read when they do.</p>
-    <div class="type-row"><div class="role">Display / ASCII wordmark <span style="opacity:.6">&mdash; hand-built block lettering, not a font</span></div><div class="sample f-mono" style="font-weight:700;">ERROR404.NET</div></div>
+    <div class="type-row"><div class="role">Display / ASCII wordmark <span style="opacity:.6">&mdash; hand-built block lettering, not a font</span></div><div class="sample f-mono">ERROR404.NET</div></div>
     <div class="type-row"><div class="role">Display fallback <span style="opacity:.6">&mdash; arcade pixel type. Hero only, unreadable below ~24px</span></div><div class="sample f-press">ERROR404</div></div>
     <div class="type-row"><div class="role">Terminal / mono accent <span style="opacity:.6">&mdash; headers, code, NFO tables</span></div><div class="sample f-vt">&gt; 404: message not found_</div></div>
-    <div class="type-row"><div class="role">UI body text <span style="opacity:.6">&mdash; built for reading code</span></div><div class="sample f-mono">JetBrains Mono &mdash; the only face on Entra and M365 surfaces</div></div>
+    <div class="type-row"><div class="role">UI body text <span style="opacity:.6">&mdash; slashed zero, one weight (Regular)</span></div><div class="sample f-mono">Share Tech Mono &mdash; 0123456789 &mdash; the only face on Entra and M365 surfaces</div></div>
+    <div class="type-row"><div class="role">Custom house font <span style="opacity:.6">&mdash; IN PROGRESS</span></div><div class="sample f-mono">Planned: a mono built from the best features of several fonts, starting from Share Tech Mono's slashed zero, with a true bold and fuller glyph coverage. Share Tech Mono stands in until it ships.</div></div>
   </div>
 </section>
 

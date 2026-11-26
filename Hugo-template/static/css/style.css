@@ -1,10 +1,10 @@
 /* Error404 Blog — branded digital/NFO theme
    Source: https://branding.error404.net/
-   Font: JetBrains Mono (UI, body, and brand treatments)
+   Font: Share Tech Mono (UI, body, and brand treatments)
    Mobile: NFO-style monospace white-on-black with auto dark/light sense
 */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 /* ═══════════════════════════════════════════
    CSS CUSTOM PROPERTIES
@@ -22,8 +22,8 @@
   --neon-yellow: #ffe156;
   --border: #513b86;
   --radius: 0.5rem;
-  --font-display: 'JetBrains Mono', monospace, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-display: 'Share Tech Mono', monospace, sans-serif;
+  --font-mono: 'Share Tech Mono', 'Courier New', monospace;
   --glow-cyan: 0 0 5px #4de1ff, 0 0 20px rgb(77 225 255 / 0.3);
   --glow-magenta: 0 0 5px #ff5fa2, 0 0 20px rgb(255 95 162 / 0.3);
   --max-width: 52rem;
@@ -227,7 +227,7 @@
   --glow-cyan: none;
   --glow-magenta: none;
   --scanline-opacity: 0;
-  --font-display: 'JetBrains Mono', 'Courier New', monospace;
+  --font-display: 'Share Tech Mono', 'Courier New', monospace;
 }
 
 /* Light mode keeps the NFO structure, reversed onto paper */

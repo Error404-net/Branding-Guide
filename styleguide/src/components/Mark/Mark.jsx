@@ -85,7 +85,7 @@ export function Mark({
               x={lx} y={ly}
               textAnchor={dx > 8 ? 'start' : dx < -8 ? 'end' : 'middle'}
               dominantBaseline="middle"
-              fontFamily="JetBrains Mono, monospace"
+              fontFamily="Share Tech Mono, monospace"
               fontSize={11}
               fill="#C9C3EF"
             >
@@ -101,8 +101,8 @@ export function Mark({
         <text
           x={LABEL.x} y={LABEL.y}
           textAnchor="middle"
-          fontFamily="JetBrains Mono, monospace"
-          fontWeight={700}
+          fontFamily="Share Tech Mono, monospace"
+          fontWeight={400}
           fontSize={LABEL.fontSize}
           fill={c.text}
         >

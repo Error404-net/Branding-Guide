@@ -24,21 +24,22 @@ Lines — **all one uniform color** (mint `#37F0A6` on the multicolor mark; the 
 single color on black/white/monogram cuts), `stroke-width="2"`, `opacity="0.75"`:
 - `(24.0,86.2)` → `(132.0,24.0)`
 - `(132.0,24.0)` → `(204.0,74.9)`
-- `(204.0,74.9)` → `(163.0,114.5)` **[half of the split line]**
-- `(126.9,155.3)` → `(80.2,202.0)` **[other half — collinear with the segment above]**
+- `(204.0,74.9)` → `(163.7,116.3)` **[half of the split line]**
+- `(125.8,155.2)` → `(80.2,202.0)` **[other half — both halves lie exactly on the (204.0,74.9)→(80.2,202.0) edge]**
 - `(80.2,202.0)` → `(24.0,86.2)`
 - `(204.0,74.9)` → `(212.2,200.6)`
 - `(212.2,200.6)` → `(216.0,216.0)`
 
-The two split-line segments are **collinear** (same slope) — they are not an arbitrary bend.
-The gap between them exists only to clear the "4Ø4" text, and the gap's angle is set to
-exactly match the rendered diagonal slash inside the "Ø" glyph (measured via OpenCV
-Canny + Hough line detection on the actual rendered glyph — converged on slope -1.0 / 45°,
-not eyeballed). If you ever need to re-derive this: render the text alone and the line alone
-to separate boolean ink masks and confirm zero pixel overlap before calling a fix correct —
-we broke this three times by trusting a visual check alone.
+The two split-line segments are **collinear** with the node-to-node edge (checked to 0.1 unit).
+The earlier endpoints `(163.0,114.5)` / `(126.9,155.3)` were 1.7 and 0.9 units off that edge
+with different slopes, so the halves visibly bent. That was the "slightly off" ring/primary defect,
+fixed 2026-11-26. The old "45° / -1.0 slope matches the Ø slash" claim was wrong: the edge runs at
+45.8° and the real Ø slash measures 60.5° (JetBrains Mono), 63.4° (B612 Mono Bold) and 74.5° (Share Tech Mono Regular). Spec and
+procedure now live in BRAND.md "Mark build spec"; `scripts/verify-marks.py` enforces it (zero ink
+overlap between separately rendered line and text masks, 1.5-unit clearance, collinearity,
+uniform line color). Run it before calling any mark correct.
 
-Text: `<text font-family="JetBrains Mono, monospace" font-weight="700" font-size="44" fill="..."
+Text: `<text font-family="Share Tech Mono, monospace" font-weight="400" font-size="44" fill="..."
 x="145" y="151" text-anchor="middle">4&#216;4</text>` (or font-size 40 / y=151 on the older
 neon-glow variants, which use a smaller base size — keep their existing font-size, just fix
 the position/geometry/text content).
@@ -367,12 +368,47 @@ Audit by rendering every SVG and PNG, not just reading source. Changes on branch
   claim removed from the page, Deep background `#170C38` swatch added, `logos/README.txt`
   inventory corrected to the files that exist.
 
+## What's done — round 9 (font decision, split-line fix, spec lock, 2026-11-26)
+
+Branch `third-party-guidance-cleanup` (history squashed into four clean commits).
+
+- **Font: Share Tech Mono** (slashed zero), with the terminal accent faces (VT323, Press Start 2P)
+  unchanged. B612 Mono was tried first and dropped: plain zero. **Regular weight only** — the font
+  has no bold, so marks use `font-weight="400"` and the docs forbid requesting bold.
+  **Custom house font: IN PROGRESS** — a mono built from the best features of several fonts
+  (slashed zero, true bold, fuller glyph coverage). Share Tech Mono is the stand-in. Annotated on
+  the page (Typography section) and in BRAND.md/DESIGN.md. When it ships, re-render everything
+  that carries mark or wordmark text.
+- Font name swapped in: all mark SVGs (+ Hugo copies), `index.html`, Hugo CSS, Discord theme, OBS
+  overlays, SharePoint store (IBM Plex fallback dropped), styleguide (`share-tech-mono-400.woff2`,
+  700 face removed), brand-mcp, BRAND/DESIGN/brandkit, Technitium block page (rebuilt, now one
+  weight, 46 KB), and inside the Office templates: `.thmx` major/minor, PPTX (90 runs) and
+  Digital-Color docx. `signature.js` keeps `Courier New` (email clients cannot load web fonts).
+  Envelope, Letterhead, Corporate-BW and Cover docx still use `Courier New` (paper/Machine rule).
+- **Split-line defect fixed.** Halves were 1.7 and 0.9 units off the (204.0,74.9)→(80.2,202.0)
+  edge with different slopes. Now both on the edge: `(163.7,116.3)` and `(125.8,155.2)`; neon cuts
+  `(164.3,115.6)` / `(122.8,158.3)`. `styleguide/.../libraData.js` matches.
+- **Spec locked.** BRAND.md "Mark build spec"; `scripts/verify-marks.py` (13 SVGs pass).
+- **Corrected false claim:** the Ø slash is not 45°; the edge is 45.8°.
+- **Re-rendered with Share Tech Mono:** ring set (icon, favicon, netmesh-ring-color + OBS copies,
+  Discord icon, ring avatars, `logos/png/libra-ring-*`), no-ring cuts (Entra squares, avatars,
+  `logos/png/libra-no-ring-multicolor`), email marks, `assets/netmesh-lockup.png` and the three Entra
+  banner lockups (rebuilt from the Monogram + wordmark), `assets/netmesh-neon-multi.png` (+ OBS
+  copy), the six Office-template embedded rings (new 76.7% ring, validated with python-docx/pptx),
+  LinkedIn company logo, YouTube watermark, circle stickers (multicolor, mono, neon).
+
+**Still stale (needs its own layout pass or decision):** `social/stickers/sticker-circle-ham-900.png`
+and `sticker-diecut-shape-multicolor-1024.png`, `sticker-sheet-proof.png`, the Discord
+splash/banner, LinkedIn cover/company banner/post images, YouTube banner/thumbnail (generated
+backgrounds with an old mark, plain "404" or "404.NET"), `assets/print-mode.png`, and
+`Error404-Brand-Guidelines.pdf` (old mark and font). `.docx` font embedding not done.
+
 ## Known issues tracker (updated 2026-11-26)
 
 **Resolved this round (branch `third-party-guidance-cleanup`)**
 - Ring variants: constellation now scaled to 76.7% (`<g transform="translate(120 120) scale(0.767)
   translate(-126 -136)">`) so every node sits inside the ring (Jesse chose "shrink mark").
-  Re-rendered with real JetBrains Mono: `assets/{icon,favicon,netmesh-ring-color}.png`, their OBS
+  Re-rendered (fonts superseded in round 9): `assets/{icon,favicon,netmesh-ring-color}.png`, their OBS
   copies, `discord/discord-server-icon-512.png`, the two ring avatars, and
   `logos/png/libra-ring-{multicolor,black,green}/*`. Not byte-verified in Office or OBS.
 - C2PA metadata stripped from all 15 SVGs that carried it (incl. Hugo-template copies).
@@ -383,13 +419,8 @@ Audit by rendering every SVG and PNG, not just reading source. Changes on branch
   The neon swatches for blue/pink stay in the Neon accent set as reserved colors.
 
 **Open**
-1. **Fonts: undecided.** The `.thmx` uses IBM Plex Mono; BRAND.md/DESIGN.md say JetBrains Mono.
-   Jesse wants clear and legible, is open to custom or third-party fonts, and likes terminal
-   fonts and IBM Plex Mono. Specimen sent 2026-11-26. Needs a pick, then align `.thmx`, BRAND.md
-   §Typography, DESIGN.md tokens, `signature.js`, and the SharePoint Brand Center font package.
-2. **Still show the old (oversized) ring:** the Office template embeds (6 `.docx`, `.pptx`),
-   `social/stickers/sticker-circle-{mono,ham}-900.png`, and any composite banner that embeds a
-   ring cut. Re-render after the font decision.
+1. **Fonts: Share Tech Mono + terminal accents DECIDED 2026-11-26**, custom house font in progress (see round 9).
+2. **Composites still show the old mark:** see "Still stale" in round 9.
 3. **OBS "mirrors" are not byte-identical to `assets/`** (found 2026-11-26, same filenames
    differed before the re-render). The three ring files were re-copied. Others not compared.
 4. **Social `ham` assets** (`avatar-ham-multicolor-navy-800.png`, `sticker-circle-ham-900.png`)
@@ -449,7 +480,7 @@ Audit by rendering every SVG and PNG, not just reading source. Changes on branch
   `rsvg-convert`, or `inkscape`), so render SVG→PNG in the cloud sandbox and push the result
   with the device-commit tool. Don't try to install a renderer on the Mac side for this.
 - **Cloud-sandbox render pipeline requires two fixes or every "4Ø4" text render comes out
-  wrong** (see round 3 above): (1) `sudo apt-get install -y fonts-jetbrains-mono` — the
+  wrong** (see round 3 above): (1) install the brand font (now Share Tech Mono: copy `ShareTechMono-Regular.ttf` into a font dir listed in the fontconfig below; `fonts-jetbrains-mono` is no longer needed) — the
   container doesn't have it by default and `cairosvg` silently substitutes another font;
   (2) force grayscale antialiasing, or text edges get a real color fringe when composited on
   transparent backgrounds. Use a fontconfig override:

@@ -10,8 +10,8 @@
 <g filter="url(#glowGreen-soft)">
 <line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
 <line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
-<line x1="204.0" y1="74.9" x2="163.0" y2="114.5" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
-<line x1="126.9" y1="155.3" x2="80.2" y2="202.0" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="204.0" y1="74.9" x2="164.3" y2="115.6" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+<line x1="122.8" y1="158.3" x2="80.2" y2="202.0" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
 <line x1="80.2" y1="202.0" x2="24.0" y2="86.2" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
 <line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
 <line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#39FF14" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
@@ -25,8 +25,8 @@
 <g filter="url(#glowGreen)">
 <line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
 <line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
-<line x1="204.0" y1="74.9" x2="163.0" y2="114.5" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
-<line x1="126.9" y1="155.3" x2="80.2" y2="202.0" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="204.0" y1="74.9" x2="164.3" y2="115.6" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
+<line x1="122.8" y1="158.3" x2="80.2" y2="202.0" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
 <line x1="80.2" y1="202.0" x2="24.0" y2="86.2" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
 <line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
 <line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#39FF14" stroke-width="3.5" stroke-linecap="round" opacity="1"/>
@@ -39,8 +39,8 @@
 </g>
 <line x1="24.0" y1="86.2" x2="132.0" y2="24.0" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
 <line x1="132.0" y1="24.0" x2="204.0" y2="74.9" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
-<line x1="204.0" y1="74.9" x2="163.0" y2="114.5" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
-<line x1="126.9" y1="155.3" x2="80.2" y2="202.0" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="204.0" y1="74.9" x2="164.3" y2="115.6" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
+<line x1="122.8" y1="158.3" x2="80.2" y2="202.0" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
 <line x1="80.2" y1="202.0" x2="24.0" y2="86.2" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
 <line x1="204.0" y1="74.9" x2="212.2" y2="200.6" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
 <line x1="212.2" y1="200.6" x2="216.0" y2="216.0" stroke="#39FF14" stroke-width="1.6" stroke-linecap="round" opacity="1"/>
@@ -56,5 +56,5 @@
 <circle cx="212.2" cy="200.6" r="10.4" fill="none" stroke="#39FF14" stroke-width="1"/>
 <circle cx="216.0" cy="216.0" r="4.73" fill="#FFFFFF" opacity="0.9"/>
 <circle cx="216.0" cy="216.0" r="8.6" fill="none" stroke="#39FF14" stroke-width="1"/>
-<text font-family="JetBrains Mono, monospace" font-weight="700" font-size="40" fill="#EFFFEA" x="145" y="151" text-anchor="middle">4&#216;4</text>
+<text font-family="Share Tech Mono, monospace" font-weight="400" font-size="40" fill="#EFFFEA" x="145" y="151" text-anchor="middle">4&#216;4</text>
 </svg>

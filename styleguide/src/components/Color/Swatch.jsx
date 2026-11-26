@@ -1,7 +1,7 @@
 import React from 'react';
 import { contrast, rating } from '../../lib/contrast';
 
-const mono = '"JetBrains Mono", monospace';
+const mono = '"Share Tech Mono", monospace';
 
 /** One palette entry: chip, role token, hex, and its fixed meaning. */
 export function Swatch({ name, token, hex, meaning, width = 150 }) {

@@ -147,7 +147,7 @@ Mirrors the approved faces in `BRAND.md`; the scale below is derived here.
 |---|---|---|
 | `--font-display` | `'Press Start 2P', monospace` | Hero only, ≥24px |
 | `--font-terminal` | `'VT323', monospace` | Headings, NFO tables |
-| `--font-body` | `'JetBrains Mono', monospace` | Body, UI, code |
+| `--font-body` | `'Share Tech Mono', monospace` | Body, UI, code. Regular weight only. Stand-in until the custom house font ships |
 
 **Always declare the generic fallback.** A family named alone falls back to the
 browser default *serif*, not to monospace. This has shipped as a real defect:

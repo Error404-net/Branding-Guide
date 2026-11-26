@@ -272,16 +272,24 @@ Five roles, one assigned face each, each with a declared fallback.
 | Display fallback | Press Start 2P | `monospace` | Hero only. Unreadable below ~24px |
 | Terminal accent | Perfect DOS VGA 437 | VT323 | Headers, code, NFO tables |
 | Terminal web | VT323 | `monospace` | Web equivalent of the above |
-| UI body | JetBrains Mono | `monospace` | Body copy. The only face on Entra and M365 surfaces |
+| UI body (stand-in) | Share Tech Mono | `monospace` | Body copy and the `4Ø4` text. Regular weight only. Stand-in until the custom house font ships. The only face on Entra and M365 surfaces |
 
 **Rules.**
 
+- Share Tech Mono (selected 2026-11-26) has a slashed zero, so `0` and `O` stay distinct.
+  It ships in one weight only. Do not request bold; a faux bold smears the thin strokes.
+  Show emphasis with color, caps, size or the terminal accent face instead.
+- **Custom font: in progress.** The long-term plan is a house mono built from the best
+  features and character shapes of several fonts (slashed zero from Share Tech Mono,
+  plus a true bold and fuller glyph coverage). Until it exists, Share Tech Mono is the
+  stand-in. When the custom font ships, re-render the marks and update this table, the
+  `.thmx`, `signature.js` guidance and the Brand Center font package.
 - Never more than two mono families on one surface.
 - **Always declare a generic fallback.** A family named alone falls back to the
   browser default serif, not to monospace. This has shipped as a real defect.
 - Entra ID and the Microsoft 365 admin center reject custom web fonts and
   substitute their own. That substitution is expected and needs no correction;
-  specify JetBrains Mono anyway so the intent is recorded.
+  specify Share Tech Mono anyway so the intent is recorded.
 
 ### Style
 
@@ -377,6 +385,38 @@ sit on rather than by color:
 These two replace every prior icon-only or glyph-only cut (the old
 `libra-site-icon-*` and `glyph-only/` files are deleted; see `CLAUDE.md`). Do not
 introduce a third icon-only variant without updating this file.
+
+## Mark build spec (LOCKED)
+
+Every mark that carries the `4Ø4` text (primary, ring, neon) is built to this
+spec. `scripts/verify-marks.py` checks it and must pass before a mark is
+committed or re-rendered.
+
+- **Geometry.** Six nodes and seven connecting lines at the canonical
+  coordinates (viewBox `0 0 240 240`). Lines are `stroke-width="2"`,
+  `opacity="0.75"`. Node circles keep their multicolor fills.
+- **Line color.** Every line is one uniform color: mint `#37F0A6` on the
+  multicolor mark, the mark's own solid color on the black, white and
+  single-accent cuts. Neon cuts color each edge on purpose and are exempt.
+- **Split line.** The edge from `(204.0, 74.9)` to `(80.2, 202.0)` crosses the
+  `4Ø4` text, so it is drawn as two segments that both lie exactly on that
+  edge (within 0.1 unit): `(204.0, 74.9)` to `(163.7, 116.3)` and
+  `(125.8, 155.2)` to `(80.2, 202.0)`. Neon cuts use a wider gap for their
+  thicker strokes.
+- **Text.** `4Ø4` in Share Tech Mono Regular (`font-weight="400"`; the font has no bold), size 44 (40 on neon), `x="145"`, `y="151"`,
+  `text-anchor="middle"`. No oval or ellipse behind it.
+- **Verification.** Line ink and text ink are rendered as two separate masks
+  with the real font. They must overlap by zero pixels and keep at least 1.5
+  units of clearance. A visual check alone is not accepted; this has failed
+  three times.
+- **Measured angles.** The edge runs at 45.8° (slope -1.027). The Ø slash in
+  Share Tech Mono Regular measures 74.5° (Canny edge detection plus Hough line fit on the
+  isolated glyph; JetBrains Mono measured 60.5°). The gap is centered on the
+  crossing, so its sides do not parallel the slash. Matching them would move
+  the nodes, which are locked.
+- **Render.** Use real Share Tech Mono and grayscale antialiasing (see
+  `CLAUDE.md`, working notes). A fallback font silently changes the text
+  width and the Ø.
 
 ## Open decisions
 

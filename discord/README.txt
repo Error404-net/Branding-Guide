@@ -32,7 +32,7 @@ error404-arcade-new-wave.theme.css
     What it does: remaps Discord's CSS custom properties to the Arcade
     New Wave palette — navy backgrounds (#170c38 / #231451), #4DE1FF
     in place of blurple for accents and primary buttons, mint (#37F0A6)
-    links, pink (#FF5FA2) unread/mention badges, and JetBrains Mono as
+    links, pink (#FF5FA2) unread/mention badges, and Share Tech Mono as
     the UI font (falls back to Consolas/monospace).
 
     Discord frequently renames the hashed CSS classnames it uses

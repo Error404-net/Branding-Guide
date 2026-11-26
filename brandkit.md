@@ -33,7 +33,7 @@ Each accent keeps one fixed job everywhere. Max two accents per surface.
 |---|---|---|
 | Display | Press Start 2P | `monospace` — hero only, ≥24px |
 | Terminal | VT323 | `monospace` — headings, NFO tables |
-| Body / UI | JetBrains Mono | `monospace` — everything else |
+| Body / UI | Share Tech Mono | `monospace` — everything else |
 
 Never more than two mono families on one surface. Always write the generic
 fallback — a bare family name falls back to *serif*, not monospace.
