@@ -48,6 +48,9 @@ def build(out, ver='0.1'):
     # --- slashed zero and Ø: see zero_glyphs.py (45.75° edge angle, wide bowl, thin square-tip slash)
     import zero_glyphs as Z
     put(cmap_main[0x30],0x30,Z.digit_zero()); put(cmap_main[0xD8],0xD8,Z.oslash())
+    # --- round O and the constellation icon (U+E404): see round_glyphs.py / icon_glyph.py
+    import round_glyphs as R, icon_glyph as I
+    put(cmap_main[0x4F],0x4F,R.cap_o()); put(I.GLYPH_NAME,I.CODEPOINT,I.icon())
     f.setGlyphOrder(order)
     # --- tables
     g=newTable('gasp'); g.version=1; g.gaspRange={65535:0x000F}; f['gasp']=g

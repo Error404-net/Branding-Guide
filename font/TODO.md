@@ -8,7 +8,9 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
       thin 60-unit slash, square tips, solid crossing. Digit 0 tip +40 (stays in cell); Ø tip +110 (logo/display).
       Clearance check passes: Ø clears the 4s by 3.9 / 5.9 units, lines-to-text 3.4, zero overlap.
 - [ ] Regenerate `previews/specimen.png` and `previews/mark-newfont.png` (still show the old zero)
-- [ ] Decide whether O (x 70..470) should widen to match the wider zero bowl
+- [x] O decided: true oval, 535 wide, overshoot 14 (`round_glyphs.py`, b3)
+- [ ] Q, D, C, G to follow the round O
+- [x] Constellation icon glyph at U+E404 (`icon_glyph.py`, a1)
 - [ ] Outline the "4Ø4" text in every mark SVG (remove the font dependency from the marks)
 - [ ] Update `scripts/verify-marks.py` and BRAND.md "Mark build spec": font name, Ø angle 45.75°, slash role = continuation
 - [ ] Re-render all PNG/social/Office/Entra/Discord/YouTube/LinkedIn assets from the outlined SVGs
@@ -25,7 +27,7 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [ ] Powerline / Nerd Font glyphs for p10k (❯, ±, branch, lock, separators): missing today, show as boxes
 
 ## Licence and distribution
-- [ ] Add full OFL 1.1 text and both upstream copyright files (`font/NOTICE.txt`)
+- [x] Licence: font OFL 1.1 (`OFL.txt`), scripts MIT. Still verify upstream copyright lines against each donor's OFL.txt
 - [ ] Confirm the name "Error404 Mono" does not clash with an existing font name
 - [ ] Web font (woff2) for the styleguide and the brand page
 - [ ] Brand Center upload package (manual)

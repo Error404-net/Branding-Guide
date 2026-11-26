@@ -460,6 +460,19 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
 - **Process rule from Jesse:** show options as one lettered/numbered grid and ask for the single cell
   ("a1"), not separate row and column questions.
 
+## What's done — round 13 (O, icon glyph, licence, 2026-11-26)
+
+- **O** (`font/round_glyphs.py`): Jesse rejected every squared/soft O in `previews/O-round1.png` ("more
+  circular"); picked **b3** of `previews/O-round2.png`: true oval, 535 wide (fills the cell), overshoot 14.
+  Q, D, C, G still use Share Tech shapes and will need to follow the O.
+- **Icon glyph U+E404** (`font/icon_glyph.py`): picked **a1** of `previews/icon-round1.png`: one cell,
+  thin 30-unit lines, true star proportions. Same geometry as `logos/monogram-*.svg`. PUA code point,
+  clear of all Nerd Font ranges. Small stars nearly vanish at 13 px (accepted: "fit and true").
+- `patch_zero.py` → `patch_glyphs.py` (0, Ø, O, U+E404). `build_font.py` calls all three modules.
+- **Licence decided:** font files SIL OFL 1.1 (`font/OFL.txt`, `font/NOTICE.txt`), because both donors
+  are OFL and the OFL keeps derivatives OFL. Scripts and repo stay MIT. README and the page say so.
+- Brand page Typography: added the O (b3) and icon (a1) panels from `assets/font-glyphs/`.
+
 ## Known issues tracker (updated 2026-11-26)
 
 **Resolved this round (branch `third-party-guidance-cleanup`)**

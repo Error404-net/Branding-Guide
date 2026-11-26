@@ -36,7 +36,7 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
   STATUS......: living document — colors locked, primary mark selected
   STACK.......: static HTML/CSS, GitHub Pages, zero build step
   TAGS........: brand / design-system / arcade / ascii / new-wave-hacker
-  LICENSE.....: MIT — see LICENSE
+  LICENSE.....: MIT — see LICENSE (except font/*.ttf: SIL OFL 1.1, see font/OFL.txt)
 
 --------------------------------------------------------------------------------
   SUMMARY
@@ -102,7 +102,8 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
                            copy layouts/ and static/ into any Hugo site
       AGENTS.md           portable brand instructions for AI coding agents/skills
       CNAME               GitHub Pages custom-domain file (branding.error404.net)
-      LICENSE             MIT
+      LICENSE             MIT (repo and scripts)
+      font/               Error404 Mono house font (OFL 1.1) + MIT build scripts
 
     Every downloadable file uses placeholder tokens (<Your Name>, <phone>, etc.)
     rather than real contact details - fill those in per document before use.
