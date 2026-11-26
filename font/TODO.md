@@ -21,7 +21,8 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [ ] Check the Ø and 0 at 16 px and 24 px (MOTD, favicons, OBS overlays)
 - [ ] Hinting / ttfautohint pass for screen sizes
 - [ ] Kerning and spacing review on lowercase (donor glyphs were rescaled, not hand-spaced)
-- [ ] Glyph review: JetBrains lowercase vs Share Tech caps weight and x-height match
+- [x] Lowercase fitted to caps: x-height 490, stems 87 (`lowercase_fit.py`, b1)
+- [x] Confusables (1 l I |, 5S, 8B, rn m) checked: already distinct
 - [ ] Box-drawing and block elements (MOTD, terminal art)
 - [ ] Extra arrows and math symbols as needed
 - [ ] Powerline / Nerd Font glyphs for p10k (❯, ±, branch, lock, separators): missing today, show as boxes

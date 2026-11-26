@@ -473,6 +473,11 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
 - **Licence decided:** font files SIL OFL 1.1 (`font/OFL.txt`, `font/NOTICE.txt`), because both donors
   are OFL and the OFL keeps derivatives OFL. Scripts and repo stay MIT. README and the page say so.
 - Brand page Typography: added the O (b3) and icon (a1) panels from `assets/font-glyphs/`.
+- **Confusables checked:** `1 l I |`, 5/S, 8/B, rn/m already distinct; no change.
+- **Lowercase fit** (`font/lowercase_fit.py`): cell **b1** of `previews/LC-round1.png`: x-height 527 → 490
+  (70% of caps), full width, stems thickened back to the caps' 87. Applied once to the committed TTF;
+  the function is not idempotent (build_font.py runs it once on the fresh donor lowercase).
+- Page now shows four panels: O b3, icon a1, QDCG a1, lowercase b1.
 
 ## Known issues tracker (updated 2026-11-26)
 

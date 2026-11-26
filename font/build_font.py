@@ -53,13 +53,16 @@ def build(out, ver='0.1'):
     put(cmap_main[0x4F],0x4F,R.cap_o())
     for ch,fn in (('Q',R.cap_q),('D',R.cap_d),('C',R.cap_c),('G',R.cap_g)): put(cmap_main[ord(ch)],ord(ch),fn())
     put(I.GLYPH_NAME,I.CODEPOINT,I.icon())
+    # --- fit the donor lowercase to the caps (x-height 490, stems 87): lowercase_fit.py, once only
+    f.setGlyphOrder(order)
+    import lowercase_fit; lowercase_fit.fit(f)
     f.setGlyphOrder(order)
     # --- tables
     g=newTable('gasp'); g.version=1; g.gaspRange={65535:0x000F}; f['gasp']=g
     f['post'].formatType=3.0; f['post'].isFixedPitch=1; f['post'].extraNames=[]; f['post'].mapping={}
     hh=f['hhea']; hh.ascent=900; hh.descent=-260; hh.lineGap=0
     o=f['OS/2']; o.sTypoAscender=900; o.sTypoDescender=-260; o.sTypoLineGap=0; o.usWinAscent=1000; o.usWinDescent=320
-    o.sCapHeight=700; o.sxHeight=527; o.xAvgCharWidth=ADV; o.panose.bProportion=9; o.fsType=0
+    o.sCapHeight=700; o.sxHeight=490; o.xAvgCharWidth=ADV; o.panose.bProportion=9; o.fsType=0
     f['head'].fontRevision=float(ver); f['head'].macStyle=0
     nm=f['name']; nm.names=[]
     full='Error404 Mono'
