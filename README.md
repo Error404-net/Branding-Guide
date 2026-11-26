@@ -120,6 +120,35 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
   Everything is static — edit index.html, swap files in assets/, commit, push.
 
 --------------------------------------------------------------------------------
+  GREETZ
+--------------------------------------------------------------------------------
+
+  Error404 Mono stands on other people's work. Respect to:
+
+  > Share Tech Mono ..... Carrois Type Design / Ralph du Carrois     OFL 1.1 (RFN "Share")
+                          caps, digits, punctuation
+  > JetBrains Mono ...... The JetBrains Mono Project Authors          OFL 1.1
+                          lowercase, symbols, arrows, ± … ✓ ✗
+  > Nerd Fonts .......... Ryan L McIntyre + contributors             MIT (font-patcher)
+                          the patcher and every icon set below
+  > Codicons ............ Microsoft                                   CC BY 4.0
+  > Devicons ............ devicons/devicon                            MIT
+  > Font Awesome ........ Fonticons, Inc.                             CC BY 4.0 (icons)
+  > FA Extension ........ AndreLZGava                                 MIT
+  > Font Logos .......... Lukas W                                     Unlicense
+  > Material Design ..... Templarian / Pictogrammers                  Apache 2.0
+  > Octicons ............ GitHub (primer/octicons)                    MIT
+  > Seti-UI ............. Jesse Weed                                  MIT
+  > Pomicons ............ Gabriele Lana                               OFL 1.1
+  > Powerline Symbols ... powerline/powerline                         MIT
+  > Powerline Extra ..... Ryan L McIntyre                             MIT
+  > IEC Power Symbols ... Joe Loughry                                 MIT
+  > Weather Icons ....... Erik Flowers                                OFL 1.1
+  > fontTools, skia-pathops, FontForge .. the tools that built it
+
+  Licence texts, verbatim: font/licenses/. Font files: SIL OFL 1.1 (font/OFL.txt).
+
+--------------------------------------------------------------------------------
   LINKS / REFS
 --------------------------------------------------------------------------------
 

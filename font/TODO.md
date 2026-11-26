@@ -23,9 +23,11 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [ ] Kerning and spacing review on lowercase (donor glyphs were rescaled, not hand-spaced)
 - [x] Lowercase fitted to caps: x-height 490, stems 87 (`lowercase_fit.py`, b1)
 - [x] Confusables (1 l I |, 5S, 8B, rn m) checked: already distinct
-- [ ] Box-drawing and block elements (MOTD, terminal art)
+- [x] Box-drawing and block elements: in the Nerd Font build (patcher); not yet in the plain Error404 Mono files
 - [ ] Extra arrows and math symbols as needed
-- [ ] Powerline / Nerd Font glyphs for p10k (❯, ±, branch, lock, separators): missing today, show as boxes
+- [x] Prompt symbols ± … ✔ ✘ ⇡ ⇣ (`extra_symbols.py`); ❯ and box drawing come with the Nerd Font patch
+- [x] Nerd Font build (`patch_nerd.sh`, a2, standard width) → `nerd/`
+- [x] Upstream licence files verbatim in `licenses/`; README GREETZ
 
 ## Licence and distribution
 - [x] Licence: font OFL 1.1 (`OFL.txt`), scripts MIT. Still verify upstream copyright lines against each donor's OFL.txt

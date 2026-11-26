@@ -482,6 +482,24 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
   (name ID 2 Bold, weight 700, fsSelection/macStyle bold). Regenerate Bold after any Regular change.
 - Page now shows five panels: O b3, icon a1, QDCG a1, lowercase b1, bold b2.
 
+## What's done — round 14 (prompt symbols, Nerd Font build, licences, Greetz, 2026-11-26)
+
+- **Prompt symbols** (`font/extra_symbols.py`): ± … from JetBrains; ✔ ✘ = JetBrains ✓ ✗ thickened;
+  ⇡ ⇣ = our ↑ ↓ with two shaft gaps. Wired into `build_font.py` and `patch_glyphs.py` (3rd arg = full
+  JetBrains TTF). Bold regenerated after.
+- **Full donors fetched** (sparse clones): `google/fonts ofl/sharetechmono` (5026800) and
+  `JetBrains/JetBrainsMono fonts/ttf` (1937130). The `/tmp/fonts` JetBrains copy was a subset (no ⇐⇒⇔ ✓ ✗).
+  Share Tech Mono's OFL reserves the name **"Share"**; we don't use it. `font/OFL.txt` copyright line fixed to upstream.
+- **Nerd Font** (`font/patch_nerd.sh` → `font/nerd/Error404MonoNerdFont-{Regular,Bold}.ttf`, ~2.2 MB each):
+  official font-patcher (nerd-fonts adbd16a, `--complete --careful`, run with `fontforge -script`;
+  needs `PYTHONIOENCODING=utf-8`). Jesse picked **a2** of `previews/nf-round1.png`: standard Nerd Font
+  (icons up to 2 cells), not Mono. U+E404 survives patching unchanged.
+- **Licences:** Jesse: "match their license". Every upstream licence copied verbatim to `font/licenses/`
+  (Share Tech, JetBrains + AUTHORS, Nerd Fonts LICENSE + audit + icon-set table, each icon set's file).
+  NOTICE lists each set with its licence. Font stays OFL 1.1.
+- **README "GREETZ"** section (Jesse asked for it): credits every upstream source with licence.
+- Page: added the a2 terminal-build panel; licence note mentions the icon licences.
+
 ## Known issues tracker (updated 2026-11-26)
 
 **Resolved this round (branch `third-party-guidance-cleanup`)**

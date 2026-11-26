@@ -13,14 +13,26 @@ SOURCES
   rescaled to a 540-unit advance and 700-unit cap height.
   Drawn here (original): 0 and Ø (zero_glyphs.py), O (round_glyphs.py), the constellation
   icon at U+E404 (icon_glyph.py).
-  The font is renamed (Error404 Mono) and does not use either donor's name.
+  The font is renamed (Error404 Mono) and does not use either donor's name. Share Tech Mono
+  reserves the font name "Share"; Error404 Mono does not use it.
+  Prompt symbols ± … ✔ ✘ ⇡ ⇣ (extra_symbols.py): JetBrains Mono, adapted.
+
+NERD FONT BUILD (nerd/Error404MonoNerdFont-*.ttf)
+  Patched with the Nerd Fonts font-patcher (MIT, https://github.com/ryanoasis/nerd-fonts,
+  commit adbd16a), --complete. Icon sets and their licences (copies in licenses/):
+    Codicons CC BY 4.0 · Devicons MIT · Font Awesome CC BY 4.0 (icons) · Font Awesome Extension MIT
+    Font Logos Unlicense · Material Design Icons Apache 2.0 · Octicons MIT · Seti-UI MIT
+    Pomicons OFL 1.1 (RFN) · Powerline Extra MIT · Powerline Symbols MIT · IEC Power Symbols MIT
+    Weather Icons OFL 1.1
+  The combined font is distributed under OFL 1.1; each icon set keeps its own licence and
+  attribution, as listed in licenses/nerd-fonts-icon-sets.md and licenses/nerd-fonts-license-audit.md.
 
 BUILD
   Full build:  python3 build_font.py out.ttf   (donor TTFs are read from /tmp/fonts; edit the two
                paths at the top of build_font.py)
   Patch only:  python3 patch_glyphs.py IN.ttf OUT.ttf   (swaps in the house-drawn glyphs)
   Bold:        python3 make_bold.py Error404Mono-Regular.ttf Error404Mono-Bold.ttf
+  Nerd Font:   ./patch_nerd.sh /path/to/nerd-fonts   (after Regular and Bold)
   Needs: fontTools, skia-pathops
 
-TODO before public distribution: confirm the upstream copyright lines in OFL.txt against each
-donor's own OFL.txt / AUTHORS file.
+Upstream licence files, copied verbatim: licenses/.

@@ -9,6 +9,7 @@ from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.recordingPen import DecomposingRecordingPen
 from fontTools.ttLib.tables import ttProgram
 
+# Donors: google/fonts ofl/sharetechmono and JetBrains/JetBrainsMono fonts/ttf (full, not a subset)
 SHARE='/tmp/fonts/ShareTechMono-Regular.ttf'; JB='/tmp/fonts/JetBrainsMono-Regular.ttf'
 ADV=540
 # constellation edge: (204.0,74.9) -> (80.2,202.0)
@@ -56,6 +57,9 @@ def build(out, ver='0.1'):
     # --- fit the donor lowercase to the caps (x-height 490, stems 87): lowercase_fit.py, once only
     f.setGlyphOrder(order)
     import lowercase_fit; lowercase_fit.fit(f)
+    # --- prompt symbols (± … ✔ ✘ ⇡ ⇣): extra_symbols.py
+    import extra_symbols; extra_symbols.add(f, JB)
+    order=list(f.getGlyphOrder())
     f.setGlyphOrder(order)
     # --- tables
     g=newTable('gasp'); g.version=1; g.gaspRange={65535:0x000F}; f['gasp']=g

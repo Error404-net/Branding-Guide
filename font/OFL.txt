@@ -1,5 +1,5 @@
-Copyright 2026 Jesse Durkee / ERROR404.NET (Error404 Mono: the 0, Ø, O and U+E404 icon glyphs, assembly, metrics).
-Copyright 2012 Carrois Type Design, Ralph du Carrois (Share Tech Mono).
+Copyright 2026 Jesse Durkee / ERROR404.NET (Error404 Mono: house-drawn glyphs, assembly, metrics).
+Copyright (c) 2012, Carrois Type Design, Ralph du Carrois (post@carrois.com www.carrois.com), with Reserved Font Name 'Share'.
 Copyright 2020 The JetBrains Mono Project Authors (https://github.com/JetBrains/JetBrainsMono).
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
