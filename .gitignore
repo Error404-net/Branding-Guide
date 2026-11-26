@@ -6,3 +6,4 @@ assets/signature-mockup.png
 _to_delete/
 node_modules/
 .claude/
+__pycache__/

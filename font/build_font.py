@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Error404 Mono (Regular) — hybrid: Share Tech Mono caps/digits/punct + JetBrains Mono lowercase/symbols/arrows.
-Zero (U+0030) and Ø (U+00D8) are drawn here: slash on the constellation edge angle."""
+Zero (U+0030) and Ø (U+00D8) come from zero_glyphs.py: slash on the constellation edge angle."""
 import math, sys
 from fontTools.ttLib import TTFont, newTable
 from fontTools import subset
@@ -17,7 +17,7 @@ SX=ADV/600; SY=700/730            # JetBrains -> 540 advance, 700 cap height
 DONOR_SYMS=set(map(ord,'{}[]()<>/\\|~_-=+*&%$#@^`;'))   # symbols taken from JetBrains
 ARROWS=[0x2190,0x2191,0x2192,0x2193,0x2194,0x2195,0x21D0,0x21D2,0x21D4]
 
-def build(out, zero_L=300, o_L=500, slash_t=75, ver='0.1'):
+def build(out, ver='0.1'):
     ascii_=list(range(0x20,0x7F))+[0xA0,0xD8]
     f=TTFont(SHARE)
     opt=subset.Options(); opt.layout_features=[]; opt.hinting=False; opt.glyph_names=True; opt.notdef_outline=True
@@ -45,23 +45,9 @@ def build(out, zero_L=300, o_L=500, slash_t=75, ver='0.1'):
     for n,g in glyf.glyphs.items():
         if not g.isComposite():
             g.program=ttProgram.Program(); g.program.fromBytecode(b'')
-    # --- slashed zero and Ø: Share Tech bowl + slash on the constellation edge angle
-    ux,uy=math.cos(math.radians(EDGE)),math.sin(math.radians(EDGE))
-    px,py=-uy,ux; cx,cy=270,350
-    def zero_glyph(L):
-        pen=TTGlyphPen(None)
-        pen.moveTo((280,0)); pen.lineTo((260,0)); pen.qCurveTo((183,0),(92,87),(92,170)); pen.lineTo((92,530))
-        pen.qCurveTo((92,614),(182,700),(260,700)); pen.lineTo((280,700)); pen.qCurveTo((358,700),(448,614),(448,530))
-        pen.lineTo((448,170)); pen.qCurveTo((448,87),(357,0),(280,0)); pen.closePath()
-        pen.moveTo((280,625)); pen.lineTo((260,625)); pen.qCurveTo((224,625),(177,580),(177,549)); pen.lineTo((177,151))
-        pen.qCurveTo((177,120),(224,75),(260,75)); pen.lineTo((280,75)); pen.qCurveTo((316,75),(363,120),(363,151))
-        pen.lineTo((363,549)); pen.qCurveTo((363,580),(316,625),(280,625)); pen.closePath()
-        h=slash_t/2
-        P=[(cx-L*ux+h*px,cy-L*uy+h*py),(cx+L*ux+h*px,cy+L*uy+h*py),(cx+L*ux-h*px,cy+L*uy-h*py),(cx-L*ux-h*px,cy-L*uy-h*py)]
-        pen.moveTo(tuple(round(v) for v in P[0]))
-        for q in P[1:]: pen.lineTo(tuple(round(v) for v in q))
-        pen.closePath(); return pen.glyph()
-    put(cmap_main[0x30],0x30,zero_glyph(zero_L)); put(cmap_main[0xD8],0xD8,zero_glyph(o_L))
+    # --- slashed zero and Ø: see zero_glyphs.py (45.75° edge angle, wide bowl, thin square-tip slash)
+    import zero_glyphs as Z
+    put(cmap_main[0x30],0x30,Z.digit_zero()); put(cmap_main[0xD8],0xD8,Z.oslash())
     f.setGlyphOrder(order)
     # --- tables
     g=newTable('gasp'); g.version=1; g.gaspRange={65535:0x000F}; f['gasp']=g
@@ -80,4 +66,4 @@ def build(out, zero_L=300, o_L=500, slash_t=75, ver='0.1'):
     f.save(out)
 
 if __name__=='__main__':
-    build(sys.argv[1], zero_L=float(sys.argv[2]) if len(sys.argv)>2 else 300)
+    build(sys.argv[1])

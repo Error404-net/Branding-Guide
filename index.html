@@ -92,6 +92,14 @@
   .f-press{font-family:'Press Start 2P', monospace; font-size:15px;}
   .f-vt{font-family:'VT323', monospace; font-size:28px;}
   .f-mono{font-family:'Share Tech Mono', monospace;}
+  .zero-h{margin:34px 0 6px; font-size:14px; letter-spacing:1px;}
+  .zero-note{font-size:13px; opacity:.8; max-width:760px;}
+  .zero-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px;}
+  @media (max-width:720px){.zero-steps{grid-template-columns:1fr;}}
+  .zero-steps figure,.zero-final{margin:0;}
+  .zero-steps img,.zero-final img{width:100%; height:auto; border-radius:6px; border:1px solid var(--border);}
+  .zero-steps figcaption,.zero-final figcaption{font-size:12px; opacity:.8; margin-top:8px; line-height:1.5;}
+  .zero-final{margin-top:18px;}
 
   /* modes */
   .modes{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
@@ -432,6 +440,14 @@
     <div class="type-row"><div class="role">Terminal / mono accent <span style="opacity:.6">&mdash; headers, code, NFO tables</span></div><div class="sample f-vt">&gt; 404: message not found_</div></div>
     <div class="type-row"><div class="role">UI body text <span style="opacity:.6">&mdash; slashed zero, one weight (Regular)</span></div><div class="sample f-mono">Share Tech Mono &mdash; 0123456789 &mdash; the only face on Entra and M365 surfaces</div></div>
     <div class="type-row"><div class="role">Custom house font <span style="opacity:.6">&mdash; IN PROGRESS</span></div><div class="sample f-mono">Planned: a mono built from the best features of several fonts, starting from Share Tech Mono's slashed zero, with a true bold and fuller glyph coverage. Share Tech Mono stands in until it ships.</div></div>
+    <h3 class="zero-h">Error404 Mono &mdash; the zero (decided 2026-11-26)</h3>
+    <p class="zero-note">Every zero carries a slash, never a dot. The slash runs at 45.75&deg;, the exact angle of the constellation edge from the yellow star to the mint star, so the &Oslash; in 4&Oslash;4 continues that line. Picked in three rounds of rendered options; each card below is the chosen panel.</p>
+    <div class="zero-steps">
+      <figure><img src="assets/font-zero/1-angle-A3.png" alt="Round 1 choice A3: slash at 45.75 degrees, poking out past the bowl" loading="lazy"><figcaption><b>1 &middot; Angle + length: A3.</b> 45.75&deg; exact edge angle, slash pokes out past the bowl (&Oslash;-style).</figcaption></figure>
+      <figure><img src="assets/font-zero/2-bowl-tip-Wl.png" alt="Round 2 choice Wl: wide bowl, long tip" loading="lazy"><figcaption><b>2 &middot; Bowl + tip: Wl.</b> Wide bowl (+80 units) so the flat slash crosses it like a true &Oslash;; long tip.</figcaption></figure>
+      <figure><img src="assets/font-zero/3-weight-finish-a1.png" alt="Round 3 choice a1: thin slash, square tips" loading="lazy"><figcaption><b>3 &middot; Weight + finish: a1.</b> Thin 60-unit slash, square tips (like the mark's line ends), solid crossing.</figcaption></figure>
+    </div>
+    <figure class="zero-final"><img src="assets/font-zero/4-final-digit-and-oslash.png" alt="Final digit zero and O-slash glyphs inside their character cells" loading="lazy"><figcaption><b>Result.</b> Two glyphs, one design. Digit <code>0</code> (left): tip stays inside its cell, so <code>1000</code> and <code>10.0.0.1</code> never collide. <code>&Oslash;</code> U+00D8 (right): long tip, for the logo and display. Source: <code>font/zero_glyphs.py</code>.</figcaption></figure>
   </div>
 </section>
 

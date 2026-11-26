@@ -4,7 +4,11 @@ Status: v0.1 built (`Error404Mono-Regular.ttf`). Hybrid: Share Tech Mono caps/di
 JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.75°).
 
 ## Blocking the logo re-render
-- [ ] Pick the digit zero slash length: 240 / 300 (current) / 360 (see `previews/specimen.png`)
+- [x] Zero design decided 2026-11-26 (`zero_glyphs.py`, `previews/zero-round1..4.png`): 45.75° edge angle, wide bowl (x 52..488),
+      thin 60-unit slash, square tips, solid crossing. Digit 0 tip +40 (stays in cell); Ø tip +110 (logo/display).
+      Clearance check passes: Ø clears the 4s by 3.9 / 5.9 units, lines-to-text 3.4, zero overlap.
+- [ ] Regenerate `previews/specimen.png` and `previews/mark-newfont.png` (still show the old zero)
+- [ ] Decide whether O (x 70..470) should widen to match the wider zero bowl
 - [ ] Outline the "4Ø4" text in every mark SVG (remove the font dependency from the marks)
 - [ ] Update `scripts/verify-marks.py` and BRAND.md "Mark build spec": font name, Ø angle 45.75°, slash role = continuation
 - [ ] Re-render all PNG/social/Office/Entra/Discord/YouTube/LinkedIn assets from the outlined SVGs
@@ -18,6 +22,7 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [ ] Glyph review: JetBrains lowercase vs Share Tech caps weight and x-height match
 - [ ] Box-drawing and block elements (MOTD, terminal art)
 - [ ] Extra arrows and math symbols as needed
+- [ ] Powerline / Nerd Font glyphs for p10k (❯, ±, branch, lock, separators): missing today, show as boxes
 
 ## Licence and distribution
 - [ ] Add full OFL 1.1 text and both upstream copyright files (`font/NOTICE.txt`)

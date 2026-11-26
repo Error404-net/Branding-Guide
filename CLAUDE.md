@@ -437,11 +437,28 @@ package upload (manual).
   only; PCA on a clipped band is biased and gave a false 52°): 45.63°, edge 45.75°.
   **Slash role: continuation** (slash on the edge, line halves stop short). With no tracking the Ø ink
   clears the left 4 by 2.5 and the right 4 by 3.5 units, line-to-text 3.4, zero overlap (`font/check_mark_clearance.py`).
-- **Digit 0** is provisional (half-length 300). Three candidates were rendered (240/300/360). A 45.75°
+- **Zero redesigned 2026-11-26 (round 12, below) — the next two bullets are superseded.**
+- **Digit 0** was provisional (half-length 300). Three candidates were rendered (240/300/360). A 45.75°
   slash cannot span a 0.36 em bowl inside a 0.54 em cell, so the digit zero's slash is a compromise.
 - **Not done yet:** true bold (needs outline offsetting; pathops not installed), box-drawing/block
   glyphs for the MOTD, outlining the "4Ø4" text in the mark SVGs, re-render of all assets, spec and
   `verify-marks.py` update (font name, new angle), page/BRAND.md/DESIGN.md font text.
+
+## What's done — round 12 (zero design decided, 2026-11-26)
+
+Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png`). Decisions:
+- Angle **45.75° exact** (the yellow→mint constellation edge), not a classic 60–63° Ø.
+- **Ø-style overshoot**, **wide bowl** (x 52..488, +80 over Share Tech), **thin 60-unit slash**, **square tips**, solid crossing.
+- **Split:** digit `0` tip +40 past the rim (ink x 9..531, stays in the cell so 1000 / 10.0.0.1 don't collide);
+  `Ø` U+00D8 tip +110 (long, overshoots the cell; logo and display).
+- Source: `font/zero_glyphs.py` (needs `skia-pathops`), used by `build_font.py`. `font/patch_zero.py` swaps the
+  two glyphs into an existing TTF; the committed TTF was patched that way (the sandbox JetBrains copy lacks ⇐⇒⇔).
+- `check_mark_clearance.py` on the new TTF: Ø–left 4 3.9, Ø–right 4 5.9, lines–text 3.4, overlap 0.
+- Open: O is now narrower than 0; p10k needs powerline/Nerd glyphs (❯ ± etc. are missing).
+- `index.html` § Typography now shows the three chosen panels (A3, Wl, a1) and the final glyphs from
+  `assets/font-zero/`.
+- **Process rule from Jesse:** show options as one lettered/numbered grid and ask for the single cell
+  ("a1"), not separate row and column questions.
 
 ## Known issues tracker (updated 2026-11-26)
 
