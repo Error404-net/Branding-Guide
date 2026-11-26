@@ -17,7 +17,7 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [ ] Confirm the Ø clearance check (`check_mark_clearance.py`) passes on the final font
 
 ## Font quality
-- [ ] True bold (needs outline offsetting; install pathops or a stroker first)
+- [x] Bold: `make_bold.py` → `Error404Mono-Bold.ttf` (b2: +25/side, width kept). Rerun after any Regular change
 - [ ] Check the Ø and 0 at 16 px and 24 px (MOTD, favicons, OBS overlays)
 - [ ] Hinting / ttfautohint pass for screen sizes
 - [ ] Kerning and spacing review on lowercase (donor glyphs were rescaled, not hand-spaced)

@@ -19,6 +19,7 @@ BUILD
   Full build:  python3 build_font.py out.ttf   (donor TTFs are read from /tmp/fonts; edit the two
                paths at the top of build_font.py)
   Patch only:  python3 patch_glyphs.py IN.ttf OUT.ttf   (swaps in the house-drawn glyphs)
+  Bold:        python3 make_bold.py Error404Mono-Regular.ttf Error404Mono-Bold.ttf
   Needs: fontTools, skia-pathops
 
 TODO before public distribution: confirm the upstream copyright lines in OFL.txt against each

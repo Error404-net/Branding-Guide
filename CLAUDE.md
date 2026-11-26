@@ -440,7 +440,7 @@ package upload (manual).
 - **Zero redesigned 2026-11-26 (round 12, below) — the next two bullets are superseded.**
 - **Digit 0** was provisional (half-length 300). Three candidates were rendered (240/300/360). A 45.75°
   slash cannot span a 0.36 em bowl inside a 0.54 em cell, so the digit zero's slash is a compromise.
-- **Not done yet:** true bold (needs outline offsetting; pathops not installed), box-drawing/block
+- **Not done yet:** ~~true bold~~ (done round 13), box-drawing/block
   glyphs for the MOTD, outlining the "4Ø4" text in the mark SVGs, re-render of all assets, spec and
   `verify-marks.py` update (font name, new angle), page/BRAND.md/DESIGN.md font text.
 
@@ -477,7 +477,10 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
 - **Lowercase fit** (`font/lowercase_fit.py`): cell **b1** of `previews/LC-round1.png`: x-height 527 → 490
   (70% of caps), full width, stems thickened back to the caps' 87. Applied once to the committed TTF;
   the function is not idempotent (build_font.py runs it once on the fresh donor lowercase).
-- Page now shows four panels: O b3, icon a1, QDCG a1, lowercase b1.
+- **Bold** (`font/make_bold.py` → `font/Error404Mono-Bold.ttf`): cell **b2** of `previews/bold-round1.png`:
+  every outline +25/side (stems 87 → 137), condensed back to its ink width. Family-linked to Regular
+  (name ID 2 Bold, weight 700, fsSelection/macStyle bold). Regenerate Bold after any Regular change.
+- Page now shows five panels: O b3, icon a1, QDCG a1, lowercase b1, bold b2.
 
 ## Known issues tracker (updated 2026-11-26)
 
