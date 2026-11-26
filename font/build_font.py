@@ -50,7 +50,9 @@ def build(out, ver='0.1'):
     put(cmap_main[0x30],0x30,Z.digit_zero()); put(cmap_main[0xD8],0xD8,Z.oslash())
     # --- round O and the constellation icon (U+E404): see round_glyphs.py / icon_glyph.py
     import round_glyphs as R, icon_glyph as I
-    put(cmap_main[0x4F],0x4F,R.cap_o()); put(I.GLYPH_NAME,I.CODEPOINT,I.icon())
+    put(cmap_main[0x4F],0x4F,R.cap_o())
+    for ch,fn in (('Q',R.cap_q),('D',R.cap_d),('C',R.cap_c),('G',R.cap_g)): put(cmap_main[ord(ch)],ord(ch),fn())
+    put(I.GLYPH_NAME,I.CODEPOINT,I.icon())
     f.setGlyphOrder(order)
     # --- tables
     g=newTable('gasp'); g.version=1; g.gaspRange={65535:0x000F}; f['gasp']=g

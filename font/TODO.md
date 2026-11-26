@@ -9,7 +9,7 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
       Clearance check passes: Ø clears the 4s by 3.9 / 5.9 units, lines-to-text 3.4, zero overlap.
 - [ ] Regenerate `previews/specimen.png` and `previews/mark-newfont.png` (still show the old zero)
 - [x] O decided: true oval, 535 wide, overshoot 14 (`round_glyphs.py`, b3)
-- [ ] Q, D, C, G to follow the round O
+- [x] Q, D, C, G follow the round O (`round_glyphs.py`, a1)
 - [x] Constellation icon glyph at U+E404 (`icon_glyph.py`, a1)
 - [ ] Outline the "4Ø4" text in every mark SVG (remove the font dependency from the marks)
 - [ ] Update `scripts/verify-marks.py` and BRAND.md "Mark build spec": font name, Ø angle 45.75°, slash role = continuation

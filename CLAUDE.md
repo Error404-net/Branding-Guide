@@ -464,7 +464,8 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
 
 - **O** (`font/round_glyphs.py`): Jesse rejected every squared/soft O in `previews/O-round1.png` ("more
   circular"); picked **b3** of `previews/O-round2.png`: true oval, 535 wide (fills the cell), overshoot 14.
-  Q, D, C, G still use Share Tech shapes and will need to follow the O.
+  Q, D, C, G followed in the same round: cell **a1** of `previews/QDCG-round1.png` (radial cuts,
+  narrow ±30° mouth, Q tail crossing the bowl at -45.75°, D = straight stem + oval bowl).
 - **Icon glyph U+E404** (`font/icon_glyph.py`): picked **a1** of `previews/icon-round1.png`: one cell,
   thin 30-unit lines, true star proportions. Same geometry as `logos/monogram-*.svg`. PUA code point,
   clear of all Nerd Font ranges. Small stars nearly vanish at 13 px (accepted: "fit and true").
