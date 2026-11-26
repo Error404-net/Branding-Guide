@@ -591,7 +591,8 @@ ERROR404.NET</pre>
       st = document.getElementById('bpStatus'), tpl = null,
       RE = /(<script type="application\/json" id="e404-config">)[\s\S]*?(<\/script>)/;
   function say(m) { st.textContent = m; }
-  function v(n) { return f.elements[n]; }
+  // bpForm is a div, not a <form>, so look fields up by name instead of f.elements.
+  function v(n) { return f.querySelector('[name="' + n + '"]'); }
   function cfg(preview) {
     return {
       org: v('org').value, headline: v('headline').value, message: v('message').value,
