@@ -38,7 +38,7 @@ function pretty(html) {
   return html.replace(/(<\/?(?:table|tr)\b[^>]*>|<td\b[^>]*>)/g, '\n$1').replace(/^\n/, '') + '\n';
 }
 
-const placeholders = { name: '<Full Name>', title: '<Title>', email: 'you@error404.net', phone: '<phone>' };
+const placeholders = { name: '<Full Name>', title: '<Title>', email: 'spam@error404.net', phone: '<phone>' };
 
 const files = {
   'Error404-M365-Signature-Standard.html':

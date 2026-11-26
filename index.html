@@ -427,7 +427,7 @@ exec zsh</pre>
     <h2><span class="num">07</span>Email signature</h2>
     <p class="ver">Added 2026-10-05 (f73154d) · Generator last updated 2026-11-26 (01e02f1)</p>
     <p class="lead">A signature is sent by a person, so it is not Machine mode. It gets one light touch of color. The plain-text form below is also the fallback when HTML is stripped.</p>
-    <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt;
+    <pre class="sig">&lt;Your Name&gt; ~/ &lt;spam@error404.net&gt;
 ERROR404.NET</pre>
     <p class="lead" style="margin-top:14px; font-size:12.5px;">Format shown above; build the real one with the generator below — your details stay in your browser and are never published to this site. The locked tagline is not part of the signature — a "!ignore &rarr;" line going out on every outbound email risks a false-positive flag from AI-based mail security scanners at the recipient's end, so it's reserved for the site, marketing, and the PDF guide instead.</p>
     <h3 class="sig-h3">Outlook / M365 signature generator</h3>
@@ -440,11 +440,11 @@ ERROR404.NET</pre>
       site, so it keeps working through replies and forwards. Nothing you type leaves your browser.
     </p>
     <div class="sig-gen">
-      <form class="sig-form" id="sigForm" autocomplete="on" onsubmit="return false">
-        <label>Full name<input name="name" placeholder="Your Name" autocomplete="name"></label>
-        <label>Title <span class="opt">optional</span><input name="title" placeholder="Title" autocomplete="organization-title"></label>
-        <label>Email <span class="opt">optional</span><input name="email" type="email" placeholder="you@error404.net" autocomplete="email"></label>
-        <label>Phone <span class="opt">optional</span><input name="phone" type="tel" placeholder="+1 555 010 0404" autocomplete="tel"></label>
+      <form class="sig-form" id="sigForm" autocomplete="off" onsubmit="return false">
+        <label>Full name<input name="name" placeholder="Your Name" autocomplete="off"></label>
+        <label>Title <span class="opt">optional</span><input name="title" placeholder="Title" autocomplete="off"></label>
+        <label>Email <span class="opt">optional</span><input name="email" type="email" placeholder="spam@error404.net" autocomplete="off"></label>
+        <label>Phone <span class="opt">optional</span><input name="phone" type="tel" placeholder="+1 555 010 0404" autocomplete="off"></label>
         <fieldset>
           <legend>Variant</legend>
           <label class="radio"><input type="radio" name="variant" value="standard" checked> Standard</label>
