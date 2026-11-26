@@ -29,6 +29,14 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [x] Nerd Font build (`patch_nerd.sh`, a2, standard width) → `nerd/`
 - [x] Upstream licence files verbatim in `licenses/`; README GREETZ
 
+## Terminal (Nerd Font) — needed before the install steps can be published
+- [ ] Build `Error404MonoNerdFont-Regular.ttf` and `-Bold.ttf` (Nerd Fonts patcher), PostScript name `Error404MonoNF`
+- [ ] Assign the constellation OS icon to U+E404 (private-use area) in the patched build, and check it at 12–16 px
+- [ ] Publish at `https://branding.error404.net/font/nerd/` (the URL in BRAND.md must resolve)
+- [ ] Bold for the Nerd build depends on the true-bold item above
+- [ ] Test the `perl` p10k edit on a stock `~/.p10k.zsh` (the substitution needs the commented OS-icon line). Tested on a sample only
+- [ ] Confirm the final reload step (`exec zsh`) — it was not in the original steps and was added as a default
+
 ## Licence and distribution
 - [x] Licence: font OFL 1.1 (`OFL.txt`), scripts MIT. Still verify upstream copyright lines against each donor's OFL.txt
 - [ ] Confirm the name "Error404 Mono" does not clash with an existing font name
@@ -36,6 +44,7 @@ JetBrains Mono lowercase/symbols/arrows. Ø on the constellation edge angle (45.
 - [ ] Brand Center upload package (manual)
 
 ## Where the font lands (after v1.0)
+- [ ] Mark spec (BRAND.md "Mark build spec") still names Share Tech Mono: update with the font switch
 - [ ] Replace Share Tech Mono in the Office templates (re-embed the .docx font; PPTX embedding still not done)
 - [ ] Replace the Share Tech Mono references in index.html, Hugo CSS, Discord theme, OBS overlays, brand-mcp, Technitium block page
 - [ ] Keep Courier New in the paper/Machine-mode docs and email signatures (email clients cannot load web fonts)

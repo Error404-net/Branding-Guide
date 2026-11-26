@@ -7,7 +7,8 @@
 <meta name="description" content="Personal brand guidelines for Error404 / error404.net — color, typography, logo system, and treatment modes.">
 <link rel="icon" href="logos/favicon-white.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>@font-face{font-family:"Error404 Mono";src:url("font/Error404Mono-Regular.ttf") format("truetype");font-weight:400;font-display:swap;}@font-face{font-family:"Error404 Mono";src:url("font/Error404Mono-Bold.ttf") format("truetype");font-weight:700;font-display:swap;}</style>
 <style>
   :root{
     --bg:#231451; --fg:#F4F1FF;
@@ -18,7 +19,7 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0; background:var(--bg); color:var(--fg);
-    font-family:'Share Tech Mono', monospace; line-height:1.6;
+    font-family:"Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace; line-height:1.6;
   }
   a{color:var(--blue);}
   .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
@@ -91,7 +92,8 @@
   .type-row .sample{font-size:22px;}
   .f-press{font-family:'Press Start 2P', monospace; font-size:15px;}
   .f-vt{font-family:'VT323', monospace; font-size:28px;}
-  .f-mono{font-family:'Share Tech Mono', monospace;}
+  .f-mono{font-family:"Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace;}
+  .code{font-family:"Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace; font-size:13px; line-height:1.5; background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:6px; padding:12px 14px; margin:8px 0 0; white-space:pre-wrap; overflow-wrap:anywhere;}
   .zero-h{margin:34px 0 6px; font-size:14px; letter-spacing:1px;}
   .zero-note{font-size:13px; opacity:.8; max-width:760px;}
   .zero-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:16px;}
@@ -438,12 +440,22 @@
 <section id="type">
   <div class="wrap">
     <h2><span class="num">06</span>Typography</h2>
-    <p class="lead">Each face has a job and a declared fallback. The system assumes fonts will fail to load, so it must still read when they do.</p>
-    <div class="type-row"><div class="role">Display / ASCII wordmark <span style="opacity:.6">&mdash; hand-built block lettering, not a font</span></div><div class="sample f-mono">ERROR404.NET</div></div>
-    <div class="type-row"><div class="role">Display fallback <span style="opacity:.6">&mdash; arcade pixel type. Hero only, unreadable below ~24px</span></div><div class="sample f-press">ERROR404</div></div>
-    <div class="type-row"><div class="role">Terminal / mono accent <span style="opacity:.6">&mdash; headers, code, NFO tables</span></div><div class="sample f-vt">&gt; 404: message not found_</div></div>
-    <div class="type-row"><div class="role">UI body text <span style="opacity:.6">&mdash; slashed zero, one weight (Regular)</span></div><div class="sample f-mono">Share Tech Mono &mdash; 0123456789 &mdash; the only face on Entra and M365 surfaces</div></div>
-    <div class="type-row"><div class="role">Custom house font <span style="opacity:.6">&mdash; IN PROGRESS</span></div><div class="sample f-mono">Planned: a mono built from the best features of several fonts, starting from Share Tech Mono's slashed zero, with a true bold and fuller glyph coverage. Share Tech Mono stands in until it ships.</div></div>
+    <p class="lead">One house mono sets all running text, with two terminal accent faces beside it. Each face has a declared web-safe fallback, because the system assumes fonts will fail to load and must still read when they do.</p>
+    <div class="type-row"><div class="role">House mono <span style="opacity:.6">&mdash; Error404 Mono Regular and Bold. Slashed zero, Ø on the constellation angle</span></div><div class="sample f-mono">ERROR404.NET 0123456789 4Ø4 &rarr; ok</div></div>
+    <div class="type-row"><div class="role">Terminal accent <span style="opacity:.6">&mdash; VT323. Headers, code, NFO tables</span></div><div class="sample f-vt">&gt; 404: message not found_</div></div>
+    <div class="type-row"><div class="role">Display <span style="opacity:.6">&mdash; Press Start 2P. Hero only, unreadable below ~24px</span></div><div class="sample f-press">ERROR404</div></div>
+    <div class="type-row"><div class="role">Wordmark <span style="opacity:.6">&mdash; hand-built block lettering, not a font</span></div><div class="sample f-mono">ERROR404.NET</div></div>
+    <h3 class="zero-h">Web-safe fallbacks</h3>
+    <div class="type-row"><div class="role">Web <span style="opacity:.6">&mdash; every page and CSS surface</span></div><div class="sample"><pre class="code">font-family: "Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace;</pre></div></div>
+    <div class="type-row"><div class="role">Email and paper <span style="opacity:.6">&mdash; clients cannot load web fonts</span></div><div class="sample"><pre class="code">font-family: "Courier New", Courier, monospace;</pre></div></div>
+    <div class="type-row"><div class="role">Entra and M365 <span style="opacity:.6">&mdash; Microsoft replaces custom web fonts; expected</span></div><div class="sample"><pre class="code">"Courier New", monospace</pre></div></div>
+    <div class="type-row"><div class="role">Terminal <span style="opacity:.6">&mdash; the terminal's own monospace</span></div><div class="sample"><pre class="code">Error404MonoNF, monospace</pre></div></div>
+    <ul>
+      <li>Regular and Bold only. Do not fake a third weight. Show emphasis with color, caps, size or the terminal accent face.</li>
+      <li>The zero and Ø are drawn into the font. The Ø slash runs at 45.75&deg;, the constellation edge angle.</li>
+      <li>Never more than two mono families on one surface. Always declare a generic fallback.</li>
+      <li>Coverage: ASCII, the arrows &larr; &uarr; &rarr; &darr; &harr; &varr; &lArr; &rArr; &hArr;, and the terminal icon glyph. Box-drawing and block glyphs are pending.</li>
+    </ul>
     <h3 class="zero-h">Error404 Mono &mdash; the zero (decided 2026-11-26)</h3>
     <p class="zero-note">Every zero carries a slash, never a dot. The slash runs at 45.75&deg;, the exact angle of the constellation edge from the yellow star to the mint star, so the &Oslash; in 4&Oslash;4 continues that line. Picked in three rounds of rendered options; each card below is the chosen panel.</p>
     <div class="zero-steps">
@@ -480,11 +492,13 @@ fc-cache -f &amp;&amp; fc-list | grep -i error404</pre>
   curl -fsSL -o ~/Library/Fonts/Error404Mono-$w.ttf https://branding.error404.net/font/Error404Mono-$w.ttf
 done</pre>
     <p class="zero-note" style="margin:14px 0 6px"><b>Powerlevel10k: Nerd Font icons + the constellation as the OS icon</b> <button class="copy-cmd" type="button">Copy</button></p>
-    <pre class="sig install-cmd">cat &gt;&gt; ~/.p10k.zsh &lt;&lt;&#x27;EOF&#x27;
-typeset -g POWERLEVEL9K_MODE=nerdfont-v3
-typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$&#x27;\uE404&#x27;
-EOF
+    <pre class="sig install-cmd">cp ~/.p10k.zsh ~/.p10k.zsh.bak
+perl -0pi -e '
+  s/POWERLEVEL9K_MODE=\S+/POWERLEVEL9K_MODE=nerdfont-v3/;
+  s/(^[ \t]*#[ \t]*typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=.*\n)/$1  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=\$\x27\\uE404\x27\n/m;
+' ~/.p10k.zsh
 exec zsh</pre>
+    <p class="zero-note">Settings go inside the config body, not appended at the end: anything after the final p10k reload is ignored. Check that <code>os_icon</code> is in <code>POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</code>. It is by default.</p>
     <p class="zero-note">Licence: SIL OFL 1.1; icon sets keep their own licences (<code>font/licenses/</code>). Credits: the GREETZ section of the repo README.</p>
     <p class="zero-note">Licence: the font file is SIL OFL 1.1 (it is built from two OFL fonts, and the OFL keeps derivatives under the OFL). The build scripts and the rest of this site are MIT. The Nerd Font build adds icon sets under MIT, OFL, CC BY 4.0, Apache 2.0 and Unlicense terms; each keeps its own licence (<code>font/licenses/</code>).</p>
   </div>

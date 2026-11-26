@@ -266,32 +266,70 @@ nothing else: not text, not UI, not links.
 
 ### Typography
 
-Five roles, one assigned face each, each with a declared fallback.
+One house mono sets all running text. Two terminal accent faces sit beside it. Each face has a declared web-safe fallback, because the system assumes fonts fail to load and must still read when they do.
 
 | Role | Face | Fallback | Usage |
 |---|---|---|---|
-| Display / ASCII wordmark | Custom block lettering | Press Start 2P | Hand-built artwork, not a font |
-| Display fallback | Press Start 2P | `monospace` | Hero only. Unreadable below ~24px |
-| Terminal accent | Perfect DOS VGA 437 | VT323 | Headers, code, NFO tables |
-| Terminal web | VT323 | `monospace` | Web equivalent of the above |
-| UI body (stand-in) | Share Tech Mono | `monospace` | Body copy and the `4Ø4` text. Regular weight only. Stand-in until the custom house font ships. The only face on Entra and M365 surfaces |
+| House mono | Error404 Mono Regular and Bold | `Consolas, "Liberation Mono", "Courier New", monospace` | Running text, labels, and the `4Ø4` text in the mark once outlined |
+| Terminal | Error404 Mono Nerd Font (PostScript `Error404MonoNF`) | the terminal's own monospace | Shell and prompt, with Nerd Font icons and the constellation OS icon |
+| Terminal accent | VT323 | `monospace` | Headers, code, NFO tables |
+| Display | Press Start 2P | `monospace` | Hero only. Unreadable below ~24px |
+| Wordmark | Hand-built block lettering | n/a | Artwork, not a font |
+| Email and paper | Courier New | `Courier, monospace` | Email clients cannot load web fonts |
+| Entra and M365 | Courier New | `monospace` | Microsoft replaces custom web fonts. Expected |
+
+**Web-safe fallback stack** (use on every web surface):
+
+```css
+font-family: "Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace;
+```
 
 **Rules.**
 
-- Share Tech Mono (selected 2026-11-26) has a slashed zero, so `0` and `O` stay distinct.
-  It ships in one weight only. Do not request bold; a faux bold smears the thin strokes.
-  Show emphasis with color, caps, size or the terminal accent face instead.
-- **Custom font: in progress.** The long-term plan is a house mono built from the best
-  features and character shapes of several fonts (slashed zero from Share Tech Mono,
-  plus a true bold and fuller glyph coverage). Until it exists, Share Tech Mono is the
-  stand-in. When the custom font ships, re-render the marks and update this table, the
-  `.thmx`, `signature.js` guidance and the Brand Center font package.
+- Error404 Mono ships in Regular and Bold. Do not fake a third weight: a synthetic bold smears the thin strokes.
+  Show emphasis with color, caps, size or the terminal accent face.
+- The zero and Ø are drawn into the font. The Ø slash runs at 45.75°, the angle of the
+  constellation edge, so the split line and the slash read as one stroke.
+- Coverage today: ASCII and the arrows `← ↑ → ↓ ↔ ↕ ⇐ ⇒ ⇔`. Box-drawing and block glyphs are pending.
 - Never more than two mono families on one surface.
-- **Always declare a generic fallback.** A family named alone falls back to the
-  browser default serif, not to monospace. This has shipped as a real defect.
-- Entra ID and the Microsoft 365 admin center reject custom web fonts and
-  substitute their own. That substitution is expected and needs no correction;
-  specify Share Tech Mono anyway so the intent is recorded.
+- **Always declare a generic fallback.** A family named alone falls back to the browser's
+  default serif, not to monospace. This has shipped as a real defect.
+- Licence: SIL OFL 1.1, derived from Share Tech Mono and JetBrains Mono. The font file is
+  `font/Error404Mono-Regular.ttf`. Full licence texts are required before public distribution.
+
+#### Terminal install (Powerlevel10k)
+
+Nerd Font icons and the constellation OS icon.
+
+**Live once published.** The Nerd Font builds are in `font/nerd/` on the font branch. The download path above
+resolves only after that branch is published to the site. Do not share these steps before then.
+
+```sh
+# 1. Install the font (macOS)
+for w in Regular Bold; do
+  curl -fsSL -o ~/Library/Fonts/Error404MonoNerdFont-$w.ttf \
+    https://branding.error404.net/font/nerd/Error404MonoNerdFont-$w.ttf
+done
+# Linux: use ~/.local/share/fonts/ instead, then run: fc-cache -f
+
+# 2. Set the terminal font to Error404Mono Nerd Font. Do not set a separate non-ASCII font.
+#    iTerm2:         Settings > Profiles > Text > Font. Untick "Use a different font for non-ASCII text"
+#    Terminal.app:   Settings > Profiles > Font
+#    GNOME Terminal: Preferences > Profile > Custom font
+#    In a config file the PostScript name is Error404MonoNF, e.g. Error404MonoNF 15 in iTerm2.
+
+# 3. Update ~/.p10k.zsh. Settings go inside the config body, not appended at the end:
+#    anything after the final p10k reload is ignored.
+cp ~/.p10k.zsh ~/.p10k.zsh.bak
+perl -0pi -e '
+  s/POWERLEVEL9K_MODE=\S+/POWERLEVEL9K_MODE=nerdfont-v3/;
+  s/(^[ \t]*#[ \t]*typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=.*\n)/$1  typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=\$\x27\\uE404\x27\n/m;
+' ~/.p10k.zsh
+# Check that os_icon is in POWERLEVEL9K_LEFT_PROMPT_ELEMENTS. It is by default.
+
+# 4. Reload
+exec zsh
+```
 
 ### Style
 
