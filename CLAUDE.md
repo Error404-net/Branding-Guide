@@ -340,6 +340,58 @@ of quick-reference docs still describing the old, wrong state. Swept those:
 - Not verified inside a real Outlook client from this sandbox — tested in headless Chromium
   (clipboard contents, escaping, persistence). Worth one paste test in new Outlook + classic.
 
+## What's done — round 8 (audit, Machine mode, third-party-guide page, 2026-11-26)
+
+Audit by rendering every SVG and PNG, not just reading source. Changes on branch
+`third-party-guidance-cleanup`:
+
+- **`index.html` rewritten in the order of a third-party brand guide** (why it exists → who this is and
+  voice → look → mark → color → type → modes → signature → Gravatar → templates → block page).
+  Each section now says why before it says what, and the mark, color and voice sections end in
+  Do/Don't lists. New "Why this exists" section carries Jesse's four reasons: learn the tech,
+  learn how a brand reaches a company, tag every system (hacker culture), one person online
+  (LinkedIn). Voice stays impersonal/imperative (BRAND.md STE rules; the linter warns on
+  "you/your" in published copy), so that guide's second-person rule was not adopted.
+- **"Print/Corporate" renamed "Machine mode"** everywhere (BRAND.md, DESIGN.md, brandkit.md,
+  README, styleguide, brand-mcp incl. `pick_mode` and lint rules, tests 31/31). Purpose
+  rewritten: automated, non-human senders (alerts, notifications, scheduled reports) where rich
+  HTML often fails, so plain text still reads as Error404. **Black only: no color, no accent
+  rule.** Paper (Word, PDF, letterhead) keeps the same rule. The human-sent Outlook signature
+  is NOT Machine mode and keeps its single cyan rule. Legacy attribute `data-mode="print"`
+  kept in `styleguide/src/tokens.css` (code identifier; comment updated).
+- **Neon accent set** documented in BRAND.md and the page: `#39FF14`, `#00F0FF`, `#FF16E0`,
+  backdrop `#0B0810`, display cuts only. `libra-neon-green.svg` `#38FF16` unified to `#39FF14`.
+- **Deleted 9 orphaned PNGs** (old "404", oval, bent line) from `assets/` and `obs/assets/logos/`:
+  `netmesh-{blue,green,pink,ham,mono,multi,neon-green,neon-pink,ring-mono}.png`.
+- Text fixes: "brand purple" → "Arcade indigo" (no separate purple exists), IBM Plex Mono
+  claim removed from the page, Deep background `#170C38` swatch added, `logos/README.txt`
+  inventory corrected to the files that exist.
+
+## Known issues tracker (open, found 2026-11-26)
+
+1. **Ring variants: nodes collide with the ring.** Ring is cx=cy=120, r=112, but the bottom-right
+   nodes sit ~136 from center. Options shown to Jesse: enlarge ring, shrink mark, or call it a
+   deliberate breakout. **Awaiting decision.** Affects `libra-ring-*.svg`, `assets/icon.png`,
+   `assets/favicon.png`, `assets/netmesh-ring-color.png`, Discord icon, OBS, avatars, Office embeds.
+2. **`.thmx` uses IBM Plex Mono**, every doc says JetBrains Mono. Real file defect. Awaiting decision.
+3. **Missing variants** the docs once promised: `libra-no-ring-pink`, `libra-ring-blue`,
+   `libra-neon-blue`, `libra-neon-pink`. Build them or drop them.
+4. **`logos/png/` legacy subfolders** have no SVG source (ring-blue/green/black, no-ring-blue/white,
+   ham-black, site-icon-light-mode). Ask before regenerating.
+5. **Duplicates:** `libra-ham-*` equals `libra-no-ring-*`; `libra-site-icon-*` carries text and
+   duplicates no-ring. Candidates for removal.
+6. **Earlier claim wrong:** round 1 says `logos/glyph-only/` was fixed. The folder does not exist.
+7. **Brand PDF is 9 pages**, docs say 14. Regenerate or correct the docs.
+8. **Embedded C2PA metadata** blocks sit inside 12 of 22 SVGs under `logos/` (round 4 stripped
+   it from the watermark only). Strip for clean masters, or keep as provenance. Awaiting decision.
+9. **Automated emails are still full-color HTML?** Only the Report-Notification template says it is
+   Machine mode. Check the transactional template against the new purpose.
+10. **BRAND.md "no growth target"** reads oddly next to the LinkedIn personal-brand goal. Reword.
+11. Carried over from earlier rounds: sticker composites, LinkedIn/YouTube/Discord banners,
+    `assets/print-mode.png`, MOTD. Not re-inspected.
+12. This sandbox could not install JetBrains Mono on 2026-11-26. Renders here used a fallback
+    font, so "4Ø4" letterforms were not judged and nothing was re-rendered.
+
 ## What's NOT done — pending decisions / remaining scope
 
 - **`logos/png/` — partially inspected.** The three *-multicolor variants (`libra-ring-multicolor`,

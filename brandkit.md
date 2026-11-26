@@ -56,12 +56,12 @@ that treatment was tried and retired for good.
 
 ## Two modes, no third
 
-| Digital | Print/Corporate |
+| Digital | Machine |
 |---|---|
-| Screens you control | Print, PDF, Word, email, client inboxes |
-| Full palette, glow, glitch lockup | Pure black on white, flat mono mark |
+| Screens you control | Automated senders, plain-text mail, paper, PDF, Word |
+| Full palette, glow, glitch lockup | Black on white, flat mono mark |
 
-If it's printed, exported, or read in someone else's inbox → Print/Corporate.
+If a machine sends it, or it has to survive as plain text or paper → Machine mode.
 PowerPoint is the one exception and stays Digital.
 
 ---

@@ -80,8 +80,8 @@
   --e404-radius-md: 6px;
 }
 
-/* Print/Corporate mode. Applied by [data-mode="print"] on any container.
- * Pure black on white - none of the palette above survives this switch. */
+/* Machine mode (attribute name is legacy: [data-mode="print"]). Applied on any container.
+ * Black on white - none of the palette above survives this switch. */
 [data-mode='print'] {
   --e404-surface: #FFFFFF;
   --e404-surface-deep: #FFFFFF;

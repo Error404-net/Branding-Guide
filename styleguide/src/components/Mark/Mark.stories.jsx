@@ -21,7 +21,7 @@ export default {
     colorway: {
       control: 'inline-radio',
       options: ['multicolor', 'blue', 'pink', 'green', 'white', 'black'],
-      description: 'Palette variant. `black` is the Print/Corporate cut.',
+      description: 'Palette variant. `black` is the Machine mode cut.',
     },
     ring: { control: 'boolean', description: 'Enclosing ring' },
     glyphOnly: { control: 'boolean', description: 'Drop the numerals (favicon sizes)' },
@@ -114,7 +114,7 @@ export const PrintCorporate = {
     backgrounds: { value: 'print' },
     docs: {
       description: {
-        story: 'The Print/Corporate cut: flat monochrome on white. No color, no glow, no offset layers.',
+        story: 'The Machine mode cut: flat monochrome on white. No color, no glow, no offset layers.',
       },
     },
   },

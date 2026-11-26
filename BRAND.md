@@ -155,8 +155,9 @@ signature exception applies — not used in outbound email.
    reference. Nothing is an approximation of a thing it could have been.
 2. **One meaning per signal.** Each accent color carries one fixed job across
    every surface. Consistency comes from restraint, not from volume.
-3. **Two modes, no third.** Digital where the screen is yours; Print/Corporate
-   where it is not. Every surface resolves to one of the two.
+3. **Two modes, no third.** Digital where a person is looking at a screen the owner
+   controls; Machine mode where the sender is a machine or the medium is plain
+   text. Every surface resolves to one of the two.
 4. **Legible under substitution.** The system assumes fonts will fail to load,
    platforms will override the stack, and printers will drop color. It is built
    to survive all three.
@@ -200,7 +201,7 @@ internal notes. Those stay in voice even where that bends a rule above.
 | `ERROR404.NET` lettering | **wordmark** | logotype, text logo |
 | Mark and wordmark together | **lockup** | combo, full logo |
 | A version of the mark | **variant** | colorway, cut, pull, flavor |
-| The two treatment systems | **Digital mode**, **Print/Corporate mode** | print mode, color mode, corporate |
+| The two treatment systems | **Digital mode**, **Machine mode** | print mode, color mode, corporate mode, Print/Corporate |
 | The color system | **Arcade New Wave** | the palette, the theme, the scheme |
 
 **We say / never say:**
@@ -209,7 +210,7 @@ internal notes. Those stay in voice even where that bends a rule above.
 |---|---|
 | "The palette is locked." | "The palette is finalized for now." |
 | "Use the mark on a scrim." | "Try to keep the logo visible." |
-| "Print/Corporate mode is monochrome." | "Corporate mode is more subtle." |
+| "Machine mode is black only." | "Machine mode is more subtle." |
 | "This is not decided yet." | "TBD" / "coming soon" |
 
 **Identity boundaries.** Never write in first-person plural as a company.
@@ -234,13 +235,29 @@ surface; do not reassign an accent to suit a layout.
 | Accent — Yellow | `#FFE156` | Taglines, callouts, CTAs |
 | Accent — Mint | `#37F0A6` | Rules and dividers, status and success |
 
+**Neon accent set (display cuts only).** The neon-tube treatment of the mark glows
+against a near-black backdrop, and the locked pastels do not glow. It borrows a
+second, brighter set. These colors belong to the neon cuts of the mark and to
+nothing else: not text, not UI, not links.
+
+| Role | Hex | Used in |
+|---|---|---|
+| Neon green | `#39FF14` | `libra-neon-green`, single-accent green cuts |
+| Neon cyan | `#00F0FF` | `libra-neon-blue` (not yet built) |
+| Neon magenta | `#FF16E0` | `libra-neon-pink` (not yet built), `libra-neon-multi` |
+| Neon backdrop | `#0B0810` | Baked into every neon cut |
+
+`libra-neon-multi` also keeps locked mint `#37F0A6` and yellow `#FFE156`.
+
 **Usage rules.**
 
 - One background, one foreground, and at most two accents on any single surface.
   This palette gets noisy fast.
 - `#231451` and `#170C38` are a background *pair*, not five accents plus one.
   `#170C38` is never used as an accent.
-- Print/Corporate mode uses none of the above: pure black on white.
+- Machine mode uses none of the above: black on white, nothing else.
+- Say "purple" only about the background pair above. There is no separate brand
+  purple; `#231451` is the whole story.
 - Accessibility overrides brand. Where an accent fails contrast against its
   background at the required ratio, adjust the implementation and note the
   adjustment. Do not ship the failing combination.
@@ -319,15 +336,23 @@ never a gradient or a glow.
 
 **Treatment modes.**
 
-| | Digital mode | Print/Corporate mode |
+| | Digital mode | Machine mode |
 |---|---|---|
-| Used for | Web, PowerPoint, social, merch, any screen you control | Word, PDF reports, letterhead, email, anything read in a client's inbox |
-| Color | Full Arcade New Wave | Pure black on white |
+| Used for | Web, PowerPoint, social, merch, any screen you control | Automated and non-human senders: alerts, notifications, scheduled reports. Also paper and documents (Word, PDF, letterhead), which share the same constraint |
+| Color | Full Arcade New Wave | Black on white. No color, no accent rule |
 | Mark | Full glitch/chromatic-offset lockup | Flat monochrome mark only |
 | Identity carrier | Neon geometry, scanlines, glow | ASCII rules, boxed fields, bracket notation |
 
 PowerPoint is the one documented exception: it is an export but stays in Digital
 mode, because slides are a screen medium.
+
+**Why Machine mode exists.** Automated systems (monitoring, scanners, schedulers,
+anything that sends mail without a person behind it) often cannot send rich HTML
+email, and many recipients read mail as plain text anyway. Machine mode is how a
+plain-text message still reads as Error404: ASCII rules, bracket fields, and
+`::` / `~/` notation do the branding that color and a logo would do elsewhere.
+A human-sent email signature is not Machine mode; it has its own light-touch
+spec in `DESIGN.md`.
 
 ## Default mark (LOCKED)
 
@@ -357,7 +382,7 @@ introduce a third icon-only variant without updating this file.
 
 Not yet decided. Do not resolve these by inference.
 
-- Approval of the Print/Corporate letterhead direction.
+- Approval of the Machine mode letterhead direction.
 
 ## Related files
 

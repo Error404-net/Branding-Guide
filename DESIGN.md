@@ -78,7 +78,7 @@ estimated.
 | `--accent-emphasis` | 12.52:1 | 14.10:1 | 13.39:1 | AAA |
 | `--accent-status` | 10.99:1 | 12.37:1 | 11.75:1 | AAA |
 
-Print/Corporate mode is black on white: 21.00:1.
+Machine mode is black on white: 21.00:1.
 
 > **Resolved (2026-09-07).** A stray `#655E93` — not a real token, and not
 > `--text-subtle` — measured **2.77:1** on `#231451`: below the 4.5:1
@@ -91,9 +91,10 @@ Print/Corporate mode is black on white: 21.00:1.
 > ramp), not a contrast rescue.
 > *Update (2026-09-30):* the signature has since been rebuilt
 > (`email-templates/signature.js`) and no longer uses the dark-surface text
-> ramp at all — it sits on a white body, so it follows Print/Corporate mode:
-> `#231451` for name/wordmark, `#111111` for body copy, `#4DE1FF` only as the
-> decorative divider (never as text: cyan on white fails contrast).
+> ramp at all. It is sent by a person, so it is not Machine mode (which is black
+> only); it keeps its own light-touch spec on a white body: `#231451` for
+> name/wordmark, `#111111` for body copy, `#4DE1FF` only as the decorative
+> divider (never as text: cyan on white fails contrast).
 >
 > The "PDF page footer" this was originally reported against isn't part of
 > the current PDF pipeline (`index.html` prints straight through Chromium with
@@ -109,7 +110,7 @@ Print/Corporate mode is black on white: 21.00:1.
 - Each accent keeps its `BRAND.md` meaning. Do not reassign one to suit a layout.
 - Accessibility overrides brand. Where a combination fails contrast, change the
   implementation and note the change. Never ship the failing combination.
-- Print/Corporate mode uses **none** of these tokens. Pure black on white.
+- Machine mode uses **none** of these tokens. Black on white.
 
 ```css
 :root {
@@ -276,9 +277,9 @@ Focus must stay visible for keyboard users. This overrides any brand concern.
 
 Every surface resolves to exactly one mode. There is no third.
 
-| | Digital | Print/Corporate |
+| | Digital | Machine |
 |---|---|---|
-| Trigger | Screen you control | Print, PDF, Word, email, a client's inbox |
+| Trigger | Screen you control | Automated or non-human sender, plain-text mail, paper, PDF, Word |
 | Surface | `--surface` / `--surface-deep` | `#FFFFFF` |
 | Text | Neutral ramp | `#000000` |
 | Accents | Up to two | None |
@@ -340,7 +341,7 @@ backdrop (`#231451` @ 90% opacity).
 
 Before emitting an Error404 surface, verify:
 
-1. Correct mode selected. Printed or outbound → Print/Corporate.
+1. Correct mode selected. Automated sender, plain text, or paper → Machine mode.
 2. Colors come from tokens. No raw hex outside `:root`.
 3. At most two accents on the surface.
 4. Every `font-family` ends in a generic fallback.
@@ -348,7 +349,7 @@ Before emitting an Error404 surface, verify:
 6. Contrast checked against §1.4. Accessibility wins over brand.
 7. Focus outlines present and visible.
 8. Terminology matches the `BRAND.md` table: **mark**, **wordmark**, **lockup**,
-   **variant**, **Digital mode**, **Print/Corporate mode**.
+   **variant**, **Digital mode**, **Machine mode**.
 9. Instructional copy follows the STE rules in `BRAND.md`.
 10. No real contact details. Placeholder tokens only.
 11. Logo/mark: use canonical default (no-ring multicolor) for mark placement

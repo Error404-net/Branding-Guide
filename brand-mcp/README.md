@@ -12,7 +12,7 @@ drift from the committed specs — edit the spec, and the answers change.
 
     cd brand-mcp
     npm install
-    npm test        # 29 assertions, exercises every tool
+    npm test        # 31 assertions, exercises every tool
 
 ## Connect it
 
@@ -58,7 +58,7 @@ tried, rather than answering from stale defaults.
 | `brand_section` | Any section of `BRAND.md` or `DESIGN.md`, verbatim |
 | `check_contrast` | WCAG 2.1 ratio and pass/fail for a colour pair. Accepts hex or token names |
 | `review_copy` | Lint copy against the fixed terminology, the STE rules, the voice rule, and stray contact details |
-| `pick_mode` | Decide Digital vs Print/Corporate for a described surface |
+| `pick_mode` | Decide Digital vs Machine mode for a described surface |
 
 ## In practice
 
@@ -74,7 +74,7 @@ comes back before showing you anything.
 
 > "I'm writing a status report for a client."
 
-`pick_mode` → Print/Corporate, with the reason and what to apply.
+`pick_mode` → Machine, with the reason and what to apply.
 
 ## What `review_copy` catches
 
@@ -98,8 +98,7 @@ in-voice copy — those are exempt from the STE and voice rules by design.
 
 The linter deliberately does **not** fire on:
 
-- `Print/Corporate mode` — the banned string `corporate mode` is a substring of
-  the correct term.
+- `Machine mode` — the correct term must never trip a banned string.
 - `banner logo`, `square logo` — Entra and M365 field names, not our vocabulary.
 - `the Office theme file`, `the Discord client theme` — real artefacts, not the
   palette.
