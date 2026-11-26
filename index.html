@@ -100,6 +100,8 @@
   .zero-steps img,.zero-final img{width:100%; height:auto; border-radius:6px; border:1px solid var(--border);}
   .zero-steps figcaption,.zero-final figcaption{font-size:12px; opacity:.8; margin-top:8px; line-height:1.5;}
   .zero-final{margin-top:18px;}
+  pre.install-cmd{white-space:pre; overflow-x:auto; font-size:12.5px; margin:0;}
+  .copy-cmd{font:inherit; font-size:11px; margin-left:8px; padding:2px 8px; cursor:pointer; background:transparent; color:#4DE1FF; border:1px solid currentColor; border-radius:4px;}
   .zero-steps.two{grid-template-columns:repeat(2,1fr);}
   @media (max-width:720px){.zero-steps.two{grid-template-columns:1fr;}}
 
@@ -459,6 +461,31 @@
       <figure><img src="assets/font-glyphs/bold-b2.png" alt="Chosen bold weight: stems 137, letters keep their width" loading="lazy"><figcaption><b>Bold: b2.</b> Stems go from 87 to 137 and every letter keeps its width (the insides tighten instead), so bold and regular line up in a terminal. File: <code>font/Error404Mono-Bold.ttf</code>, made by <code>font/make_bold.py</code>.</figcaption></figure>
     </div>
     <figure class="zero-final"><img src="assets/font-glyphs/nerd-a2.png" alt="Error404 Mono Nerd Font in a p10k powerline prompt, with the constellation icon as the OS segment" loading="lazy"><figcaption><b>Terminal build: a2.</b> Error404 Mono Nerd Font: every Nerd Fonts icon set patched in, icons up to two cells wide (what p10k expects), and the constellation at U+E404 as the OS icon. Files: <code>font/nerd/</code>, made by <code>font/patch_nerd.sh</code>.</figcaption></figure>
+    <h3 class="zero-h" id="install-font">Install Error404 Mono with curl</h3>
+    <p class="zero-note">Paste into a terminal. Files come straight from this site. After installing, choose <b>Error404Mono Nerd Font</b> in the terminal's font setting (iTerm2: Settings &rarr; Profiles &rarr; Text; Terminal.app: Settings &rarr; Profiles &rarr; Font; GNOME Terminal: Preferences &rarr; Profile &rarr; Custom font). Restart open terminals so they pick it up.</p>
+    <p class="zero-note" style="margin:14px 0 6px"><b>macOS: terminal font (Nerd Font, Regular + Bold)</b> <button class="copy-cmd" type="button">Copy</button></p>
+    <pre class="sig install-cmd">for w in Regular Bold; do
+  curl -fsSL -o ~/Library/Fonts/Error404MonoNerdFont-$w.ttf \
+    https://branding.error404.net/font/nerd/Error404MonoNerdFont-$w.ttf
+done</pre>
+    <p class="zero-note" style="margin:14px 0 6px"><b>Linux: terminal font (Nerd Font, Regular + Bold)</b> <button class="copy-cmd" type="button">Copy</button></p>
+    <pre class="sig install-cmd">mkdir -p ~/.local/share/fonts
+for w in Regular Bold; do
+  curl -fsSL -o ~/.local/share/fonts/Error404MonoNerdFont-$w.ttf \
+    https://branding.error404.net/font/nerd/Error404MonoNerdFont-$w.ttf
+done
+fc-cache -f &amp;&amp; fc-list | grep -i error404</pre>
+    <p class="zero-note" style="margin:14px 0 6px"><b>Documents: plain Error404 Mono, no icons (macOS path; on Linux use ~/.local/share/fonts)</b> <button class="copy-cmd" type="button">Copy</button></p>
+    <pre class="sig install-cmd">for w in Regular Bold; do
+  curl -fsSL -o ~/Library/Fonts/Error404Mono-$w.ttf https://branding.error404.net/font/Error404Mono-$w.ttf
+done</pre>
+    <p class="zero-note" style="margin:14px 0 6px"><b>Powerlevel10k: Nerd Font icons + the constellation as the OS icon</b> <button class="copy-cmd" type="button">Copy</button></p>
+    <pre class="sig install-cmd">cat &gt;&gt; ~/.p10k.zsh &lt;&lt;&#x27;EOF&#x27;
+typeset -g POWERLEVEL9K_MODE=nerdfont-v3
+typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION=$&#x27;\uE404&#x27;
+EOF
+exec zsh</pre>
+    <p class="zero-note">Licence: SIL OFL 1.1; icon sets keep their own licences (<code>font/licenses/</code>). Credits: the GREETZ section of the repo README.</p>
     <p class="zero-note">Licence: the font file is SIL OFL 1.1 (it is built from two OFL fonts, and the OFL keeps derivatives under the OFL). The build scripts and the rest of this site are MIT. The Nerd Font build adds icon sets under MIT, OFL, CC BY 4.0, Apache 2.0 and Unlicense terms; each keeps its own licence (<code>font/licenses/</code>).</p>
   </div>
 </section>
@@ -823,6 +850,17 @@ ERROR404.NET</pre>
   form.addEventListener('change', render);
   render();
 })();
+</script>
+
+<script>
+  document.querySelectorAll('.copy-cmd').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.closest('p').nextElementSibling, text = pre.textContent;
+      var done = function(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function(){});
+      else { var r = document.createRange(); r.selectNodeContents(pre); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { document.execCommand('copy'); done(); } catch(e){} }
+    });
+  });
 </script>
 </body>
 </html>

@@ -499,6 +499,10 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
   NOTICE lists each set with its licence. Font stays OFL 1.1.
 - **README "GREETZ"** section (Jesse asked for it): credits every upstream source with licence.
 - Page: added the a2 terminal-build panel; licence note mentions the icon licences.
+- **Install section** (`index.html#install-font`): curl one-liners for macOS / Linux (Nerd Font),
+  plain Error404 Mono for documents, and the p10k lines, each with a Copy button. URLs point at
+  `https://branding.error404.net/font/...` (GitHub Pages from `main`). Commands tested against a local
+  server with a throwaway HOME. **Merged to `main`** (fast-forward) at Jesse's request, 2026-11-26.
 
 ## Known issues tracker (updated 2026-11-26)
 
