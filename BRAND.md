@@ -1,6 +1,6 @@
 ---
 name: Error404
-tagline: '!ignore → return "404: Message not found"'
+tagline: '!ignore → return "404: style not found"'
 version: 1
 language: en
 type: master
@@ -112,6 +112,16 @@ half, it is wrong.
 
 ## Voice
 
+### Origin
+
+Error404 was Jesse's handle in the 90s, when he was a script kiddie. He took it
+back when he found the domain and got back into cybersecurity. The warez scene
+influenced the design choices here, and his repos use NFO-style READMEs.
+
+The zero comes from his amateur radio licence and is woven into the HTTP 404
+status code. The Libra scales give the mark its shape. AI tools helped him
+build the palette and the font faster than working by hand would have allowed.
+
 ### Identity
 
 Error404 writes like a competent engineer explaining something they have
@@ -125,7 +135,7 @@ decoration would cost clarity.
 **Primary (LOCKED).**
 
 ```
-!ignore → return "404: Message not found"
+!ignore → return "404: style not found"
 ```
 
 It reads as a function return and winks at prompt-injection and AI-scanner
@@ -266,14 +276,12 @@ nothing else: not text, not UI, not links.
 
 ### Typography
 
-One house mono sets all running text. Two terminal accent faces sit beside it. Each face has a declared web-safe fallback, because the system assumes fonts fail to load and must still read when they do.
+One house face sets all text, headings included. The Nerd Font build is for the terminal only. Each face has a declared web-safe fallback, because the system assumes fonts fail to load and must still read when they do.
 
 | Role | Face | Fallback | Usage |
 |---|---|---|---|
-| House mono | Error404 Mono Regular and Bold | `Consolas, "Liberation Mono", "Courier New", monospace` | Running text, labels, and the `4Ø4` text in the mark once outlined |
+| House mono | Error404 Mono Regular and Bold | `Consolas, "Liberation Mono", "Courier New", monospace` | All text, headings, labels, and the `4Ø4` text in the mark |
 | Terminal | Error404 Mono Nerd Font (PostScript `Error404MonoNF`) | the terminal's own monospace | Shell and prompt, with Nerd Font icons and the constellation OS icon |
-| Terminal accent | VT323 | `monospace` | Headers, code, NFO tables |
-| Display | Press Start 2P | `monospace` | Hero only. Unreadable below ~24px |
 | Wordmark | Hand-built block lettering | n/a | Artwork, not a font |
 | Email and paper | Courier New | `Courier, monospace` | Email clients cannot load web fonts |
 | Entra and M365 | Courier New | `monospace` | Microsoft replaces custom web fonts. Expected |
@@ -287,10 +295,10 @@ font-family: "Error404 Mono", Consolas, "Liberation Mono", "Courier New", monosp
 **Rules.**
 
 - Error404 Mono ships in Regular and Bold. Do not fake a third weight: a synthetic bold smears the thin strokes.
-  Show emphasis with color, caps, size or the terminal accent face.
+  Show emphasis with colour, caps or size.
 - The zero and Ø are drawn into the font. The Ø slash runs at 45.75°, the angle of the
   constellation edge, so the split line and the slash read as one stroke.
-- Coverage today: ASCII and the arrows `← ↑ → ↓ ↔ ↕ ⇐ ⇒ ⇔`. Box-drawing and block glyphs are pending.
+- Coverage today: ASCII, the arrows `← ↑ → ↓ ↔ ↕ ⇐ ⇒ ⇔`, and the icon glyph U+E404 (Nerd Font build). Box-drawing and block glyphs are pending.
 - Never more than two mono families on one surface.
 - **Always declare a generic fallback.** A family named alone falls back to the browser's
   default serif, not to monospace. This has shipped as a real defect.
@@ -405,6 +413,10 @@ spec in `DESIGN.md`.
 
 ## Default mark (LOCKED)
 
+**Construction.** The mark is an approximation of the Libra constellation, adjusted by hand.
+It is not a plotted star chart. Several star layouts were combined into one mesh-network
+graph, because the brand is a `.net` domain.
+
 **Canonical default:** No-ring multicolor variant (constellation lines and nodes only, no halo).
 
 Used for clean mark placement where the constellation geometry alone carries the identity. Works on both dark and light backgrounds with proper contrast. On dark backgrounds, use with full Arcade New Wave palette. On light backgrounds, pair with `libra-no-ring-black.svg`.
@@ -415,6 +427,10 @@ Used for clean mark placement where the constellation geometry alone carries the
 starts at 128 px. The **Icon** has no numerals and no zero; it is for small and hard-to-see
 places (favicons, app-icon slots, avatars under 128 px, tabs). Below 128 px, switch from Logo
 to Icon. The minimum Icon size is 24 px (16 px for favicons only).
+
+**Icon glyph (U+E404).** The same constellation as a single character in the Error404 Mono
+Nerd Font build, added so the terminal prompt could be customised. It is a private-use code point,
+clear of the Nerd Font ranges.
 
 **Icon (LOCKED; formerly "Monogram").** Where no text fits (favicons,
 app-icon slots, OBS overlays, anywhere the numerals would be too small to
@@ -448,18 +464,17 @@ committed or re-rendered.
   edge (within 0.1 unit): `(204.0, 74.9)` to `(163.7, 116.3)` and
   `(125.8, 155.2)` to `(80.2, 202.0)`. Neon cuts use a wider gap for their
   thicker strokes.
-- **Text.** `4Ø4` in Share Tech Mono Regular (`font-weight="400"`; the font has no bold), size 44 (40 on neon), `x="145"`, `y="151"`,
+- **Text.** `4Ø4` in Error404 Mono Regular (`font-weight="400"`; the mark never uses Bold), size 44 (40 on neon), `x="145"`, `y="151"`,
   `text-anchor="middle"`. No oval or ellipse behind it.
 - **Verification.** Line ink and text ink are rendered as two separate masks
   with the real font. They must overlap by zero pixels and keep at least 1.5
   units of clearance. A visual check alone is not accepted; this has failed
   three times.
-- **Measured angles.** The edge runs at 45.8° (slope -1.027). The Ø slash in
-  Share Tech Mono Regular measures 74.5° (Canny edge detection plus Hough line fit on the
-  isolated glyph; JetBrains Mono measured 60.5°). The gap is centered on the
-  crossing, so its sides do not parallel the slash. Matching them would move
-  the nodes, which are locked.
-- **Render.** Use real Share Tech Mono and grayscale antialiasing (see
+- **Measured angles.** The edge runs at 45.75°. The Ø slash in Error404 Mono Regular is drawn
+  at the same angle (measured 45.63° by Canny edge detection plus Hough line fit on the isolated
+  glyph), so the split line and the slash read as one stroke. The earlier Share Tech Mono
+  (74.5°) and JetBrains Mono (60.5°) measurements are retired.
+- **Render.** Use the real Error404 Mono Regular and grayscale antialiasing (see
   `CLAUDE.md`, working notes). A fallback font silently changes the text
   width and the Ø.
 
@@ -467,6 +482,10 @@ committed or re-rendered.
 
 Not yet decided. Do not resolve these by inference.
 
+- The LinkedIn variant ("Server not found") was derived from the old primary. Confirm whether it
+  should be re-derived from `404: style not found`.
+- The hero heading and section headings now use Error404 Mono. Confirm this is final for the
+  whole site.
 - Approval of the Machine mode letterhead direction.
 
 ## Related files

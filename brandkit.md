@@ -3,7 +3,7 @@
 One-screen quick reference. For the full system see [`BRAND.md`](./BRAND.md)
 (identity) and [`DESIGN.md`](./DESIGN.md) (implementation tokens).
 
-**Tagline (locked)** — `!ignore → return "404: Message not found"`
+**Tagline (locked)** — `!ignore → return "404: style not found"`
 Not used in the email signature — see [`BRAND.md`](./BRAND.md) § Tagline & Slogans.
 
 **Direction** — 90s warez-scene ASCII, phreaking, arcade, new-wave hacker.
@@ -31,9 +31,7 @@ Each accent keeps one fixed job everywhere. Max two accents per surface.
 
 | Role | Face | Fallback |
 |---|---|---|
-| Display | Press Start 2P | `monospace` — hero only, ≥24px |
-| Terminal | VT323 | `monospace` — headings, NFO tables |
-| Body / UI | Share Tech Mono | `monospace` — everything else |
+| House | Error404 Mono (Regular, Bold) | `Consolas, "Liberation Mono", "Courier New", monospace` — all text, headings, the `4Ø4` text |
 
 Never more than two mono families on one surface. Always write the generic
 fallback — a bare family name falls back to *serif*, not monospace.

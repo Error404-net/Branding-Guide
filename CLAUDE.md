@@ -504,6 +504,19 @@ Drilled with Jesse via rendered option sheets (`font/previews/zero-round1..4.png
   `https://branding.error404.net/font/...` (GitHub Pages from `main`). Commands tested against a local
   server with a throwaway HOME. **Merged to `main`** (fast-forward) at Jesse's request, 2026-11-26.
 
+## What's done — round 15 (homepage and docs, 2026-11-26)
+
+- **Homepage** (`index.html`, committed `de1faff`): per-section version lines from git history; origin copy
+  (script kiddie, warez scene, NFO-style READMEs); mark described as an approximation of Libra combined into
+  a mesh-network graph for a .net domain; mark build notes replaced (uniform line colour, split line at the
+  45.75° slash angle); icon glyph smaller and explained; Rules section removed; VT323 and Press Start 2P removed.
+- **Hero and section headings** switched to Error404 Mono bold. Press Start 2P and VT323 are no longer loaded.
+- **Tagline** is now `!ignore → return "404: style not found"`. Updated in BRAND.md, brandkit.md, DESIGN.md and
+  README.md. Still says "Message not found" in: `brand-mcp/src/*.js` and its tests (code, not yet changed),
+  and the history entries above in this file (left as written).
+- **Fonts in docs:** VT323 and Press Start 2P are removed from the type system (BRAND.md, brandkit.md,
+  DESIGN.md). Error404 Mono is the only text face outside the email and Entra fallbacks.
+
 ## Known issues tracker (updated 2026-11-26)
 
 **Resolved this round (branch `third-party-guidance-cleanup`)**

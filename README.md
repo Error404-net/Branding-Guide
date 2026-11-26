@@ -62,7 +62,7 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
                         domain name should read out loud
   > treatment modes  : Digital (full color/glow) vs. Machine (black only,
                         ASCII-forward — automated senders, plain text, paper)
-  > tagline (locked) : !ignore -> return "404: Message not found"
+  > tagline (locked) : !ignore -> return "404: style not found"
   > for AI agents    : see AGENTS.md — portable instructions for coding
                         agents/skills that should pull this guide as their
                         design source of truth

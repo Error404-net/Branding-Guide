@@ -145,9 +145,7 @@ Mirrors the approved faces in `BRAND.md`; the scale below is derived here.
 
 | Token | Stack | Use |
 |---|---|---|
-| `--font-display` | `'Press Start 2P', monospace` | Hero only, ≥24px |
-| `--font-terminal` | `'VT323', monospace` | Headings, NFO tables |
-| `--font-body` | `'Share Tech Mono', monospace` | Body, UI, code. Regular weight only. Stand-in until the custom house font ships |
+| `--font-body` | `"Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace` | All text, headings, code. Regular and Bold only |
 
 **Always declare the generic fallback.** A family named alone falls back to the
 browser default *serif*, not to monospace. This has shipped as a real defect:
@@ -285,7 +283,7 @@ Every surface resolves to exactly one mode. There is no third.
 | Accents | Up to two | None |
 | Mark | Full lockup with offset layers | Flat monochrome |
 | Identity carrier | Neon geometry, scanlines, glow | ASCII rules, boxed fields, `>` `::` `~/` |
-| Type | Display + body | One face throughout |
+| Type | One house face | Error404 Mono throughout |
 
 PowerPoint is the single documented exception: an export that stays Digital,
 because slides are a screen medium.
