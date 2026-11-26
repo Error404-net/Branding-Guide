@@ -427,7 +427,7 @@ exec zsh</pre>
     <h2><span class="num">07</span>Email signature</h2>
     <p class="ver">Added 2026-10-05 (f73154d) · Generator last updated 2026-11-26 (01e02f1)</p>
     <p class="lead">A signature is sent by a person, so it is not Machine mode. It gets one light touch of color. The plain-text form below is also the fallback when HTML is stripped.</p>
-    <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt; :: &lt;phone&gt;
+    <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt;
 ERROR404.NET</pre>
     <p class="lead" style="margin-top:14px; font-size:12.5px;">Format shown above; build the real one with the generator below — your details stay in your browser and are never published to this site. The locked tagline is not part of the signature — a "!ignore &rarr;" line going out on every outbound email risks a false-positive flag from AI-based mail security scanners at the recipient's end, so it's reserved for the site, marketing, and the PDF guide instead.</p>
     <h3 class="sig-h3">Outlook / M365 signature generator</h3>
@@ -668,7 +668,9 @@ ERROR404.NET</pre>
       title: v.title, email: v.email, phone: v.phone
     };
     current = Error404Signature.build(data, v.variant);
-    preview.innerHTML = current.html;
+    // Preview loads the mark from the site's own folder so it shows even when the hosted URL is unreachable.
+    // Copy and download still use the hosted absolute URLs from IMG_BASE.
+    preview.innerHTML = current.html.split(Error404Signature.IMG_BASE).join('email-templates/hosted-images/');
     try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
   }
 
@@ -702,6 +704,18 @@ ERROR404.NET</pre>
     return ok ? Promise.resolve() : Promise.reject();
   }
 
+  // Restore the last entry from this browser, then keep the preview live as the user types.
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved) {
+      ['name', 'title', 'email', 'phone'].forEach(function (k) { if (saved[k] != null) form.elements[k].value = saved[k]; });
+      if (saved.variant) { var r = form.querySelector('input[name=variant][value=' + saved.variant + ']'); if (r) r.checked = true; }
+    }
+  } catch (e) {}
+  form.addEventListener('input', render);
+  form.addEventListener('change', render);
+  render();
+
   document.getElementById('sigCopy').addEventListener('click', function () {
     if (!form.elements.name.value.trim()) { say('Add your name first.'); form.elements.name.focus(); return; }
     if (window.ClipboardItem && navigator.clipboard && navigator.clipboard.write) {
@@ -722,4 +736,38 @@ ERROR404.NET</pre>
 
   document.getElementById('sigDownload').addEventListener('click', function () {
     var doc = '<!DOCTYPE html>\n<html><head><meta charset="utf-8"><title>Signature</title></head>\n<body>\n' +
-      current.html + '\n
+      current.html + '\n</body></html>\n';
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([doc], { type: 'text/html' }));
+    a.download = 'Error404-signature-' + values().variant + '.htm';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved) {
+      ['name', 'title', 'email', 'phone'].forEach(function (k) { if (saved[k]) form.elements[k].value = saved[k]; });
+      var r = form.querySelector('input[name=variant][value="' + saved.variant + '"]');
+      if (r) r.checked = true;
+    }
+  } catch (e) {}
+
+  form.addEventListener('input', render);
+  form.addEventListener('change', render);
+  render();
+})();
+</script>
+
+<script>
+  document.querySelectorAll('.copy-cmd').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.closest('p').nextElementSibling, text = pre.textContent;
+      var done = function(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1500); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function(){});
+      else { var r = document.createRange(); r.selectNodeContents(pre); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { document.execCommand('copy'); done(); } catch(e){} }
+    });
+  });
+</script>
+</body>
+</html>
