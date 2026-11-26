@@ -8,7 +8,9 @@
 <link rel="icon" href="logos/favicon-white.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<style>@font-face{font-family:"Error404 Mono";src:url("font/Error404Mono-Regular.ttf") format("truetype");font-weight:400;font-display:swap;}@font-face{font-family:"Error404 Mono";src:url("font/Error404Mono-Bold.ttf") format("truetype");font-weight:700;font-display:swap;}</style>
+<style>@font-face{font-family:"Error404 Mono";src:url("font/Error404Mono-Regular.ttf") format("truetype");font-weight:400;font-display:swap;}@font-face{font-family:"Error404 Mono";src:url("font/Error404Mono-Bold.ttf") format("truetype");font-weight:700;font-display:swap;}  .toc{list-style:decimal; padding-left:22px; margin:12px 0 0;} .toc li{margin:6px 0;} .toc li span{color:var(--fg,#F4F1FF); opacity:.72; margin-left:12px;}
+  .ver{font-family:"Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace; font-size:12px; opacity:.6; margin:-4px 0 18px; letter-spacing:.02em;}
+</style>
 <style>
   :root{
     --bg:#231451; --fg:#F4F1FF;
@@ -196,11 +198,10 @@
   <div class="wrap">
     <div class="brand">ERROR404<span>.NET</span></div>
     <ul>
-      <li><a href="#story">Story</a></li>
-      <li><a href="#voice">Voice</a></li>
-      <li><a href="#direction">Look</a></li>
-      <li><a href="#logo">Mark</a></li>
-      <li><a href="#color">Color</a></li>
+      <li><a href="#origin">Origin</a></li>
+      <li><a href="#who">Who</a></li>
+      <li><a href="#mark">Mark</a></li>
+      <li><a href="#colour">Colour</a></li>
       <li><a href="#type">Type</a></li>
       <li><a href="#modes">Modes</a></li>
       <li><a href="#signature">Signature</a></li>
@@ -210,228 +211,133 @@
     </ul>
   </div>
 </nav>
-
 <header class="hero">
   <div class="wrap">
     <img src="logos/libra-no-ring-multicolor.svg" alt="ERROR404.NET icon">
     <h1>ERROR404.NET</h1>
-    <p class="sub">One mark, one palette, one voice. A personal brand system for one practitioner, applied to every system I run and everything I publish.</p>
-    <div class="tagline">!ignore &rarr; return "404: Message not found"</div>
+    <p class="sub">Error404 is my handle. I had it in the 90s, took it back when I found the domain, and got into cybersecurity. The name carries the scene it came from. This site is the system built around it: the mark, the colour, the type, and the rules for using them.</p>
+    <div class="tagline">!ignore &rarr; return "404: style not found"</div>
   </div>
 </header>
 
-<section id="story">
+<section id="index">
   <div class="wrap">
-    <h2><span class="num">01</span>Why this exists</h2>
-    <p class="lead">Error404 started as a way to learn. It stayed because it works. Four reasons keep it alive.</p>
-    <div class="story">
-      <div><h3>LEARN THE TECHNOLOGY</h3><p>A brand system built end to end teaches the tools that carry it: vector geometry, Microsoft 365 and Entra branding, SharePoint Brand Center, Hugo, DNS block pages, and Git. Every asset here answers a real problem.</p></div>
-      <div><h3>LEARN HOW A BRAND REACHES A COMPANY</h3><p>A company brand lives in sign-in pages, email signatures, Office templates, and admin portals. This repo is a full rehearsal of that rollout, run on a tenant I control.</p></div>
-      <div><h3>TAG EVERY SYSTEM</h3><p>Hacker culture signs its work. Scene groups tagged each release with an ANSI logo and an .NFO file. The mark does the same job on a homelab, a mail relay, a block page, and a shell prompt. If it runs on my hardware, it looks like mine.</p></div>
-      <div><h3>BE ONE PERSON ONLINE</h3><p>Technical work spread across a lab, a tenant, and several profiles reads as five people. One mark and one voice make it read as one, on LinkedIn, the blog, and this site. Content creators build a recognizable brand. This is the practitioner's version. It sells nothing.</p></div>
-    </div>
-    <p class="lead" style="margin-top:22px;">The name is the HTTP status code for "not found." The brand treats that as a joke it is in on. The lineage is real: the 90s warez and BBS scene, with its ANSI group logos, .NFO release tables, phreaking, and arcade cabinets. The work it fronts is modern security and infrastructure engineering.</p>
+    <h2>Contents</h2>
+    <ol class="toc">
+      <li><a href="#origin">Origin</a><span>Where the name and the mark come from</span></li>
+      <li><a href="#who">Who this is</a><span>Voice, tagline, and how to write for the brand</span></li>
+      <li><a href="#mark">The mark</a><span>Logo, Icon, and build rules</span></li>
+      <li><a href="#colour">Colour</a><span>The Arcade New Wave palette and neon accents</span></li>
+      <li><a href="#type">Type</a><span>Error404 Mono, fallbacks, and the terminal install</span></li>
+      <li><a href="#modes">Modes</a><span>Digital and Machine mode</span></li>
+      <li><a href="#signature">Signature</a><span>Email signature generator</span></li>
+      <li><a href="#gravatar">Gravatar</a><span>Profile images</span></li>
+      <li><a href="#templates">Templates</a><span>Word, PowerPoint, email, and report files</span></li>
+      <li><a href="#technitium">Block page</a><span>DNS block page for Technitium</span></li>
+    </ol>
   </div>
 </section>
 
-<section id="voice">
+<section id="origin">
   <div class="wrap">
-    <h2><span class="num">02</span>Who this is and how it sounds</h2>
-    <p class="lead">An independent security practitioner. Not a company, not a product, not a startup. The voice is a competent engineer explaining work they have done: plain, exact, and in on the joke. <strong>Terminal-literate, not terminal-cosplay.</strong></p>
-    <p class="lead" style="margin-bottom:12px;">Five attributes: precise, textured, self-aware, unfashionable on purpose, legible under pressure. The test for any piece of copy: does it still read as deliberate to someone who knows the reference, and stay usable to someone who does not?</p>
+    <h2><span class="num">01</span>Origin</h2>
+    <p class="ver">Added 2026-11-26 (01e02f1, as the story section) · Rewritten 2026-11-26, not committed</p>
+    <p class="lead">Error404 was my handle in the 90s, when I was a script kiddie. The warez scene influenced the design choices here, and my repos use NFO-style READMEs. When I found the domain and got back into cybersecurity, I took it back. The name is the HTTP status code for "not found," and the scene it came from is part of the joke.</p>
+    <p class="lead">The mark is my approximation of the Libra constellation, adjusted by hand. I'm a Libra, so the scales. I'm a licensed ham, so the zero is from ham radio, and I wanted it woven into the 404 status code. Because this is a .net domain, I wanted a mesh-network look. I combined several star layouts into one graph.</p>
+    <p class="lead">I couldn't find a font with a zero that matched, so I drew one. AI tools helped me get there faster. Picking colours and drafting glyphs by hand would have taken hours.</p>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <h2><span class="num">02</span>Who this is</h2>
+    <p class="ver">Added 2026-11-26 (01e02f1, as the voice section) · Rewritten 2026-11-26, not committed</p>
+    <p class="lead">You're reading one practitioner's system. It is plain, exact, and a little bit in on the joke. Say what the rule is, then why. Keep sentences short and each one to one idea.</p>
     <div class="dd">
       <div class="do"><h4>DO</h4><ul>
+        <li>Write "you" for the reader. Keep the "I" for the origin story.</li>
         <li>State the rule, then the reason.</li>
-        <li>Write short sentences. One idea each.</li>
-        <li>Keep the texture. Cut the filler.</li>
-        <li>Use one term per concept: mark, wordmark, lockup, variant.</li>
+        <li>Use one term per concept: mark, Logo, Icon, lockup.</li>
       </ul></div>
       <div class="dont"><h4>DON'T</h4><ul>
         <li>Claim a team, customers, or scale. There are none.</li>
-        <li>Use "we" to mean a company.</li>
-        <li>Let period flavor cost clarity on a surface someone must read.</li>
+        <li>Use "we" for a company that does not exist.</li>
         <li>Put real contact details in a template or mockup.</li>
       </ul></div>
     </div>
     <h3 class="sig-h3">The tagline</h3>
-    <div class="tagline" style="display:inline-block;">!ignore &rarr; return "404: Message not found"</div>
-    <p class="sig-hint">Locked. Do not reword it. Valid on the site, in marketing, and in the PDF guide. LinkedIn and network contexts use one authorized variant: <code class="inline-code">"404: Server not found"</code>. Neither version goes in outbound email.</p>
+    <div class="tagline" style="display:inline-block;">!ignore &rarr; return "404: style not found"</div>
+    <p class="sig-hint">The tagline is locked as written. It appears on the site, in the PDF guide, and in marketing. It never appears in outbound email.</p>
   </div>
 </section>
 
-<section id="direction">
+<section id="mark">
   <div class="wrap">
-    <h2><span class="num">03</span>The look</h2>
-    <p class="lead">
-      ACiD/iCE-style ANSI group logos and boxed <code class="inline-code">.NFO</code> release tables, CRT/VHS chromatic-aberration
-      glitch text, 80s–90s arcade cabinet neon geometry, phone-phreaking iconography as a texture accent. Avoid corporate
-      SaaS gradients, soft rounded cards, and any "clean flat design" pass that sands off the CRT/ANSI texture — the texture
-      <em>is</em> the brand.
-    </p>
-  </div>
-</section>
+    <h2><span class="num">03</span>The mark</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Last updated 2026-11-26 (1719eb2 Logo and Icon; a9ae62e spec lock)</p>
+    <p class="lead">The mark is a node-link graph: my approximation of the Libra constellation, adjusted by hand and combined into a mesh-network look for a .net domain. The slashed zero sits in the open space of the scales as <strong>4&Oslash;4</strong>.</p>
 
-<section id="logo">
-  <div class="wrap">
-    <h2><span class="num">04</span>The mark</h2>
-    <p class="lead">
-      Two marks, one constellation. <span class="badge locked">Final &mdash; approved</span> A node-link graph plotted from the real
-      <strong>Libra constellation</strong>: real star positions and magnitudes (Zubenelgenubi, Zubeneschamali,
-      Zubenelakrab, Brachium, and its tail pair). Nothing is an approximation of something it could have been.
-      <strong>4&Oslash;4</strong> sits in the open space of the scales. The &Oslash; is a slashed zero, the zero
-      terminals and logbooks use. The mark is built for transparency over varying backgrounds.
-    </p>
-
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">LOGO AND ICON — TWO MARKS, TWO JOBS</h3>
-    <p class="lead" style="margin-bottom:20px;">
-      The <strong>Logo</strong> carries the numerals: constellation plus <strong>4&Oslash;4</strong>. It identifies the brand and
-      reads at <strong>128&nbsp;px and up</strong>. The <strong>Icon</strong> drops the numerals: constellation nodes and lines only,
-      no zero, no text. It is built for <strong>small sizes and hard-to-see places</strong>: favicons, app-icon slots, avatars
-      under 128&nbsp;px, tabs, OBS corners. Below 128&nbsp;px the numerals blur and the slash on the &Oslash; disappears, so switch to the Icon.
-      Both come from the same locked geometry. Everywhere else, <strong>Mark</strong> is the umbrella word for either.
-    </p>
-    <div class="logo-grid" style="margin-bottom:18px;">
-      <div class="logo-card dark-solid"><img src="logos/libra-no-ring-multicolor.svg" alt="Logo, multicolor, with 4Ø4"><div class="cap"><strong>LOGO</strong> — with 4&Oslash;4. 128&nbsp;px and up. Identification.</div></div>
-      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Icon, night, no numerals"><div class="cap"><strong>ICON</strong> — no zero. Small, dense, hard-to-see places.</div></div>
+    <h3 class="sig-h3">Logo and Icon</h3>
+    <p class="lead">Two marks, one geometry. The <strong>Logo</strong> carries the numerals and reads at <strong>128&nbsp;px and up</strong>. The <strong>Icon</strong> drops the numerals and the zero. It is for small and hard-to-see places: favicons, app icons, avatars under 128&nbsp;px, tabs, and OBS corners.</p>
+    <div class="logo-grid">
+      <div class="logo-card dark-solid"><img src="logos/libra-no-ring-multicolor.svg" alt="Logo, multicolor, with 4Ø4"><div class="cap"><strong>LOGO</strong> with 4&Oslash;4. 128&nbsp;px and up.</div></div>
+      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Icon, night, no numerals"><div class="cap"><strong>ICON</strong> no zero. Small and hard-to-see places.</div></div>
     </div>
-    <div class="logo-card" style="display:flex; gap:28px; align-items:flex-end; flex-wrap:wrap; justify-content:center; margin-bottom:34px; background:#0B0810;">
-      <div style="text-align:center"><img src="logos/libra-no-ring-multicolor.svg" width="128" alt="Logo at 128 px"><div class="cap">Logo 128</div></div>
-      <div style="text-align:center"><img src="logos/libra-no-ring-multicolor.svg" width="48" alt="Logo at 48 px"><div class="cap">Logo 48<br>numerals blur</div></div>
-      <div style="text-align:center"><img src="logos/libra-no-ring-multicolor.svg" width="24" alt="Logo at 24 px"><div class="cap">Logo 24<br>unreadable</div></div>
-      <div style="text-align:center"><img src="logos/monogram-night.svg" width="128" alt="Icon at 128 px"><div class="cap">Icon 128</div></div>
-      <div style="text-align:center"><img src="logos/monogram-night.svg" width="48" alt="Icon at 48 px"><div class="cap">Icon 48</div></div>
-      <div style="text-align:center"><img src="logos/monogram-night.svg" width="24" alt="Icon at 24 px"><div class="cap">Icon 24<br>minimum</div></div>
-      <div style="text-align:center"><img src="logos/monogram-night.svg" width="16" alt="Icon at 16 px"><div class="cap">Icon 16<br>favicon</div></div>
-    </div>
-    <details class="notes"><summary>Build notes</summary>
-      <p>Every connecting line is one color: mint <code class="inline-code">#37F0A6</code> on the multicolor mark, the mark's own
-      color on black and white cuts. Node circles stay multicolor. The line that would cross the &Oslash; splits into two
-      collinear segments that lie exactly on the node-to-node edge. The gap is sized from the rendered glyph and checked
-      for zero pixel overlap with the text (<code class="inline-code">scripts/verify-marks.py</code>). The edge runs at 45.8&deg;; the &Oslash; slash is steeper
-      (74.5&deg; in Share Tech Mono), so the gap is centered on the crossing but its sides do not parallel the slash.</p>
-    </details>
-    <div class="dd" style="margin-bottom:28px;">
+    <div class="dd">
       <div class="do"><h4>DO</h4><ul>
-        <li>Use the Logo at 128&nbsp;px and up: multicolor by default, black on light, white on dark.</li>
-        <li>Keep "4&Oslash;4" with the slash.</li>
-        <li>Use the Icon below 128&nbsp;px, or where the numerals would not read.</li>
+        <li>Use the Logo at 128&nbsp;px and up, multicolour by default.</li>
+        <li>Use the Icon below 128&nbsp;px, or wherever the numerals would blur.</li>
+        <li>Keep the slash on the &Oslash;.</li>
       </ul></div>
       <div class="dont"><h4>DON'T</h4><ul>
-        <li>Put an oval or box behind the numerals. Retired.</li>
-        <li>Color lines edge by edge, except on the neon cuts.</li>
-        <li>Write plain "404" in the mark, or reuse the old icon-only cuts.</li>
+        <li>Put an oval or box behind the numerals.</li>
+        <li>Colour lines one by one. Every line is one colour.</li>
+        <li>Write plain "404" in the mark.</li>
       </ul></div>
     </div>
-
-    <div class="logo-grid" style="margin-bottom:28px;">
-      <div class="logo-card"><img src="logos/libra-no-ring-multicolor.svg" alt="Libra mark, no-ring, multicolor"><div class="cap">Canonical default — multicolor</div></div>
-      <div class="logo-card light"><img src="logos/libra-no-ring-black.svg" alt="Libra mark, no-ring, black"><div class="cap">For light backgrounds — black</div></div>
-      <div class="logo-card dark-solid"><img src="logos/libra-no-ring-white.svg" alt="Libra mark, no-ring, white"><div class="cap">For dark backgrounds — white</div></div>
+    <h3 class="sig-h3">Variants</h3>
+    <p class="lead">Use the multicolour mark by default. Black on light backgrounds, white on dark. The full set of files, the watermark, the Entra cuts, and the lockups are in <a href="BRAND.md">BRAND.md</a>.</p>
+    <div class="logo-grid">
+      <div class="logo-card"><img src="logos/libra-no-ring-multicolor.svg" alt="Libra mark, multicolour"><div class="cap">Multicolour, default</div></div>
+      <div class="logo-card light"><img src="logos/libra-no-ring-black.svg" alt="Libra mark, black"><div class="cap">Black, light backgrounds</div></div>
+      <div class="logo-card dark-solid"><img src="logos/libra-no-ring-white.svg" alt="Libra mark, white"><div class="cap">White, dark backgrounds</div></div>
     </div>
-
-    <p style="font-size:13px; opacity:0.7; margin:24px 0 0; max-width:680px;">
-      <strong>Single-accent variants</strong> exist for one-color needs. Locked-palette accents (blue, pink, yellow, mint) and the Neon accent set are the only authorized colors. Any other color needs a design review.
-    </p>
-
-    <hr class="rule">
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">ICON — NO ZERO, NIGHT / DAYLIGHT MODE</h3>
-    <p class="lead" style="margin-bottom:24px;">
-      The Icon, no "4&Oslash;4": constellation nodes and lines only, no text, no ring, no accent colors,
-      transparent background. Two approved variants — <strong>Night</strong> (white mark, for dark surfaces:
-      site favicon, dark-theme app icons) and <strong>Daylight</strong> (black mark, for light
-      surfaces: light-theme app icons, print, and the base of the icon+wordmark lockups below). These replace
-      every prior icon-only/glyph-only cut site-wide. OBS scenes use the Ring variant (mark plus
-      a decorative outer ring) instead — a deliberate distinct treatment, not shown here.
-    </p>
-    <div class="logo-grid" style="margin-bottom:40px;">
-      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Icon, night mode, white, transparent"><div class="cap">Night mode — white, transparent</div></div>
-      <div class="logo-card light"><img src="logos/monogram-daylight.svg" alt="Icon, daylight mode, black, transparent"><div class="cap">Daylight mode — black, transparent</div></div>
-    </div>
-
-    <hr class="rule">
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">WATERMARK — PRINTER / WORD DOCUMENT</h3>
-    <p class="lead" style="margin-bottom:24px;">
-      A single, large, centered mark at 10% opacity — for the office printer's built-in
-      watermark feature, or manual insertion via Word's <strong>Insert &rarr; Watermark &rarr;
-      Custom Watermark &rarr; Picture watermark</strong>. Not the same thing as Microsoft 365
-      Dynamic Watermarking (Purview sensitivity labels), which is text-only and cannot carry a
-      logo — use this static asset instead wherever a mark-bearing watermark is needed.
-    </p>
-    <div class="logo-grid" style="margin-bottom:40px;">
-      <div class="logo-card light"><img src="logos/watermark.svg" alt="Watermark, single centered mark, black, 10% opacity"><div class="cap">Single mark — 10% opacity, black</div></div>
-    </div>
-
-    <hr class="rule">
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">ENTRA / M365 SQUARE LOGO — TRANSPARENT</h3>
-    <p class="lead" style="margin-bottom:24px;">
-      Microsoft Entra ID and the M365 admin center composite the square logo onto their own theme background,
-      so a flat opaque fill reads as a box. These are transparent-PNG cuts instead: black for the light-theme
-      slot, white for the dark-theme slot, and full color for either.
-    </p>
-    <div class="logo-grid" style="margin-bottom:40px;">
-      <div class="logo-card light"><img src="assets/entra-square-transparent-black.png" alt="Entra square logo, transparent black, light theme"><div class="cap">Transparent black — light theme</div></div>
-      <div class="logo-card dark-solid"><img src="assets/entra-square-transparent-white.png" alt="Entra square logo, transparent white, dark theme"><div class="cap">Transparent white — dark theme</div></div>
-      <div class="logo-card"><img src="assets/entra-square-transparent-color.png" alt="Entra square logo, transparent, full color"><div class="cap">Transparent color — either theme</div></div>
-    </div>
-
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">ENTRA / M365 BANNER LOGO — 280&times;60</h3>
-    <p class="lead" style="margin-bottom:24px;">
-      Icon + "ERROR404.NET" wordmark, sized to Entra's banner-logo upload slot. No tagline —
-      too tight at this size, and the same reasoning as the email signature applies to anything
-      embedded in a Microsoft-hosted portal. The color variant is for light/white backgrounds
-      only — the node colors wash out against the dark theme surface.
-    </p>
-    <div class="logo-grid" style="margin-bottom:40px;">
-      <div class="logo-card light"><img src="entra-m365/banner-logo-light-280x60.png" alt="Entra banner logo, black, light theme"><div class="cap">Light theme — black</div></div>
-      <div class="logo-card dark-solid"><img src="entra-m365/banner-logo-dark-280x60.png" alt="Entra banner logo, white, dark theme"><div class="cap">Dark theme — white</div></div>
-      <div class="logo-card light"><img src="entra-m365/banner-logo-color-280x60.png" alt="Entra banner logo, full color, light backgrounds only"><div class="cap">Color — light backgrounds only</div></div>
-    </div>
-
-    <hr class="rule">
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">ICON + WORDMARK LOCKUP — GENERAL USE</h3>
-    <p class="lead" style="margin-bottom:24px;">
-      Icon and wordmark together, for anywhere the full domain name should read out loud but
-      isn't tied to a specific platform slot — headers, docs, merch, business cards. Same
-      construction as the Entra banner lockup above, at full size and no size constraint.
-    </p>
-    <div class="logo-card" style="text-align:left;">
-      <img src="assets/netmesh-lockup.png" alt="Libra mark wordmark lockup" style="max-width:420px;">
-      <div class="cap">Icon + wordmark lockup (ERROR404.NET)</div>
-    </div>
-  </div>
+    <details class="notes"><summary>Build notes</summary>
+      <p>Every connecting line is a single uniform colour (mint <code class="inline-code">#37F0A6</code> on the multicolour mark; the mark's own solid colour on the black and white cuts). Node circles stay multicolour.</p>
+      <p>The line that would cross the Ø in "4Ø4" is split into two collinear segments at the exact angle of the glyph's own diagonal slash, measured from the rendered glyph (Canny edge detection and a Hough line fit on the isolated slash, converged on a 45.75° slope) rather than eyeballed. It is then verified with a zero-pixel-overlap check between the line art and the text ink before being called correct.</p>
+    </details>
+</div>
 </section>
 
-<section id="color">
+<section id="colour">
   <div class="wrap">
-    <h2><span class="num">05</span>Color — Arcade New Wave <span class="badge locked">Locked</span></h2>
-    <p class="lead">The palette is sampled from a real arcade reference, not generated. It is built on restraint: one background, one foreground, at most two accents per surface. Each accent keeps one fixed job. Say "indigo" for the background pair. There is no separate brand purple.</p>
+    <h2><span class="num">04</span>Colour</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Last updated 2026-11-26 (01e02f1)</p>
+    <p class="lead">The palette is sampled from a real arcade reference. One background, one foreground, and at most two accents on any surface. Each accent keeps one job.</p>
     <div class="swatches">
       <div class="swatch"><div class="fill" style="background:#231451;"></div><div class="meta"><span class="name">Background</span>#231451<span class="role">base canvas</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#170C38;"></div><div class="meta"><span class="name">Deep background</span>#170C38<span class="role">page shell, outer edge &mdash; never an accent</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#F4F1FF;"></div><div class="meta"><span class="name">Foreground</span>#F4F1FF<span class="role">text / paper</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#4DE1FF;"></div><div class="meta"><span class="name">Blue</span>#4DE1FF<span class="role">links / primary</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#F4F1FF;"></div><div class="meta"><span class="name">Foreground</span>#F4F1FF<span class="role">text and paper</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#4DE1FF;"></div><div class="meta"><span class="name">Blue</span>#4DE1FF<span class="role">links and primary</span></div></div>
       <div class="swatch"><div class="fill" style="background:#FF5FA2;"></div><div class="meta"><span class="name">Pink</span>#FF5FA2<span class="role">secondary highlight</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#FFE156;"></div><div class="meta"><span class="name">Yellow</span>#FFE156<span class="role">taglines / CTAs</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#37F0A6;"></div><div class="meta"><span class="name">Mint</span>#37F0A6<span class="role">rules / dividers / status</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FFE156;"></div><div class="meta"><span class="name">Yellow</span>#FFE156<span class="role">taglines and calls to action</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#37F0A6;"></div><div class="meta"><span class="name">Mint</span>#37F0A6<span class="role">rules, dividers, status</span></div></div>
     </div>
-    <h3 class="sig-h3">NEON ACCENT SET &mdash; display cuts of the mark only</h3>
-    <p class="lead" style="font-size:13px;">The neon-tube cuts glow against a near-black backdrop. The locked pastels do not glow, so those cuts borrow a brighter set. Never use these colors for text, UI, or links.</p>
+    <h3 class="sig-h3">Neon accents</h3>
+    <p class="lead" style="font-size:13px;">Display cuts of the mark only. They glow against a near-black backdrop and never appear in text, UI, or links.</p>
     <div class="swatches">
-      <div class="swatch"><div class="fill" style="background:#39FF14;"></div><div class="meta"><span class="name">Neon green</span>#39FF14<span class="role">neon-green, single-accent green</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#00F0FF;"></div><div class="meta"><span class="name">Neon cyan</span>#00F0FF<span class="role">neon-blue (not yet built)</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#FF16E0;"></div><div class="meta"><span class="name">Neon magenta</span>#FF16E0<span class="role">neon-pink (not yet built), neon-multi</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#0B0810;"></div><div class="meta"><span class="name">Neon backdrop</span>#0B0810<span class="role">baked into every neon cut</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#39FF14;"></div><div class="meta"><span class="name">Neon green</span>#39FF14<span class="role">neon-green cut</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#00F0FF;"></div><div class="meta"><span class="name">Neon cyan</span>#00F0FF<span class="role">reserved</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FF16E0;"></div><div class="meta"><span class="name">Neon magenta</span>#FF16E0<span class="role">reserved, neon-multi</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#0B0810;"></div><div class="meta"><span class="name">Neon backdrop</span>#0B0810<span class="role">baked into the neon cuts</span></div></div>
     </div>
     <div class="dd">
       <div class="do"><h4>DO</h4><ul>
         <li>Pick one background, one foreground, and up to two accents.</li>
-        <li>Use mint for rules, dividers, and status.</li>
-        <li>Check contrast. Accessibility wins over brand.</li>
+        <li>Check contrast before you ship. Accessibility wins over brand.</li>
       </ul></div>
       <div class="dont"><h4>DON'T</h4><ul>
         <li>Reassign an accent to suit a layout.</li>
         <li>Use <code class="inline-code">#170C38</code> as an accent.</li>
-        <li>Ship a combination that fails contrast.</li>
       </ul></div>
     </div>
   </div>
@@ -439,40 +345,31 @@
 
 <section id="type">
   <div class="wrap">
-    <h2><span class="num">06</span>Typography</h2>
-    <p class="lead">One house mono sets all running text, with two terminal accent faces beside it. Each face has a declared web-safe fallback, because the system assumes fonts will fail to load and must still read when they do.</p>
-    <div class="type-row"><div class="role">House mono <span style="opacity:.6">&mdash; Error404 Mono Regular and Bold. Slashed zero, Ø on the constellation angle</span></div><div class="sample f-mono">ERROR404.NET 0123456789 4Ø4 &rarr; ok</div></div>
-    <div class="type-row"><div class="role">Terminal accent <span style="opacity:.6">&mdash; VT323. Headers, code, NFO tables</span></div><div class="sample f-vt">&gt; 404: message not found_</div></div>
-    <div class="type-row"><div class="role">Display <span style="opacity:.6">&mdash; Press Start 2P. Hero only, unreadable below ~24px</span></div><div class="sample f-press">ERROR404</div></div>
-    <div class="type-row"><div class="role">Wordmark <span style="opacity:.6">&mdash; hand-built block lettering, not a font</span></div><div class="sample f-mono">ERROR404.NET</div></div>
-    <h3 class="zero-h">Web-safe fallbacks</h3>
+    <h2><span class="num">05</span>Type</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Last updated 2026-11-26 (5f7c7c3, Error404 Mono rewrite)</p>
+    <p class="lead">Error404 Mono is the house face. It has a slashed zero, and its &Oslash; matches the mark. Every surface also declares a web-safe fallback, because fonts fail to load.</p>
+
+    <div class="type-row"><div class="role">House mono <span style="opacity:.6">&mdash; Regular and Bold</span></div><div class="sample f-mono">ERROR404.NET 0123456789 4Ø4 &rarr; ok</div></div>
+        
+    <h3 class="sig-h3">The zero</h3>
+    <p class="lead">Every zero carries a slash. The Ø slash runs at 45.75&deg;, the constellation edge angle.</p>
+    <div class="zero-steps">
+      <figure><img src="assets/font-zero/1-angle-A3.png" alt="Slash at 45.75 degrees, past the bowl" loading="lazy"><figcaption><b>Angle and length.</b> Slash at the edge angle, running past the bowl.</figcaption></figure>
+      <figure><img src="assets/font-zero/2-bowl-tip-Wl.png" alt="Wide bowl with a long tip" loading="lazy"><figcaption><b>Bowl and tip.</b> A wide bowl so the slash crosses it cleanly.</figcaption></figure>
+      <figure><img src="assets/font-zero/3-weight-finish-a1.png" alt="Thin slash with square tips" loading="lazy"><figcaption><b>Weight and finish.</b> A thin slash with square tips, like the mark.</figcaption></figure>
+    </div>
+
+    <h3 class="sig-h3">The icon glyph</h3>
+    <figure class="zero-final"><img src="assets/font-glyphs/icon-a1.png" alt="Constellation icon as one character" loading="lazy" style="width:96px;max-width:96px;"><figcaption><b>Icon glyph, U+E404.</b> Added so I could rice up my terminal. The constellation as one character for the prompt.</figcaption></figure>
+
+    <h3 class="sig-h3">Web-safe fallbacks</h3>
     <div class="type-row"><div class="role">Web <span style="opacity:.6">&mdash; every page and CSS surface</span></div><div class="sample"><pre class="code">font-family: "Error404 Mono", Consolas, "Liberation Mono", "Courier New", monospace;</pre></div></div>
     <div class="type-row"><div class="role">Email and paper <span style="opacity:.6">&mdash; clients cannot load web fonts</span></div><div class="sample"><pre class="code">font-family: "Courier New", Courier, monospace;</pre></div></div>
     <div class="type-row"><div class="role">Entra and M365 <span style="opacity:.6">&mdash; Microsoft replaces custom web fonts; expected</span></div><div class="sample"><pre class="code">"Courier New", monospace</pre></div></div>
     <div class="type-row"><div class="role">Terminal <span style="opacity:.6">&mdash; the terminal's own monospace</span></div><div class="sample"><pre class="code">Error404MonoNF, monospace</pre></div></div>
-    <ul>
-      <li>Regular and Bold only. Do not fake a third weight. Show emphasis with color, caps, size or the terminal accent face.</li>
-      <li>The zero and Ø are drawn into the font. The Ø slash runs at 45.75&deg;, the constellation edge angle.</li>
-      <li>Never more than two mono families on one surface. Always declare a generic fallback.</li>
-      <li>Coverage: ASCII, the arrows &larr; &uarr; &rarr; &darr; &harr; &varr; &lArr; &rArr; &hArr;, and the terminal icon glyph. Box-drawing and block glyphs are pending.</li>
-    </ul>
-    <h3 class="zero-h">Error404 Mono &mdash; the zero (decided 2026-11-26)</h3>
-    <p class="zero-note">Every zero carries a slash, never a dot. The slash runs at 45.75&deg;, the exact angle of the constellation edge from the yellow star to the mint star, so the &Oslash; in 4&Oslash;4 continues that line. Picked in three rounds of rendered options; each card below is the chosen panel.</p>
-    <div class="zero-steps">
-      <figure><img src="assets/font-zero/1-angle-A3.png" alt="Round 1 choice A3: slash at 45.75 degrees, poking out past the bowl" loading="lazy"><figcaption><b>1 &middot; Angle + length: A3.</b> 45.75&deg; exact edge angle, slash pokes out past the bowl (&Oslash;-style).</figcaption></figure>
-      <figure><img src="assets/font-zero/2-bowl-tip-Wl.png" alt="Round 2 choice Wl: wide bowl, long tip" loading="lazy"><figcaption><b>2 &middot; Bowl + tip: Wl.</b> Wide bowl (+80 units) so the flat slash crosses it like a true &Oslash;; long tip.</figcaption></figure>
-      <figure><img src="assets/font-zero/3-weight-finish-a1.png" alt="Round 3 choice a1: thin slash, square tips" loading="lazy"><figcaption><b>3 &middot; Weight + finish: a1.</b> Thin 60-unit slash, square tips (like the mark's line ends), solid crossing.</figcaption></figure>
-    </div>
-    <figure class="zero-final"><img src="assets/font-zero/4-final-digit-and-oslash.png" alt="Final digit zero and O-slash glyphs inside their character cells" loading="lazy"><figcaption><b>Result.</b> Two glyphs, one design. Digit <code>0</code> (left): tip stays inside its cell, so <code>1000</code> and <code>10.0.0.1</code> never collide. <code>&Oslash;</code> U+00D8 (right): long tip, for the logo and display. Source: <code>font/zero_glyphs.py</code>.</figcaption></figure>
-    <h3 class="zero-h">Error404 Mono &mdash; letters and the icon glyph</h3>
-    <div class="zero-steps two">
-      <figure><img src="assets/font-glyphs/O-b3.png" alt="Chosen capital O: a true oval that fills the character cell, with overshoot" loading="lazy"><figcaption><b>O: b3.</b> A true oval that fills the cell, dipping 14 units past the baseline and cap line so it looks the same height as flat letters. Rounder than the squared 0, so O and 0 differ in shape as well as the slash. Source: <code>font/round_glyphs.py</code>.</figcaption></figure>
-      <figure><img src="assets/font-glyphs/icon-a1.png" alt="Chosen icon glyph: the constellation in one character cell, thin lines" loading="lazy"><figcaption><b>Icon glyph U+E404: a1.</b> The constellation icon as a character: one cell wide, true to the logo. Type it as <code>$'\uE404'</code> in zsh or a p10k segment. The code point sits in the Private Use Area, clear of the Nerd Font ranges. Source: <code>font/icon_glyph.py</code>.</figcaption></figure>
-      <figure><img src="assets/font-glyphs/QDCG-a1.png" alt="Chosen Q, D, C and G built on the round O" loading="lazy"><figcaption><b>Q D C G: a1.</b> Built on the round O. C and G have cuts that point at the centre and a narrow opening. Q's tail crosses the bowl at the brand angle; D is a straight stem with an oval bowl.</figcaption></figure>
-      <figure><img src="assets/font-glyphs/lowercase-b1.png" alt="Chosen lowercase fit: x-height 70 percent of cap height, full width" loading="lazy"><figcaption><b>Lowercase: b1.</b> The lowercase (from JetBrains Mono) is cut to 70% of cap height at full width, with strokes thickened to match the capitals' 87 units. Source: <code>font/lowercase_fit.py</code>.</figcaption></figure>
-      <figure><img src="assets/font-glyphs/bold-b2.png" alt="Chosen bold weight: stems 137, letters keep their width" loading="lazy"><figcaption><b>Bold: b2.</b> Stems go from 87 to 137 and every letter keeps its width (the insides tighten instead), so bold and regular line up in a terminal. File: <code>font/Error404Mono-Bold.ttf</code>, made by <code>font/make_bold.py</code>.</figcaption></figure>
-    </div>
-    <figure class="zero-final"><img src="assets/font-glyphs/nerd-a2.png" alt="Error404 Mono Nerd Font in a p10k powerline prompt, with the constellation icon as the OS segment" loading="lazy"><figcaption><b>Terminal build: a2.</b> Error404 Mono Nerd Font: every Nerd Fonts icon set patched in, icons up to two cells wide (what p10k expects), and the constellation at U+E404 as the OS icon. Files: <code>font/nerd/</code>, made by <code>font/patch_nerd.sh</code>.</figcaption></figure>
+
+    <h3 class="sig-h3">Terminal install (Powerlevel10k)</h3>
+    <p class="lead">Nerd Font icons and the constellation as the OS icon. Paste into a terminal. Files come from this site.</p>
     <h3 class="zero-h" id="install-font">Install Error404 Mono with curl</h3>
     <p class="zero-note">Paste into a terminal. Files come straight from this site. After installing, choose <b>Error404Mono Nerd Font</b> in the terminal's font setting (iTerm2: Settings &rarr; Profiles &rarr; Text; Terminal.app: Settings &rarr; Profiles &rarr; Font; GNOME Terminal: Preferences &rarr; Profile &rarr; Custom font). Restart open terminals so they pick it up.</p>
     <p class="zero-note" style="margin:14px 0 6px"><b>macOS: terminal font (Nerd Font, Regular + Bold)</b> <button class="copy-cmd" type="button">Copy</button></p>
@@ -499,57 +396,39 @@ perl -0pi -e '
 ' ~/.p10k.zsh
 exec zsh</pre>
     <p class="zero-note">Settings go inside the config body, not appended at the end: anything after the final p10k reload is ignored. Check that <code>os_icon</code> is in <code>POWERLEVEL9K_LEFT_PROMPT_ELEMENTS</code>. It is by default.</p>
-    <p class="zero-note">Licence: SIL OFL 1.1; icon sets keep their own licences (<code>font/licenses/</code>). Credits: the GREETZ section of the repo README.</p>
-    <p class="zero-note">Licence: the font file is SIL OFL 1.1 (it is built from two OFL fonts, and the OFL keeps derivatives under the OFL). The build scripts and the rest of this site are MIT. The Nerd Font build adds icon sets under MIT, OFL, CC BY 4.0, Apache 2.0 and Unlicense terms; each keeps its own licence (<code>font/licenses/</code>).</p>
+    <p class="zero-note">Licence: SIL OFL 1.1. Icon sets keep their own licences (<code>font/licenses/</code>). Credits are in the README.</p>
   </div>
 </section>
 
 <section id="modes">
   <div class="wrap">
-    <h2><span class="num">07</span>Two treatment modes</h2>
-    <p class="lead">Every surface resolves to one mode. There is no third. Digital is for a person looking at a screen the owner controls. Machine mode is for everything a machine sends, and for any medium that cannot carry color.</p>
+    <h2><span class="num">06</span>Modes</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Last updated 2026-11-26 (01e02f1, renamed Machine mode)</p>
+    <p class="lead">Every surface is one of two modes. Digital is for a person looking at a screen. Machine mode is for everything a system sends, and for paper.</p>
     <div class="modes">
       <div class="mode-card digital">
-        <h3>DIGITAL &mdash; full treatment</h3>
+        <h3>DIGITAL</h3>
         <ul>
-          <li>Website, resume site, PowerPoint, merch, social</li>
-          <li>Full Arcade New Wave palette</li>
-          <li>Full glitch / chromatic-offset lockup</li>
-          <li>Neon glow, scanlines, drop-shadow texture</li>
+          <li>Website, PowerPoint, merch, social</li>
+          <li>Full palette, glow, and glitch lockup</li>
         </ul>
       </div>
       <div class="mode-card print">
-        <h3>MACHINE &mdash; black only</h3>
+        <h3>MACHINE, BLACK ONLY</h3>
         <ul>
-          <li>Automated and non-human senders: alerts, notifications, scheduled reports</li>
-          <li>Plain text first. Minimal HTML only where a system requires it</li>
-          <li>Black on white. No color, no glow, no accent rule</li>
-          <li>ASCII rules (<code class="inline-code">====</code>), bracket fields, and <code class="inline-code">::</code> / <code class="inline-code">~/</code> notation carry the identity</li>
-          <li>Paper follows the same rule: Word, PDF, letterhead</li>
+          <li>Alerts, notifications, scheduled reports, and paper</li>
+          <li>Plain text first. Black on white. No colour.</li>
+          <li>ASCII rules and <code class="inline-code">::</code> / <code class="inline-code">~/</code> notation carry the identity</li>
         </ul>
       </div>
     </div>
-    <h3 class="sig-h3">Why Machine mode exists</h3>
-    <p class="lead" style="font-size:13px;">Automated systems often cannot send rich HTML email, and many people read mail as plain text anyway. Machine mode is how a plain-text message still reads as Error404. The notation does the work that color and a mark do elsewhere. Example, with placeholders only:</p>
-<pre class="sig">==============================================
-ERROR404.NET :: ALERT
-==============================================
-[HOST]     &lt;hostname&gt;
-[STATUS]   &lt;status&gt;
-[TIME]     &lt;timestamp&gt;
-----------------------------------------------
-&lt;message&gt;
-~/ error404.net</pre>
-    <div class="logo-grid" style="margin-top:24px;">
-      <div class="logo-card light"><img src="assets/print-mode.png" alt="Machine mode letterhead mockup, black on white"><div class="cap">Machine mode on paper &mdash; letterhead</div></div>
-    </div>
-    <p class="sig-hint">PowerPoint is the one documented exception: an export that stays Digital, because slides are a screen medium.</p>
   </div>
 </section>
 
 <section id="signature">
   <div class="wrap">
-    <h2><span class="num">08</span>Email signature</h2>
+    <h2><span class="num">07</span>Email signature</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Generator last updated 2026-11-26 (01e02f1)</p>
     <p class="lead">A signature is sent by a person, so it is not Machine mode. It gets one light touch of color. The plain-text form below is also the fallback when HTML is stripped.</p>
     <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt; :: &lt;phone&gt;
 ERROR404.NET</pre>
@@ -594,10 +473,10 @@ ERROR404.NET</pre>
     </div>
   </div>
 </section>
-
 <section id="gravatar">
   <div class="wrap">
-    <h2><span class="num">09</span>Gravatar / profile images</h2>
+    <h2><span class="num">08</span>Gravatar / profile images</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Last updated 2026-11-26 (01e02f1)</p>
     <p class="lead">The same Libra symbol as the email signature, ready for your profile. Choose a treatment, check the square and circle crops, then download the PNG.</p>
     <label for="gravatarVariant">Avatar treatment</label>
     <select id="gravatarVariant">
@@ -623,10 +502,10 @@ ERROR404.NET</pre>
       <a href="https://support.gravatar.com/basic/">Gravatar support</a></p>
   </div>
 </section>
-
 <section id="templates">
   <div class="wrap">
-    <h2><span class="num">10</span>Templates</h2>
+    <h2><span class="num">09</span>Templates</h2>
+    <p class="ver">Added 2026-10-05 (f73154d) · Last updated 2026-11-26 (01e02f1)</p>
     <p class="lead">
       Ready-to-use files built from this system — Word, PowerPoint, HTML email, and a dedicated report format.
       Every file uses <code class="inline-code">&lt;Bracketed&gt;</code> placeholders, never real contact details.
@@ -676,10 +555,10 @@ ERROR404.NET</pre>
     </div>
   </div>
 </section>
-
 <section id="technitium">
   <div class="wrap">
-    <h2><span class="num">11</span>Technitium block page</h2>
+    <h2><span class="num">10</span>Technitium block page</h2>
+    <p class="ver">Added 2026-10-05 (f73154d, Technitium-Blocked) · Last updated 2026-11-26 (a9ae62e, font swap)</p>
     <p class="lead">
       A splash for Technitium DNS's <strong>Block Page</strong> app, in the Arcade New Wave look. It is dynamic: the DNS server
       points a blocked name at the block server, so the page reads the <em>blocked domain</em> straight from the address bar
@@ -708,6 +587,7 @@ ERROR404.NET</pre>
     <iframe id="bpFrame" title="Block page preview" sandbox="allow-scripts" style="width:100%; height:560px; border:1px solid rgba(244,241,255,.18); border-radius:8px; background:#231451;"></iframe>
   </div>
 </section>
+
 <script>
 (function () {
   var f = document.getElementById('bpForm'), fr = document.getElementById('bpFrame'),
@@ -749,18 +629,20 @@ ERROR404.NET</pre>
 })();
 </script>
 
+
 <footer>
   <div class="wrap">
-    Error404 — personal brand guidelines. Source at
+    Error404 &mdash; personal brand guidelines. Source at
     <a href="https://github.com/Error404-net/Branding-Guide">github.com/Error404-net/Branding-Guide</a>.
-    <span class="tag">!ignore &rarr; return "404: Message not found"</span>
+    <span class="tag">!ignore &rarr; return "404: style not found"</span>
   </div>
 </footer>
 
 <section id="closing">
   <div class="wrap">
-    <h2><span class="num">12</span>Questions and changes</h2>
-    <p class="lead">This page is a summary. <code class="inline-code">BRAND.md</code> and <code class="inline-code">DESIGN.md</code> in the <a href="https://github.com/Error404-net/Branding-Guide">repository</a> are the source. If they disagree with this page, they win. Open an issue for anything that looks wrong.</p>
+    <h2><span class="num">11</span>Questions and changes</h2>
+    <p class="lead">This page is a summary. <code class="inline-code">BRAND.md</code> and <code class="inline-code">DESIGN.md</code> hold the full rules. Source is at <a href="https://github.com/Error404-net/Branding-Guide">github.com/Error404-net/Branding-Guide</a>.</p>
+    <p class="lead" style="font-size:12.5px;">Version 2026-11.</p>
   </div>
 </section>
 
@@ -843,38 +725,4 @@ ERROR404.NET</pre>
 
   document.getElementById('sigDownload').addEventListener('click', function () {
     var doc = '<!DOCTYPE html>\n<html><head><meta charset="utf-8"><title>Signature</title></head>\n<body>\n' +
-      current.html + '\n</body></html>\n';
-    var a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([doc], { type: 'text/html' }));
-    a.download = 'Error404-signature-' + values().variant + '.htm';
-    document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
-  });
-
-  try {
-    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (saved) {
-      ['name', 'title', 'email', 'phone'].forEach(function (k) { if (saved[k]) form.elements[k].value = saved[k]; });
-      var r = form.querySelector('input[name=variant][value="' + saved.variant + '"]');
-      if (r) r.checked = true;
-    }
-  } catch (e) {}
-
-  form.addEventListener('input', render);
-  form.addEventListener('change', render);
-  render();
-})();
-</script>
-
-<script>
-  document.querySelectorAll('.copy-cmd').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var pre = btn.closest('p').nextElementSibling, text = pre.textContent;
-      var done = function(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy'; }, 1500); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function(){});
-      else { var r = document.createRange(); r.selectNodeContents(pre); var sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); try { document.execCommand('copy'); done(); } catch(e){} }
-    });
-  });
-</script>
-</body>
-</html>
+      current.html + '\n
