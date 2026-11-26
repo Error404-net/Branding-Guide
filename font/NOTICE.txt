@@ -1,0 +1,14 @@
+Error404 Mono v0.1 (work in progress)
+
+Hybrid monospaced font. Capitals, digits and punctuation come from Share Tech Mono
+(Ralph du Carrois). Lowercase, symbols and arrows come from JetBrains Mono
+(The JetBrains Mono Project Authors), rescaled to a 540-unit advance and 700-unit cap height.
+Zero (U+0030) and O-slash (U+00D8) are drawn here: the slash runs at the angle of the
+constellation edge (204.0,74.9) -> (80.2,202.0) = 45.75 deg.
+
+Both donor fonts are licensed under the SIL Open Font License 1.1 (https://openfontlicense.org).
+This derivative is renamed and is under the same licence.
+TODO before public distribution: add the full OFL text and both upstream copyright files.
+
+Regenerate: python3 font/build_font.py out.ttf [zero_slash_half_length]
+(donor TTFs are read from /tmp/fonts; edit the two paths at the top of the script).

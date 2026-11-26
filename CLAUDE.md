@@ -424,6 +424,25 @@ Branch `third-party-guidance-cleanup` (history squashed into four clean commits)
 (`libra-*-{black,white,blue,green,pink}`, `libra-neon-*`) with no SVG source, and Brand Center font
 package upload (manual).
 
+## What's done — round 11 (house font v0.1, 2026-11-26) — NOT COMMITTED
+
+- **Decision:** build the font first, then re-render every logo once. Share Tech Mono's Ø slash is
+  74.5°, the constellation edge is 45.75°, so no existing font can satisfy "slash continues the line".
+- **`font/`** — `build_font.py` (fontTools) makes **Error404 Mono Regular v0.1**: Share Tech Mono
+  caps/digits/punctuation + JetBrains Mono lowercase/symbols/arrows (donor chosen by Jesse),
+  ASCII + `←↑→↓↔↕⇐⇒⇔`, advance 540, no hinting, name "Error404 Mono". Both donors are OFL 1.1;
+  add full licence texts before public distribution (see `font/NOTICE.txt`).
+- **Ø (U+00D8)** = Share Tech bowl + 75-unit slash at 45.75°, half-length 500 (option A, overshoots the
+  cell; used in the mark only). Measured from the rendered glyph (Canny + Hough on the slash edges
+  only; PCA on a clipped band is biased and gave a false 52°): 45.63°, edge 45.75°.
+  **Slash role: continuation** (slash on the edge, line halves stop short). With no tracking the Ø ink
+  clears the left 4 by 2.5 and the right 4 by 3.5 units, line-to-text 3.4, zero overlap (`font/check_mark_clearance.py`).
+- **Digit 0** is provisional (half-length 300). Three candidates were rendered (240/300/360). A 45.75°
+  slash cannot span a 0.36 em bowl inside a 0.54 em cell, so the digit zero's slash is a compromise.
+- **Not done yet:** true bold (needs outline offsetting; pathops not installed), box-drawing/block
+  glyphs for the MOTD, outlining the "4Ø4" text in the mark SVGs, re-render of all assets, spec and
+  `verify-marks.py` update (font name, new angle), page/BRAND.md/DESIGN.md font text.
+
 ## Known issues tracker (updated 2026-11-26)
 
 **Resolved this round (branch `third-party-guidance-cleanup`)**
