@@ -60,8 +60,8 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
                         variant, and flat light-mode/dark-mode website icons.
   > wordmark lockup  : icon + "ERROR404.NET" wordmark, used wherever the full
                         domain name should read out loud
-  > treatment modes  : Digital (full color/glow) vs. Print/Corporate (B&W,
-                        ASCII-forward — Word/PDF/letterhead/email)
+  > treatment modes  : Digital (full color/glow) vs. Machine (black only,
+                        ASCII-forward — automated senders, plain text, paper)
   > tagline (locked) : !ignore -> return "404: Message not found"
   > for AI agents    : see AGENTS.md — portable instructions for coding
                         agents/skills that should pull this guide as their

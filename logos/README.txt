@@ -21,11 +21,12 @@ png/<variant>/<size>.png  <- raster exports for the ring, no-ring, ham, and
 
 CURRENT VARIANTS (root .svg files + matching png/ subfolder)
 --------------------------------------------------------------
-libra-ring-{black,white,blue,pink,green,multicolor}.svg      Full mark inside the ring, six colorways
-libra-no-ring-{black,white,blue,pink,green,multicolor}.svg   Mark alone, no ring, six colorways — the
+libra-ring-{black,white,pink,green,multicolor}.svg           Full mark inside the ring, five colorways (ring-blue not built)
+libra-no-ring-{black,white,blue,green,multicolor}.svg        Mark alone, no ring, five colorways (no-ring-pink not built) — the
                                                                canonical Primary mark (see DESIGN.md/
                                                                CLAUDE.md's naming taxonomy)
-libra-neon-{blue,pink,green,multi}.svg            Neon-tube glow treatment, opaque near-black backdrop
+libra-neon-{green,multi}.svg                      Neon-tube glow treatment, opaque near-black backdrop
+                                                  (neon-blue and neon-pink not built)
 monogram-{night,daylight}.svg                     Icon-only mark, no text. night = white mark for dark
                                                    surfaces, daylight = black mark for light surfaces.
                                                    The canonical icon-only cut — see LEGACY below for
@@ -47,7 +48,7 @@ libra-ham-{black,white,multicolor}.svg (+ png/)   Originally a distinct "amateur
                                                    that differs, and only 3 of the 6 colorways exist
                                                    here. Kept for backward-compatible links only; use
                                                    libra-no-ring-* for anything new.
-site-icon-{light,dark}-mode.svg (+ png/)          Old icon-only cut. Superseded by monogram-{daylight,
+site-icon-{light,dark}-mode.svg (+ png/)          Older cut. It carries "4Ø4" text, so it is NOT icon-only. Superseded by monogram-{daylight,
                                                    night}.svg — CLAUDE.md's naming taxonomy is explicit
                                                    that monogram-*.svg replaces every old icon-only cut
                                                    and that a third icon-only variant should not be
@@ -68,7 +69,7 @@ USAGE NOTES
 - neon-{blue,pink,green,multi} = the "neon tube" display treatment: the same
   real node-link geometry rendered as a glowing tube (layered blur + bright
   core) on a near-black backdrop (#0B0810). Colors: blue=cyan #00F0FF,
-  pink=magenta #FF16E0, green=fluorescent green #38FF16, multi=all four brand
+  pink=magenta #FF16E0, green=fluorescent green #39FF14, multi=all four brand
   accents cycled. This is a display/marketing treatment, not a usage mark —
   the backdrop is baked in (not transparent) because the glow only reads
   correctly against dark.

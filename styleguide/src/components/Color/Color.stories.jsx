@@ -87,7 +87,7 @@ export const PrintCorporate = {
     backgrounds: { value: 'print' },
     docs: {
       description: {
-        story: 'Print/Corporate mode uses none of the palette. Pure black on white, 21:1.',
+        story: 'Machine mode uses none of the palette. Black on white, 21:1.',
       },
     },
   },

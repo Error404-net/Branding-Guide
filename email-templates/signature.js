@@ -11,7 +11,7 @@
   engine ignores most of them). Images are hosted on the brand site's GitHub
   Pages deploy so they survive replies/forwards instead of being re-embedded.
 
-  Colors: #231451 (brand navy) for the name/wordmark, #111111 (print-mode black)
+  Colors: #231451 (brand navy) for the name/wordmark, #111111 (Machine-mode black)
   for body text, #4DE1FF accent rule only as a decorative divider — never as text,
   since cyan on white fails contrast. The tagline is deliberately absent (see
   BRAND.md § Tagline & Slogans — signature exception).

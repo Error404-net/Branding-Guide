@@ -103,7 +103,7 @@ check('review_copy flags long sentences', rules.has('sentence-length'));
 check('review_copy flags second person', rules.has('voice'));
 check('review_copy fails overall on errors', j?.ok === false, `errors=${j?.counts?.error}`);
 
-const good = `The mark sits on a scrim. Print/Corporate mode uses black on white. Use the ham variant for community contexts.`;
+const good = `The mark sits on a scrim. Machine mode uses black on white. Use the ham variant for community contexts.`;
 r = await send('tools/call', { name: 'review_copy', arguments: { text: good } });
 j = json(r);
 check('review_copy passes clean copy', j?.ok === true, `errors=${j?.counts?.error}`);
@@ -111,7 +111,7 @@ check('review_copy passes clean copy', j?.ok === true, `errors=${j?.counts?.erro
 // Regression: banned terms that are substrings of the CORRECT term, or are a
 // third party's own field name, must not fire.
 const falsePositives = [
-  ['Print/Corporate mode is monochrome.', 'correct mode name not flagged as "Corporate mode"'],
+  ['Machine mode is black only.', 'correct mode name not flagged'],
   ['Upload the banner logo at 280x60 and the square logo at 240x240.', 'Entra field names "banner logo"/"square logo" not flagged'],
   ['Apply the Office theme file, then load the Discord client theme.', '"theme" as a real file not flagged as the palette'],
 ];
@@ -175,7 +175,11 @@ check(
 
 // pick_mode
 r = await send('tools/call', { name: 'pick_mode', arguments: { surface: 'a Word report for a client' } });
-check('pick_mode -> Print/Corporate', json(r)?.mode === 'Print/Corporate');
+check('pick_mode -> Machine', json(r)?.mode === 'Machine');
+r = await send('tools/call', { name: 'pick_mode', arguments: { surface: 'an automated alert email from a monitoring script' } });
+check('pick_mode -> Machine for automated senders', json(r)?.mode === 'Machine');
+r = await send('tools/call', { name: 'pick_mode', arguments: { surface: 'my Outlook email signature' } });
+check('pick_mode -> Digital for human-sent signature', json(r)?.mode === 'Digital');
 r = await send('tools/call', { name: 'pick_mode', arguments: { surface: 'a PowerPoint deck' } });
 check('pick_mode -> Digital for slides (the exception)', json(r)?.mode === 'Digital');
 r = await send('tools/call', { name: 'pick_mode', arguments: { surface: 'the site header' } });

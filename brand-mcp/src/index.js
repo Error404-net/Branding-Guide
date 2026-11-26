@@ -55,7 +55,7 @@ server.registerTool(
       },
       modes: {
         Digital: 'Screens you control. Full palette, glow, glitch lockup.',
-        'Print/Corporate': "Print, PDF, Word, email, anything read in a client's inbox. Pure black on white.",
+        Machine: 'Automated and non-human senders, plain-text mail, paper, PDF, Word. Black on white.',
         exception: 'PowerPoint is an export but stays Digital — slides are a screen medium.',
       },
       terminology: {
@@ -205,7 +205,7 @@ server.registerTool(
   {
     title: 'Pick the treatment mode',
     description:
-      'Decide whether a surface is Digital or Print/Corporate. Every Error404 surface resolves ' +
+      'Decide whether a surface is Digital or Machine mode. Every Error404 surface resolves ' +
       'to exactly one; there is no third.',
     inputSchema: {
       surface: z.string().describe('What is being made, e.g. "a Word report for a client" or "the site header".'),
@@ -213,7 +213,8 @@ server.registerTool(
   },
   async ({ surface }) => {
     const s = surface.toLowerCase();
-    const printish = /\b(print|printed|pdf|word|docx|letterhead|envelope|report|invoice|memo|email|inbox|signature|mail|fax|hard copy)\b/.test(s);
+    const machineish = /\b(alert|alerts|notification|notifications|automated|automatic|scheduled|cron|monitoring|scanner|noreply|no-reply|non-human|bot|plain text|plain-text|smtp|relay|digest|print|printed|pdf|word|docx|letterhead|envelope|invoice|memo|fax|hard copy)\b/.test(s);
+    const humanMail = /\b(email|inbox|mail|signature)\b/.test(s);
     const slides = /\b(powerpoint|pptx|slide|deck|presentation)\b/.test(s);
 
     if (slides) {
@@ -223,18 +224,20 @@ server.registerTool(
         apply: 'Full Arcade New Wave palette, glitch lockup, display + body faces.',
       });
     }
-    if (printish) {
+    if (machineish) {
       return text({
-        mode: 'Print/Corporate',
-        why: 'It is printed, exported, or read in someone else\'s inbox.',
-        apply: 'Pure black on white. No colour, no glow. Flat monochrome mark. ASCII rules and bracket fields carry the identity. One face throughout.',
+        mode: 'Machine',
+        why: 'The sender is a machine, or the surface is plain text or paper.',
+        apply: 'Black on white. No colour, no glow, no accent rule. Flat monochrome mark. ASCII rules and bracket fields carry the identity. One face throughout.',
       });
     }
     return text({
       mode: 'Digital',
-      why: 'No print, export, or outbound-inbox signal detected, so this reads as a screen you control.',
+      why: humanMail
+        ? 'Mail from a person, so Digital rules apply; the signature has its own light-touch spec in DESIGN.md.'
+        : 'No automated-sender, plain-text, or paper signal detected, so this reads as a screen you control.',
       apply: 'Full Arcade New Wave palette, glitch lockup, display + body faces.',
-      caution: 'If this surface will be printed or emailed to someone outside error404.net, it is Print/Corporate instead.',
+      caution: 'If a machine sends this surface, or it has to survive as plain text or paper, it is Machine mode instead.',
     });
   }
 );

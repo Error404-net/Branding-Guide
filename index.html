@@ -140,6 +140,20 @@
   footer{padding:48px 0 64px; text-align:center; font-size:12px; opacity:0.6;}
   footer .tag{color:var(--yellow); opacity:1; margin-top:10px; display:block;}
 
+  .dd{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:22px 0 0;}
+  @media (max-width:720px){.dd{grid-template-columns:1fr;}}
+  .dd > div{border:1px solid var(--border); border-radius:6px; padding:16px 18px; font-size:13px;}
+  .dd .do{border-color:rgba(55,240,166,0.45);}
+  .dd .dont{border-color:rgba(255,95,162,0.45);}
+  .dd h4{margin:0 0 8px; font-size:12px; letter-spacing:1px;}
+  .dd .do h4{color:var(--mint);} .dd .dont h4{color:var(--pink);}
+  .dd ul{margin:0; padding-left:18px;} .dd li{margin-bottom:6px;}
+  .story{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; margin-top:8px;}
+  .story > div{border:1px solid var(--border); border-radius:6px; padding:18px 20px; background:var(--panel); font-size:13.5px;}
+  .story h3{margin:0 0 8px; font-size:13px; letter-spacing:1px; color:var(--yellow);}
+  .story p{margin:0; opacity:0.88;}
+  details.notes{margin:18px 0 0; font-size:12.5px; opacity:0.8; max-width:760px;}
+  details.notes summary{cursor:pointer; color:var(--blue);}
   .rule{border:none; border-top:1px dashed var(--border); margin:36px 0;}
 
   .badge{
@@ -168,15 +182,17 @@
   <div class="wrap">
     <div class="brand">ERROR404<span>.NET</span></div>
     <ul>
-      <li><a href="#direction">Direction</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#voice">Voice</a></li>
+      <li><a href="#direction">Look</a></li>
+      <li><a href="#logo">Mark</a></li>
       <li><a href="#color">Color</a></li>
-      <li><a href="#logo">Logo</a></li>
       <li><a href="#type">Type</a></li>
       <li><a href="#modes">Modes</a></li>
       <li><a href="#signature">Signature</a></li>
       <li><a href="#gravatar">Gravatar</a></li>
       <li><a href="#templates">Templates</a></li>
-      <li><a href="#technitium">Technitium-Blocked</a></li>
+      <li><a href="#technitium">Block page</a></li>
     </ul>
   </div>
 </nav>
@@ -185,14 +201,53 @@
   <div class="wrap">
     <img src="logos/libra-no-ring-multicolor.svg" alt="ERROR404.NET icon">
     <h1>ERROR404.NET</h1>
-    <p class="sub">Personal brand guidelines — 90s warez-scene ASCII, arcade neon, and new-wave hacker, carried across the lab, the web presence, and everything printed.</p>
+    <p class="sub">One mark, one palette, one voice. A personal brand system for one practitioner, applied to every system I run and everything I publish.</p>
     <div class="tagline">!ignore &rarr; return "404: Message not found"</div>
   </div>
 </header>
 
+<section id="story">
+  <div class="wrap">
+    <h2><span class="num">01</span>Why this exists</h2>
+    <p class="lead">Error404 started as a way to learn. It stayed because it works. Four reasons keep it alive.</p>
+    <div class="story">
+      <div><h3>LEARN THE TECHNOLOGY</h3><p>A brand system built end to end teaches the tools that carry it: vector geometry, Microsoft 365 and Entra branding, SharePoint Brand Center, Hugo, DNS block pages, and Git. Every asset here answers a real problem.</p></div>
+      <div><h3>LEARN HOW A BRAND REACHES A COMPANY</h3><p>A company brand lives in sign-in pages, email signatures, Office templates, and admin portals. This repo is a full rehearsal of that rollout, run on a tenant I control.</p></div>
+      <div><h3>TAG EVERY SYSTEM</h3><p>Hacker culture signs its work. Scene groups tagged each release with an ANSI logo and an .NFO file. The mark does the same job on a homelab, a mail relay, a block page, and a shell prompt. If it runs on my hardware, it looks like mine.</p></div>
+      <div><h3>BE ONE PERSON ONLINE</h3><p>Technical work spread across a lab, a tenant, and several profiles reads as five people. One mark and one voice make it read as one, on LinkedIn, the blog, and this site. Content creators build a recognizable brand. This is the practitioner's version. It sells nothing.</p></div>
+    </div>
+    <p class="lead" style="margin-top:22px;">The name is the HTTP status code for "not found." The brand treats that as a joke it is in on. The lineage is real: the 90s warez and BBS scene, with its ANSI group logos, .NFO release tables, phreaking, and arcade cabinets. The work it fronts is modern security and infrastructure engineering.</p>
+  </div>
+</section>
+
+<section id="voice">
+  <div class="wrap">
+    <h2><span class="num">02</span>Who this is and how it sounds</h2>
+    <p class="lead">An independent security practitioner. Not a company, not a product, not a startup. The voice is a competent engineer explaining work they have done: plain, exact, and in on the joke. <strong>Terminal-literate, not terminal-cosplay.</strong></p>
+    <p class="lead" style="margin-bottom:12px;">Five attributes: precise, textured, self-aware, unfashionable on purpose, legible under pressure. The test for any piece of copy: does it still read as deliberate to someone who knows the reference, and stay usable to someone who does not?</p>
+    <div class="dd">
+      <div class="do"><h4>DO</h4><ul>
+        <li>State the rule, then the reason.</li>
+        <li>Write short sentences. One idea each.</li>
+        <li>Keep the texture. Cut the filler.</li>
+        <li>Use one term per concept: mark, wordmark, lockup, variant.</li>
+      </ul></div>
+      <div class="dont"><h4>DON'T</h4><ul>
+        <li>Claim a team, customers, or scale. There are none.</li>
+        <li>Use "we" to mean a company.</li>
+        <li>Let period flavor cost clarity on a surface someone must read.</li>
+        <li>Put real contact details in a template or mockup.</li>
+      </ul></div>
+    </div>
+    <h3 class="sig-h3">The tagline</h3>
+    <div class="tagline" style="display:inline-block;">!ignore &rarr; return "404: Message not found"</div>
+    <p class="sig-hint">Locked. Do not reword it. Valid on the site, in marketing, and in the PDF guide. LinkedIn and network contexts use one authorized variant: <code class="inline-code">"404: Server not found"</code>. Neither version goes in outbound email.</p>
+  </div>
+</section>
+
 <section id="direction">
   <div class="wrap">
-    <h2><span class="num">01</span>Direction</h2>
+    <h2><span class="num">03</span>The look</h2>
     <p class="lead">
       ACiD/iCE-style ANSI group logos and boxed <code class="inline-code">.NFO</code> release tables, CRT/VHS chromatic-aberration
       glitch text, 80s–90s arcade cabinet neon geometry, phone-phreaking iconography as a texture accent. Avoid corporate
@@ -202,39 +257,34 @@
   </div>
 </section>
 
-<section id="color">
-  <div class="wrap">
-    <h2><span class="num">02</span>Color — Arcade New Wave <span class="badge locked">Locked</span></h2>
-    <p class="lead">One background, one foreground, max two accents per surface. Each accent keeps a fixed meaning rather than swapping per surface.</p>
-    <div class="swatches">
-      <div class="swatch"><div class="fill" style="background:#231451;"></div><div class="meta"><span class="name">Background</span>#231451<span class="role">base canvas</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#F4F1FF;"></div><div class="meta"><span class="name">Foreground</span>#F4F1FF<span class="role">text / paper</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#4DE1FF;"></div><div class="meta"><span class="name">Blue</span>#4DE1FF<span class="role">links / primary</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#FF5FA2;"></div><div class="meta"><span class="name">Pink</span>#FF5FA2<span class="role">secondary highlight</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#FFE156;"></div><div class="meta"><span class="name">Yellow</span>#FFE156<span class="role">taglines / CTAs</span></div></div>
-      <div class="swatch"><div class="fill" style="background:#37F0A6;"></div><div class="meta"><span class="name">Mint</span>#37F0A6<span class="role">rules / dividers / status</span></div></div>
-    </div>
-  </div>
-</section>
-
 <section id="logo">
   <div class="wrap">
-    <h2><span class="num">03</span>Logo system</h2>
+    <h2><span class="num">04</span>The mark</h2>
     <p class="lead">
-      Primary mark <span class="badge locked">Final &mdash; approved</span> — a node-link graph built from the real
-      <strong>Libra constellation</strong>: star positions and magnitudes plotted from real astronomical data
-      (Zubenelgenubi, Zubeneschamali, Zubenelakrab, Brachium, and its tail pair), with <strong>4Ø4</strong>
-      centered in the scales' shape. The logo is optimized for transparency against varying background images.
+      Primary mark <span class="badge locked">Final &mdash; approved</span> A node-link graph plotted from the real
+      <strong>Libra constellation</strong>: real star positions and magnitudes (Zubenelgenubi, Zubeneschamali,
+      Zubenelakrab, Brachium, and its tail pair). Nothing is an approximation of something it could have been.
+      <strong>4&Oslash;4</strong> sits in the open space of the scales. The &Oslash; is a slashed zero, the zero
+      terminals and logbooks use. The mark is built for transparency over varying backgrounds.
     </p>
-    <p class="lead" style="font-size:13px; opacity:0.75;">
-      <strong>Rebuild spec:</strong> every connecting line is a single uniform color (mint <code class="inline-code">#37F0A6</code> on the
-      multicolor mark; the mark's own solid color on the black/white cuts) — node circles stay multicolor. The line
-      that would cross the &Oslash; in "4&Oslash;4" is split into two collinear segments at the exact angle of the
-      glyph's own diagonal slash, measured from the rendered glyph (Canny edge detection + Hough line fit on the
-      isolated slash, converged on a 45&deg; / -1.0 slope) rather than eyeballed, then verified with a zero-pixel-overlap
-      check between the line art and the text ink before being called correct. Do not reintroduce a background oval
-      behind the numerals — that treatment is retired.
-    </p>
+    <details class="notes"><summary>Build notes</summary>
+      <p>Every connecting line is one color: mint <code class="inline-code">#37F0A6</code> on the multicolor mark, the mark's own
+      color on black and white cuts. Node circles stay multicolor. The line that would cross the &Oslash; splits into two
+      collinear segments at the angle of the glyph's own slash. That angle was measured on the rendered glyph (Canny edge
+      detection and a Hough line fit, converged on 45&deg;) and checked for zero pixel overlap with the text.</p>
+    </details>
+    <div class="dd" style="margin-bottom:28px;">
+      <div class="do"><h4>DO</h4><ul>
+        <li>Use multicolor by default, black on light, white on dark.</li>
+        <li>Keep "4&Oslash;4" with the slash.</li>
+        <li>Use the Monogram where text would not fit or read.</li>
+      </ul></div>
+      <div class="dont"><h4>DON'T</h4><ul>
+        <li>Put an oval or box behind the numerals. Retired.</li>
+        <li>Color lines edge by edge, except on the neon cuts.</li>
+        <li>Write plain "404" in the mark, or reuse the old icon-only cuts.</li>
+      </ul></div>
+    </div>
 
     <div class="logo-grid" style="margin-bottom:28px;">
       <div class="logo-card"><img src="logos/libra-no-ring-multicolor.svg" alt="Libra mark, no-ring, multicolor"><div class="cap">Canonical default — multicolor</div></div>
@@ -243,7 +293,7 @@
     </div>
 
     <p style="font-size:13px; opacity:0.7; margin:24px 0 0; max-width:680px;">
-      <strong>Authorized accent colors:</strong> The Arcade New Wave palette (blue, pink, yellow, mint) are authorized for single-color accent variants on dark backgrounds. Custom colors require design review.
+      <strong>Single-accent variants</strong> exist for one-color needs. Locked-palette accents (blue, pink, yellow, mint) and the Neon accent set are the only authorized colors. Any other color needs a design review.
     </p>
 
     <hr class="rule">
@@ -314,23 +364,60 @@
   </div>
 </section>
 
+<section id="color">
+  <div class="wrap">
+    <h2><span class="num">05</span>Color — Arcade New Wave <span class="badge locked">Locked</span></h2>
+    <p class="lead">The palette is sampled from a real arcade reference, not generated. It is built on restraint: one background, one foreground, at most two accents per surface. Each accent keeps one fixed job. Say "indigo" for the background pair. There is no separate brand purple.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="fill" style="background:#231451;"></div><div class="meta"><span class="name">Background</span>#231451<span class="role">base canvas</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#170C38;"></div><div class="meta"><span class="name">Deep background</span>#170C38<span class="role">page shell, outer edge &mdash; never an accent</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#F4F1FF;"></div><div class="meta"><span class="name">Foreground</span>#F4F1FF<span class="role">text / paper</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#4DE1FF;"></div><div class="meta"><span class="name">Blue</span>#4DE1FF<span class="role">links / primary</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FF5FA2;"></div><div class="meta"><span class="name">Pink</span>#FF5FA2<span class="role">secondary highlight</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FFE156;"></div><div class="meta"><span class="name">Yellow</span>#FFE156<span class="role">taglines / CTAs</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#37F0A6;"></div><div class="meta"><span class="name">Mint</span>#37F0A6<span class="role">rules / dividers / status</span></div></div>
+    </div>
+    <h3 class="sig-h3">NEON ACCENT SET &mdash; display cuts of the mark only</h3>
+    <p class="lead" style="font-size:13px;">The neon-tube cuts glow against a near-black backdrop. The locked pastels do not glow, so those cuts borrow a brighter set. Never use these colors for text, UI, or links.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="fill" style="background:#39FF14;"></div><div class="meta"><span class="name">Neon green</span>#39FF14<span class="role">neon-green, single-accent green</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#00F0FF;"></div><div class="meta"><span class="name">Neon cyan</span>#00F0FF<span class="role">neon-blue (not yet built)</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#FF16E0;"></div><div class="meta"><span class="name">Neon magenta</span>#FF16E0<span class="role">neon-pink (not yet built), neon-multi</span></div></div>
+      <div class="swatch"><div class="fill" style="background:#0B0810;"></div><div class="meta"><span class="name">Neon backdrop</span>#0B0810<span class="role">baked into every neon cut</span></div></div>
+    </div>
+    <div class="dd">
+      <div class="do"><h4>DO</h4><ul>
+        <li>Pick one background, one foreground, and up to two accents.</li>
+        <li>Use mint for rules, dividers, and status.</li>
+        <li>Check contrast. Accessibility wins over brand.</li>
+      </ul></div>
+      <div class="dont"><h4>DON'T</h4><ul>
+        <li>Reassign an accent to suit a layout.</li>
+        <li>Use <code class="inline-code">#170C38</code> as an accent.</li>
+        <li>Ship a combination that fails contrast.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
 <section id="type">
   <div class="wrap">
-    <h2><span class="num">04</span>Typography</h2>
-    <div class="type-row"><div class="role">Display / ASCII wordmark</div><div class="sample f-mono" style="font-weight:700;">ERROR404.NET</div></div>
-    <div class="type-row"><div class="role">Display fallback</div><div class="sample f-press">ERROR404</div></div>
-    <div class="type-row"><div class="role">Terminal / mono accent</div><div class="sample f-vt">&gt; 404: message not found_</div></div>
-    <div class="type-row"><div class="role">UI body text</div><div class="sample f-mono">JetBrains Mono — Entra/M365 sign-in copy uses this</div></div>
+    <h2><span class="num">06</span>Typography</h2>
+    <p class="lead">Each face has a job and a declared fallback. The system assumes fonts will fail to load, so it must still read when they do.</p>
+    <div class="type-row"><div class="role">Display / ASCII wordmark <span style="opacity:.6">&mdash; hand-built block lettering, not a font</span></div><div class="sample f-mono" style="font-weight:700;">ERROR404.NET</div></div>
+    <div class="type-row"><div class="role">Display fallback <span style="opacity:.6">&mdash; arcade pixel type. Hero only, unreadable below ~24px</span></div><div class="sample f-press">ERROR404</div></div>
+    <div class="type-row"><div class="role">Terminal / mono accent <span style="opacity:.6">&mdash; headers, code, NFO tables</span></div><div class="sample f-vt">&gt; 404: message not found_</div></div>
+    <div class="type-row"><div class="role">UI body text <span style="opacity:.6">&mdash; built for reading code</span></div><div class="sample f-mono">JetBrains Mono &mdash; the only face on Entra and M365 surfaces</div></div>
   </div>
 </section>
 
 <section id="modes">
   <div class="wrap">
-    <h2><span class="num">05</span>Two treatment modes</h2>
-    <p class="lead">Full color everywhere doesn't survive a printer or a client's inbox — same brand, same voice, one leans into color/glow, the other leans harder on ASCII structure.</p>
+    <h2><span class="num">07</span>Two treatment modes</h2>
+    <p class="lead">Every surface resolves to one mode. There is no third. Digital is for a person looking at a screen the owner controls. Machine mode is for everything a machine sends, and for any medium that cannot carry color.</p>
     <div class="modes">
       <div class="mode-card digital">
-        <h3>DIGITAL — full treatment</h3>
+        <h3>DIGITAL &mdash; full treatment</h3>
         <ul>
           <li>Website, resume site, PowerPoint, merch, social</li>
           <li>Full Arcade New Wave palette</li>
@@ -339,25 +426,38 @@
         </ul>
       </div>
       <div class="mode-card print">
-        <h3>PRINT / CORPORATE — B&amp;W</h3>
+        <h3>MACHINE &mdash; black only</h3>
         <ul>
-          <li>Word docs, PDF reports, letterhead, email</li>
-          <li>Pure black on white — no color, no glow</li>
-          <li>Flat monochrome mark, plain bold monospace wordmark</li>
-          <li>ASCII rules (<code class="inline-code">====</code>), bracket fields, <code class="inline-code">::</code> / <code class="inline-code">~/</code> notation carry the identity instead</li>
+          <li>Automated and non-human senders: alerts, notifications, scheduled reports</li>
+          <li>Plain text first. Minimal HTML only where a system requires it</li>
+          <li>Black on white. No color, no glow, no accent rule</li>
+          <li>ASCII rules (<code class="inline-code">====</code>), bracket fields, and <code class="inline-code">::</code> / <code class="inline-code">~/</code> notation carry the identity</li>
+          <li>Paper follows the same rule: Word, PDF, letterhead</li>
         </ul>
       </div>
     </div>
+    <h3 class="sig-h3">Why Machine mode exists</h3>
+    <p class="lead" style="font-size:13px;">Automated systems often cannot send rich HTML email, and many people read mail as plain text anyway. Machine mode is how a plain-text message still reads as Error404. The notation does the work that color and a mark do elsewhere. Example, with placeholders only:</p>
+<pre class="sig">==============================================
+ERROR404.NET :: ALERT
+==============================================
+[HOST]     &lt;hostname&gt;
+[STATUS]   &lt;status&gt;
+[TIME]     &lt;timestamp&gt;
+----------------------------------------------
+&lt;message&gt;
+~/ error404.net</pre>
     <div class="logo-grid" style="margin-top:24px;">
-      <div class="logo-card light"><img src="assets/print-mode.png" alt="Print/corporate letterhead mockup"><div class="cap">Print/Corporate letterhead</div></div>
+      <div class="logo-card light"><img src="assets/print-mode.png" alt="Machine mode letterhead mockup, black on white"><div class="cap">Machine mode on paper &mdash; letterhead</div></div>
     </div>
+    <p class="sig-hint">PowerPoint is the one documented exception: an export that stays Digital, because slides are a screen medium.</p>
   </div>
 </section>
 
 <section id="signature">
   <div class="wrap">
-    <h2><span class="num">06</span>Email signature</h2>
-    <p class="lead">Print/Corporate mode, since email is functionally a plain-text medium.</p>
+    <h2><span class="num">08</span>Email signature</h2>
+    <p class="lead">A signature is sent by a person, so it is not Machine mode. It gets one light touch of color. The plain-text form below is also the fallback when HTML is stripped.</p>
     <pre class="sig">&lt;Your Name&gt; ~/ &lt;you@error404.net&gt; :: &lt;phone&gt;
 ERROR404.NET</pre>
     <p class="lead" style="margin-top:14px; font-size:12.5px;">Format shown above; build the real one with the generator below — your details stay in your browser and are never published to this site. The locked tagline is not part of the signature — a "!ignore &rarr;" line going out on every outbound email risks a false-positive flag from AI-based mail security scanners at the recipient's end, so it's reserved for the site, marketing, and the PDF guide instead.</p>
@@ -404,11 +504,11 @@ ERROR404.NET</pre>
 
 <section id="gravatar">
   <div class="wrap">
-    <h2><span class="num">07</span>Gravatar / profile images</h2>
+    <h2><span class="num">09</span>Gravatar / profile images</h2>
     <p class="lead">The same Libra symbol as the email signature, ready for your profile. Choose a treatment, check the square and circle crops, then download the PNG.</p>
     <label for="gravatarVariant">Avatar treatment</label>
     <select id="gravatarVariant">
-      <option value="color">Multicolor / brand purple</option>
+      <option value="color">Multicolor / Arcade indigo</option>
       <option value="night">Monochrome / night</option>
       <option value="daylight">Monochrome / daylight</option>
     </select>
@@ -423,7 +523,7 @@ ERROR404.NET</pre>
     </div>
     <p class="sig-hint">Upload the PNG in Gravatar, preserve the padding in the crop, and assign it to your verified email address. Select a G rating for these brand marks. Downloads do not change your account automatically.</p>
     <h3 class="sig-h3">Matching profile background</h3>
-    <img class="gravatar-background" src="gravatar/profile-background-1920x1080.png" width="1920" height="1080" loading="lazy" alt="Purple profile background with the multicolor Libra constellation on the right">
+    <img class="gravatar-background" src="gravatar/profile-background-1920x1080.png" width="1920" height="1080" loading="lazy" alt="Indigo (#231451) profile background with the multicolor Libra constellation on the right">
     <a class="btn" href="gravatar/profile-background-1920x1080.png" download>Download background · 1920 × 1080</a>
     <p class="sig-hint">Optional background artwork. Check the crop in your profile design settings.
       <a href="https://github.com/Error404-net/Branding-Guide/tree/main/gravatar">All assets and setup instructions</a> ·
@@ -433,7 +533,7 @@ ERROR404.NET</pre>
 
 <section id="templates">
   <div class="wrap">
-    <h2><span class="num">08</span>Templates</h2>
+    <h2><span class="num">10</span>Templates</h2>
     <p class="lead">
       Ready-to-use files built from this system — Word, PowerPoint, HTML email, and a dedicated report format.
       Every file uses <code class="inline-code">&lt;Bracketed&gt;</code> placeholders, never real contact details.
@@ -443,9 +543,9 @@ ERROR404.NET</pre>
       <div class="mode-card print">
         <h3>WORD / OFFICE</h3>
         <ul>
-          <li>Corporate B&amp;W report/style-guide template + a Digital/color internal variant</li>
+          <li>Black-only (Machine mode) report/style-guide template + a Digital/color internal variant</li>
           <li>Letterhead, envelope, standalone cover page</li>
-          <li>An Office Theme (.thmx) carrying the palette + IBM Plex Mono</li>
+          <li>An Office Theme (.thmx) carrying the palette</li>
         </ul>
       </div>
       <div class="mode-card digital">
@@ -467,7 +567,7 @@ ERROR404.NET</pre>
         <h3>REPORT FORMAT</h3>
         <ul>
           <li>Word report doc — metadata, key metrics, severity-tagged findings, recommendations, sources/appendix</li>
-          <li>Matching notification email — summary + pointer to the attached full report</li>
+          <li>Matching notification email &mdash; Machine mode, for automated senders: summary + pointer to the attached full report</li>
         </ul>
       </div>
     </div>
@@ -486,7 +586,7 @@ ERROR404.NET</pre>
 
 <section id="technitium">
   <div class="wrap">
-    <h2><span class="num">09</span>Technitium block page</h2>
+    <h2><span class="num">11</span>Technitium block page</h2>
     <p class="lead">
       A splash for Technitium DNS's <strong>Block Page</strong> app, in the Arcade New Wave look. It is dynamic: the DNS server
       points a blocked name at the block server, so the page reads the <em>blocked domain</em> straight from the address bar
@@ -563,6 +663,13 @@ ERROR404.NET</pre>
     <span class="tag">!ignore &rarr; return "404: Message not found"</span>
   </div>
 </footer>
+
+<section id="closing">
+  <div class="wrap">
+    <h2><span class="num">12</span>Questions and changes</h2>
+    <p class="lead">This page is a summary. <code class="inline-code">BRAND.md</code> and <code class="inline-code">DESIGN.md</code> in the <a href="https://github.com/Error404-net/Branding-Guide">repository</a> are the source. If they disagree with this page, they win. Open an issue for anything that looks wrong.</p>
+  </div>
+</section>
 
 <script src="gravatar/picker.js"></script>
 <script src="email-templates/signature.js"></script>

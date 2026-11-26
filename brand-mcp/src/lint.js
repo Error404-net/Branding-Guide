@@ -21,9 +21,9 @@ const TERMS = [
   { bad: /\blogotypes?\b/gi, good: 'wordmark', why: 'One term per concept.' },
   { bad: /\bcombo\b/gi, good: 'lockup', why: 'One term per concept.' },
   { bad: /\bfull logo\b/gi, good: 'lockup', why: 'One term per concept.' },
-  { bad: /(?<!\/)\bprint mode\b/gi, good: 'Print/Corporate mode', why: 'Always the full mode name.' },
-  // Must not match inside the correct term "Print/Corporate mode".
-  { bad: /(?<!Print\/)\bcorporate mode\b/gi, good: 'Print/Corporate mode', why: 'Always the full mode name.' },
+  { bad: /\bprint mode\b/gi, good: 'Machine mode', why: 'The mode was renamed. Always the full mode name.' },
+  { bad: /\bcorporate mode\b/gi, good: 'Machine mode', why: 'The mode was renamed. Always the full mode name.' },
+  { bad: /\bprint\/corporate\b/gi, good: 'Machine mode', why: 'The mode was renamed. Always the full mode name.' },
   { bad: /\bcolor mode\b/gi, good: 'Digital mode', why: 'Always the full mode name.' },
   {
     // "theme" is legitimate for the Office .thmx, the Discord client theme and
