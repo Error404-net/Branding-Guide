@@ -59,7 +59,9 @@ server.registerTool(
         exception: 'PowerPoint is an export but stays Digital — slides are a screen medium.',
       },
       terminology: {
-        mark: 'the Libra graphic',
+        mark: 'the Libra graphic, either form (umbrella term)',
+        logo: 'the mark with the 4Ø4 numerals; 128 px and up',
+        icon: 'the mark without numerals (no zero); small and hard-to-see places, 24 px minimum; never "monogram"',
         wordmark: 'the ERROR404.NET lettering — never the bare "404.NET"',
         lockup: 'mark and wordmark together',
         variant: 'a version of the mark — never "colorway", "cut" or "pull"',

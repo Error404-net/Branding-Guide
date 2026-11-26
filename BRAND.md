@@ -197,9 +197,11 @@ internal notes. Those stay in voice even where that bends a rule above.
 
 | Concept | Use | Never |
 |---|---|---|
-| The Libra graphic | **mark** | logo, icon, badge, glyph |
+| The Libra graphic, either form | **mark** | badge, glyph |
+| The mark with `4Ø4`, 128 px and up | **Logo** | full logo, primary logo |
+| The mark without `4Ø4`, for small and hard-to-see places | **Icon** | monogram, glyph-only |
 | `ERROR404.NET` lettering | **wordmark** | logotype, text logo |
-| Mark and wordmark together | **lockup** | combo, full logo |
+| Mark and wordmark together | **lockup** | combo |
 | A version of the mark | **variant** | colorway, cut, pull, flavor |
 | The two treatment systems | **Digital mode**, **Machine mode** | print mode, color mode, corporate mode, Print/Corporate |
 | The color system | **Arcade New Wave** | the palette, the theme, the scheme |
@@ -209,7 +211,7 @@ internal notes. Those stay in voice even where that bends a rule above.
 | We say | Never say |
 |---|---|
 | "The palette is locked." | "The palette is finalized for now." |
-| "Use the mark on a scrim." | "Try to keep the logo visible." |
+| "Use the mark on a scrim." | "Try to keep it visible, if possible." |
 | "Machine mode is black only." | "Machine mode is more subtle." |
 | "This is not decided yet." | "TBD" / "coming soon" |
 
@@ -371,9 +373,14 @@ Used for clean mark placement where the constellation geometry alone carries the
 
 **Alternative default:** `4Ø4` in neon green (`#39FF14`) for single-color, canonical-choice contexts (site header, business card) on dark surfaces only.
 
-**Icon-only mark — "Monogram" (LOCKED).** Where no text fits (favicons,
+**Logo and Icon (LOCKED).** There are two marks. The **Logo** has the `4Ø4` numerals and
+starts at 128 px. The **Icon** has no numerals and no zero; it is for small and hard-to-see
+places (favicons, app-icon slots, avatars under 128 px, tabs). Below 128 px, switch from Logo
+to Icon. The minimum Icon size is 24 px (16 px for favicons only).
+
+**Icon (LOCKED; formerly "Monogram").** Where no text fits (favicons,
 app-icon slots, OBS overlays, anywhere the numerals would be too small to
-read), use the **Monogram**: constellation nodes and lines only, no `4Ø4`, no
+read), use the **Icon**: constellation nodes and lines only, no `4Ø4`, no
 halo, transparent background. Exactly two variants, named by the surface they
 sit on rather than by color:
 
@@ -432,4 +439,4 @@ Not yet decided. Do not resolve these by inference.
 | `DESIGN.md` | Implementation tokens for AI coding agents | Yes |
 | `BRANDING.md` | Full human-facing guidelines, 14 sections | Private |
 | `branding.yaml` | Exhaustive internal spec, contains PII | **No — never publish** |
-| `Error404-Brand-Guidelines.pdf` | 9-page designed guide | Yes |
+| `Error404-Brand-Guidelines.pdf` | 13-page guide, printed from the page (interactive sections omitted) | Yes |

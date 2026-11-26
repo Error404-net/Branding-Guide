@@ -12,7 +12,7 @@ drift from the committed specs — edit the spec, and the answers change.
 
     cd brand-mcp
     npm install
-    npm test        # 31 assertions, exercises every tool
+    npm test        # 32 assertions, exercises every tool
 
 ## Connect it
 

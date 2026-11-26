@@ -314,15 +314,15 @@ All no-ring variants ship without the halo ellipse.
 | Dark background, solid | No-ring white | `libra-no-ring-white.svg` |
 | Ring (OBS, avatars, app icons) | Constellation scaled to 76.7% inside the ring | `libra-ring-{multicolor,black,white,green,pink}.svg` |
 | Dark background, secondary | No-ring any color | `libra-no-ring-[color].svg` |
-| Icon-only, dark surface | Monogram — Night (white) | `monogram-night.svg` |
-| Icon-only, light surface | Monogram — Daylight (black) | `monogram-daylight.svg` |
+| Icon-only, dark surface | Icon — Night (white) | `monogram-night.svg` |
+| Icon-only, light surface | Icon — Daylight (black) | `monogram-daylight.svg` |
 | Printer watermark / Word Picture Watermark | Watermark — single mark, 10% opacity, black | `logos/watermark.svg`, `assets/watermark-1800.png` |
 | Icon + wordmark lockup, general use | Icon-only mark + "ERROR404.NET", black, no tagline | `assets/netmesh-lockup.png` |
 | Microsoft Entra / M365 banner logo | Same lockup, 280×60, light/dark/color | `entra-m365/banner-logo-{light,dark,color}-280x60.png` |
 | Email signature (Outlook / M365) | Icon-only mark, canonical multicolor nodes + mint lines, transparent, 2× PNG | `email-templates/hosted-images/signature-mark{.svg,-88.png,-48.png}` (44px Standard / 24px Minimal) |
 
-**Minimum size:** 24px for icon/Monogram variants; 128px and up for full
-textured mark. The Monogram is already reduced to nodes-and-lines only (no
+**Minimum size:** 24px for Icon variants (the Logo needs 128px); 128px and up for full
+textured mark. The Icon is already reduced to nodes-and-lines only (no
 rings, no numerals), so it is the correct choice at icon sizes rather than a
 further-reduced glyph-only cut.
 
@@ -355,5 +355,5 @@ Before emitting an Error404 surface, verify:
 10. No real contact details. Placeholder tokens only.
 11. Logo/mark: use canonical default (no-ring multicolor) for mark placement
     with the `4Ø4` numerals; `4Ø4` neon green for single-color digital
-    contexts on dark backgrounds only; the Monogram (night/daylight) for any
+    contexts on dark backgrounds only; the Icon (night/daylight) for any
     icon-only slot — never a further-cropped or hand-reduced mark.

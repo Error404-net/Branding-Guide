@@ -261,23 +261,46 @@
   <div class="wrap">
     <h2><span class="num">04</span>The mark</h2>
     <p class="lead">
-      Primary mark <span class="badge locked">Final &mdash; approved</span> A node-link graph plotted from the real
+      Two marks, one constellation. <span class="badge locked">Final &mdash; approved</span> A node-link graph plotted from the real
       <strong>Libra constellation</strong>: real star positions and magnitudes (Zubenelgenubi, Zubeneschamali,
       Zubenelakrab, Brachium, and its tail pair). Nothing is an approximation of something it could have been.
       <strong>4&Oslash;4</strong> sits in the open space of the scales. The &Oslash; is a slashed zero, the zero
       terminals and logbooks use. The mark is built for transparency over varying backgrounds.
     </p>
+
+    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">LOGO AND ICON — TWO MARKS, TWO JOBS</h3>
+    <p class="lead" style="margin-bottom:20px;">
+      The <strong>Logo</strong> carries the numerals: constellation plus <strong>4&Oslash;4</strong>. It identifies the brand and
+      reads at <strong>128&nbsp;px and up</strong>. The <strong>Icon</strong> drops the numerals: constellation nodes and lines only,
+      no zero, no text. It is built for <strong>small sizes and hard-to-see places</strong>: favicons, app-icon slots, avatars
+      under 128&nbsp;px, tabs, OBS corners. Below 128&nbsp;px the numerals blur and the slash on the &Oslash; disappears, so switch to the Icon.
+      Both come from the same locked geometry. Everywhere else, <strong>Mark</strong> is the umbrella word for either.
+    </p>
+    <div class="logo-grid" style="margin-bottom:18px;">
+      <div class="logo-card dark-solid"><img src="logos/libra-no-ring-multicolor.svg" alt="Logo, multicolor, with 4Ø4"><div class="cap"><strong>LOGO</strong> — with 4&Oslash;4. 128&nbsp;px and up. Identification.</div></div>
+      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Icon, night, no numerals"><div class="cap"><strong>ICON</strong> — no zero. Small, dense, hard-to-see places.</div></div>
+    </div>
+    <div class="logo-card" style="display:flex; gap:28px; align-items:flex-end; flex-wrap:wrap; justify-content:center; margin-bottom:34px; background:#0B0810;">
+      <div style="text-align:center"><img src="logos/libra-no-ring-multicolor.svg" width="128" alt="Logo at 128 px"><div class="cap">Logo 128</div></div>
+      <div style="text-align:center"><img src="logos/libra-no-ring-multicolor.svg" width="48" alt="Logo at 48 px"><div class="cap">Logo 48<br>numerals blur</div></div>
+      <div style="text-align:center"><img src="logos/libra-no-ring-multicolor.svg" width="24" alt="Logo at 24 px"><div class="cap">Logo 24<br>unreadable</div></div>
+      <div style="text-align:center"><img src="logos/monogram-night.svg" width="128" alt="Icon at 128 px"><div class="cap">Icon 128</div></div>
+      <div style="text-align:center"><img src="logos/monogram-night.svg" width="48" alt="Icon at 48 px"><div class="cap">Icon 48</div></div>
+      <div style="text-align:center"><img src="logos/monogram-night.svg" width="24" alt="Icon at 24 px"><div class="cap">Icon 24<br>minimum</div></div>
+      <div style="text-align:center"><img src="logos/monogram-night.svg" width="16" alt="Icon at 16 px"><div class="cap">Icon 16<br>favicon</div></div>
+    </div>
     <details class="notes"><summary>Build notes</summary>
       <p>Every connecting line is one color: mint <code class="inline-code">#37F0A6</code> on the multicolor mark, the mark's own
       color on black and white cuts. Node circles stay multicolor. The line that would cross the &Oslash; splits into two
-      collinear segments at the angle of the glyph's own slash. That angle was measured on the rendered glyph (Canny edge
-      detection and a Hough line fit, converged on 45&deg;) and checked for zero pixel overlap with the text.</p>
+      collinear segments that lie exactly on the node-to-node edge. The gap is sized from the rendered glyph and checked
+      for zero pixel overlap with the text (<code class="inline-code">scripts/verify-marks.py</code>). The edge runs at 45.8&deg;; the &Oslash; slash is steeper
+      (74.5&deg; in Share Tech Mono), so the gap is centered on the crossing but its sides do not parallel the slash.</p>
     </details>
     <div class="dd" style="margin-bottom:28px;">
       <div class="do"><h4>DO</h4><ul>
-        <li>Use multicolor by default, black on light, white on dark.</li>
+        <li>Use the Logo at 128&nbsp;px and up: multicolor by default, black on light, white on dark.</li>
         <li>Keep "4&Oslash;4" with the slash.</li>
-        <li>Use the Monogram where text would not fit or read.</li>
+        <li>Use the Icon below 128&nbsp;px, or where the numerals would not read.</li>
       </ul></div>
       <div class="dont"><h4>DON'T</h4><ul>
         <li>Put an oval or box behind the numerals. Retired.</li>
@@ -297,9 +320,9 @@
     </p>
 
     <hr class="rule">
-    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">MONOGRAM — ICON-ONLY, NIGHT / DAYLIGHT MODE</h3>
+    <h3 style="font-size:13px; letter-spacing:1px; opacity:0.85;">ICON — NO ZERO, NIGHT / DAYLIGHT MODE</h3>
     <p class="lead" style="margin-bottom:24px;">
-      The icon-only cut, no "4&Oslash;4": constellation nodes and lines only, no text, no ring, no accent colors,
+      The Icon, no "4&Oslash;4": constellation nodes and lines only, no text, no ring, no accent colors,
       transparent background. Two approved variants — <strong>Night</strong> (white mark, for dark surfaces:
       site favicon, dark-theme app icons) and <strong>Daylight</strong> (black mark, for light
       surfaces: light-theme app icons, print, and the base of the icon+wordmark lockups below). These replace
@@ -307,8 +330,8 @@
       a decorative outer ring) instead — a deliberate distinct treatment, not shown here.
     </p>
     <div class="logo-grid" style="margin-bottom:40px;">
-      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Monogram, night mode, white, transparent"><div class="cap">Night mode — white, transparent</div></div>
-      <div class="logo-card light"><img src="logos/monogram-daylight.svg" alt="Monogram, daylight mode, black, transparent"><div class="cap">Daylight mode — black, transparent</div></div>
+      <div class="logo-card dark-solid"><img src="logos/monogram-night.svg" alt="Icon, night mode, white, transparent"><div class="cap">Night mode — white, transparent</div></div>
+      <div class="logo-card light"><img src="logos/monogram-daylight.svg" alt="Icon, daylight mode, black, transparent"><div class="cap">Daylight mode — black, transparent</div></div>
     </div>
 
     <hr class="rule">

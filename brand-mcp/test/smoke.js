@@ -112,6 +112,7 @@ check('review_copy passes clean copy', j?.ok === true, `errors=${j?.counts?.erro
 // third party's own field name, must not fire.
 const falsePositives = [
   ['Machine mode is black only.', 'correct mode name not flagged'],
+  ['Use the Logo at 128 px and up and the Icon below that.', 'Logo and Icon are approved terms'],
   ['Upload the banner logo at 280x60 and the square logo at 240x240.', 'Entra field names "banner logo"/"square logo" not flagged'],
   ['Apply the Office theme file, then load the Discord client theme.', '"theme" as a real file not flagged as the palette'],
 ];

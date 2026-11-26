@@ -55,10 +55,10 @@ badly against varying backdrops. Removed for good.
 
 ### Naming taxonomy (final)
 
-- **Primary mark** — has "4Ø4" text. Three variants: `libra-no-ring-multicolor.svg` (canonical
+- **Logo** (a.k.a. primary mark) — has "4Ø4" text; 128 px and up. Three variants: `libra-no-ring-multicolor.svg` (canonical
   default), `libra-no-ring-black.svg` (for light backgrounds), `libra-no-ring-white.svg` (for
   dark backgrounds).
-- **Monogram** — icon-only, no text. Exactly two variants, both transparent:
+- **Icon** (formerly "Monogram"; files still `monogram-*.svg`) — no 4Ø4, no zero; for small and hard-to-see places (24 px min, 16 px favicon). Icon-only, no text. Exactly two variants, both transparent:
   `monogram-night.svg` (white mark, for dark surfaces) and `monogram-daylight.svg` (black
   mark, for light surfaces). **These replace every old icon-only/glyph-only cut** — do not
   reintroduce a third icon-only variant without updating this doc.
@@ -354,7 +354,7 @@ Audit by rendering every SVG and PNG, not just reading source. Changes on branch
   (LinkedIn). Voice stays impersonal/imperative (BRAND.md STE rules; the linter warns on
   "you/your" in published copy), so that guide's second-person rule was not adopted.
 - **"Print/Corporate" renamed "Machine mode"** everywhere (BRAND.md, DESIGN.md, brandkit.md,
-  README, styleguide, brand-mcp incl. `pick_mode` and lint rules, tests 31/31). Purpose
+  README, styleguide, brand-mcp incl. `pick_mode` and lint rules, tests 32/32). Purpose
   rewritten: automated, non-human senders (alerts, notifications, scheduled reports) where rich
   HTML often fails, so plain text still reads as Error404. **Black only: no color, no accent
   rule.** Paper (Word, PDF, letterhead) keeps the same rule. The human-sent Outlook signature
@@ -397,11 +397,32 @@ Branch `third-party-guidance-cleanup` (history squashed into four clean commits)
   copy), the six Office-template embedded rings (new 76.7% ring, validated with python-docx/pptx),
   LinkedIn company logo, YouTube watermark, circle stickers (multicolor, mono, neon).
 
-**Still stale (needs its own layout pass or decision):** `social/stickers/sticker-circle-ham-900.png`
-and `sticker-diecut-shape-multicolor-1024.png`, `sticker-sheet-proof.png`, the Discord
-splash/banner, LinkedIn cover/company banner/post images, YouTube banner/thumbnail (generated
-backgrounds with an old mark, plain "404" or "404.NET"), `assets/print-mode.png`, and
-`Error404-Brand-Guidelines.pdf` (old mark and font). `.docx` font embedding not done.
+## What's done — round 10 (stale items, PDF, docx font embedding, Logo vs Icon, 2026-11-26)
+
+- **Logo vs Icon** defined (BRAND.md terminology + "Logo and Icon", DESIGN.md, brand-mcp
+  `brand_context`/lint, page "Logo and Icon" block with a size ladder). Logo = with 4Ø4, 128 px+;
+  Icon = no zero, small/hard-to-see places. "monogram" is now a lint warning.
+- **Ham removed:** `sticker-circle-ham-900.png`, `avatar-ham-multicolor-navy-800.png`, README lines.
+- **Composites rebuilt from scratch** (new Memphis-style generated backgrounds, new marks, uniform
+  "ERROR404.NET" wordmark, Share Tech Mono): Discord splash/banner, YouTube banner/thumbnail,
+  LinkedIn cover/company banner/post landscape/post square, die-cut sticker (white offset around a navy
+  pentagon, no oval), sticker proof sheet (4 stickers), `assets/print-mode.png` (now a real render of
+  the Letterhead template). The arrow `→` is missing from Share Tech Mono, so the tagline arrow
+  falls back to DejaVu Sans Mono in these PNGs and in browsers — **the custom house font must
+  include arrows.**
+- **PDF regenerated** (`Error404-Brand-Guidelines.pdf`, 13 pages, printed from the page with
+  Chrome; gravatar/Technitium/signature-generator controls hidden). BRAND.md updated.
+- **Fonts embedded in all 6 `.docx`** with `scripts/embed-font-docx.py` (OOXML obfuscated
+  `.odttf`, `embedTrueTypeFonts`). Verified: LibreOffice renders `ShareTechMono-Regular` from the
+  file with the font not installed. Word desktop (Windows/macOS) honors it; Word for the web does not.
+  Only Digital-Color actually uses Share Tech Mono; the other five stay Courier New (paper rule).
+  "Print/Corporate" wording inside the Letterhead and Corporate-BW docx fixed to Machine mode.
+  **PPTX font embedding not done** (PowerPoint's `.fntdata` format is not documented well enough
+  to script safely; install the font or use File > Options > Save > Embed fonts in PowerPoint itself).
+
+**Still open:** MOTD, `logos/png` accent folders
+(`libra-*-{black,white,blue,green,pink}`, `libra-neon-*`) with no SVG source, and Brand Center font
+package upload (manual).
 
 ## Known issues tracker (updated 2026-11-26)
 
@@ -420,18 +441,17 @@ backgrounds with an old mark, plain "404" or "404.NET"), `assets/print-mode.png`
 
 **Open**
 1. **Fonts: Share Tech Mono + terminal accents DECIDED 2026-11-26**, custom house font in progress (see round 9).
-2. **Composites still show the old mark:** see "Still stale" in round 9.
+2. ~~Composites still show the old mark~~ — rebuilt round 10.
 3. **OBS "mirrors" are not byte-identical to `assets/`** (found 2026-11-26, same filenames
    differed before the re-render). The three ring files were re-copied. Others not compared.
-4. **Social `ham` assets** (`avatar-ham-multicolor-navy-800.png`, `sticker-circle-ham-900.png`)
-   outlive their deleted SVG source. Rename or keep as-is; decide.
-5. **Brand PDF is 9 pages**, docs say 14. Regenerate or correct the docs.
+4. ~~Social ham assets~~ — deleted round 10.
+5. ~~Brand PDF page count~~ — fixed round 10 (13 pages).
 6. **Automated emails:** only the Report-Notification template says it is Machine mode. Check
    the transactional template against the new purpose (black only, plain-text first).
 7. **BRAND.md "no growth target"** reads oddly next to the LinkedIn personal-brand goal. Reword.
 8. **Pixel scan caveat:** the round-3 fringe scan also matches legitimate mint/yellow edge
    pixels on the multicolor mark. Compare counts to the previous render instead of expecting zero.
-9. Carried over: sticker composites, LinkedIn/YouTube/Discord banners, `assets/print-mode.png`, MOTD.
+9. Carried over: MOTD only.
 
 ## What's NOT done — pending decisions / remaining scope
 

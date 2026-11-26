@@ -25,7 +25,7 @@ linkedin/
     wording is specific to this set (a nod to the LinkedIn/network context);
     it does not replace the site/PDF tagline
     ('!ignore → return "404: Message not found"', per BRAND.md).
-    All five use the no-ring cut of the mark — the ring variant reads too
+    All use the no-ring cut of the mark — the ring variant reads too
     busy at banner/post scale, so this set intentionally departs from the
     ring used on the personal banner's older revision.
 
@@ -42,14 +42,13 @@ youtube/
 
 stickers/
     sticker-circle-multicolor-900.png   Flagship colorway, navy bg, white ring stroke
-    sticker-circle-ham-900.png          4Ø4 ham cut, no ring
     sticker-circle-mono-900.png         Black mark on white/light bg (1-color print runs)
     sticker-circle-neon-multi-900.png   Neon glow render, black bg
     sticker-diecut-shape-multicolor-1024.png
         True die-cut: no background disc, the ring/nodes/tail define the
         sticker's outer edge.
     sticker-sheet-proof.png
-        Reference proof sheet showing all five with their die-cut paths
+        Reference proof sheet showing all four with their die-cut paths
         (dashed magenta) — not a print file itself.
     All circle stickers are sized for 3in diameter at 300dpi (900px).
 
@@ -57,7 +56,6 @@ avatars/
     avatar-primary-multicolor-navy-800.png   Default — GitHub, Discord, Slack, forums
     avatar-mono-white-navy-800.png           Quieter single-color, dark surfaces
     avatar-mono-black-white-800.png          Light surfaces / print
-    avatar-ham-multicolor-navy-800.png       Casual/community contexts
     avatar-{multicolor,white,black}-transparent-800.png
         Same marks with no background composite, for platforms that
         render their own avatar frame/crop.

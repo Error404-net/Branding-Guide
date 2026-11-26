@@ -11,16 +11,10 @@
 const TERMS = [
   { bad: /\bcolorways?\b/gi, good: 'variant', why: 'One term per concept: a version of the mark is a "variant".' },
   { bad: /\bpulls?\b(?=\s+(?:from|of)\s+the\s+(?:set|logoset))/gi, good: 'variant', why: 'One term per concept.' },
-  {
-    // "banner logo" and "square logo" are Entra/M365 field names, not our term.
-    bad: /(?<!\b(?:banner|square|channel|server|app|nav-bar|header)\s)\blogos?\b/gi,
-    good: 'mark (the graphic) or wordmark (the lettering)',
-    why: '"logo" is ambiguous between the mark and the wordmark. Platform field names such as "banner logo" are exempt.',
-    severity: 'warn',
-  },
+  { bad: /\bmonograms?\b/gi, good: 'Icon', why: 'The icon-only mark is the "Icon". The word "monogram" is retired (file names monogram-*.svg are unchanged).', severity: 'warn' },
   { bad: /\blogotypes?\b/gi, good: 'wordmark', why: 'One term per concept.' },
   { bad: /\bcombo\b/gi, good: 'lockup', why: 'One term per concept.' },
-  { bad: /\bfull logo\b/gi, good: 'lockup', why: 'One term per concept.' },
+  { bad: /\b(?:full|primary) logo\b/gi, good: 'Logo (the mark with 4Ø4) or lockup (mark plus wordmark)', why: 'One term per concept.' },
   { bad: /\bprint mode\b/gi, good: 'Machine mode', why: 'The mode was renamed. Always the full mode name.' },
   { bad: /\bcorporate mode\b/gi, good: 'Machine mode', why: 'The mode was renamed. Always the full mode name.' },
   { bad: /\bprint\/corporate\b/gi, good: 'Machine mode', why: 'The mode was renamed. Always the full mode name.' },

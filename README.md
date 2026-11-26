@@ -56,7 +56,7 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
   > primary mark     : Libra constellation node-graph mark — real RA/Dec
                         star positions, real magnitudes for node size, "404"
                         centered in the scales' quadrilateral. Full set: ring
-                        / no-ring colorways, neon cuts, and the Monogram
+                        / no-ring colorways, neon cuts, and the Icon
                         night/daylight icon pair.
   > wordmark lockup  : icon + "ERROR404.NET" wordmark, used wherever the full
                         domain name should read out loud
