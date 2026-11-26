@@ -313,10 +313,11 @@ never a gradient or a glow.
   place a mark on a flattened plate of its own — if a surface needs a plate,
   that is a decision the layout makes, not something baked into the asset.
 - **Ring variants pair by surface.** The `white` and `multi-color` cuts draw the
-  ring in `#F4F1FF` and belong on dark surfaces. The `black` and `blue` cuts draw
+  ring in `#F4F1FF` and belong on dark surfaces. The `black`, `green` and `pink` cuts draw
   it in near-black and belong on light ones. Putting a dark-ring cut on a dark
   background makes the ring disappear, which is easy to miss because the nodes
-  and numerals still read.
+  and numerals still read. Every ring cut scales the constellation to 76.7% so all nodes sit inside the
+  ring. The node coordinates themselves do not change.
 - **No-ring variants** ship without the halo ellipse as of this revision. Use
   them for clean mark placement where the constellation lines and nodes alone
   carry the identity.
@@ -374,8 +375,7 @@ sit on rather than by color:
 | Daylight | Black (`#111111`) | Light surfaces — light-theme app icons, print | `monogram-daylight.svg` |
 
 These two replace every prior icon-only or glyph-only cut (the old
-`libra-site-icon-*` and `glyph-only/` files still exist for now but are
-superseded — see `logos/README.txt` / `CLAUDE.md` for status). Do not
+`libra-site-icon-*` and `glyph-only/` files are deleted; see `CLAUDE.md`). Do not
 introduce a third icon-only variant without updating this file.
 
 ## Open decisions

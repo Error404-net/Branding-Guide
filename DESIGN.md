@@ -300,7 +300,7 @@ because slides are a screen medium.
 
 Used for clean mark placement where the constellation geometry alone carries the identity. Works on both dark and light backgrounds. File: `libra-no-ring-multicolor.svg`.
 
-**Alternative for single-color contexts:** `4Ø4` in neon green (`#39FF14`), file `libra-ham-multicolor.svg` (dark backgrounds only).
+**Alternative for single-color contexts:** `4Ø4` in neon green (`#39FF14`), file `libra-no-ring-green.svg` (dark backgrounds only).
 
 ### 6.2 Mark variants
 
@@ -309,9 +309,10 @@ All no-ring variants ship without the halo ellipse.
 | Context | Variant | File |
 |---|---|---|
 | Canonical default | No-ring multicolor | `libra-no-ring-multicolor.svg` |
-| Dark background, neon | `4Ø4` neon green | `libra-ham-multicolor.svg` |
-| Light background | `4Ø4` white | `libra-ham-white.svg` |
-| Light background alternative | No-ring black | `libra-no-ring-black.svg` |
+| Dark background, neon | `4Ø4` neon green | `libra-no-ring-green.svg` |
+| Light background | No-ring black | `libra-no-ring-black.svg` |
+| Dark background, solid | No-ring white | `libra-no-ring-white.svg` |
+| Ring (OBS, avatars, app icons) | Constellation scaled to 76.7% inside the ring | `libra-ring-{multicolor,black,white,green,pink}.svg` |
 | Dark background, secondary | No-ring any color | `libra-no-ring-[color].svg` |
 | Icon-only, dark surface | Monogram — Night (white) | `monogram-night.svg` |
 | Icon-only, light surface | Monogram — Daylight (black) | `monogram-daylight.svg` |
@@ -325,7 +326,7 @@ textured mark. The Monogram is already reduced to nodes-and-lines only (no
 rings, no numerals), so it is the correct choice at icon sizes rather than a
 further-reduced glyph-only cut.
 
-**Construction note.** Every no-ring/ring/ham variant's connecting lines are
+**Construction note.** Every no-ring and ring variant's connecting lines are
 one uniform color (the cut's own color; multicolor keeps Mint `#37F0A6` for
 all lines, multicolor nodes). The line through the `4Ø4` numerals is two
 collinear segments split at the exact angle of the `Ø` glyph's own diagonal

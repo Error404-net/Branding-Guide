@@ -56,8 +56,8 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
   > primary mark     : Libra constellation node-graph mark — real RA/Dec
                         star positions, real magnitudes for node size, "404"
                         centered in the scales' quadrilateral. Full set: ring
-                        / no-ring x black/white/blue/multicolor, a "4Ø4" ham
-                        variant, and flat light-mode/dark-mode website icons.
+                        / no-ring colorways, neon cuts, and the Monogram
+                        night/daylight icon pair.
   > wordmark lockup  : icon + "ERROR404.NET" wordmark, used wherever the full
                         domain name should read out loud
   > treatment modes  : Digital (full color/glow) vs. Machine (black only,
@@ -75,7 +75,7 @@ A branded, self-contained splash for Technitium DNS's **Block Page** app. It rea
       index.html          the whole guide, single static page, no build step
       assets/             logo renders + mockups referenced by index.html
       logos/              master logo set - SVG masters + full PNG export sizes
-                           (ring/no-ring x black/white/multicolor, ham variant,
+                           (ring/no-ring colorways,
                            neon glow set, monogram-{night,daylight} icon pair,
                            watermark variant)
       entra-m365/         Microsoft Entra ID sign-in + M365 admin center branding
